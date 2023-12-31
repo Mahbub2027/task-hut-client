@@ -5,7 +5,7 @@ import { FcGoogle } from "react-icons/fc";
 // import Swal from "sweetalert2";
 
 const SignUp = () => {
-    const {createUser, googleLogin, updateUserProfile} = useAuth();
+    const {createUser, googleLogin, updateUserProfile, emailVerification} = useAuth();
 
     const {register, handleSubmit, formState: { errors }} = useForm()
     const navigate = useNavigate();
@@ -26,7 +26,22 @@ const SignUp = () => {
                 console.log(error);
             })
 
-            navigate('/');
+            // email verification
+            emailVerification()
+            .then(res=>{
+                alert("Please check your email for verification")
+                if(res.data.emailVerified){
+                    navigate('/')
+                }
+                else{
+                    alert("Please verify your email")
+                }
+                navigate('/')
+            })
+            .catch(error => console.log(error))
+
+
+            // navigate('/');
 
         })
         .catch(error => {
