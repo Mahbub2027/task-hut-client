@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import { FcGoogle } from "react-icons/fc";
+import { Helmet } from "react-helmet";
 // import Swal from "sweetalert2";
 
 const SignUp = () => {
@@ -61,6 +62,9 @@ const SignUp = () => {
     }
     return (
         <div >
+            <Helmet>
+                <title>SignUp || TaskHut</title>
+            </Helmet>
             <div className="hero min-h-screen ">
                 <div className="hero-content flex-col lg:flex-row gap-24">
                     <div className="text-center lg:text-left w-1/2 max-w-sm">
