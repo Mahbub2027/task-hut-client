@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet";
+import ContactComponents from "../../ComponentsUI/ContactComponents";
 
 function Contact() {
   return (
@@ -6,8 +7,7 @@ function Contact() {
       <Helmet>
         <title>Contact || TaskHut</title>
       </Helmet>
-      <button>Customer Support for Worker</button>
-      <button>Customer Support for CLient</button>
+      <ContactComponents></ContactComponents>
     </div>
   );
 }
