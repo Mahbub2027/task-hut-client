@@ -1,6 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
-
+import logo from '../../../public/TaskhutClear.png';
 const Navbar = () => {
     const {user, logoutUser} = useAuth();
 
@@ -18,7 +18,7 @@ const Navbar = () => {
     }
     return (
         <div>
-            <div className="navbar bg-base-100">
+            <div className="navbar bg-white font-bold text-black">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -28,7 +28,7 @@ const Navbar = () => {
                             {navLinks}
                         </ul>
                     </div>
-                    <a className=" font-bold text-2xl">TaskHut</a>
+                    <Link to="/"><img src={logo} className="h-16" alt="TaskHut Logo" /></Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -41,10 +41,10 @@ const Navbar = () => {
                         <>  
                             <span>{user?.displayName}</span>
                             <span><img className="w-10 h-10 rounded-full mx-2" src={user?.photoURL} alt="" /></span>
-                            <button onClick={handleLogOut} className="bg-blue-800 text-white px-5 py-2 rounded-md font-bold text-base">Logout</button>
+                            <button onClick={handleLogOut} className="bg-purple-800 text-white px-5 py-2 rounded-md font-bold text-base">Logout</button>
                         </> : 
                         <>
-                            <Link to='/login' className="bg-blue-800 text-white px-5 py-2 rounded-md font-bold text-base"><button>Log in</button></Link>
+                            <Link to='/login' className="bg-purple-800 text-white px-5 py-2 rounded-md font-bold text-base"><button>Log in</button></Link>
                         </>
                     }
                     
