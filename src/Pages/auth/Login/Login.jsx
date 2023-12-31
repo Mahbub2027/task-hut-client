@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import { FcGoogle } from "react-icons/fc";
+import { Helmet } from "react-helmet";
 
 const Login = () => {
     const {logInUser, googleLogin} = useAuth();
@@ -37,6 +38,9 @@ const Login = () => {
 
     return (
         <div >
+            <Helmet>
+                <title>Login || TaskHut</title>
+            </Helmet>
             <div className="hero min-h-screen ">
                 <div className="hero-content flex-col lg:flex-row gap-24">
                     <div className="text-center lg:text-left w-1/2 mx-auto">
