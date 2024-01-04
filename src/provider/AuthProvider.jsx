@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, sendEmailVerification, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, sendEmailVerification, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { app } from "../firebase/firebase.config";
 import { GoogleAuthProvider } from "firebase/auth";
 
@@ -49,6 +49,12 @@ const AuthProvider = ({ children }) => {
         return sendEmailVerification(auth.currentUser);
     }
 
+    // reset password
+    const resetPassword = (email) =>{
+        setLoading(true);
+        return sendPasswordResetEmail(auth, email);
+    }
+
     // auth state Change
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -71,6 +77,7 @@ const AuthProvider = ({ children }) => {
         updateUserProfile,
         logoutUser,
         emailVerification,
+        resetPassword,
 
 
     }

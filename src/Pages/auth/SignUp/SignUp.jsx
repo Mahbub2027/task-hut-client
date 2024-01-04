@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import { FcGoogle } from "react-icons/fc";
 import { Helmet } from "react-helmet";
+// import useTanStact from "../../../hooks/usetanStact";
 // import Swal from "sweetalert2";
 
 const SignUp = () => {
@@ -10,6 +11,8 @@ const SignUp = () => {
 
     const {register, handleSubmit, formState: { errors }} = useForm()
     const navigate = useNavigate();
+    // const [refetch] = useTanStact();
+
 
     const onSubmit = (data) => {
         console.log(data)
@@ -31,13 +34,15 @@ const SignUp = () => {
             emailVerification()
             .then(res=>{
                 alert("Please check your email for verification")
-                if(res.data.emailVerified){
+                if(res.user?.emailVerified){
+                    // history.push('/')
+                    // refetch('/');
                     navigate('/')
                 }
                 else{
                     alert("Please verify your email")
                 }
-                navigate('/')
+                // navigate('/')
             })
             .catch(error => console.log(error))
 
@@ -49,6 +54,9 @@ const SignUp = () => {
             console.log(error)
         })
     }
+    // if(res.user.emailVerified){
+    //     //
+    // }
 
     const handleGoogleLogin =() =>{
         googleLogin()
