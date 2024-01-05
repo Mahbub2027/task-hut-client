@@ -8,6 +8,7 @@ import Login from "../Pages/auth/Login/Login";
 import SignUp from "../Pages/auth/SignUp/SignUp";
 import AboutUs from "../Pages/AboutUs/AboutUs";
 import Contact from "../Pages/Contact/Contact";
+import PrivateRoutes from "./PrivateRoutes";
 
   export const router = createBrowserRouter([
     {
@@ -32,7 +33,7 @@ import Contact from "../Pages/Contact/Contact";
         },
         {
             path: '/contact',
-            element: <Contact></Contact>
+            element: <PrivateRoutes><Contact></Contact></PrivateRoutes>
         },
         {
             path: '/dashboard',

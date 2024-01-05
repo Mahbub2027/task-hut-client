@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDM1IGifcVrf-mJmhSXm-QsdhdVBqTjvc8",
-  authDomain: "task-hut-client.firebaseapp.com",
-  projectId: "task-hut-client",
-  storageBucket: "task-hut-client.appspot.com",
-  messagingSenderId: "96955075288",
-  appId: "1:96955075288:web:f1c2ca6e56bf45ba1a65ad"
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId,
 };
 
 // Initialize Firebase

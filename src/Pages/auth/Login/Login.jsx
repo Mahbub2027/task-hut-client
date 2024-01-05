@@ -2,12 +2,15 @@ import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import { FcGoogle } from "react-icons/fc";
 import { Helmet } from "react-helmet";
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
     const {logInUser, googleLogin, resetPassword} = useAuth();
+    const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
-    const emailRef = useRef(null)
+    const emailRef = useRef(null);
+
 
     const handleUserLogin = e =>{
         e.preventDefault();
@@ -78,6 +81,7 @@ const Login = () => {
                         <img src="https://i.ibb.co/jWnpV9R/login-svg.jpg" alt="" />
                     </div>
                     <div className="card shrink-0 w-1/2 mx-auto shadow-2xl bg-base-100">
+                    <h2 className="text-3xl font-bold text-center mt-2">Welcome Back</h2>
                         <form onSubmit={handleUserLogin} className="card-body">
                             <div className="form-control">
                                 <label className="label">
@@ -85,11 +89,14 @@ const Login = () => {
                                 </label>
                                 <input type="email" ref={emailRef} name="email" placeholder="email" className="input input-bordered" required />
                             </div>
-                            <div className="form-control">
+                            <div className="form-control relative">
                                 <label className="label">
                                     <span className="label-text font-bold text-base">Password</span>
                                 </label>
-                                <input type="password" name="password" placeholder="password" className="input input-bordered" required />
+                                <input type={showPassword ? 'text' : 'password'} name="password" placeholder="password" className="input input-bordered" required />
+                                <span className="absolute bottom-12 right-3" onClick={()=> setShowPassword(!showPassword)}>
+                                        {showPassword ?  <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>}
+                                </span>
                                 <label className="label ">
                                     <a href="#" onClick={handleForgotPass}  className="label-text-alt link link-hover text-blue-600">Forgot password?</a>
                                 </label>
@@ -98,7 +105,7 @@ const Login = () => {
                                 <button className="btn btn-primary text-base font-bold text-white">Login</button>
                             </div>
                             <div className="divider">Or</div>
-                            <div className="form-control mt-2">
+                            <div className="form-control mt-1">
                                 <button onClick={handleGoogleLogin}
                                 className="flex flex-row gap-2 items-center justify-center border-2 border-blue-600 text-lg font-semibold w-full p-2 rounded-lg">
                                     <FcGoogle />

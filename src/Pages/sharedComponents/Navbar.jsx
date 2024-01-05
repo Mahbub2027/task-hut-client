@@ -1,12 +1,14 @@
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import logo from "../../../public/TaskhutClear.png";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 // import logosmall from "../../../public/TaskhutSmall.jpg";
 
 // import { useEffect, useState } from "react";
 
 const Navbar = () => {
   const { user, logoutUser } = useAuth();
+  const axiosPublic = useAxiosPublic();
 
   // const [isLargeDevice, setIsLargeDevice] = useState(false);
 
@@ -75,7 +77,7 @@ const Navbar = () => {
             </ul>
         </div>
         <div className="navbar-end">
-          {user ? 
+          {user?.emailVerified ? 
             <>
               <span>{user?.displayName}</span>
               <span>
