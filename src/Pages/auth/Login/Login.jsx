@@ -1,13 +1,14 @@
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
-import { FcGoogle } from "react-icons/fc";
 import { Helmet } from "react-helmet";
 import { useRef, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import GoogleLink from "../../sharedComponents/GoogleLinks/GoogleLink";
 
 const Login = () => {
-    const {logInUser, googleLogin, resetPassword} = useAuth();
+    const {logInUser, resetPassword} = useAuth();
     const [showPassword, setShowPassword] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
     const navigate = useNavigate();
     const emailRef = useRef(null);
 
@@ -36,16 +37,7 @@ const Login = () => {
         })
         .catch(error=>{
             console.log(error);
-        })
-    }
-    const handleGoogleLogin =() =>{
-        googleLogin()
-        .then(res=> {
-            console.log(res.user)
-            navigate('/');
-        })
-        .catch(error => {
-            console.log(error)
+            setErrorMessage('*Auth/invalid-credential')
         })
     }
 
@@ -102,15 +94,15 @@ const Login = () => {
                                 </label>
                             </div>
                             <div className="form-control mt-6">
-                                <button className="btn btn-primary text-base font-bold text-white">Login</button>
+                                <button className="btn bg-gradient-to-r from-cyan-500 to-blue-500 text-base font-bold text-white">Continue</button>
                             </div>
+                            {
+                                errorMessage && <p className="text-red-500">{errorMessage}</p>
+                            }
                             <div className="divider">Or</div>
-                            <div className="form-control mt-1">
-                                <button onClick={handleGoogleLogin}
-                                className="flex flex-row gap-2 items-center justify-center border-2 border-blue-600 text-lg font-semibold w-full p-2 rounded-lg">
-                                    <FcGoogle />
-                                    Google</button>
-                            </div>
+                            {/* google Link */}
+                            <GoogleLink></GoogleLink>
+
                             <p>New Here? Please <Link to='/signup' className="font-bold text-blue-600">Register</Link></p>
                         </form>
                     </div>

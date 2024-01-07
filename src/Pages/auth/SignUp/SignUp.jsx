@@ -1,25 +1,23 @@
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
-import { FcGoogle } from "react-icons/fc";
 import { Helmet } from "react-helmet";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
-// import Swal from "sweetalert2";
+import GoogleLink from "../../sharedComponents/GoogleLinks/GoogleLink";
 
 const image_hosting_key = import.meta.env.VITE_image_hosting_key;
 const image_hosting_api= `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
 const SignUp = () => {
-    const { createUser, googleLogin, updateUserProfile, emailVerification } = useAuth();
-    // const [isemailVerified, setEmailVerified] = useState(false);
+    const { createUser, updateUserProfile, emailVerification } = useAuth();
+    const [errorMessage, setErrorMessage] = useState('')
     const [showPassword, setShowPassword] = useState(false);
     const axiosPublic = useAxiosPublic();
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm()
     const navigate = useNavigate();
-    // const [refetch] = useTanStact();
 
 
     const onSubmit = async(data) => {
@@ -33,24 +31,26 @@ const SignUp = () => {
         })
         console.log(res.data)
         if(res.data.success){
-            const userInfo = {
+            const userDetails = {
                 name : data.name,
                 email: data.email,
-                image: res.data.data.display_url,
+                image: res.data.data.display_url, 
             }
-            const userRes = await axiosPublic.post('/users', userInfo);
+            const userRes = await axiosPublic.post('/users', userDetails)
+            // .then(res=> {
+            //     console.log(res.data)
+            // })
             console.log(userRes, data);
         } 
 
         createUser(data.email, data.password)
             .then(res => {
                 console.log(res.user)
-
+                    
                 //update profile
                 updateUserProfile(data.name)
                     .then(() => {
-                        // console.log("Photo :  ",res.data.display_url)
-                        console.log(res.user)
+                        // console.log(res.user)
                     })
                     .catch(error => {
                         console.log(error);
@@ -70,22 +70,13 @@ const SignUp = () => {
             })
             .catch(error => {
                 console.log(error)
+                setErrorMessage('*Auth/email-already-in-use')
+                // setErrorMessage(error.message)
             })
 
 
     }
 
-
-    const handleGoogleLogin = () => {
-        googleLogin()
-            .then(res => {
-                console.log(res.user)
-                navigate('/');
-            })
-            .catch(error => {
-                console.log(error)
-            })
-    }
     return (
         <div >
             <Helmet>
@@ -146,15 +137,14 @@ const SignUp = () => {
                                 {errors.photo && <span className="text-red-500">This field is required</span>} */}
                             </div>
                             <div className="form-control mt-6">
-                                <button className="btn btn-primary">Register</button>
+                                <button className="btn bg-gradient-to-r from-cyan-500 to-blue-500 text-lg text-white">Register</button>
                             </div>
+                            {
+                                errorMessage && <p className="text-red-500">{errorMessage}</p>
+                            }
                             <div className="divider">Or</div>
-                            <div className="form-control mt-1">
-                                <button onClick={handleGoogleLogin}
-                                    className="flex flex-row gap-2 items-center justify-center border-2 border-blue-600 text-lg font-semibold w-full p-2 rounded-lg">
-                                    <FcGoogle />
-                                    Google</button>
-                            </div>
+                             {/* social account login */}
+                            <GoogleLink></GoogleLink>
                             <p>Already Have an account? Please <Link to='/login' className="font-bold text-blue-600">Login</Link></p>
                         </form>
                     </div>

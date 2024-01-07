@@ -1,7 +1,10 @@
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import logo from "../../../public/TaskhutClear.png";
+// import useTanStact from "../../hooks/useTanStact";
+// import { useEffect, useState } from "react";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
+import { useQuery } from "@tanstack/react-query";
 // import logosmall from "../../../public/TaskhutSmall.jpg";
 
 // import { useEffect, useState } from "react";
@@ -9,6 +12,13 @@ import useAxiosPublic from "../../hooks/useAxiosPublic";
 const Navbar = () => {
   const { user, logoutUser } = useAuth();
   const axiosPublic = useAxiosPublic();
+  const { data: users = [] } = useQuery({
+    queryKey: ['users', user?.email],
+    queryFn: async () => {
+      const res = await axiosPublic.get(`/users?email=${user.email}`)
+      return res.data;
+    }
+  })
 
   // const [isLargeDevice, setIsLargeDevice] = useState(false);
 
@@ -28,18 +38,11 @@ const Navbar = () => {
 
   const navLinks = (
     <>
-      <li>
-        <NavLink to="/">Home</NavLink>
-      </li>
-      <li>
-        <NavLink to="/dashboard">Dashboard</NavLink>
-      </li>
-      <li>
-        <NavLink to="/aboutUs">About Us</NavLink>
-      </li>
-      <li>
-        <NavLink to="/contact">Contact</NavLink>
-      </li>
+      <li><NavLink to="/" className={({ isActive, isPending }) => isPending ? 'pending' : isActive ? 'text-red-500 font-semibold' : ''}>Home</NavLink></li>
+      <li><NavLink to="/dashboard" className={({ isActive, isPending }) => isPending ? 'pending' : isActive ? 'text-red-500 font-semibold' : ''}>Dashboard</NavLink></li>
+      <li><NavLink to="/aboutUs" className={({ isActive, isPending }) => isPending ? 'pending' : isActive ? 'text-red-500 font-semibold' : ''}>About Us</NavLink></li>
+      <li><NavLink to="/contact" className={({ isActive, isPending }) => isPending ? 'pending' : isActive ? 'text-red-500 font-semibold' : ''}>Contact</NavLink></li>
+
     </>
   );
   const handleLogOut = () => {
@@ -49,7 +52,8 @@ const Navbar = () => {
   };
   return (
     <div className="">
-      <div className="navbar fixed bg-gray-600 bg-opacity-30 z-10 font-bold text-white">
+      {/* fixed bg-slate-600 bg-opacity-30 z-10 text-white*/}
+      <div className="navbar shadow-md  font-bold ">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -72,24 +76,41 @@ const Navbar = () => {
           {/* <Link to="/"><img src={logo} className="h-16" alt="TaskHut Logo" /></Link> */}
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
+          <ul className="space-x-6 menu-horizontal px-1">
             {navLinks}
-            </ul>
+          </ul>
         </div>
         <div className="navbar-end">
-          {user?.emailVerified ? 
+          {/* {
+                pagol.map(pag=> <li key={pag._id}>{pag.email}</li>)
+              } */}
+          {user?.emailVerified ?
             <>
-              <span>{user?.displayName}</span>
-              <span>
+              {
+                users.map(use => <div
+                  key={use._id}>
+                  <details className="dropdown dropdown-end">
+                    <summary className="m-1 btn btn-circle"><img className="w-12 h-12 rounded-full mx-2" src={use.image} alt="" /></summary>
+                    <ul className="p-1 font-medium shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-64">
+                      <li className="btn-disabled"><span>{use?.name}</span></li>
+                      <li className="btn-disabled"><span>{use?.email}</span></li> <hr />
+                      <li><Link to=''>Dashboard</Link></li>
+                      <li><button onClick={handleLogOut}>Logout</button></li>
+
+                    </ul>
+                  </details>
+
+                </div>)
+              }
+
+              {/* <span>{user?.displayName}</span> */}
+
+              {/* <span>
                 <img className="w-10 h-10 rounded-full mx-2" src={user?.photoURL}  alt="" />
-              </span>
-              <button
-                onClick={handleLogOut}
-                className="bg-purple-800 text-white px-5 py-2 rounded-md font-bold text-base">
-                Logout
-              </button>
+              </span> */}
+
             </>
-           : 
+            :
             <>
               <Link to="/login"
                 className="bg-purple-800 text-white px-5 py-3 rounded-md font-bold text-base">
@@ -104,19 +125,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-
-
-
-
-
-
- {/* {isLargeDevice ? (
-              <Link to="/">
-                <img src={logo} className="h-16" alt="" />
-              </Link> // Render large icon for large devices
-            ) : (
-              <Link to="/">
-                <img src={logosmall} className="h-12 w-12" alt="" />
-              </Link> // Render small icon for small devices
-            )} */}
