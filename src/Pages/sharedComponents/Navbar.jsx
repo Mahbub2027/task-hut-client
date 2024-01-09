@@ -7,6 +7,8 @@ import { useEffect, useState } from "react";
 const Navbar = () => {
   const { user, logoutUser } = useAuth();
 
+  const [isShow, setShow] = useState(false);
+
   const [isLargeDevice, setIsLargeDevice] = useState(false);
 
   useEffect(() => {
@@ -41,7 +43,7 @@ const Navbar = () => {
   );
   const handleLogOut = () => {
     logoutUser()
-      .then(() => {})
+      .then(() => { })
       .catch((error) => console.log(error));
   };
   return (
@@ -78,7 +80,7 @@ const Navbar = () => {
                 <img src={logo} className="h-16" alt="" />
               </Link> // Render large icon for large devices
             ) : (
-                <Link to="/">
+              <Link to="/">
                 <img src={logosmall} className="h-12 w-12" alt="" />
               </Link> // Render small icon for small devices
             )}
@@ -92,13 +94,26 @@ const Navbar = () => {
           {user ? (
             <>
               <span>{user?.displayName}</span>
-              <span>
-                <img
-                  className="w-10 h-10 rounded-full mx-2"
-                  src={user?.photoURL}
-                  alt=""
-                />
-              </span>
+              {/* profile dropdown */}
+              <div className="relative">
+                <span onClick={() => setShow(!isShow)}>
+                  <img
+                    className="w-10 h-10 rounded-full mx-2 border-solid border-2 border-sky-500"
+                    src={user?.photoURL}
+                    alt=""
+                  />
+                </span>
+                {/* dropdown content */}
+                {isShow && <div className="bg-white w-44 mt-2 p-2 rounded-lg text-gray-500 font-normal shadow-lg absolute -translate-x-1/2 z-10">
+                  <p className="px-4 py-4 font-medium">$00.0 Balance</p>
+                  <ul>
+                    <li className="px-4 py-2 hover:bg-gray-200 hover:text-blue-500 rounded-md cursor-pointer"><Link to="/viewProfile" preventScrollReset={true}>View Profile</Link></li>
+                    <li className="px-4 py-2 hover:bg-gray-200 hover:text-blue-500 rounded-md cursor-pointer"><Link to="/accountAnalytics" preventScrollReset={true}>Account Analytics</Link></li>
+                    <li className="px-4 py-2 hover:bg-gray-200 hover:text-blue-500 rounded-md cursor-pointer"><Link to="/settings" preventScrollReset={true}>Settings</Link></li>
+                    <li className="px-4 py-2 hover:bg-gray-200 hover:text-blue-500 rounded-md cursor-pointer"><Link to="/support" preventScrollReset={true}>Support</Link></li>
+                  </ul>
+                </div>}
+              </div>
               <button
                 onClick={handleLogOut}
                 className="bg-purple-800 text-white px-5 py-2 rounded-md font-bold text-base"
