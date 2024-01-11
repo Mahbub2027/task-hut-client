@@ -46,7 +46,7 @@ import Support from "../Pages/Support/Support";
         },
         {
           path:'/browsejobs',
-          element: <BrowseJobs></BrowseJobs>
+          element: <PrivateRoutes><BrowseJobs></BrowseJobs></PrivateRoutes>
         },
         {
           path: '/viewProfile',
