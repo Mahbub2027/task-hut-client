@@ -119,10 +119,20 @@ const Navbar = () => {
             </>
             :
             <>
-              <Link to="/login"
-                className="bg-purple-800 text-white px-5 py-3 rounded-md font-bold text-base">
+              <div className="flex justify-between">
+                <div>
+                <Link to="/signup"
+                className="bg-purple-800 lg:mx-4 sm:my-10 text-white px-5 py-3 rounded-md font-bold text-base">
+                <button>Sign Up</button>
+              </Link>
+                </div>
+                <div>
+                <Link to="/login"
+                className="bg-purple-800 lg:mx-4 sm:my-10 text-white px-5 py-3 rounded-md font-bold text-base">
                 <button>Log in</button>
               </Link>
+                </div>
+              </div>
             </>
           }
         </div>

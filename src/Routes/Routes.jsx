@@ -42,7 +42,7 @@ import Support from "../Pages/Support/Support";
         },
         {
             path: '/dashboard',
-            element: <SignUp></SignUp>
+            element: <PrivateRoutes><SignUp></SignUp></PrivateRoutes>
         },
         {
           path:'/browsejobs',
@@ -54,7 +54,7 @@ import Support from "../Pages/Support/Support";
         },
         {
           path: '/accountAnalytics',
-          element: <AccounAnalytics></AccounAnalytics>
+          element: <PrivateRoutes><AccounAnalytics></AccounAnalytics></PrivateRoutes>
         },
         {
           path: '/settings',

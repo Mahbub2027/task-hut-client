@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import banner from "../../assets/images/banner_updated.png";
 
 function Banner() {
@@ -31,9 +32,9 @@ function Banner() {
                   />
                 </div>
                 <div>
-                  <button className="btn btn-primary text-white text-xs font-bold">
+                  <Link to="/signup"><button className="btn btn-primary text-white text-xs font-bold">
                     Get started
-                  </button>
+                  </button></Link>
                 </div>
               </div>
             </div>
