@@ -6,7 +6,7 @@ function AboutUs() {
     const [users] = useTanStact();
 //     const [pagol, setUsers] = useState([]);
 //     useEffect(()=>{
-//     fetch('/http://localhost:5000/users')
+//     fetch('/https://tusk-hut-server.vercel.app/users')
 //     .then(res=> res.json())
 //     .then(data=> {
 //       setUsers(data)
