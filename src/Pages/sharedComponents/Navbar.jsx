@@ -53,7 +53,7 @@ const Navbar = () => {
       .catch((error) => console.log(error));
   };
   return (
-    <div className="">
+    <div className="bg-gray-200 text-black">
       {/* fixed bg-slate-600 bg-opacity-30 z-10 text-white*/}
       <div className="navbar shadow-md  font-bold ">
         <div className="navbar-start">
