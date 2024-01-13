@@ -14,6 +14,7 @@ import ViewProfile from "../Pages/ViewProfile/ViewProfile";
 import AccounAnalytics from "../Pages/AccountAnalytics/AccounAnalytics";
 import Settings from "../Pages/Settings/Settings";
 import Support from "../Pages/Support/Support";
+import Profile from "../Pages/Settings/Profile/Profile";
 
   export const router = createBrowserRouter([
     {
@@ -24,7 +25,8 @@ import Support from "../Pages/Support/Support";
         {
             path: '/',
             element: <Home></Home>,
-        },{
+        },
+        {
             path: '/login',
             element: <Login></Login>
         },
@@ -58,7 +60,13 @@ import Support from "../Pages/Support/Support";
         },
         {
           path: '/settings',
-          element: <Settings></Settings>
+          element: <Settings></Settings>,
+          children: [
+            {
+              path: '/settings/profile',
+              element: <Profile></Profile>
+            },
+          ]
         },
         {
           path: '/support',
