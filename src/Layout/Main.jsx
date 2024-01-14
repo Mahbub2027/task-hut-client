@@ -1,4 +1,4 @@
-import {Outlet, useLocation } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Footer from "../Pages/sharedComponents/Footer";
 import Navbar from "../Pages/sharedComponents/Navbar";
 // import { useState } from "react";
@@ -10,9 +10,9 @@ const Main = () => {
     // console.log(location)
     const navBarFooter = location.pathname?.includes('login') || location.pathname?.includes('signup');
     return (
-        <div>
+        <div className="">
             {navBarFooter || <Navbar></Navbar>}
-                    <Outlet></Outlet>
+            <Outlet></Outlet>
             {navBarFooter || <Footer></Footer>}
         </div>
     );

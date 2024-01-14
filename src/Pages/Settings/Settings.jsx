@@ -13,23 +13,23 @@ const Settings = () => {
                     </li>
                     <li className="flex gap-2 items-center py-3 px-4 border-l-4 border-transparent hover:border-l-4 hover:border-l-slate-500 hover:transition duration-500 ease-in-out hover:ease-in-out dark:hover:text-white hover:pl-3">
                         <FaUserLock />
-                        <Link to=''>Password</Link>
+                        <Link to='/settings/password'>Password</Link>
                     </li>
                     <li className="flex gap-2 items-center py-3 px-4 border-l-4 border-transparent hover:border-l-4 hover:border-l-slate-500 hover:transition duration-500 ease-in-out hover:ease-in-out dark:hover:text-white hover:pl-3">
                         <FaCreditCard />
-                        <Link to=''>Payment</Link>
+                        <Link to='/settings/payment'>Payment</Link>
                     </li>
                     <li className="flex gap-2 items-center py-3 px-4 border-l-4 border-transparent hover:border-l-4 hover:border-l-slate-500 hover:transition duration-500 ease-in-out hover:ease-in-out dark:hover:text-white hover:pl-3">
                         <FaUnlockKeyhole />
-                        <Link to=''>Security</Link>
+                        <Link to='/settings/security'>Security</Link>
                     </li>
                     <li className="flex gap-2 items-center py-3 px-4 border-l-4 border-transparent hover:border-l-4 hover:border-l-slate-500 hover:transition duration-500 ease-in-out hover:ease-in-out dark:hover:text-white hover:pl-3">
                         <FaUserShield />
-                        <Link to=''>Trust & Verification</Link>
+                        <Link to='/settings/trustVerification'>Trust & Verification</Link>
                     </li>
                     <li className="flex gap-2 items-center py-3 px-4 border-l-4 border-transparent hover:border-l-4 hover:border-l-slate-500 hover:transition duration-500 ease-in-out hover:ease-in-out dark:hover:text-white hover:pl-3">
                         <FaUsersGear />
-                        <Link to=''>Account</Link>
+                        <Link to='/settings/account'>Account</Link>
                     </li>
                 </ul>
             </div>

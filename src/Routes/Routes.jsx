@@ -15,6 +15,11 @@ import AccounAnalytics from "../Pages/AccountAnalytics/AccounAnalytics";
 import Settings from "../Pages/Settings/Settings";
 import Support from "../Pages/Support/Support";
 import Profile from "../Pages/Settings/Profile/Profile";
+import Password from "../Pages/Settings/Password/Password";
+import Payment from "../Pages/Settings/Payment/Payment";
+import Security from "../Pages/Settings/Security/Security";
+import TrustVerification from "../Pages/Settings/TrustVerification/TrustVerification";
+import Account from "../Pages/Settings/Account/Account";
 
   export const router = createBrowserRouter([
     {
@@ -63,8 +68,32 @@ import Profile from "../Pages/Settings/Profile/Profile";
           element: <Settings></Settings>,
           children: [
             {
+              path: '/settings',
+              element: <Settings></Settings>
+            },
+            {
               path: '/settings/profile',
               element: <Profile></Profile>
+            },
+            {
+              path: '/settings/password',
+              element: <Password></Password>
+            },
+            {
+              path: '/settings/payment',
+              element: <Payment></Payment>
+            },
+            {
+              path: '/settings/security',
+              element: <Security></Security>
+            },
+            {
+              path: '/settings/trustVerification',
+              element: <TrustVerification></TrustVerification>
+            },
+            {
+              path: '/settings/account',
+              element: <Account></Account>
             },
           ]
         },
