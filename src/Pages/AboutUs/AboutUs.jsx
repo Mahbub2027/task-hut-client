@@ -79,7 +79,7 @@ function AboutUs() {
       </div>
 
       <h1 className="text-5xl font-bold text-center">Why Us?</h1>
-      <div className="flex items-center justify-center w-1/2 lg:ml-96 mb-10">
+      <div className="items-center justify-center w-1/2 lg:ml-96 mb-10">
         <WhyTaskHut></WhyTaskHut>
       </div>
 
