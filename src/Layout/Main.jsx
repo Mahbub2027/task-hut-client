@@ -10,7 +10,7 @@ const Main = () => {
     // console.log(location)
     const navBarFooter = location.pathname?.includes('login') || location.pathname?.includes('signup');
     return (
-        <div className="">
+        <div className="min-h-screen flex flex-col">
             {navBarFooter || <Navbar></Navbar>}
             <Outlet></Outlet>
             {navBarFooter || <Footer></Footer>}
