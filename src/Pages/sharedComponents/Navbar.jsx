@@ -53,7 +53,7 @@ const Navbar = () => {
       .catch((error) => console.log(error));
   };
   return (
-    <div className="">
+    <div className="bg-gray-200 text-black">
       {/* fixed bg-slate-600 bg-opacity-30 z-10 text-white*/}
       <div className="navbar shadow-md  font-bold ">
         <div className="navbar-start">
@@ -93,16 +93,15 @@ const Navbar = () => {
                   key={use._id}>
                   <details className="relative">
                     <summary className="m-1 btn btn-circle"><img className="w-12 h-12 rounded-full mx-2" src={use.image} alt="" /></summary>
-                    <ul className="border-2 border-violet-400 px-4 py-4 font-normal shadow-lg z-[1] bg-base-100 rounded-box w-auto absolute right-0">
+                    <ul className="border-2 border-violet-400 px-4 py-4 font-normal shadow-lg z-[1] bg-base-100 text-slate-700 rounded-box w-auto absolute right-0">
                       <li className="font-medium pb-2 flex justify-between"><p>$00.0</p><span>Balance</span></li><hr className="opacity-25"/>
                       <li className="pt-4"><span>{use?.name}</span></li>
                       <li className="pb-4"><span>{use?.email}</span></li> <hr className="opacity-25"/>
                       <li className="flex gap-3 items-center my-2 py-2 rounded hover:transition duration-500 ease-out hover:ease-in-out hover:bg-slate-700 hover:text-white hover:pl-2"><FaUserPen /><Link to="/viewProfile" preventScrollReset={true}>View Profile</Link></li>
                       <li className="flex gap-3 items-center my-2 py-2 rounded hover:transition duration-500 ease-out hover:ease-in-out hover:bg-slate-700 hover:text-white hover:pl-2"><FaArrowTrendUp /><Link to="/accountAnalytics" preventScrollReset={true}>Account Analytics</Link></li>
-                      <li className="flex gap-3 items-center my-2 py-2 rounded hover:transition duration-500 ease-out hover:ease-in-out hover:bg-slate-700 hover:text-white hover:pl-2"><FaGears /><Link to="/settings" preventScrollReset={true}>Settings</Link></li>
+                      <li className="flex gap-3 items-center my-2 py-2 rounded hover:transition duration-500 ease-out hover:ease-in-out hover:bg-slate-700 hover:text-white hover:pl-2"><FaGears /><Link to="/settings/profile" preventScrollReset={true}>Settings</Link></li>
                       <li className="flex gap-3 items-center my-2 py-2 rounded hover:transition duration-500 ease-out hover:ease-in-out hover:bg-slate-700 hover:text-white hover:pl-2"><FaPersonCircleQuestion /><Link to="/support" preventScrollReset={true}>Support</Link></li>
-                      <li className="flex gap-3 items-center my-2 py-2 rounded hover:transition duration-500 ease-out hover:ease-in-out hover:bg-red-800 hover:text-white
-                       hover:pl-2"><FaRightFromBracket /><button onClick={handleLogOut}>Logout</button></li>
+                      <li className="flex gap-3 items-center my-2 py-2 rounded hover:transition duration-500 ease-out hover:ease-in-out hover:bg-red-700 hover:text-white hover:pl-2"><FaRightFromBracket /><button onClick={handleLogOut}>Logout</button></li>
 
                     </ul>
                   </details>
@@ -119,10 +118,20 @@ const Navbar = () => {
             </>
             :
             <>
-              <Link to="/login"
-                className="bg-purple-800 text-white px-5 py-3 rounded-md font-bold text-base">
+              <div className="flex justify-between">
+                <div>
+                <Link to="/signup"
+                className="bg-purple-800 lg:mx-4 sm:my-10 text-white px-5 py-3 rounded-md font-bold text-base">
+                <button>Sign Up</button>
+              </Link>
+                </div>
+                <div>
+                <Link to="/login"
+                className="bg-purple-800 lg:mx-4 sm:my-10 text-white px-5 py-3 rounded-md font-bold text-base">
                 <button>Log in</button>
               </Link>
+                </div>
+              </div>
             </>
           }
         </div>

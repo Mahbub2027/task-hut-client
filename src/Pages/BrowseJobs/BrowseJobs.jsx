@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import JobCard from "./JobCard";
+import Swal from "sweetalert2";
 
 function BrowseJobs() {
   const [jobs, setJobs] = useState([]);
@@ -10,6 +11,23 @@ function BrowseJobs() {
         const response = await fetch("/public/alljobs.json");
         const data = await response.json();
         setJobs(data);
+        Swal.fire({
+          title: "These Jobs are Available at this moment. Check Back Later For More Jobs.",
+          showClass: {
+            popup: `
+              animate__animated
+              animate__fadeInUp
+              animate__faster
+            `
+          },
+          hideClass: {
+            popup: `
+              animate__animated
+              animate__fadeOutDown
+              animate__faster
+            `
+          }
+        });
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -20,10 +38,6 @@ function BrowseJobs() {
 
   return (
     <>
-      <h1 className="text-7xl text-red-600 font-bold">
-        These Jobs are Available at this moment. Check Back Later For More Jobs.
-      </h1>
-
       <div className="grid grid-cols-3 items-center justify-center lg:ml-20 py-10">
         {jobs.map((job, index) => (
           <JobCard key={index} gig={job} />
