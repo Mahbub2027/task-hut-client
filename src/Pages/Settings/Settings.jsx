@@ -9,7 +9,7 @@ const Settings = () => {
                 <ul className="space-y-2">
                     <li className="flex gap-2 items-center py-3 px-4 border-l-4 border-transparent hover:border-l-4 hover:border-l-slate-500 hover:transition duration-500 ease-in-out hover:ease-in-out  dark:hover:text-white hover:pl-3">
                         <FaUserTie />
-                        <Link to='/settings/profile'>Profile</Link>
+                        <Link to='/settings'>Profile</Link>
                     </li>
                     <li className="flex gap-2 items-center py-3 px-4 border-l-4 border-transparent hover:border-l-4 hover:border-l-slate-500 hover:transition duration-500 ease-in-out hover:ease-in-out dark:hover:text-white hover:pl-3">
                         <FaUserLock />
