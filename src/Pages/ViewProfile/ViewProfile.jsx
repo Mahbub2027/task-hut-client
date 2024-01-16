@@ -1,8 +1,23 @@
+import ClientProfile from "./ClientProfile/ClientProfile";
+import Verification from "./Verification/Verification";
+import TopSkills from "./TopSkills/TopSkills";
+import Portfolio from "./Portfolio/Portfolio";
+import Reviews from "./Reviews/Reviews";
+import Certification from "./Certification/Certification";
 
 const ViewProfile = () => {
     return (
-        <div>
-            <h2>View Profile Coming Soon</h2>
+        <div className="grid grid-cols-3 gap-4 w-8/12 mx-auto my-4">
+            <div className="col-span-2 space-y-8">
+                <ClientProfile></ClientProfile>
+                <Portfolio></Portfolio>
+                <Reviews></Reviews>
+            </div>
+            <div className="col-span-1 space-y-8">
+                <Verification></Verification>
+                <Certification></Certification>
+                <TopSkills></TopSkills>
+            </div>
         </div>
     );
 };

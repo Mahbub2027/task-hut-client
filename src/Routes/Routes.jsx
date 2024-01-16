@@ -69,10 +69,6 @@ import Account from "../Pages/Settings/Account/Account";
           children: [
             {
               path: '/settings',
-              element: <Settings></Settings>
-            },
-            {
-              path: '/settings/profile',
               element: <Profile></Profile>
             },
             {
