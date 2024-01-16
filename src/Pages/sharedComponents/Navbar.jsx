@@ -5,6 +5,7 @@ import logo from "../../../public/TaskhutClear.png";
 // import { useEffect, useState } from "react";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
+import { FaArrowTrendUp, FaGears, FaPersonCircleQuestion, FaRightFromBracket, FaUserPen } from "react-icons/fa6";
 // import logosmall from "../../../public/TaskhutSmall.jpg";
 
 // import { useEffect, useState } from "react";
@@ -40,6 +41,7 @@ const Navbar = () => {
     <>
       <li><NavLink to="/" className={({ isActive, isPending }) => isPending ? 'pending' : isActive ? 'text-red-500 font-semibold' : ''}>Home</NavLink></li>
       <li><NavLink to="/dashboard" className={({ isActive, isPending }) => isPending ? 'pending' : isActive ? 'text-red-500 font-semibold' : ''}>Dashboard</NavLink></li>
+      <li><NavLink to="/browsejobs" className={({ isActive, isPending }) => isPending ? 'pending' : isActive ? 'text-red-500 font-semibold' : ''}>Browse Jobs</NavLink></li>
       <li><NavLink to="/aboutUs" className={({ isActive, isPending }) => isPending ? 'pending' : isActive ? 'text-red-500 font-semibold' : ''}>About Us</NavLink></li>
       <li><NavLink to="/contact" className={({ isActive, isPending }) => isPending ? 'pending' : isActive ? 'text-red-500 font-semibold' : ''}>Contact</NavLink></li>
 
@@ -89,13 +91,18 @@ const Navbar = () => {
               {
                 users.map(use => <div
                   key={use._id}>
-                  <details className="dropdown dropdown-end">
+                  <details className="relative">
                     <summary className="m-1 btn btn-circle"><img className="w-12 h-12 rounded-full mx-2" src={use.image} alt="" /></summary>
-                    <ul className="p-1 font-medium shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-64">
-                      <li className="btn-disabled"><span>{use?.name}</span></li>
-                      <li className="btn-disabled"><span>{use?.email}</span></li> <hr />
-                      <li><Link to=''>Dashboard</Link></li>
-                      <li><button onClick={handleLogOut}>Logout</button></li>
+                    <ul className="border-2 border-violet-400 px-4 py-4 font-normal shadow-lg z-[1] bg-base-100 rounded-box w-auto absolute right-0">
+                      <li className="font-medium pb-2 flex justify-between"><p>$00.0</p><span>Balance</span></li><hr className="opacity-25"/>
+                      <li className="pt-4"><span>{use?.name}</span></li>
+                      <li className="pb-4"><span>{use?.email}</span></li> <hr className="opacity-25"/>
+                      <li className="flex gap-3 items-center my-2 py-2 rounded hover:transition duration-500 ease-out hover:ease-in-out hover:bg-slate-700 hover:text-white hover:pl-2"><FaUserPen /><Link to="/viewProfile" preventScrollReset={true}>View Profile</Link></li>
+                      <li className="flex gap-3 items-center my-2 py-2 rounded hover:transition duration-500 ease-out hover:ease-in-out hover:bg-slate-700 hover:text-white hover:pl-2"><FaArrowTrendUp /><Link to="/accountAnalytics" preventScrollReset={true}>Account Analytics</Link></li>
+                      <li className="flex gap-3 items-center my-2 py-2 rounded hover:transition duration-500 ease-out hover:ease-in-out hover:bg-slate-700 hover:text-white hover:pl-2"><FaGears /><Link to="/settings" preventScrollReset={true}>Settings</Link></li>
+                      <li className="flex gap-3 items-center my-2 py-2 rounded hover:transition duration-500 ease-out hover:ease-in-out hover:bg-slate-700 hover:text-white hover:pl-2"><FaPersonCircleQuestion /><Link to="/support" preventScrollReset={true}>Support</Link></li>
+                      <li className="flex gap-3 items-center my-2 py-2 rounded hover:transition duration-500 ease-out hover:ease-in-out hover:bg-red-800 hover:text-white
+                       hover:pl-2"><FaRightFromBracket /><button onClick={handleLogOut}>Logout</button></li>
 
                     </ul>
                   </details>

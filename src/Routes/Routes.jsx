@@ -9,6 +9,11 @@ import SignUp from "../Pages/auth/SignUp/SignUp";
 import AboutUs from "../Pages/AboutUs/AboutUs";
 import Contact from "../Pages/Contact/Contact";
 import PrivateRoutes from "./PrivateRoutes";
+import BrowseJobs from "../Pages/BrowseJobs/BrowseJobs";
+import ViewProfile from "../Pages/ViewProfile/ViewProfile";
+import AccounAnalytics from "../Pages/AccountAnalytics/AccounAnalytics";
+import Settings from "../Pages/Settings/Settings";
+import Support from "../Pages/Support/Support";
 
   export const router = createBrowserRouter([
     {
@@ -39,6 +44,26 @@ import PrivateRoutes from "./PrivateRoutes";
             path: '/dashboard',
             element: <SignUp></SignUp>
         },
+        {
+          path:'/browsejobs',
+          element: <PrivateRoutes><BrowseJobs></BrowseJobs></PrivateRoutes>
+        },
+        {
+          path: '/viewProfile',
+          element: <ViewProfile></ViewProfile>
+        },
+        {
+          path: '/accountAnalytics',
+          element: <AccounAnalytics></AccounAnalytics>
+        },
+        {
+          path: '/settings',
+          element: <Settings></Settings>
+        },
+        {
+          path: '/support',
+          element: <Support></Support>
+        }
       ]
     },
   ]);
