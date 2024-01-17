@@ -5,7 +5,7 @@ const Certification = () => {
     return (
         <div className='shadow-md rounded-lg border-2 p-4 text-end'>
             <h2 className='font-bold text-2xl text-start pb-2'>Certification</h2>
-            <hr className="my-6 dark:opacity-50" />
+            <hr className="my-3 dark:opacity-50" />
             <div className='flex flex-col gap-4 items-center'>
                 <FaAward className='w-20 h-auto'/>
                 <p>You don't have any certifications yet.</p>
