@@ -57,7 +57,7 @@ import Account from "../Pages/Settings/Account/Account";
         },
         {
           path: '/viewProfile',
-          element: <ViewProfile></ViewProfile>
+          element: <PrivateRoutes><ViewProfile></ViewProfile></PrivateRoutes>
         },
         {
           path: '/accountAnalytics',
@@ -65,7 +65,7 @@ import Account from "../Pages/Settings/Account/Account";
         },
         {
           path: '/settings',
-          element: <Settings></Settings>,
+          element: <PrivateRoutes><Settings></Settings></PrivateRoutes>,
           children: [
             {
               path: '/settings',

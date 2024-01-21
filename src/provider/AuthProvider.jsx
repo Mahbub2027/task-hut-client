@@ -55,6 +55,7 @@ const AuthProvider = ({ children }) => {
         return sendPasswordResetEmail(auth, email);
     }
 
+
     // auth state Change
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
