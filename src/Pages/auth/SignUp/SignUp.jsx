@@ -6,6 +6,7 @@ import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import GoogleLink from "../../sharedComponents/GoogleLinks/GoogleLink";
+import Swal from "sweetalert2";
 
 const image_hosting_key = import.meta.env.VITE_image_hosting_key;
 const image_hosting_api= `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
@@ -59,7 +60,12 @@ const SignUp = () => {
                 // email verification
                 emailVerification()
                     .then(()=> {
-                        alert("Please check your email for verification")
+                        Swal.fire({
+                            // title: "Good job!",
+                            text: "Please verify your email",
+                            icon: "warning"
+                          });
+                          
                         reset();
                         setTimeout(() => {
                             navigate('/login')

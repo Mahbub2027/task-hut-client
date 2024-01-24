@@ -3,6 +3,7 @@ import useAuth from '../../../hooks/useAuth';
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
 import { useQuery } from '@tanstack/react-query';
 import { FaDollarSign, FaHandHoldingHeart, FaHandsClapping, FaMapLocationDot, FaRegCalendarCheck, FaRegClock, FaShareNodes, FaUserTie } from 'react-icons/fa6';
+import { Link } from 'react-router-dom';
 
 const ClientProfile = () => {
 
@@ -39,7 +40,7 @@ const ClientProfile = () => {
                 <p className='mt-4 flex items-center gap-3'><FaHandHoldingHeart className='w-6 h-6' />0 Recommendations</p>
             </div>
             <div className='col-span-2'>
-                <p className='text-3xl font-bold'>Sajid Abdullah<small className='text-lg italic font-medium mx-2'>@sajid21</small></p>
+                <p className='text-3xl font-bold'>{user?.displayName}<small className='text-lg italic font-medium mx-2'>@sajid21</small></p>
                 <p className='text-xl font-medium'>Web Developer(MERN Stack)</p>
                 <hr className='' />
                 <FaHandsClapping className='w-6 h-6' />
@@ -51,13 +52,13 @@ const ClientProfile = () => {
                 <p>Review Counts</p>
                 <hr className="mb-8 dark:opacity-25" />
                 <div className='flex gap-4 items-center justify-end'>
-                    <button class="inline-flex items-center justify-center overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 via-purple-600 to-purple-700 group-hover:from-purple-500 group-hover:to-purple-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80">
+                    <button className="inline-flex items-center justify-center overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 via-purple-600 to-purple-700 group-hover:from-purple-500 group-hover:to-purple-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80">
 
-                        <span class="flex items-center gap-1 mx-1 my-1 ps-1.5 pe-3 py-1.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                        <span className="flex items-center gap-1 mx-1 my-1 ps-1.5 pe-3 py-1.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
                             <FaShareNodes />Share
                         </span>
                     </button>
-                    <button type="button" className=" text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Edit Profile</button>
+                    <Link to='/dashboard/editProfile'><button type="button" className=" text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Edit Profile</button></Link>
                 </div>
             </div>
         </div>

@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet";
 import { useRef, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import GoogleLink from "../../sharedComponents/GoogleLinks/GoogleLink";
+import Swal from "sweetalert2";
 
 const Login = () => {
     const {logInUser, resetPassword} = useAuth();
@@ -26,11 +27,24 @@ const Login = () => {
         .then(res=>{
             console.log(res.user)
             if(res.user.emailVerified){
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "Login Successful",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
                 navigate('/')
             }
             else
             {
-                alert("Please verify your email");
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Please check your email & verify",
+                    // footer: 'Please verify your email'
+                  });
+                  
             }
             // navigate('/')
 

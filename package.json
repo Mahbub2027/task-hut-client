@@ -26,7 +26,8 @@
     "react-simple-typewriter": "^5.0.1",
     "recharts": "^2.10.4",
     "sort-by": "^1.2.0",
-    "sweetalert2": "^11.10.3"
+    "sweetalert2": "^11.10.4",
+    "swiper": "^11.0.5"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",

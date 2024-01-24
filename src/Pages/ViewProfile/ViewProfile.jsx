@@ -7,7 +7,7 @@ import Certification from "./Certification/Certification";
 
 const ViewProfile = () => {
     return (
-        <div className="grid grid-cols-3 gap-4 w-8/12 mx-auto my-4">
+        <div className="grid grid-cols-3 gap-4 w-11/12 mx-auto my-4">
             <div className="col-span-2 space-y-8">
                 <ClientProfile></ClientProfile>
                 <Portfolio></Portfolio>

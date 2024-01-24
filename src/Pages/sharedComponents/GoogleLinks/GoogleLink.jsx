@@ -2,6 +2,7 @@ import { FcGoogle } from "react-icons/fc";
 import useAuth from "../../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
+import Swal from "sweetalert2";
 
 const GoogleLink = () => {
     const {googleLogin} = useAuth();
@@ -20,6 +21,13 @@ const GoogleLink = () => {
                  axiosPublic.post('/users', userInfo)
                  .then(res=> {
                     console.log(res.data)
+                    Swal.fire({
+                        position: "center",
+                        icon: "success",
+                        title: "Login Successful",
+                        showConfirmButton: false,
+                        timer: 1500
+                      });
                     navigate('/')
                     })
                 })
