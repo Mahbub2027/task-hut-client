@@ -3,7 +3,6 @@ import useAuth from '../../../hooks/useAuth';
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
 import { useQuery } from '@tanstack/react-query';
 import { FaDollarSign, FaHandHoldingHeart, FaHandsClapping, FaMapLocationDot, FaRegCalendarCheck, FaRegClock, FaShareNodes, FaUserTie } from 'react-icons/fa6';
-import { Link } from 'react-router-dom';
 
 const ClientProfile = () => {
 
@@ -39,18 +38,43 @@ const ClientProfile = () => {
                 <p className='mt-4 flex items-center gap-3'><FaRegCalendarCheck className='w-6 h-6' />Joined October 7, 2023</p>
                 <p className='mt-4 flex items-center gap-3'><FaHandHoldingHeart className='w-6 h-6' />0 Recommendations</p>
             </div>
-            <div className='col-span-2'>
-                <p className='text-3xl font-bold'>{user?.displayName}<small className='text-lg italic font-medium mx-2'>@sajid21</small></p>
-                <p className='text-xl font-medium'>Web Developer(MERN Stack)</p>
+            <div className='col-span-2 text-slate-700 space-y-6'>
+                <div className='flex justify-between items-start'>
+                    <div>
+                        <p className='text-3xl font-bold'>{user.displayName}<small className='text-lg italic font-medium mx-2'>@sajid21</small></p>
+                        <p className='text-xl font-medium'>Web Developer(MERN Stack)</p>
+                    </div>
+                    <div className='flex flex-col-reverse items-end'>
+                        <p>
+                            <span className='text-3xl font-medium'>4.5</span>
+                            <span className='text-md font-medium'>/5</span>
+                        </p>
+                        <Rating
+                            style={{ maxWidth: 100 }}
+                            value={4.5}
+                            readOnly
+                        />
+                    </div>
+                </div>
                 <hr className='' />
-                <FaHandsClapping className='w-6 h-6' />
-                <p className=''>About:: Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, velit similique necessitatibus corrupti accusamus iusto eveniet praesentium voluptatem veritatis laborum atque, qui earum at minima. Quaerat doloremque recusandae dignissimos et nisi, quibusdam quae tempore porro minima alias neque? Nulla sed eius harum provident modi voluptate reiciendis totam ut exercitationem tempore!</p>
-                <hr />
-                <p>Job Completed</p>
-                <p>Earnings</p>
-                <p>Star Ratings</p>
-                <p>Review Counts</p>
-                <hr className="mb-8 dark:opacity-25" />
+                <div>
+                    <p className='font-medium text-lg'>Summery</p>
+                    <p className='text-justify'>About :: Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, velit similique necessitatibus corrupti accusamus iusto eveniet praesentium voluptatem veritatis laborum atque, qui earum at minima. Quaerat doloremque recusandae dignissimos et nisi, quibusdam quae tempore porro minima alias neque? Nulla sed eius harum provident modi voluptate reiciendis totam ut exercitationem tempore!</p>
+                </div>
+                <div className='flex justify-evenly bg-slate-200 py-4 rounded-lg'>
+                    <p className='w-40 flex flex-col gap-1 items-center bg-white p-4 rounded-md shadow-md'>
+                        <span className='text-5xl font-semibold'>0</span>
+                        <span className='text-xs font-medium'>Job Completed</span>
+                    </p>
+                    <p className='w-40 flex flex-col gap-1 items-center bg-white p-4 rounded-md shadow-md'>
+                        <span className='text-5xl font-semibold'>0</span>
+                        <span className='text-xs font-medium'>Reviews</span>
+                    </p>
+                    <p className='w-40 flex flex-col gap-1 items-center bg-white p-4 rounded-md shadow-md'>
+                        <span className='text-5xl font-semibold'>$0.00</span>
+                        <span className='text-xs font-medium'>Earnings</span>
+                    </p>
+                </div>
                 <div className='flex gap-4 items-center justify-end'>
                     <button className="inline-flex items-center justify-center overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 via-purple-600 to-purple-700 group-hover:from-purple-500 group-hover:to-purple-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80">
 

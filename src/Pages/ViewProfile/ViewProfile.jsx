@@ -13,7 +13,7 @@ const ViewProfile = () => {
                 <Portfolio></Portfolio>
                 <Reviews></Reviews>
             </div>
-            <div className="col-span-1 space-y-8">
+            <div className="col-span-1 space-y-4">
                 <Verification></Verification>
                 <Certification></Certification>
                 <TopSkills></TopSkills>
