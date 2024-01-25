@@ -2,7 +2,9 @@ import React from 'react';
 import useAuth from '../../../hooks/useAuth';
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
 import { useQuery } from '@tanstack/react-query';
-import { FaDollarSign, FaHandHoldingHeart, FaHandsClapping, FaMapLocationDot, FaRegCalendarCheck, FaRegClock, FaShareNodes, FaUserTie } from 'react-icons/fa6';
+import { FaDollarSign, FaHandHoldingHeart, FaMapLocationDot, FaRegCalendarCheck, FaRegClock, FaShareNodes, FaUserTie } from 'react-icons/fa6';
+import { Rating } from '@smastrom/react-rating';
+import { Link } from 'react-router-dom';
 
 const ClientProfile = () => {
 

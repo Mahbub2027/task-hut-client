@@ -1,11 +1,11 @@
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import logo from "../../../public/TaskhutClear.png";
-// import useTanStact from "../../hooks/useTanStact";
+
 // import { useEffect, useState } from "react";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
-import { FaArrowTrendUp, FaGears, FaPersonCircleQuestion, FaRightFromBracket, FaUserPen } from "react-icons/fa6";
+import { FaArrowTrendUp, FaPersonCircleQuestion, FaRightFromBracket, FaUserPen } from "react-icons/fa6";
 // import logosmall from "../../../public/TaskhutSmall.jpg";
 
 // import { useEffect, useState } from "react";

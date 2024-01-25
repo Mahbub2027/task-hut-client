@@ -35,7 +35,7 @@ const SignUp = () => {
             const userDetails = {
                 name : data.name,
                 email: data.email,
-                role: "user",
+                // role: "user",
                 image: res.data.data.display_url, 
             }
             const userRes = await axiosPublic.post('/users', userDetails)

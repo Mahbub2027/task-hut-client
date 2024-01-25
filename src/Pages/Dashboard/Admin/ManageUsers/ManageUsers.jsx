@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 // import useAuth from "../../../../hooks/useAuth";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import {FaTrashCan } from "react-icons/fa6";
 
 const ManageUsers = () => {
     // const {user} = useAuth();
@@ -15,7 +16,7 @@ const ManageUsers = () => {
             return res.data;
         }
     })
-    
+
     const handleMakeAdmin = use => {
         Swal.fire({
             title: "Are you sure?",
@@ -26,28 +27,62 @@ const ManageUsers = () => {
             cancelButtonColor: "#d33",
             confirmButtonText: "Yes, make it!"
         }).then((result) => {
-            
+
             if (result.isConfirmed) {
                 axiosSecure.patch(`/users/admin/${use._id}`)
-                .then(res=>{
-                    console.log(res.data)
+                    .then(res => {
+                        console.log(res.data)
 
-                    if(res.data.modifiedCount > 0){
-                        refetch();
-                        Swal.fire({
-                            position: 'center',
-                            icon: "success",
-                            text: `${use.name} is admin now`,
-                            showConfirmButton: false,
-                            timer: 1500,
-                        });
-                    }
-                })
-                
-                
+                        if (res.data.modifiedCount > 0) {
+                            refetch();
+                            Swal.fire({
+                                position: 'center',
+                                icon: "success",
+                                text: `${use.name} is admin now`,
+                                showConfirmButton: false,
+                                timer: 1500,
+                            });
+                        }
+                    })
+
+
             }
         });
     }
+
+    const handleDeleteUser = use =>{
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You want to delete this",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+
+            if (result.isConfirmed) {
+                axiosSecure.delete(`/users/${use._id}`)
+                    .then(res => {
+                        console.log(res.data)
+
+                        if (res.data.deletedCount > 0) {
+                            refetch();
+                            Swal.fire({
+                                position: 'center',
+                                icon: "success",
+                                text: `${use.name} is delete now`,
+                                showConfirmButton: false,
+                                timer: 1500,
+                            });
+                        }
+                    })
+
+
+            }
+        });
+    }
+
     return (
         <div className="w-11/12 mx-auto my-8">
             <div className="overflow-x-auto">
@@ -63,6 +98,7 @@ const ManageUsers = () => {
                             <th>Name</th>
                             <th>Email</th>
                             <th>Role</th>
+                            <th>Action</th>
                             <th>Action</th>
 
                         </tr>
@@ -80,11 +116,23 @@ const ManageUsers = () => {
                                     {use.name}
                                 </td>
                                 <td>{use.email}</td>
-                                <td>
-                                    {use?.role ? <p>{use.role}</p> : <p>User</p>}
+                                <td className="capitalize ">
+                                    {use?.role ? <p className="font-bold">{use.role}</p> : <p>User</p>}
                                 </td>
                                 <td>
-                                    <button onClick={() => handleMakeAdmin(use)} className="btn btn-ghost btn-md">Make Admin</button>
+                                    {
+                                        (use?.role === 'admin' || use?.role === 'buyer') ? <>
+                                            <button disabled onClick={() => handleMakeAdmin(use)} className="btn btn-ghost btn-md">Make Admin</button>
+                                        </> :
+                                            <>
+                                                <button onClick={() => handleMakeAdmin(use)} className="btn btn-ghost btn-md">Make Admin</button>
+                                            </>
+                                    }
+                                </td>
+                                <td>
+                                    <button  onClick={()=> handleDeleteUser(use)}
+                                    className="bg-red-500 text-white text-xl p-2 rounded-lg"
+                                    > <FaTrashCan></FaTrashCan></button>
                                 </td>
                             </tr>)
                         }
