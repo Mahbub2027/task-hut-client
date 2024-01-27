@@ -3,15 +3,15 @@ import { FaMagnifyingGlassChart } from "react-icons/fa6";
 import { CiSquareMore } from "react-icons/ci";
 
 
-function TopTalent() {
+const TopTalent =()  => {
   return (
-    <section className="my-24 mx-24">
+    <section className="my-20 mx-24">
       <h1 className="text-center font-bold text-xl lg:text-4xl mt-32 mb-16">
         Find Top Talent{" "}
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center gap-7">
         {/* <!-- card 1 --> */}
-        <div className="card w-96 cursor-pointer bg-gray-50 hover:bg-base-200 shadow-lg">
+        <div className="card  cursor-pointer bg-gray-50 hover:bg-base-200 shadow-lg">
           <figure className="px-10 pt-10 text-5xl">
             <div className="">
             <FaFileCode />
@@ -24,7 +24,7 @@ function TopTalent() {
           </div>
         </div>
         {/* <!-- card 2 --> */}
-        <div className="card w-96 cursor-pointer bg-gray-50 hover:bg-base-200 shadow-lg">
+        <div className="card  cursor-pointer bg-gray-50 hover:bg-base-200 shadow-lg">
           <figure className="px-10 pt-10">
             <div className="mb-2 text-5xl">
             <FaCode />
@@ -37,7 +37,7 @@ function TopTalent() {
           </div>
         </div>
         {/* <!-- card 3 --> */}
-        <div className="card w-96 cursor-pointer bg-gray-50 hover:bg-base-200 shadow-lg">
+        <div className="card  cursor-pointer bg-gray-50 hover:bg-base-200 shadow-lg">
           <figure className="px-10 pt-10">
             <div className="mb-2 text-5xl">
             <FaAndroid />{" "}
@@ -50,7 +50,7 @@ function TopTalent() {
           </div>
         </div>
         {/* <!-- card 4 --> */}
-        <div className="card w-96 cursor-pointer bg-gray-50 hover:bg-base-200 shadow-lg">
+        <div className="card  cursor-pointer bg-gray-50 hover:bg-base-200 shadow-lg">
           <figure className="px-10 pt-10">
             <div className="mb-2 text-5xl">
             <FaDatabase />
@@ -63,7 +63,7 @@ function TopTalent() {
           </div>
         </div>
         {/* <!-- card 5 --> */}
-        <div className="card w-96 cursor-pointer bg-gray-50 hover:bg-base-200 shadow-lg">
+        <div className="card  cursor-pointer bg-gray-50 hover:bg-base-200 shadow-lg">
           <figure className="px-10 pt-10">
             <div className="mb-2 text-5xl">
             <FaSwatchbook />
@@ -76,7 +76,7 @@ function TopTalent() {
           </div>
         </div>
         {/* <!-- card 6 --> */}
-        <div className="card w-96 cursor-pointer bg-gray-50 hover:bg-base-200 shadow-lg">
+        <div className="card  cursor-pointer bg-gray-50 hover:bg-base-200 shadow-lg">
           <figure className="px-10 pt-10">
             <div className="mb-2 text-5xl">
             <FaNetworkWired />
@@ -89,7 +89,7 @@ function TopTalent() {
           </div>
         </div>
         {/* <!-- card 7 --> */}
-        <div className="card w-96 cursor-pointer bg-gray-50 hover:bg-base-200 shadow-lg">
+        <div className="card  cursor-pointer bg-gray-50 hover:bg-base-200 shadow-lg">
           <figure className="px-10 pt-10">
             <div className="mb-2 text-5xl">
             <FaHotel />
@@ -102,7 +102,7 @@ function TopTalent() {
           </div>
         </div>
         {/* <!-- card 8 --> */}
-        <div className="card w-96 cursor-pointer bg-gray-50 hover:bg-base-200 shadow-lg">
+        <div className="card  cursor-pointer bg-gray-50 hover:bg-base-200 shadow-lg">
           <figure className="px-10 pt-10">
             <div className="mb-2 text-5xl">
             <FaMagnifyingGlassChart />
@@ -115,7 +115,7 @@ function TopTalent() {
           </div>
         </div>
         {/* <!-- card 9 --> */}
-        <div className="card w-96 cursor-pointer bg-gray-50 hover:bg-base-200 shadow-lg">
+        <div className="card  cursor-pointer bg-gray-50 hover:bg-base-200 shadow-lg">
         <figure className="px-10 pt-10">
         <div className="mb-2 text-5xl">
         <CiSquareMore />

@@ -4,6 +4,7 @@ import Home from "../Pages/HomePages/Home/Home";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Login from "../Pages/auth/Login/Login";
 import SignUp from "../Pages/auth/SignUp/SignUp";
+import BuyerSignup from "../Pages/auth/BuyerSignup/BuyerSignup";
 import AboutUs from "../Pages/AboutUs/AboutUs";
 import Contact from "../Pages/Contact/Contact";
 import PrivateRoutes from "./PrivateRoutes";
@@ -20,6 +21,7 @@ import TrustVerification from "../Pages/Dashboard/Users/TrustVerification/TrustV
 import Account from "../Pages/Dashboard/Users/Account/Account";
 import Dashboard from "../Layout/Dashboard";
 import ManageUsers from "../Pages/Dashboard/Admin/ManageUsers/ManageUsers";
+
 
   export const router = createBrowserRouter([
     {
@@ -38,6 +40,10 @@ import ManageUsers from "../Pages/Dashboard/Admin/ManageUsers/ManageUsers";
         {
             path: '/signup',
             element: <SignUp></SignUp>
+        },
+        {
+          path: '/buyerSignup',
+          element: <BuyerSignup></BuyerSignup>,
         },
         {
             path: '/aboutUs',

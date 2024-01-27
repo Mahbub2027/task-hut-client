@@ -6,7 +6,7 @@ import value from "../../assets/icons/value.png";
 
 function WhyUs() {
   return (
-    <section className="my-24 bg-[#1D4ED8] text-white py-20 px-14">
+    <section className="my-20 bg-[#1D4ED8] text-white py-20 px-14">
       <h1 className="text-center font-semibold text-2xl lg:text-5xl mb-14 ">
         Why Choose Us
       </h1>
@@ -20,8 +20,8 @@ function WhyUs() {
         </div>
 
         <div>
-          <div>
-            <div className="flex items-center gap-5">
+          <div className="space-y-3">
+            <div className="flex flex-col lg:flex-row items-center gap-5">
               <div className="w-16">
                 <img src={credibility} alt="" />
               </div>
@@ -35,7 +35,7 @@ function WhyUs() {
                 </p>
               </div>
             </div>
-            <div className="flex items-center gap-5">
+            <div className="flex  flex-col lg:flex-row items-center gap-5">
               <div className="w-14">
                 <img src={security} alt="" />
               </div>
@@ -48,7 +48,7 @@ function WhyUs() {
                 </p>
               </div>
             </div>
-            <div className="flex items-center gap-6">
+            <div className="flex flex-col lg:flex-row items-center gap-6">
               <div className="w-14">
                 <img src={support} alt="" />
               </div>
@@ -62,7 +62,7 @@ function WhyUs() {
                 </p>
               </div>
             </div>
-            <div className="flex items-center gap-4">
+            <div className="flex flex-col lg:flex-row items-center gap-4">
               <div className="w-14">
                 <img src={value} alt="" />
               </div>

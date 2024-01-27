@@ -83,20 +83,18 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          {/* {
-                pagol.map(pag=> <li key={pag._id}>{pag.email}</li>)
-              } */}
+
           {user?.emailVerified ?
             <>
               {
                 users.map(use => <div
                   key={use._id}>
                   <details className="relative">
-                    <summary className="m-1 btn btn-circle"><img className="w-12 h-12 rounded-full mx-2" src={use.image} alt="" /></summary>
+                    <summary className="mx-1 btn btn-circle"><img className="w-12 h-10 rounded-full mx-2" src={use.image} alt="" /></summary>
                     <ul className="border-2 border-violet-400 px-4 py-4 font-normal shadow-lg z-[1] bg-base-100 text-slate-700 rounded-box w-auto absolute right-0">
                       {/* <li className="font-medium pb-2 flex justify-between"><p>$00.0</p><span>Balance</span></li><hr className="opacity-25"/> */}
                       <li className="pt-4"><span>{use?.name}</span></li>
-                      <li className="pb-4"><span>{use?.email}</span></li> <hr className="opacity-25"/>
+                      <li className="pb-4"><span>{use?.email}</span></li> <hr className="opacity-25" />
                       <li className="flex gap-3 items-center my-2 py-2 rounded hover:transition duration-500 ease-out hover:ease-in-out hover:bg-slate-700 hover:text-white hover:pl-2"><FaUserPen /><Link to="/viewProfile" preventScrollReset={true}>View Profile</Link></li>
                       <li className="flex gap-3 items-center my-2 py-2 rounded hover:transition duration-500 ease-out hover:ease-in-out hover:bg-slate-700 hover:text-white hover:pl-2"><FaArrowTrendUp /><Link to="/accountAnalytics" preventScrollReset={true}>Account Analytics</Link></li>
                       <li className="flex gap-3 items-center my-2 py-2 rounded hover:transition duration-500 ease-out hover:ease-in-out hover:bg-slate-700 hover:text-white hover:pl-2"><FaArrowTrendUp /><Link to="/dashboard" preventScrollReset={true}>Dashboard</Link></li>
@@ -119,18 +117,25 @@ const Navbar = () => {
             </>
             :
             <>
-              <div className="flex justify-between">
+              <div className="flex flex-row gap-2 item-center">
                 <div>
-                <Link to="/signup"
-                className="bg-purple-800 lg:mx-4 sm:my-10 text-white px-5 py-3 rounded-md font-bold text-base">
-                <button>Sign Up</button>
-              </Link>
+                  <Link to="/login">
+                    {/* className="border-2 border-purple-800 lg:mx-4 sm:my-10 text-purple-800 px-5 py-3 rounded-md font-bold text-base"> */}
+                    <button className="m-1 border-2 rounded-lg border-purple-800 px-5 py-2 text-purple-800 ">Log in</button>
+                  </Link>
                 </div>
                 <div>
-                <Link to="/login"
-                className="bg-purple-800 lg:mx-4 sm:my-10 text-white px-5 py-3 rounded-md font-bold text-base">
-                <button>Log in</button>
-              </Link>
+                  {/* <Link to="/signup"> */}
+                    <details className="dropdown dropdown-end">
+                      <summary className="m-1 btn hover:bg-purple-800 bg-purple-600 text-white px-5 py-2 rounded-lg">Register</summary>
+                      <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-56">
+                        <li><Link to="/signup">I'm looking for a job</Link></li>
+                        <li><Link to="/buyerSignup">I'm looking for candidates</Link></li>
+                      </ul>
+                    </details>
+                    {/* // className="bg-purple-800 lg:mx-4 sm:my-10 text-white px-5 py-3 rounded-md font-bold text-base">
+                    // <button>Sign Up</button> */}
+                  {/* </Link> */}
                 </div>
               </div>
             </>

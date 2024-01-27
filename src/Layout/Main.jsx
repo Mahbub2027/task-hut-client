@@ -8,7 +8,7 @@ const Main = () => {
     // const [isemailVerified, setEmailVerified] = useState(false)
     // const navigate = useNavigate();
     // console.log(location)
-    const navBarFooter = location.pathname?.includes('login') || location.pathname?.includes('signup');
+    const navBarFooter = location.pathname?.includes('login') || location.pathname?.includes('signup') || location.pathname?.includes('buyerSignup');
     return (
         <div className="min-h-screen flex flex-col">
             {navBarFooter || <Navbar></Navbar>}

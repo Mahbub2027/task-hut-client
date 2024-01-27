@@ -2,7 +2,9 @@ import postimg from "../../assets/icons/post1.png";
 import hireimg from "../../assets/icons/hire1.png";
 import workimg from "../../assets/icons/work1.png";
 import paymentimg from "../../assets/icons/payment1.png";
-function HowItWorks() {
+
+
+const  HowItWorks =() => {
   return (
     <section className="my-24">
       <div>
@@ -13,7 +15,7 @@ function HowItWorks() {
       </div>
       <div className="flex flex-col lg:flex-row">
         {/* <!-- card 1 --> */}
-        <div className="card w-96 bg-base-100 bg-white text-black mx-5">
+        <div className="card  bg-white text-black mx-5">
           <figure className="px-10 pt-10">
             <img src={postimg} alt="" className="" />
           </figure>
@@ -27,7 +29,7 @@ function HowItWorks() {
         </div>
 
         {/* <!-- card 2 --> */}
-        <div className="card w-96 bg-base-100 bg-white text-black mx-5">
+        <div className="card  bg-white text-black mx-5">
           <figure className="px-10 pt-10">
             <img src={hireimg} alt="" className="" />
           </figure>
@@ -41,7 +43,7 @@ function HowItWorks() {
         </div>
 
         {/* <!-- card 3 --> */}
-        <div className="card w-96 bg-base-100 bg-white text-black mx-5">
+        <div className="card bg-white text-black mx-5">
           <figure className="px-10 pt-10">
             <img src={workimg} alt="" className="" />
           </figure>
@@ -55,7 +57,7 @@ function HowItWorks() {
         </div>
 
         {/* <!-- card 4 --> */}
-        <div className="card w-96 bg-base-100 bg-white text-black mx-5">
+        <div className="card  bg-white text-black mx-5">
           <figure className="px-10 pt-10">
             <img src={paymentimg} alt="" className="" />
           </figure>

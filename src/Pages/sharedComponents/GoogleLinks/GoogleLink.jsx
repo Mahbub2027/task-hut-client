@@ -40,7 +40,7 @@ const GoogleLink = () => {
     return (
         <div>
             <button onClick={handleGoogleLogin}
-            className="border-2 border-blue-500 w-full rounded-xl font-semibold text-lg p-2 flex flex-row items-center justify-center gap-3"><FcGoogle></FcGoogle> Log in with Google</button>
+            className="border-2 border-blue-500 w-full rounded-xl font-semibold text-lg p-2 flex flex-row items-center justify-center gap-3"><FcGoogle></FcGoogle> Continue with Google</button>
         </div>
     )
 };

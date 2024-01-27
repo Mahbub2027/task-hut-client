@@ -5,47 +5,49 @@ import { Helmet } from "react-helmet";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
-import GoogleLink from "../../sharedComponents/GoogleLinks/GoogleLink";
+// import GoogleLink from "../../sharedComponents/GoogleLinks/GoogleLink";
 import Swal from "sweetalert2";
+import { FcGoogle } from "react-icons/fc";
 
 const image_hosting_key = import.meta.env.VITE_image_hosting_key;
-const image_hosting_api= `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
+const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
-const SignUp = () => {
-    const { createUser, updateUserProfile, emailVerification } = useAuth();
-    const [errorMessage, setErrorMessage] = useState('')
+const BuyerSignup = () => {
+    const { createUser, googleLogin, updateUserProfile, emailVerification } = useAuth();
+    const [errorMessage, setErrorMessage] = useState('');
     const [showPassword, setShowPassword] = useState(false);
     const axiosPublic = useAxiosPublic();
 
-    const { register, handleSubmit, reset, formState: { errors } } = useForm()
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const navigate = useNavigate();
 
-
-    const onSubmit = async(data) => {
+    // email sign up
+    const onSubmit = async (data) => {
         console.log(data)
         // image upload imgBB
-        const imageFile = {image : data.image[0]}
+        const imageFile = { image: data.image[0] }
         const res = await axiosPublic.post(image_hosting_api, imageFile, {
             headers: {
                 'content-type': 'multipart/form-data'
             }
         })
         console.log(res.data)
-        if(res.data.success){
+        if (res.data.success) {
             const userDetails = {
-                name : data.name,
+                name: data.name,
                 email: data.email,
-                image: res.data.data.display_url, 
+                image: res.data.data.display_url,
+                role: "buyer",
             }
             const userRes = await axiosPublic.post('/users', userDetails)
-            
+
             console.log(userRes, data);
-        } 
+        }
 
         createUser(data.email, data.password)
             .then(res => {
                 console.log(res.user)
-                    
+
                 //update profile
                 updateUserProfile(data.name)
                     .then(() => {
@@ -57,13 +59,13 @@ const SignUp = () => {
 
                 // email verification
                 emailVerification()
-                    .then(()=> {
+                    .then(() => {
                         Swal.fire({
                             // title: "Good job!",
                             text: "Please verify your email",
                             icon: "warning"
-                          });
-                          
+                        });
+
                         reset();
                         setTimeout(() => {
                             navigate('/login')
@@ -80,6 +82,35 @@ const SignUp = () => {
 
 
     }
+    // google sign up
+    const handleGoogleLogin = () => {
+        googleLogin()
+            .then(res => {
+                console.log(res.user)
+                const userInfo = {
+                    name: res.user.displayName,
+                    email: res.user.email,
+                    image: res.user.photoURL,
+                    role: "buyer",
+                }
+                 axiosPublic.post('/users', userInfo)
+                 .then(res=> {
+                    console.log(res.data)
+                    Swal.fire({
+                        position: "center",
+                        icon: "success",
+                        title: "Login Successful",
+                        showConfirmButton: false,
+                        timer: 1500
+                      });
+                    navigate('/')
+                    })
+                })
+                
+            .catch(error => {
+                console.log(error)
+            })
+    }
 
     return (
         <div >
@@ -93,9 +124,9 @@ const SignUp = () => {
                         <img src="https://i.ibb.co/jWnpV9R/login-svg.jpg" alt="" />
                     </div>
                     <div className="card shrink-0 w-full lg:w-1/2 max-w-sm shadow-2xl bg-base-100">
-                        
+
                         <form onSubmit={handleSubmit(onSubmit)} className="card-body">
-                        <h2 className="text-3xl font-bold text-center">Create an account</h2>
+                            <h2 className="text-3xl font-bold text-center">Create an account</h2>
                             <div className="form-control">
                                 <label className="label">
                                     {/* <span className="label-text font-bold text-base">Name</span> */}
@@ -121,7 +152,7 @@ const SignUp = () => {
                                     pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/
                                 })} name="password" placeholder="Password" className=" input input-bordered" required />
                                 <span className="absolute bottom-4 right-3 text-lg" onClick={() => setShowPassword(!showPassword)}>
-                                    {showPassword ?  <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash>}
+                                    {showPassword ? <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash>}
                                 </span>
                                 {errors.password?.type === 'required' && <span className="text-red-500">Password is required</span>}
                                 {errors.password?.type === 'minLength' && <span className="text-red-500">Password must be 6 character</span>}
@@ -141,14 +172,17 @@ const SignUp = () => {
                                 {errors.photo && <span className="text-red-500">This field is required</span>} */}
                             </div>
                             <div className="form-control mt-6">
-                                <button className="btn bg-gradient-to-r from-cyan-500 to-blue-500 text-lg text-white">Register</button>
+                                <button className="btn bg-gradient-to-r from-cyan-500 to-blue-500 text-lg text-white">Sign Up</button>
                             </div>
                             {
                                 errorMessage && <p className="text-red-500">{errorMessage}</p>
                             }
                             <div className="divider">Or</div>
-                             {/* social account login */}
-                            <GoogleLink></GoogleLink>
+                            {/* social account login */}
+                            <div>
+                                <button onClick={handleGoogleLogin}
+                                    className="border-2 border-blue-500 w-full rounded-xl font-semibold text-lg p-2 flex flex-row items-center justify-center gap-3"><FcGoogle></FcGoogle>Sign up with Google</button>
+                            </div>
                             <p>Already Have an account? Please <Link to='/login' className="font-bold text-blue-600">Login</Link></p>
                         </form>
                     </div>
@@ -158,4 +192,4 @@ const SignUp = () => {
     );
 };
 
-export default SignUp;
+export default BuyerSignup;

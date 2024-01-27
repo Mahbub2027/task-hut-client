@@ -4,7 +4,7 @@ import HowItWorks from "../../../ComponentsUI/HomeComponents/HowItWorks";
 import WhyUs from "../../../ComponentsUI/HomeComponents/WhyUs";
 import TopTalent from "../../../ComponentsUI/HomeComponents/TopTalent";
 import Reviews from "../../../ComponentsUI/HomeComponents/Reviews";
-import BannerHome from "../Banner/BannerHome";
+// import BannerHome from "../Banner/BannerHome";
 
 const Home = () => {
   return (
