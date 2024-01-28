@@ -68,18 +68,10 @@ const Dashboard = () => {
                 {
                     (!isAdmin && !isBuyer) && <>
                         <ul className="space-y-2">
-                            <h1 className='text-2xl font-bold text-center my-3'>User Dashboard</h1>
-                            <li className="flex gap-2 items-center py-2 px-4 border-l-4 border-transparent hover:border-l-4 hover:border-l-slate-500 hover:transition duration-500 ease-in-out hover:ease-in-out  dark:hover:text-white hover:pl-3">
-                                <FaUserTie />
-                                <NavLink to='/dashboard/profile'>Profile</NavLink>
-                            </li>
+                            <h1 className='text-2xl font-bold text-center my-3'>Employee Dashboard</h1>
                             <li className="flex gap-2 items-center py-2 px-4 border-l-4 border-transparent hover:border-l-4 hover:border-l-slate-500 hover:transition duration-500 ease-in-out hover:ease-in-out  dark:hover:text-white hover:pl-3">
                                 <FaUserTie />
                                 <NavLink to='/dashboard/editProfile'>Edit Profile</NavLink>
-                            </li>
-                            <li className="flex gap-2 items-center py-2 px-4 border-l-4 border-transparent hover:border-l-4 hover:border-l-slate-500 hover:transition duration-500 ease-in-out hover:ease-in-out dark:hover:text-white hover:pl-3">
-                                <FaUserLock />
-                                <NavLink to='/dashboard/password'>Password</NavLink>
                             </li>
                             <li className="flex gap-2 items-center py-2 px-4 border-l-4 border-transparent hover:border-l-4 hover:border-l-slate-500 hover:transition duration-500 ease-in-out hover:ease-in-out dark:hover:text-white hover:pl-3">
                                 <FaCreditCard />

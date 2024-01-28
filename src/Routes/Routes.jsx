@@ -14,7 +14,6 @@ import AccounAnalytics from "../Pages/AccountAnalytics/AccounAnalytics";
 // import Settings from "../Pages/Settings/Settings";
 import Support from "../Pages/Support/Support";
 import Profile from "../Pages/Dashboard/Users/Profile/Profile";
-import Password from "../Pages/Dashboard/Users/Password/Password";
 import Payment from "../Pages/Dashboard/Users/Payment/Payment";
 import Security from "../Pages/Dashboard/Users/Security/Security";
 import TrustVerification from "../Pages/Dashboard/Users/TrustVerification/TrustVerification";
@@ -118,10 +117,6 @@ import ManageUsers from "../Pages/Dashboard/Admin/ManageUsers/ManageUsers";
         {
           path: 'editProfile',
           element: <Profile></Profile>
-        },
-        {
-          path: 'password',
-          element: <Password></Password>
         },
         {
           path: 'payment',
