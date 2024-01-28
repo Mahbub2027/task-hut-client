@@ -1,53 +1,90 @@
 import React, { useState } from 'react';
 import { FaTriangleExclamation } from 'react-icons/fa6';
 
-const Profile = () => {
-
+const EditCompanyProfile = () => {
     const [isShow, setShow] = useState(false);
+
     return (
         <div className='p-8'>
-            <h2 className='font-bold text-2xl pb-2'>Profile Details</h2>
+            <h2 className='font-bold text-2xl pb-2'>Company Profile Details</h2>
             <hr className="dark:opacity-50" />
             <div className='p-8 space-y-6'>
-                <p className='w-full font-medium text-xl pb-2'>Image & Presentation</p>
+                <p className='w-full font-medium text-xl pb-2'>Company Logo & Website</p>
                 <label className='flex gap-8 justify-between'>
                     <input
                         className="basis-3/6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         type="file"
-                        name="profileImage"
-                        placeholder="Choose a professional image"
+                        name="logoImage"
+                        placeholder="Company Logo"
                         defaultValue={``}
                     />
                     <input
-                        className="basis-3/6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        type="file"
-                        name="presentation"
-                        placeholder="Give a presentation about you and your profession"
+                        className="basis-3/6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        type="text"
+                        name="websiteLink"
+                        placeholder="Website link"
                         defaultValue={``}
                     />
                 </label>
-                <p className='w-full font-medium text-xl pb-2'>Name</p>
+                <p className='w-full font-medium text-xl pb-2'>Company info</p>
                 <label className='flex gap-8 justify-between'>
                     <input
                         className="basis-3/6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         type="text"
-                        name="first"
-                        placeholder="First Name"
+                        name="companyName"
+                        placeholder="Company Name"
                         defaultValue={``}
                     />
                     <input
                         className="basis-3/6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         type="text"
-                        name="last"
-                        placeholder="Last Name"
+                        name="slogan"
+                        placeholder="Add slogan"
                         defaultValue={``}
                     />
                     <input
                         className="basis-3/6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         type="date"
-                        name="dob"
-                        placeholder="Date of birth"
+                        name="establishedDate"
+                        placeholder="Established Date"
                         defaultValue={`12/14/2024`}
+                    />
+                </label>
+                <label className='w-full flex flex-wrap gap-10'>
+                    <input
+                        className="basis-3/12 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        type="text"
+                        name="numberOfBranches"
+                        placeholder="Number of employees"
+                        defaultValue={``}
+                    />
+                    <input
+                        className="basis-3/12 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        type="number"
+                        name="numberOfEmployees"
+                        placeholder="Number of employees"
+                        defaultValue={``}
+                    />
+                    <input
+                        className="basis-3/12 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        type="text"
+                        name="workPreference"
+                        placeholder="On-site | Remote"
+                        defaultValue={``}
+                    />
+                    <input
+                        className="basis-5/12 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        type="text"
+                        name="github"
+                        placeholder="Github account link for open-source contribution"
+                        defaultValue={``}
+                    />
+                    <input
+                        className="basis-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        type="textarea"
+                        name="description"
+                        placeholder="Describe company motivation/objective"
+                        defaultValue={``}
                     />
                 </label>
                 <p className='w-full font-medium text-xl pb-2'>Contact info</p>
@@ -175,73 +212,6 @@ const Profile = () => {
                     </label>
                 </div>
                 <hr className="dark:opacity-25" />
-                <p className='w-full font-medium text-xl pb-2'>Developer info</p>
-                <label className='w-full flex flex-wrap gap-10'>
-                    <input
-                        className="basis-3/12 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        type="text"
-                        name="profession"
-                        placeholder="Profession"
-                        defaultValue={``}
-                    />
-                    <input
-                        className="basis-3/12 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        type="number"
-                        name="experience-years"
-                        placeholder="Years of experience"
-                        defaultValue={``}
-                    />
-                    <input
-                        className="basis-3/12 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        type="text"
-                        name="workPreference"
-                        placeholder="On-site | Remote"
-                        defaultValue={``}
-                    />
-                    <input
-                        className="basis-5/12 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        type="text"
-                        name="cv"
-                        placeholder="CV"
-                        defaultValue={``}
-                    />
-                    <input
-                        className="basis-5/12 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        type="text"
-                        name="resume"
-                        placeholder="Resume"
-                        defaultValue={``}
-                    />
-                    <input
-                        className="basis-5/12 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        type="text"
-                        name="portfolio"
-                        placeholder="Portfolio link"
-                        defaultValue={``}
-                    />
-                    <input
-                        className="basis-5/12 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        type="text"
-                        name="github"
-                        placeholder="Github profile link"
-                        defaultValue={``}
-                    />
-                    <input
-                        className="basis-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        type="text"
-                        name="skills"
-                        placeholder="Add your skills"
-                        defaultValue={``}
-                    />
-                    <input
-                        className="basis-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        type="textarea"
-                        name="description"
-                        placeholder="Describe your profession"
-                        defaultValue={``}
-                    />
-                </label>
-                <hr className="dark:opacity-25" />
                 <p className='w-full font-medium text-xl my-8 pb-4'>Select Website Browsing Language</p>
                 <label>
                     <input
@@ -261,4 +231,4 @@ const Profile = () => {
     );
 };
 
-export default Profile;
+export default EditCompanyProfile;

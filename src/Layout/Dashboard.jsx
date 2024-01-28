@@ -26,10 +26,6 @@ const Dashboard = () => {
                                 <NavLink to='/dashboard/editProfile'>Edit Profile</NavLink>
                             </li>
                             <li className="flex gap-2 items-center py-2 px-4 border-l-4 border-transparent hover:border-l-4 hover:border-l-slate-500 hover:transition duration-500 ease-in-out hover:ease-in-out dark:hover:text-white hover:pl-3">
-                                <FaUserLock />
-                                <NavLink to='/dashboard/password'>Password</NavLink>
-                            </li>
-                            <li className="flex gap-2 items-center py-2 px-4 border-l-4 border-transparent hover:border-l-4 hover:border-l-slate-500 hover:transition duration-500 ease-in-out hover:ease-in-out dark:hover:text-white hover:pl-3">
                                 <FaUsers />
                                 <NavLink to='/dashboard/manageUsers'>Manage Users</NavLink>
                             </li>
@@ -41,7 +37,7 @@ const Dashboard = () => {
                 {
                     isBuyer && <>
                         <ul className="space-y-2">
-                            <h1 className='text-2xl font-bold text-center my-3'>Buyer Dashboard</h1>
+                            <h1 className='text-2xl font-bold text-center my-3'>Company Dashboard</h1>
                             <li className="flex gap-2 items-center py-2 px-4 border-l-4 border-transparent hover:border-l-4 hover:border-l-slate-500 hover:transition duration-500 ease-in-out hover:ease-in-out  dark:hover:text-white hover:pl-3">
                                 <FaUserTie />
                                 <NavLink to='/dashboard/profile'>Buyer Profile</NavLink>
@@ -49,10 +45,6 @@ const Dashboard = () => {
                             <li className="flex gap-2 items-center py-2 px-4 border-l-4 border-transparent hover:border-l-4 hover:border-l-slate-500 hover:transition duration-500 ease-in-out hover:ease-in-out  dark:hover:text-white hover:pl-3">
                                 <FaUserTie />
                                 <NavLink to='/dashboard/editProfile'>Edit Profile</NavLink>
-                            </li>
-                            <li className="flex gap-2 items-center py-2 px-4 border-l-4 border-transparent hover:border-l-4 hover:border-l-slate-500 hover:transition duration-500 ease-in-out hover:ease-in-out dark:hover:text-white hover:pl-3">
-                                <FaUserLock />
-                                <NavLink to='/dashboard/password'>Password</NavLink>
                             </li>
                             <li className="flex gap-2 items-center py-2 px-4 border-l-4 border-transparent hover:border-l-4 hover:border-l-slate-500 hover:transition duration-500 ease-in-out hover:ease-in-out dark:hover:text-white hover:pl-3">
                                 <FaUsersGear />
