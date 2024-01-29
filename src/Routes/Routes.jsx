@@ -10,16 +10,23 @@ import Contact from "../Pages/Contact/Contact";
 import PrivateRoutes from "./PrivateRoutes";
 import BrowseJobs from "../Pages/BrowseJobs/BrowseJobs";
 import ViewProfile from "../Pages/ViewProfile/ViewProfile";
-import AccounAnalytics from "../Pages/AccountAnalytics/AccounAnalytics";
+import AccountAnalytics from "../Pages/AccountAnalytics/AccountAnalytics";
 // import Settings from "../Pages/Settings/Settings";
 import Support from "../Pages/Support/Support";
-import EditProfile from "../Pages/Dashboard/Users/EditProfile/EditProfile";
-import Payment from "../Pages/Dashboard/Users/Payment/Payment";
-import Security from "../Pages/Dashboard/Users/Security/Security";
-import TrustVerification from "../Pages/Dashboard/Users/TrustVerification/TrustVerification";
-import Account from "../Pages/Dashboard/Users/Account/Account";
+import EditProfile from "../Pages/Dashboard/Common/EditProfile/EditProfile";
+import Security from "../Pages/Dashboard/Common/Security/Security";
+import TrustVerification from "../Pages/Dashboard/Common/TrustVerification/TrustVerification";
+import Account from "../Pages/Dashboard/Common/Account/Account";
 import Dashboard from "../Layout/Dashboard";
 import ManageUsers from "../Pages/Dashboard/Admin/ManageUsers/ManageUsers";
+import SavedJobPosts from "../Pages/Dashboard/Users/SavedJobPosts/SavedJobPosts";
+import AppliedJobs from "../Pages/Dashboard/Users/AppliedJobs/AppliedJobs";
+import JobInterviews from "../Pages/Dashboard/Users/JobInterviews/JobInterviews";
+import CompanyPosts from "../Pages/Dashboard/Company/CompanyPosts/CompanyPosts";
+import ApplicantList from "../Pages/Dashboard/Company/ApplicantList/ApplicantList";
+import ShortListedApplicants from "../Pages/Dashboard/Company/ShortListedApplicants/ShortListedApplicants";
+import InterviewTask from "../Pages/Dashboard/Company/InterviewTask/InterviewTask";
+import Notifications from "../Pages/Dashboard/Common/Notifications/Notifications";
 
 
 export const router = createBrowserRouter([
@@ -66,7 +73,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '/accountAnalytics',
-        element: <PrivateRoutes><AccounAnalytics></AccounAnalytics></PrivateRoutes>
+        element: <PrivateRoutes><AccountAnalytics></AccountAnalytics></PrivateRoutes>
       },
       // settings
       // {
@@ -114,21 +121,52 @@ export const router = createBrowserRouter([
         path: 'profile',
         element: <ViewProfile></ViewProfile>
       },
+      // company 
+      {
+        path: 'companyPosts',
+        element: <CompanyPosts></CompanyPosts>
+      },
+      {
+        path: 'applicantList',
+        element: <ApplicantList></ApplicantList>
+      },
+      {
+        path: 'shortlistedApplicants',
+        element: <ShortListedApplicants></ShortListedApplicants>
+      },
+      {
+        path: 'interviewTask',
+        element: <InterviewTask></InterviewTask>
+      },
+      // employee
+      {
+        path: 'savedJobs',
+        element: <SavedJobPosts></SavedJobPosts>
+      },
+      {
+        path: 'appliedJobs',
+        element: <AppliedJobs></AppliedJobs>
+      },
+      {
+        path: 'jobInterview',
+        element: <JobInterviews></JobInterviews>
+      },
+      // common routes
       {
         path: 'editProfile',
         element: <EditProfile></EditProfile>
       },
       {
-        path: 'payment',
-        element: <Payment></Payment>
-      },
-      {
-        path: 'security',
-        element: <Security></Security>
+        path: 'notifications',
+        element: <Notifications></Notifications>
       },
       {
         path: 'trustVerification',
         element: <TrustVerification></TrustVerification>
+      },
+      {
+        path: 'security',
+        element: <Security></Security>
       },
       {
         path: 'account',

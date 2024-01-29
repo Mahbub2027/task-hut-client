@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import EditCompanyProfile from './EditCompanyProfile/EditCompanyProfile';
+import EditCompanyProfile from '../../Company/EditCompanyProfile/EditCompanyProfile';
 import useBuyer from '../../../../hooks/useBuyer';
-import EditEmployeeProfile from './EditEmployeeProfile/EditEmployeeProfile';
+import EditEmployeeProfile from '../../Users/EditEmployeeProfile/EditEmployeeProfile';
 
 const EditProfile = () => {
 

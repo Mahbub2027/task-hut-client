@@ -1,5 +1,5 @@
 // import React from 'react';
-import { FaHome } from 'react-icons/fa';
+import { FaBell, FaBriefcase, FaBusinessTime, FaCalendarCheck, FaFilePowerpoint, FaHome, FaList, FaUserCheck } from 'react-icons/fa';
 import { FaClipboardList, FaCreditCard, FaPersonCircleQuestion, FaUnlockKeyhole, FaUserLock, FaUserShield, FaUserTie, FaUsers, FaUsersGear } from 'react-icons/fa6';
 import { NavLink, Outlet } from 'react-router-dom';
 import useAdmin from '../hooks/useAdmin';
@@ -17,14 +17,14 @@ const Dashboard = () => {
                     isAdmin && <>
                         <ul className="space-y-2">
                             <h1 className='text-2xl font-bold text-center my-3'>Admin Dashboard</h1>
-                            <li className="flex gap-2 items-center py-2 px-4 border-l-4 border-transparent hover:border-l-4 hover:border-l-slate-500 hover:transition duration-500 ease-in-out hover:ease-in-out  dark:hover:text-white hover:pl-3">
+                            {/* <li className="flex gap-2 items-center py-2 px-4 border-l-4 border-transparent hover:border-l-4 hover:border-l-slate-500 hover:transition duration-500 ease-in-out hover:ease-in-out  dark:hover:text-white hover:pl-3">
                                 <FaUserTie />
                                 <NavLink to='/dashboard/profile'>Admin Profile</NavLink>
-                            </li>
-                            <li className="flex gap-2 items-center py-2 px-4 border-l-4 border-transparent hover:border-l-4 hover:border-l-slate-500 hover:transition duration-500 ease-in-out hover:ease-in-out  dark:hover:text-white hover:pl-3">
+                            </li> */}
+                            {/* <li className="flex gap-2 items-center py-2 px-4 border-l-4 border-transparent hover:border-l-4 hover:border-l-slate-500 hover:transition duration-500 ease-in-out hover:ease-in-out  dark:hover:text-white hover:pl-3">
                                 <FaUserTie />
                                 <NavLink to='/dashboard/editProfile'>Edit Profile</NavLink>
-                            </li>
+                            </li> */}
                             <li className="flex gap-2 items-center py-2 px-4 border-l-4 border-transparent hover:border-l-4 hover:border-l-slate-500 hover:transition duration-500 ease-in-out hover:ease-in-out dark:hover:text-white hover:pl-3">
                                 <FaUsers />
                                 <NavLink to='/dashboard/manageUsers'>Manage Users</NavLink>
@@ -38,19 +38,30 @@ const Dashboard = () => {
                     isBuyer && <>
                         <ul className="space-y-2">
                             <h1 className='text-2xl font-bold text-center my-3'>Company Dashboard</h1>
-                            <li className="flex gap-2 items-center py-2 px-4 border-l-4 border-transparent hover:border-l-4 hover:border-l-slate-500 hover:transition duration-500 ease-in-out hover:ease-in-out  dark:hover:text-white hover:pl-3">
+                            {/* <li className="flex gap-2 items-center py-2 px-4 border-l-4 border-transparent hover:border-l-4 hover:border-l-slate-500 hover:transition duration-500 ease-in-out hover:ease-in-out  dark:hover:text-white hover:pl-3">
                                 <FaUserTie />
                                 <NavLink to='/dashboard/profile'>Buyer Profile</NavLink>
-                            </li>
+                            </li> */}
                             <li className="flex gap-2 items-center py-2 px-4 border-l-4 border-transparent hover:border-l-4 hover:border-l-slate-500 hover:transition duration-500 ease-in-out hover:ease-in-out  dark:hover:text-white hover:pl-3">
                                 <FaUserTie />
                                 <NavLink to='/dashboard/editProfile'>Edit Profile</NavLink>
                             </li>
                             <li className="flex gap-2 items-center py-2 px-4 border-l-4 border-transparent hover:border-l-4 hover:border-l-slate-500 hover:transition duration-500 ease-in-out hover:ease-in-out dark:hover:text-white hover:pl-3">
-                                <FaUsersGear />
-                                <NavLink to='/dashboard/account'>Account</NavLink>
+                                <FaFilePowerpoint />
+                                <NavLink to='/dashboard/companyPosts'>Company Posts</NavLink>
                             </li>
-                            
+                            <li className="flex gap-2 items-center py-2 px-4 border-l-4 border-transparent hover:border-l-4 hover:border-l-slate-500 hover:transition duration-500 ease-in-out hover:ease-in-out dark:hover:text-white hover:pl-3">
+                                <FaList />
+                                <NavLink to='/dashboard/applicantList'>Applicant List</NavLink>
+                            </li>
+                            <li className="flex gap-2 items-center py-2 px-4 border-l-4 border-transparent hover:border-l-4 hover:border-l-slate-500 hover:transition duration-500 ease-in-out hover:ease-in-out dark:hover:text-white hover:pl-3">
+                                <FaUserCheck />
+                                <NavLink to='/dashboard/shortlistedApplicants'>Shortlisted Applicants</NavLink>
+                            </li>
+                            <li className="flex gap-2 items-center py-2 px-4 border-l-4 border-transparent hover:border-l-4 hover:border-l-slate-500 hover:transition duration-500 ease-in-out hover:ease-in-out dark:hover:text-white hover:pl-3">
+                                <FaClipboardList />
+                                <NavLink to='/dashboard/interviewTask'>Interview Task</NavLink>
+                            </li>
                         </ul>
                     </>
 
@@ -66,20 +77,16 @@ const Dashboard = () => {
                                 <NavLink to='/dashboard/editProfile'>Edit Profile</NavLink>
                             </li>
                             <li className="flex gap-2 items-center py-2 px-4 border-l-4 border-transparent hover:border-l-4 hover:border-l-slate-500 hover:transition duration-500 ease-in-out hover:ease-in-out dark:hover:text-white hover:pl-3">
-                                <FaCreditCard />
-                                <NavLink to='/dashboard/payment'>Payment</NavLink>
+                                <FaBriefcase />
+                                <NavLink to='/dashboard/savedJobs'>Saved Jobs</NavLink>
                             </li>
                             <li className="flex gap-2 items-center py-2 px-4 border-l-4 border-transparent hover:border-l-4 hover:border-l-slate-500 hover:transition duration-500 ease-in-out hover:ease-in-out dark:hover:text-white hover:pl-3">
-                                <FaUnlockKeyhole />
-                                <NavLink to='/dashboard/security'>Security</NavLink>
+                                <FaCalendarCheck />
+                                <NavLink to='/dashboard/appliedJobs'>Applied Jobs</NavLink>
                             </li>
                             <li className="flex gap-2 items-center py-2 px-4 border-l-4 border-transparent hover:border-l-4 hover:border-l-slate-500 hover:transition duration-500 ease-in-out hover:ease-in-out dark:hover:text-white hover:pl-3">
-                                <FaUserShield />
-                                <NavLink to='/dashboard/trustVerification'>Trust & Verification</NavLink>
-                            </li>
-                            <li className="flex gap-2 items-center py-2 px-4 border-l-4 border-transparent hover:border-l-4 hover:border-l-slate-500 hover:transition duration-500 ease-in-out hover:ease-in-out dark:hover:text-white hover:pl-3">
-                                <FaUsersGear />
-                                <NavLink to='/dashboard/account'>Account</NavLink>
+                                <FaBusinessTime />
+                                <NavLink to='/dashboard/jobInterview'>Job Interview</NavLink>
                             </li>
                         </ul>
                     </>
@@ -90,9 +97,25 @@ const Dashboard = () => {
 
                 {/* shared menu */}
                 <ul>
-
                     <li className="flex gap-2 items-center py-2 px-4 border-l-4 border-transparent hover:border-l-4 hover:border-l-slate-500 hover:transition duration-500 ease-in-out hover:ease-in-out dark:hover:text-white hover:pl-3">
-                        <FaHome></FaHome><NavLink to='/'> Home</NavLink></li>
+                        <FaBell /><NavLink to='/dashboard/notifications'> Notifications</NavLink>
+                    </li>
+                    <li className="flex gap-2 items-center py-2 px-4 border-l-4 border-transparent hover:border-l-4 hover:border-l-slate-500 hover:transition duration-500 ease-in-out hover:ease-in-out dark:hover:text-white hover:pl-3">
+                        <FaUserShield />
+                        <NavLink to='/dashboard/trustVerification'>Trust & Verification</NavLink>
+                    </li>
+                    <li className="flex gap-2 items-center py-2 px-4 border-l-4 border-transparent hover:border-l-4 hover:border-l-slate-500 hover:transition duration-500 ease-in-out hover:ease-in-out dark:hover:text-white hover:pl-3">
+                        <FaUnlockKeyhole />
+                        <NavLink to='/dashboard/security'>Security</NavLink>
+                    </li>
+                    <li className="flex gap-2 items-center py-2 px-4 border-l-4 border-transparent hover:border-l-4 hover:border-l-slate-500 hover:transition duration-500 ease-in-out hover:ease-in-out dark:hover:text-white hover:pl-3">
+                        <FaUsersGear />
+                        <NavLink to='/dashboard/account'>Account</NavLink>
+                    </li>
+                    <div className='divider'></div>
+                    <li className="flex gap-2 items-center py-2 px-4 border-l-4 border-transparent hover:border-l-4 hover:border-l-slate-500 hover:transition duration-500 ease-in-out hover:ease-in-out dark:hover:text-white hover:pl-3">
+                        <FaHome></FaHome><NavLink to='/'> Home</NavLink>
+                    </li>
                     <li className="flex gap-2 items-center py-2 px-4 border-l-4 border-transparent hover:border-l-4 hover:border-l-slate-500 hover:transition duration-500 ease-in-out hover:ease-in-out dark:hover:text-white hover:pl-3">
                         <FaClipboardList></FaClipboardList> <NavLink to='/browsejobs'>Browse Jobs</NavLink>
                     </li>
