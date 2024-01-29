@@ -32,6 +32,7 @@ import FindEmployee from "../Pages/FindEmployee/FindEmployee";
 import PostAJob from "../Pages/Dashboard/Company/PostAJob/PostAJob";
 import AdminRoutes from "./AdminRoutes";
 import BuyerRoutes from "./BuyerRoutes";
+import EmployeeInfo from "../Pages/FindEmployee/EmployeeInfo";
 
 
 export const router = createBrowserRouter([
@@ -63,6 +64,15 @@ export const router = createBrowserRouter([
       {
         path: '/findEmployee',
         element: <FindEmployee></FindEmployee>
+      },
+      {
+        path:'/testemployee',
+        element:<EmployeeInfo></EmployeeInfo>
+      },
+      {
+        path:"findEmployee/:id",
+        element:<EmployeeInfo></EmployeeInfo>,
+        loader:({params}) => fetch(`https://tusk-hut-server.vercel.app/users/employee/${params.id}`)
       },
       {
         path: '/aboutUs',
