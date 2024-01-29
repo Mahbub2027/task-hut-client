@@ -30,6 +30,8 @@ import Notifications from "../Pages/Dashboard/Common/Notifications/Notifications
 import FindJobs from "../Pages/FindJobs/FindJobs";
 import FindEmployee from "../Pages/FindEmployee/FindEmployee";
 import PostAJob from "../Pages/Dashboard/Company/PostAJob/PostAJob";
+import AdminRoutes from "./AdminRoutes";
+import BuyerRoutes from "./BuyerRoutes";
 
 
 export const router = createBrowserRouter([
@@ -101,23 +103,23 @@ export const router = createBrowserRouter([
       // company 
       {
         path: 'companyPosts',
-        element: <CompanyPosts></CompanyPosts>
+        element: <BuyerRoutes><CompanyPosts></CompanyPosts></BuyerRoutes>
       },
       {
         path: 'postAJob',
-        element: <PostAJob></PostAJob>
+        element: <BuyerRoutes><PostAJob></PostAJob></BuyerRoutes>
       },
       {
         path: 'applicantList',
-        element: <ApplicantList></ApplicantList>
+        element: <BuyerRoutes><ApplicantList></ApplicantList></BuyerRoutes>
       },
       {
         path: 'shortlistedApplicants',
-        element: <ShortListedApplicants></ShortListedApplicants>
+        element: <BuyerRoutes><ShortListedApplicants></ShortListedApplicants></BuyerRoutes>
       },
       {
         path: 'interviewTask',
-        element: <InterviewTask></InterviewTask>
+        element: <BuyerRoutes><InterviewTask></InterviewTask></BuyerRoutes>
       },
       // employee
       {
@@ -156,7 +158,7 @@ export const router = createBrowserRouter([
       // admin 
       {
         path: 'manageUsers',
-        element: <ManageUsers></ManageUsers>
+        element: <AdminRoutes><ManageUsers></ManageUsers></AdminRoutes>
       }
     ]
   }

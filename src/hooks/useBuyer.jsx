@@ -5,7 +5,7 @@ import useAxiosSecure from "./useAxiosSecure";
 const useBuyer = () => {
     const {user} = useAuth();
     const axiosSecure = useAxiosSecure();
-    const {data: isBuyer} = useQuery({
+    const {data: isBuyer, isPending: isBuyerLoading} = useQuery({
         queryKey: ['isBuyer', user?.email],
         queryFn: async () =>{
             const res = await axiosSecure.get(`/users/buyer/${user.email}`);
@@ -13,7 +13,7 @@ const useBuyer = () => {
             return res.data?.buyer;
         }
     })
-    return [isBuyer];
+    return [isBuyer, isBuyerLoading];
 };
 
 export default useBuyer;
