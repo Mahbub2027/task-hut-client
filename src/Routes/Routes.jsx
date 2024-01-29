@@ -59,10 +59,6 @@ export const router = createBrowserRouter([
         path: '/contact',
         element: <PrivateRoutes><Contact></Contact></PrivateRoutes>
       },
-      // {
-      //     path: '/dashboard',
-      //     element: <PrivateRoutes><SignUp></SignUp></PrivateRoutes>
-      // },
       {
         path: '/browsejobs',
         element: <PrivateRoutes><BrowseJobs></BrowseJobs></PrivateRoutes>
@@ -75,43 +71,13 @@ export const router = createBrowserRouter([
         path: '/accountAnalytics',
         element: <PrivateRoutes><AccountAnalytics></AccountAnalytics></PrivateRoutes>
       },
-      // settings
-      // {
-      //   path: '/settings',
-      //   element: <Settings></Settings>,
-      //   children: [
-      //     {
-      //       path: '/settings',
-      //       element: <Profile></Profile>
-      //     },
-      //     {
-      //       path: '/settings/password',
-      //       element: <Password></Password>
-      //     },
-      //     {
-      //       path: '/settings/payment',
-      //       element: <Payment></Payment>
-      //     },
-      //     {
-      //       path: '/settings/security',
-      //       element: <Security></Security>
-      //     },
-      //     {
-      //       path: '/settings/trustVerification',
-      //       element: <TrustVerification></TrustVerification>
-      //     },
-      //     {
-      //       path: '/settings/account',
-      //       element: <Account></Account>
-      //     },
-      //   ]
-      // },
       {
         path: '/support',
         element: <Support></Support>
       }
     ]
   },
+  
   // dashboard
   {
     path: "/dashboard",
