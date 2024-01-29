@@ -1,0 +1,99 @@
+[
+    {
+        "id": 1,
+        "title": "Software Engineer",
+        "type": "On-site",
+        "category": "Full Time",
+        "experience": 2,
+        "posted": "January 28, 24",
+        "deadline": "January 28, 24",
+        "about_the_role": "",
+        "description": "",
+        "responsibilities": "",
+        "requirements": "",
+        "benefits": "",
+        "apply_instructions": "",
+        "salary": ""
+    },
+    {
+        "id": 2,
+        "title": "Data Scientist",
+        "type": "Remote",
+        "category": "Full Time",
+        "experience": 3,
+        "posted": "January 29, 24",
+        "deadline": "February 15, 24"
+    },
+    {
+        "id": 3,
+        "title": "Frontend Developer",
+        "type": "On-site",
+        "category": "Part Time",
+        "experience": 1,
+        "posted": "January 29, 24",
+        "deadline": "February 10, 24"
+    },
+    {
+        "id": 4,
+        "title": "UX Designer",
+        "type": "Remote",
+        "category": "Intern",
+        "experience": 0,
+        "posted": "January 30, 24",
+        "deadline": "February 5, 24"
+    },
+    {
+        "id": 5,
+        "title": "Network Administrator",
+        "type": "On-site",
+        "category": "Full Time",
+        "experience": 5,
+        "posted": "January 30, 24",
+        "deadline": "February 12, 24"
+    },
+    {
+        "id": 6,
+        "title": "Marketing Specialist",
+        "type": "Remote",
+        "category": "Part Time",
+        "experience": 2,
+        "posted": "January 31, 24",
+        "deadline": "February 8, 24"
+    },
+    {
+        "id": 7,
+        "title": "Software Tester",
+        "type": "On-site",
+        "category": "Intern",
+        "experience": 1,
+        "posted": "January 31, 24",
+        "deadline": "February 6, 24"
+    },
+    {
+        "id": 8,
+        "title": "Product Manager",
+        "type": "Remote",
+        "category": "Full Time",
+        "experience": 4,
+        "posted": "February 1, 24",
+        "deadline": "February 14, 24"
+    },
+    {
+        "id": 9,
+        "title": "Customer Support Representative",
+        "type": "On-site",
+        "category": "Part Time",
+        "experience": 1,
+        "posted": "February 1, 24",
+        "deadline": "February 9, 24"
+    },
+    {
+        "id": 10,
+        "title": "DevOps Engineer",
+        "type": "Remote",
+        "category": "Full Time",
+        "experience": 3,
+        "posted": "February 2, 24",
+        "deadline": "February 13, 24"
+    }    
+]

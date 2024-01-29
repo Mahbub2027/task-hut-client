@@ -1,6 +1,6 @@
 // import React from 'react';
 import { FaBell, FaBriefcase, FaBusinessTime, FaCalendarCheck, FaFilePowerpoint, FaHome, FaList, FaUserCheck } from 'react-icons/fa';
-import { FaClipboardList, FaCreditCard, FaPersonCircleQuestion, FaUnlockKeyhole, FaUserLock, FaUserShield, FaUserTie, FaUsers, FaUsersGear } from 'react-icons/fa6';
+import { FaClipboardList, FaCreditCard, FaFilePen, FaPersonCircleQuestion, FaUnlockKeyhole, FaUserLock, FaUserShield, FaUserTie, FaUsers, FaUsersGear } from 'react-icons/fa6';
 import { NavLink, Outlet } from 'react-router-dom';
 import useAdmin from '../hooks/useAdmin';
 import useBuyer from '../hooks/useBuyer';
@@ -49,6 +49,10 @@ const Dashboard = () => {
                             <li className="flex gap-2 items-center py-2 px-4 border-l-4 border-transparent hover:border-l-4 hover:border-l-slate-500 hover:transition duration-500 ease-in-out hover:ease-in-out dark:hover:text-white hover:pl-3">
                                 <FaFilePowerpoint />
                                 <NavLink to='/dashboard/companyPosts'>Company Posts</NavLink>
+                            </li>
+                            <li className="flex gap-2 items-center py-2 px-4 border-l-4 border-transparent hover:border-l-4 hover:border-l-slate-500 hover:transition duration-500 ease-in-out hover:ease-in-out dark:hover:text-white hover:pl-3">
+                                <FaFilePen />
+                                <NavLink to='/dashboard/postAJob'>Post a Job</NavLink>
                             </li>
                             <li className="flex gap-2 items-center py-2 px-4 border-l-4 border-transparent hover:border-l-4 hover:border-l-slate-500 hover:transition duration-500 ease-in-out hover:ease-in-out dark:hover:text-white hover:pl-3">
                                 <FaList />

@@ -1,0 +1,36 @@
+[
+    {
+        "id": 1,
+        "profileImage": "",
+        "presentation": "",
+        "profession": "Front-end Developer",
+        "email": "safwan.std21@gmail.com",
+        "firstName": "Sajid",
+        "lastName": "Abdullah",
+        "dob": "12/14/2024",
+        "phone": "+880 1722100839",
+        "facebook": "",
+        "linkedin": "",
+        "instagram": "",
+        "availability": "Available",
+        "years_of_experience": 2,
+        "work_preference": "On-site",
+        "skills": [
+            "Javascript",
+            "React",
+            "Tailwind"
+        ],
+        "location": {
+            "address": "Bondor Bazar",
+            "city": "Sylhet",
+            "zip": "3100",
+            "country": "Bangladesh",
+            "time_zone": ""
+        },
+        "cv": "",
+        "resume": "",
+        "github": "",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex aut harum, quis corporis mollitia commodi quibusdam repudiandae? Magnam aliquam, fugit necessitatibus voluptatibus quia dolor placeat sunt. Ea delectus, ex optio harum cum natus magnam necessitatibus provident. Dignissimos ad veritatis officiis unde reprehenderit cumque porro velit exercitationem! Atque assumenda quaerat sequi.",
+        "language": ""
+    }    
+]
