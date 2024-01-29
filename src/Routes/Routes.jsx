@@ -29,6 +29,7 @@ import InterviewTask from "../Pages/Dashboard/Company/InterviewTask/InterviewTas
 import Notifications from "../Pages/Dashboard/Common/Notifications/Notifications";
 import FindJobs from "../Pages/FindJobs/FindJobs";
 import FindEmployee from "../Pages/FindEmployee/FindEmployee";
+import PostAJob from "../Pages/Dashboard/Company/PostAJob/PostAJob";
 
 
 export const router = createBrowserRouter([
@@ -135,6 +136,10 @@ export const router = createBrowserRouter([
       {
         path: 'companyPosts',
         element: <CompanyPosts></CompanyPosts>
+      },
+      {
+        path: 'postAJob',
+        element: <PostAJob></PostAJob>
       },
       {
         path: 'applicantList',
