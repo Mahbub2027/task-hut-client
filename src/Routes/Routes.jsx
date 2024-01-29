@@ -27,6 +27,8 @@ import ApplicantList from "../Pages/Dashboard/Company/ApplicantList/ApplicantLis
 import ShortListedApplicants from "../Pages/Dashboard/Company/ShortListedApplicants/ShortListedApplicants";
 import InterviewTask from "../Pages/Dashboard/Company/InterviewTask/InterviewTask";
 import Notifications from "../Pages/Dashboard/Common/Notifications/Notifications";
+import FindJobs from "../Pages/FindJobs/FindJobs";
+import FindEmployee from "../Pages/FindEmployee/FindEmployee";
 
 
 export const router = createBrowserRouter([
@@ -50,6 +52,14 @@ export const router = createBrowserRouter([
       {
         path: '/buyerSignup',
         element: <BuyerSignup></BuyerSignup>,
+      },
+      {
+        path: '/findJobs',
+        element: <FindJobs></FindJobs>
+      },
+      {
+        path: '/findEmployee',
+        element: <FindEmployee></FindEmployee>
       },
       {
         path: '/aboutUs',
