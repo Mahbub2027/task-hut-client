@@ -33,6 +33,7 @@ import PostAJob from "../Pages/Dashboard/Company/PostAJob/PostAJob";
 import AdminRoutes from "./AdminRoutes";
 import BuyerRoutes from "./BuyerRoutes";
 import EmployeeInfo from "../Pages/FindEmployee/EmployeeInfo";
+import CompanyChat from "../Pages/Dashboard/Company/CompanyChat/CompanyChat";
 
 
 export const router = createBrowserRouter([
@@ -114,6 +115,10 @@ export const router = createBrowserRouter([
       {
         path: 'companyPosts',
         element: <BuyerRoutes><CompanyPosts></CompanyPosts></BuyerRoutes>
+      },
+      {
+        path: 'companyChat',
+        element: <BuyerRoutes><CompanyChat></CompanyChat></BuyerRoutes>
       },
       {
         path: 'postAJob',
