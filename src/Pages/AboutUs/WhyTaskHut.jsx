@@ -1,6 +1,9 @@
 function WhyTaskHut() {
   return (
     <>
+      <div>
+          
+      </div>
       <div className="m-5 collapse collapse-plus bg-base-200">
         <input type="radio" name="my-accordion-3" checked="checked" />
         <div className="collapse-title text-xl font-medium">
@@ -61,7 +64,7 @@ function WhyTaskHut() {
       <div className="m-5 collapse collapse-plus bg-base-200">
         <input type="radio" name="my-accordion-3" />
         <div className="collapse-title text-xl font-medium">
-        Innovation Ecosystem
+          Innovation Ecosystem
         </div>
         <div className="collapse-content">
           <p>

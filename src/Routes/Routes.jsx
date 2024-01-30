@@ -6,7 +6,6 @@ import Login from "../Pages/auth/Login/Login";
 import SignUp from "../Pages/auth/SignUp/SignUp";
 import BuyerSignup from "../Pages/auth/BuyerSignup/BuyerSignup";
 import AboutUs from "../Pages/AboutUs/AboutUs";
-import Contact from "../Pages/Contact/Contact";
 import PrivateRoutes from "./PrivateRoutes";
 import BrowseJobs from "../Pages/BrowseJobs/BrowseJobs";
 import ViewProfile from "../Pages/ViewProfile/ViewProfile";
@@ -78,10 +77,6 @@ export const router = createBrowserRouter([
       {
         path: '/aboutUs',
         element: <AboutUs></AboutUs>
-      },
-      {
-        path: '/contact',
-        element: <PrivateRoutes><Contact></Contact></PrivateRoutes>
       },
       {
         path: '/browsejobs',
