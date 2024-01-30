@@ -27,8 +27,8 @@
             "country": "Bangladesh",
             "time_zone": "GMT +6:00"
         },
-        "cv": "sajidportfolio.com/downloadcv",
-        "resume": "sajidportfolio.com/downloadresume",
+        "cv": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+        "resume": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
         "description": "👋 Hi, I'm Sajid, a passionate Front-end Developer based in Bangladesh. I specialize in crafting sleek and responsive web interfaces using HTML, CSS, and JavaScript. Currently working at META, I love turning design concepts into seamless user experiences.",
         "language": "Bengali, English, Arabic"
     },

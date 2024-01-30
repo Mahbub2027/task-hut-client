@@ -14,22 +14,47 @@ import {
 import { RiFilePaper2Line } from "react-icons/ri";
 import { TiMessages } from "react-icons/ti";
 
-
 const EmployeeInfo = () => {
   const [employees, setEmployees] = useState([]);
+  const [cvDownloadUrl, setCvDownloadUrl] = useState('');
+  const [resumeDownloadUrl, setResumeDownloadUrl] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get("/public/employees.json");
         setEmployees(response.data);
+
+        const cvUrl = response.data.cv;
+        setCvDownloadUrl(cvUrl);
+
+        const resumeUrl = response.data.resume;
+        setResumeDownloadUrl(resumeUrl);
+
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
-
     fetchData();
   }, []);
+
+  const handleDownloadCV = () => {
+  const link = document.createElement('a');
+  link.href = cvDownloadUrl;
+  link.download = 'cv.pdf'; // Or any desired filename
+  link.click();
+  }
+ 
+  const handleDownloadResume = () => {
+  const link = document.createElement('a');
+  link.href = resumeDownloadUrl;
+  link.download = 'resume.pdf'; // Or any desired filename
+  link.click();
+  }
+
+ 
+  
+
   return (
     <>
       <Helmet>
@@ -122,15 +147,26 @@ const EmployeeInfo = () => {
 
               <div className="mt-4 flex justify-around">
                 <div>
-                  <button className="btn btn-primary"><FaDownload className="text-2xl"/>CV</button>
+                  <button
+                    className="btn btn-primary"
+                    onClick={handleDownloadCV}
+                  >
+                    <FaDownload className="text-2xl" />
+                    CV
+                  </button>
                 </div>
                 <div>
-                  <button className=" btn btn-active btn-neutral"><RiFilePaper2Line className="text-2xl"/> Resume</button>
+                  <button className=" btn btn-active btn-neutral"
+                  onClick={handleDownloadResume}
+                  >
+                    <RiFilePaper2Line className="text-2xl" /> Resume
+                  </button>
                 </div>
                 <div>
-                  <button className=" btn btn-secondary"><TiMessages className="text-2xl"/> Contact</button>
+                  <button className=" btn btn-secondary">
+                    <TiMessages className="text-2xl" /> Contact
+                  </button>
                 </div>
-                
               </div>
             </div>
           ))}
