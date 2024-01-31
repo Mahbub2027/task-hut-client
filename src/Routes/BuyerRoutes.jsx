@@ -2,7 +2,7 @@ import { Navigate, useLocation } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import useBuyer from "../hooks/useBuyer";
 
-const BuyerRoutes = () => {
+const BuyerRoutes = ({children}) => {
     const {user, loading} = useAuth();
     const [isBuyer, isBuyerLoading] = useBuyer();
     const location = useLocation();
