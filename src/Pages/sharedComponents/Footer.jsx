@@ -2,7 +2,7 @@
 const Footer = () => {
     return (
         <div className="mt-auto">
-            <footer className="footer p-10 bg-neutral text-white">
+            <footer className="footer p-10 text-white bg-indigo-950">
                 <aside>
                     <h2 className="text-4xl font-bold">Task<span className="text-blue-800">Hut</span></h2>
                     {/* <img className="w-12" src="https://i.ibb.co/vsNFnW0/Taskhut.jpg" alt="" /> */}
@@ -34,7 +34,7 @@ const Footer = () => {
                     <a className="link link-hover">Cookie policy</a>
                 </nav>
             </footer> <hr />
-            <footer className="footer footer-center p-4 bg-neutral text-white">
+            <footer className="footer footer-center p-4 text-white bg-indigo-950">
                 <aside>
                     <hr />
                     <p>Copyright © 2023 - All right reserved by TaskHut Ltd</p>

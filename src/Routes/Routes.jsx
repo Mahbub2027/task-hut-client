@@ -6,7 +6,6 @@ import Login from "../Pages/auth/Login/Login";
 import SignUp from "../Pages/auth/SignUp/SignUp";
 import BuyerSignup from "../Pages/auth/BuyerSignup/BuyerSignup";
 import AboutUs from "../Pages/AboutUs/AboutUs";
-import Contact from "../Pages/Contact/Contact";
 import PrivateRoutes from "./PrivateRoutes";
 import BrowseJobs from "../Pages/BrowseJobs/BrowseJobs";
 import ViewProfile from "../Pages/ViewProfile/ViewProfile";
@@ -32,6 +31,9 @@ import FindEmployee from "../Pages/FindEmployee/FindEmployee";
 import PostAJob from "../Pages/Dashboard/Company/PostAJob/PostAJob";
 import AdminRoutes from "./AdminRoutes";
 import BuyerRoutes from "./BuyerRoutes";
+import EmployeeInfo from "../Pages/FindEmployee/EmployeeInfo";
+import CompanyChat from "../Pages/Dashboard/Company/CompanyChat/CompanyChat";
+import JobDetails from "../Pages/FindJobs/JobDetails/JobDetails";
 
 
 export const router = createBrowserRouter([
@@ -61,16 +63,27 @@ export const router = createBrowserRouter([
         element: <FindJobs></FindJobs>
       },
       {
+        path: '/jobDetails/:id',
+        element: <JobDetails></JobDetails>,
+        loader: ({params})=> fetch(`http://localhost:5000/jobs/${params.id}`)
+
+      },
+      {
         path: '/findEmployee',
         element: <FindEmployee></FindEmployee>
       },
       {
-        path: '/aboutUs',
-        element: <AboutUs></AboutUs>
+        path:'/testemployee',
+        element:<EmployeeInfo></EmployeeInfo>
       },
       {
-        path: '/contact',
-        element: <PrivateRoutes><Contact></Contact></PrivateRoutes>
+        path:"findEmployee/:id",
+        element:<EmployeeInfo></EmployeeInfo>,
+        loader:({params}) => fetch(`https://tusk-hut-server.vercel.app/users/employee/${params.id}`)
+      },
+      {
+        path: '/aboutUs',
+        element: <AboutUs></AboutUs>
       },
       {
         path: '/browsejobs',
@@ -106,9 +119,14 @@ export const router = createBrowserRouter([
         element: <BuyerRoutes><CompanyPosts></CompanyPosts></BuyerRoutes>
       },
       {
-        path: 'postAJob',
-        element: <BuyerRoutes><PostAJob></PostAJob></BuyerRoutes>
+        path: 'companyChat',
+        element: <BuyerRoutes><CompanyChat></CompanyChat></BuyerRoutes>
       },
+      {
+        path: 'postAJob',
+        element: <PostAJob></PostAJob>
+      },
+      
       {
         path: 'applicantList',
         element: <BuyerRoutes><ApplicantList></ApplicantList></BuyerRoutes>

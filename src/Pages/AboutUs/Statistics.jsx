@@ -1,22 +1,29 @@
 function Statistics() {
+
   return (
-    <div className="stats shadow">
-      <div className="stat place-items-center">
-        <div className="stat-title">Jobs</div>
-        <div className="stat-value">3,100</div>
-        <div className="stat-desc">From January 1st to February 1st</div>
+    <div className="stats shadow-xl bg-indigo-900 w-1/2 mx-auto">
+      <div className="stat place-items-center hover:bg-indigo-500">
+        <div className="stat-title text-indigo-200">Job Posted</div>
+        <div className="stat-value pb-1 text-white">3,100</div>
+        <div className="stat-desc text-indigo-200">From January 1st to February 1st</div>
       </div>
 
-      <div className="stat place-items-center">
-        <div className="stat-title">Users</div>
-        <div className="stat-value text-secondary">4,200</div>
-        <div className="stat-desc text-secondary">↗︎ 40 (2%)</div>
+      <div className="stat place-items-center bg-indigo-500">
+        <div className="stat-title text-indigo-200">Employees</div>
+        <div className="stat-value pb-1 text-white">4,200</div>
+        <div className="stat-desc text-indigo-200">Verified Employees</div>
       </div>
 
-      <div className="stat place-items-center">
-        <div className="stat-title">Revenue</div>
-        <div className="stat-value">$0.5M</div>
-        <div className="stat-desc">↗︎ 90 (14%)</div>
+      <div className="stat place-items-center hover:bg-indigo-500">
+        <div className="stat-title text-indigo-200">Company</div>
+        <div className="stat-value pb-1 text-white"> 90 %</div>
+        <div className="stat-desc text-indigo-200">Satisfaction Rate </div>
+      </div>
+
+      <div className="stat place-items-center hover:bg-indigo-500">
+        <div className="stat-title text-indigo-200">Employee</div>
+        <div className="stat-value pb-1 text-white">94 %</div>
+        <div className="stat-desc text-indigo-200">Satisfaction Rate</div>
       </div>
     </div>
   );
