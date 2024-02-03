@@ -34,6 +34,7 @@ import BuyerRoutes from "./BuyerRoutes";
 import EmployeeInfo from "../Pages/FindEmployee/EmployeeInfo";
 import CompanyChat from "../Pages/Dashboard/Company/CompanyChat/CompanyChat";
 import JobDetails from "../Pages/FindJobs/JobDetails/JobDetails";
+import AllCompanies from "../Pages/FindCompany/AllCompanies";
 
 
 export const router = createBrowserRouter([
@@ -69,6 +70,10 @@ export const router = createBrowserRouter([
 
       },
       {
+        path: '/allCompanies',
+        element: <AllCompanies></AllCompanies>
+      },
+      {
         path: '/findEmployee',
         element: <FindEmployee></FindEmployee>
       },
@@ -84,10 +89,6 @@ export const router = createBrowserRouter([
       {
         path: '/aboutUs',
         element: <AboutUs></AboutUs>
-      },
-      {
-        path: '/browsejobs',
-        element: <PrivateRoutes><BrowseJobs></BrowseJobs></PrivateRoutes>
       },
       {
         path: '/viewProfile',

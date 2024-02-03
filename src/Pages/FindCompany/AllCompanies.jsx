@@ -1,42 +1,44 @@
-import React, { useEffect, useRef, useState }  from 'react';
-import JobPostCard from './JobPostCard/JobPostCard';
+import React, { useEffect, useRef, useState } from 'react';
 // import useAxiosPublic from '../../hooks/useAxiosPublic';
+// import useAuth from '../../hooks/useAuth';
 // import { useQuery } from '@tanstack/react-query';
+import CompanyCard from './CompanyCard/CompanyCard';
 
-const FindJobs = () => {
+const AllCompanies = () => {
     // const axiosPublic = useAxiosPublic();
     const searchRef = useRef();
-    const [findJobs, setFindJobs] = useState([]);
+    // const { user } = useAuth();
 
-    useEffect(()=>{
-        fetch('http://localhost:5000/jobs')
-        .then(res=>res.json())
-        .then(data=>{
-            setFindJobs(data)
-        })
-    },[setFindJobs])
-
-    // const {data: jobs=[]} = useQuery({
-    //     queryKey: ['job'],
-    //     queryFn: async()=>{
-    //         const res = await axiosPublic.get('/jobs');
-    //         // return res.data;
-    //         setFindJobs(res.data);
+    // const { data: users = [] } = useQuery({
+    //     queryKey: ['user'],
+    //     queryFn: async () => {
+    //         const res = await axiosPublic.get('/users')
+    //         return res.data;
     //     }
     // })
+    const [findCompany, setCompany] = useState([]);
+
+    useEffect(()=>{
+        fetch('http://localhost:5000/users')
+        .then(res=>res.json())
+        .then(data=>{
+            setCompany(data)
+        })
+    },[setCompany])
 
     const handleSearch = () =>{
         const search = searchRef?.current?.value.toLowerCase();
         console.log(search);
 
-        const jobFilter = findJobs.filter((item)=> item.job_title.toLowerCase().includes(search));
+        const jobFilter = findCompany.filter((item)=> item.job_title.toLowerCase().includes(search));
         // console.log(jobFilter);
-        setFindJobs(jobFilter);
+        setCompany(jobFilter);
     }
 
     return (
-        <div className='w-11/12 mx-auto flex flex-col md:flex-row gap-5 my-16'>
-            
+        <div className='w-11/12 flex flex-col md:flex-row mx-auto'>
+            <h2>All Companies</h2>
+
             <div className='w-full lg:w-72 h-96 rounded-xl my-5 p-4 bg-purple-200'>
                 
                 <p className='font-bold texl-lg mb-2'>Select Category</p>
@@ -60,13 +62,24 @@ const FindJobs = () => {
                 </div>
             </div>
 
-            <div className='flex-1 grid grid-cols-1 md:grid-cols-2 gap-5'>
+            <div className='flex-1 flex-wrap gap-5'>
                 {
-                    findJobs.map(job => <JobPostCard key={job._id} job={job} />)
+                    findCompany.map(use => <div key={use._id} >
+                        
+                        {
+                            use.role === 'buyer' && <>
+                            
+                                <CompanyCard use={use}></CompanyCard>
+                                
+                            </>
+                        }
+                       
+                    </div>)
                 }
             </div>
+
         </div>
     );
 };
 
-export default FindJobs;
+export default AllCompanies;
