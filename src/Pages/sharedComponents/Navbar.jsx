@@ -39,13 +39,13 @@ const Navbar = () => {
 
   const navLinks = (
     <>
-      <li><NavLink to="/" className={({ isActive, isPending }) => isPending ? 'pending' : isActive ? 'text-indigo-500 border-b-2 border-b-indigo-600 font-semibold py-1 rounded-none' : 'hover:text-indigo-500 font-medium'}>Home</NavLink></li>
+      <li><NavLink to="/" className={({ isActive, isPending }) => isPending ? 'pending' : isActive ? 'text-indigo-500 border-b-2 border-b-indigo-600 font-semibold py-1 rounded-none' : 'text-slate-800 hover:text-indigo-500 font-medium'}>Home</NavLink></li>
       {/* <li><NavLink to="/dashboard" className={({ isActive, isPending }) => isPending ? 'pending' : isActive ? 'text-red-500 font-semibold' : ''}>Dashboard</NavLink></li> */}
-      {/* <li><NavLink to="/browsejobs" className={({ isActive, isPending }) => isPending ? 'pending' : isActive ? 'text-indigo-500 border-b-2 border-b-indigo-600 font-semibold py-1 rounded-none' : 'hover:text-indigo-500 font-medium'}>Browse Jobs</NavLink></li> */}
-      <li><NavLink to="/findJobs" className={({ isActive, isPending }) => isPending ? 'pending' : isActive ? 'text-indigo-500 border-b-2 border-b-indigo-600 font-semibold py-1 rounded-none' : 'hover:text-indigo-500 font-medium'}>Find Jobs</NavLink></li>
-      <li><NavLink to="/findEmployee" className={({ isActive, isPending }) => isPending ? 'pending' : isActive ? 'text-indigo-500 border-b-2 border-b-indigo-600 font-semibold py-1 rounded-none' : 'hover:text-indigo-500 font-medium'}>Find Employee</NavLink></li>
-      <li><NavLink to="/allCompanies" className={({ isActive, isPending }) => isPending ? 'pending' : isActive ? 'text-indigo-500 border-b-2 border-b-indigo-600 font-semibold py-1 rounded-none' : 'hover:text-indigo-500 font-medium'}>Companies</NavLink></li>
-      <li><NavLink to="/aboutUs" className={({ isActive, isPending }) => isPending ? 'pending' : isActive ? 'text-indigo-500 border-b-2 border-b-indigo-600 font-semibold py-1 rounded-none' : 'hover:text-indigo-500 font-medium'}>About Us</NavLink></li>
+      {/* <li><NavLink to="/browsejobs" className={({ isActive, isPending }) => isPending ? 'pending' : isActive ? 'text-indigo-500 border-b-2 border-b-indigo-600 font-semibold py-1 rounded-none' : 'text-slate-800 hover:text-indigo-500 font-medium'}>Browse Jobs</NavLink></li> */}
+      <li><NavLink to="/findJobs" className={({ isActive, isPending }) => isPending ? 'pending' : isActive ? 'text-indigo-500 border-b-2 border-b-indigo-600 font-semibold py-1 rounded-none' : 'text-slate-800 hover:text-indigo-500 font-medium'}>Find Jobs</NavLink></li>
+      <li><NavLink to="/findEmployee" className={({ isActive, isPending }) => isPending ? 'pending' : isActive ? 'text-indigo-500 border-b-2 border-b-indigo-600 font-semibold py-1 rounded-none' : 'text-slate-800 hover:text-indigo-500 font-medium'}>Find Employee</NavLink></li>
+      <li><NavLink to="/allCompanies" className={({ isActive, isPending }) => isPending ? 'pending' : isActive ? 'text-indigo-500 border-b-2 border-b-indigo-600 font-semibold py-1 rounded-none' : 'text-slate-800 hover:text-indigo-500 font-medium'}>Companies</NavLink></li>
+      <li><NavLink to="/aboutUs" className={({ isActive, isPending }) => isPending ? 'pending' : isActive ? 'text-indigo-500 border-b-2 border-b-indigo-600 font-semibold py-1 rounded-none' : 'text-slate-800 hover:text-indigo-500 font-medium'}>About Us</NavLink></li>
     </>
   );
   const handleLogOut = () => {
@@ -54,7 +54,7 @@ const Navbar = () => {
       .catch((error) => console.log(error));
   };
   return (
-    <div className="bg-slate-100 text-indigo-800">
+    <div className="bg-slate-100 bg-opacity-5 backdrop-blur-lg bg-white/30 text-indigo-800 z-10 sticky top-0">
       {/* fixed bg-slate-600 bg-opacity-30 z-10 text-white*/}
       <div className="navbar shadow-lg">
         <div className="navbar-start">
@@ -79,7 +79,7 @@ const Navbar = () => {
           {/* <Link to="/"><img src={logo} className="h-16" alt="TaskHut Logo" /></Link> */}
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="space-x-6 menu-horizontal px-1">
+          <ul className="space-x-12 menu-horizontal px-1">
             {navLinks}
           </ul>
         </div>
@@ -122,7 +122,7 @@ const Navbar = () => {
                 <div>
                   <Link to="/login">
                     {/* className="border-2 border-purple-800 lg:mx-4 sm:my-10 text-purple-800 px-5 py-3 rounded-md font-bold text-base"> */}
-                    <button className="m-1 shadow-lg border-2 border-indigo-800 rounded-lg font-medium bg-slate-200 px-8 py-2 text-indigo-800 hover:bg-indigo-500 hover:border-indigo-500 hover:text-white">Log in</button>
+                    <button className="m-1 shadow-lg border-2 border-indigo-800 rounded-lg font-medium bg-white px-8 py-2 text-indigo-800 hover:bg-indigo-500 hover:border-indigo-500 hover:text-white">Log in</button>
                   </Link>
                 </div>
                 <div>
