@@ -10,7 +10,7 @@ import Services from "../../../ComponentsUI/HomeComponents/Services";
 
 const Home = () => {
   return (
-    <>
+    <div className="bg-white mx-auto">
       <Helmet>
         <title>Home || TaskHut</title>
       </Helmet>
@@ -19,12 +19,12 @@ const Home = () => {
       <Banner></Banner>
       <Statistics></Statistics>
       <Services></Services>
-      <HowItWorks></HowItWorks>
+      {/* <HowItWorks></HowItWorks> */}
       <WhyUs></WhyUs>
       <TopTalent></TopTalent>
       <Reviews></Reviews>
       
-    </>
+    </div>
   );
 };
 
