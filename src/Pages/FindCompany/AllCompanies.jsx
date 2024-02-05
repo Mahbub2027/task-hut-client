@@ -36,8 +36,8 @@ const AllCompanies = () => {
     }
 
     return (
-        <div className='w-11/12 flex flex-col md:flex-row mx-auto'>
-            <h2>All Companies</h2>
+        <div className='w-11/12 flex flex-col md:flex-row gap-10 mx-auto my-14'>
+            {/* <h2>All Companies</h2> */}
 
             <div className='w-full lg:w-72 h-96 rounded-xl my-5 p-4 bg-purple-200'>
                 
@@ -62,7 +62,7 @@ const AllCompanies = () => {
                 </div>
             </div>
 
-            <div className='flex-1 flex-wrap gap-5'>
+            <div className='flex-1 flex flex-wrap gap-5 '>
                 {
                     findCompany.map(use => <div key={use._id} >
                         
