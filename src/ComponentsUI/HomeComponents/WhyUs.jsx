@@ -29,7 +29,7 @@ function WhyUs() {
 
         <div className="w-1/2">
           <div className="space-y-3">
-            <div className="flex flex-col lg:flex-row items-start gap-8 border-2 border-white rounded-3xl p-4 backdrop-blur-xl bg-opacity-5 bg-white/30">
+            <div className="flex flex-col lg:flex-row items-start gap-8 border-2 border-white rounded-3xl p-4 hover:bg-indigo-500 backdrop-blur-xl bg-opacity-5 bg-white/30">
               <div className="w-56 h-auto">
                 <Lottie animationData={trusted} alt="" />
               </div>
@@ -41,7 +41,7 @@ function WhyUs() {
                 </p>
               </div>
             </div>
-            <div className="flex flex-col lg:flex-row items-start gap-8 border-2 border-white rounded-3xl p-4 backdrop-blur-xl bg-opacity-5 bg-white/30">
+            <div className="flex flex-col lg:flex-row items-start gap-8 border-2 border-white rounded-3xl p-4 hover:bg-indigo-500 backdrop-blur-xl bg-opacity-5 bg-white/30">
               <div className="w-56 h-auto">
                 <Lottie animationData={security} alt="" />
               </div>
@@ -53,7 +53,7 @@ function WhyUs() {
                 </p>
               </div>
             </div>
-            <div className="flex flex-col lg:flex-row items-start gap-8 border-2 border-white rounded-3xl p-4 backdrop-blur-xl bg-opacity-5 bg-white/30">
+            <div className="flex flex-col lg:flex-row items-start gap-8 border-2 border-white rounded-3xl p-4 hover:bg-indigo-500 backdrop-blur-xl bg-opacity-5 bg-white/30">
               <div className="w-56 h-auto">
                 <Lottie animationData={support} alt="" />
               </div>
@@ -67,7 +67,7 @@ function WhyUs() {
                 </p>
               </div>
             </div>
-            <div className="flex flex-col lg:flex-row items-start gap-8 border-2 border-white rounded-3xl p-4 backdrop-blur-xl bg-opacity-5 bg-white/30">
+            <div className="flex flex-col lg:flex-row items-start gap-8 border-2 border-white rounded-3xl p-4 hover:bg-indigo-500 backdrop-blur-xl bg-opacity-5 bg-white/30">
               <div className="w-80 h-auto">
                 <Lottie animationData={valueTime} alt="" />
               </div>
