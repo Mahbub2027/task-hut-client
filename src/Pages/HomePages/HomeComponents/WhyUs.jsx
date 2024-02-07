@@ -1,20 +1,16 @@
-import whychoose from "../../assets/images/why_choose_1.jpg";
-// import credibility from "../../assets/icons/credibility.png";
-// import security from "../../assets/icons/security.png";
-// import support from "../../assets/icons/support.png";
-// import value from "../../assets/icons/value.png";
+import whychoose from "../../../assets/images/why_choose_1.jpg";
 
-import trusted from '../../assets/lottieAnimation/trusted.json';
-import support from '../../assets/lottieAnimation/support.json';
-import security from '../../assets/lottieAnimation/security.json';
-import valueTime from '../../assets/lottieAnimation/valueTime.json';
+import trusted from '../../../assets/lottieAnimation/trusted.json';
+import support from '../../../assets/lottieAnimation/support.json';
+import security from '../../../assets/lottieAnimation/security.json';
+import valueTime from '../../../assets/lottieAnimation/valueTime.json';
 import Lottie from 'lottie-react';
 
 
 function WhyUs() {
   return (
-    <section className="my-20 bg-[#1D4ED8] text-white py-20 px-14">
-      <div className='text-center space-y-4 w-2/3 mx-auto mb-10'>
+    <section className="my-96 bg-[#1D4ED8] text-white py-20 px-14">
+      <div className='text-center space-y-4 w-2/3 mx-auto my-20'>
         <h2 className='text-white text-5xl font-extrabold'>Why Choose Us</h2>
         <p className='text-slate-50 text-2xl font-medium'>We provide services to mitigate the gap between <span className='bg-yellow-500 p-1'>Companies</span> who looking for potential employees and <span className='bg-yellow-500 p-1'>Professionals</span> who looking for career opportunities.</p>
       </div>

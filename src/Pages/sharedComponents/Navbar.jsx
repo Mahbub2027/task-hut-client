@@ -122,13 +122,13 @@ const Navbar = () => {
                 <div>
                   <Link to="/login">
                     {/* className="border-2 border-purple-800 lg:mx-4 sm:my-10 text-purple-800 px-5 py-3 rounded-md font-bold text-base"> */}
-                    <button className="m-1 shadow-lg border-2 border-indigo-800 rounded-lg font-medium bg-white px-8 py-2 text-indigo-800 hover:bg-indigo-500 hover:border-indigo-500 hover:text-white">Log in</button>
+                    <button className="m-1 shadow-lg border-2 border-indigo-800 rounded-lg font-medium bg-white px-8 py-2 text-indigo-800 hover:bg-indigo-500 hover:border-indigo-500 hover:text-white transition-all ease-out delay-0 duration-500">Log in</button>
                   </Link>
                 </div>
                 <div>
                   {/* <Link to="/signup"> */}
                     <details className="dropdown dropdown-end border-0">
-                      <summary className="m-1 border-0 shadow-lg btn rounded-lg font-medium bg-indigo-800 px-8 py-2 text-slate-200 hover:bg-indigo-500 hover:text-white">Register</summary>
+                      <summary className="m-1 border-0 shadow-lg btn rounded-lg font-medium bg-indigo-800 px-8 py-2 text-slate-200 hover:bg-indigo-500 text-white transition-all ease-out delay-0 duration-500">Register</summary>
                       <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-56">
                         <li><Link to="/signup">I'm looking for a job</Link></li>
                         <li><Link to="/buyerSignup">I'm looking for candidates</Link></li>
