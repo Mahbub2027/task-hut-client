@@ -17,6 +17,7 @@ const GoogleLink = () => {
                     name: res.user.displayName,
                     email: res.user.email,
                     image: res.user.photoURL,
+                    role: 'user',
                 }
                  axiosPublic.post('/users', userInfo)
                  .then(res=> {

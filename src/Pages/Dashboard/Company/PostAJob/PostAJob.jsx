@@ -68,13 +68,14 @@ return (
                                 <span className="label-text font-bold text-base">Company Name</span>
                             </label>
                             <input type="text" {...register("company_name", { required: true })} placeholder="Enter your name" className="input input-bordered" required />
-                            {errors.name && <span className="text-red-500">This field is required</span>}
+                            {errors.company_name && <span className="text-red-500">This field is required</span>}
                         </div>
                         <div className="form-control w-full">
                             <label className="label">
                                 <span className="label-text font-bold text-base">Company logo</span>
                             </label>
-                            <input {...register('image')} type="file" className="file-input file-input-bordered my-1 w-full max-w-xs" />
+                            <input {...register('image')} type="file" 
+                            className="file-input file-input-bordered my-1 w-full max-w-xs" />
                             {/* <input type="text" {...register("company_logo")} placeholder="Enter your name" className="input input-bordered" required /> */}
                             {/* {errors.name && <span className="text-red-500">This field is required</span>} */}
                         </div>

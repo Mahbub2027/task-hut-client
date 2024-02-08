@@ -14,7 +14,7 @@ const FindJobs = () => {
         .then(data=>{
             setFindJobs(data)
         })
-    },[setFindJobs])
+    },[])
 
     // const {data: jobs=[]} = useQuery({
     //     queryKey: ['job'],
@@ -52,7 +52,7 @@ const FindJobs = () => {
                 {/* search */}
                 <p className='font-bold texl-lg mt-8 mb-2'>Search Type</p>
                 <input ref={searchRef} defaultValue={''}
-                type="text" placeholder="Type here" 
+                type="text" placeholder="Type job title" 
                 className="input input-bordered w-full max-w-xs" />
 
                 <div className='mt-5'>

@@ -9,18 +9,8 @@ import {
 import { Link } from "react-router-dom";
 
 const EmployeeCard = ({ employee }) => {
-  const {
-    id,
-    profileImage,
-    profession,
-    skills,
-    firstName,
-    lastName,
-    availability,
-    location,
-    years_of_experience,
-    work_preference,
-  } = employee;
+  const {id,profileImage,profession,skills,firstName,lastName,availability,
+    location,years_of_experience,work_preference,} = employee;
 
   return (
     <>

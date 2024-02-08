@@ -35,6 +35,7 @@ import EmployeeInfo from "../Pages/FindEmployee/EmployeeInfo";
 import CompanyChat from "../Pages/Dashboard/Company/CompanyChat/CompanyChat";
 import JobDetails from "../Pages/FindJobs/JobDetails/JobDetails";
 import AllCompanies from "../Pages/FindCompany/AllCompanies";
+import CompanyDetails from "../Pages/FindCompany/CompanyDetails/CompanyDetails";
 
 
 export const router = createBrowserRouter([
@@ -72,6 +73,11 @@ export const router = createBrowserRouter([
       {
         path: '/allCompanies',
         element: <AllCompanies></AllCompanies>
+      },
+      {
+        path: "/companyDetails/:id",
+        element: <CompanyDetails></CompanyDetails>,
+        loader: ({params})=>fetch(`http://localhost:5000/companies/${params.id}`)
       },
       {
         path: '/findEmployee',
