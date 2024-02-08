@@ -68,10 +68,10 @@ const posts = [
 
 export default function Reviews() {
     return (
-        <div className="my-20 py-10 sm:py-12 text-center">
+        <div className="my-20 py-10 sm:py-12 text-center bg-slate-200">
             <div className='text-center space-y-4 w-2/3 mx-auto mb-20'>
-                <h2 className='text-slate-700 text-5xl font-extrabold'>Find Top Talents By Category</h2>
-                <p className='text-slate-500 text-2xl font-medium'>Search talented professionals for your <span className='bg-yellow-300 p-1'>Company</span> by our top categories <span className='bg-yellow-300 p-1'>Categories</span></p>
+                <h2 className='text-slate-700 text-5xl font-extrabold'>Insights and Delights</h2>
+                <p className='text-slate-500 text-2xl font-medium'>Discover the real impact of our platform through the users.</p>
             </div>
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="mx-auto grid max-w-2xl grid-cols-1 gap-10 lg:mx-0 lg:max-w-none lg:grid-cols-3 items-center">
@@ -108,7 +108,7 @@ export default function Reviews() {
                 </div>
             </div>
             <div className="my-10 flex justify-center">
-                <Link to="/" className="flex items-center gap-2 m-1 shadow-lg border-2 border-indigo-800 rounded-lg font-medium bg-white px-8 py-2 hover:bg-indigo-500 hover:border-indigo-500 text-indigo-500 hover:text-white transition-all ease-out delay-0 duration-500">All Reviews<FaArrowRightLong /></Link>
+                <Link to="/allReviews" className="flex items-center gap-2 m-1 shadow-lg border-2 border-indigo-800 rounded-lg font-medium bg-white px-8 py-2 hover:bg-indigo-500 hover:border-indigo-500 text-indigo-500 hover:text-white transition-all ease-out delay-0 duration-500">All Reviews<FaArrowRightLong /></Link>
             </div>
         </div>
     )

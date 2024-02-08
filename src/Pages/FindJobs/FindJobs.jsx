@@ -60,7 +60,7 @@ const FindJobs = () => {
                 </div>
             </div>
 
-            <div className='flex-1 grid grid-cols-1 md:grid-cols-2 gap-5'>
+            <div className='flex-1 grid grid-cols-1 md:grid-cols-3 gap-5'>
                 {
                     findJobs.map(job => <JobPostCard key={job._id} job={job} />)
                 }

@@ -128,7 +128,7 @@ const Navbar = () => {
                 <div>
                   {/* <Link to="/signup"> */}
                     <details className="dropdown dropdown-end border-0">
-                      <summary className="m-1 border-0 shadow-lg btn rounded-lg font-medium bg-indigo-800 px-8 py-2 text-slate-200 hover:bg-indigo-500 text-white transition-all ease-out delay-0 duration-500">Register</summary>
+                      <summary className="m-1 border-0 shadow-lg btn rounded-lg font-medium bg-indigo-800 px-8 py-2  hover:bg-indigo-500 text-white transition-all ease-out delay-0 duration-500">Register</summary>
                       <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-56">
                         <li><Link to="/signup">I'm looking for a job</Link></li>
                         <li><Link to="/buyerSignup">I'm looking for candidates</Link></li>

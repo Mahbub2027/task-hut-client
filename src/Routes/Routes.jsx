@@ -35,6 +35,7 @@ import EmployeeInfo from "../Pages/FindEmployee/EmployeeInfo";
 import CompanyChat from "../Pages/Dashboard/Company/CompanyChat/CompanyChat";
 import JobDetails from "../Pages/FindJobs/JobDetails/JobDetails";
 import AllCompanies from "../Pages/FindCompany/AllCompanies";
+import AllReviews from "../Pages/AllReviews/AllReviews";
 
 
 export const router = createBrowserRouter([
@@ -97,6 +98,10 @@ export const router = createBrowserRouter([
       {
         path: '/accountAnalytics',
         element: <PrivateRoutes><AccountAnalytics></AccountAnalytics></PrivateRoutes>
+      },
+      {
+        path: '/allReviews',
+        element: <AllReviews></AllReviews>
       },
       {
         path: '/support',

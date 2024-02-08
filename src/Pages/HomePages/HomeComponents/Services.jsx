@@ -19,7 +19,7 @@ const Services = () => {
                 <p className='text-slate-500 text-2xl font-medium'>We provide services to mitigate the gap between <span className='bg-yellow-300 p-1'>Companies</span> who looking for potential employees and <span className='bg-yellow-300 p-1'>Professionals</span> who looking for career opportunities.</p>
             </div>
             <div className='flex flex-col items-center gap-10 w-9/12 mx-auto my-20'>
-                <div className='sticky top-32 lg:top-[150px]  w-full lg:w-9/12 flex justify-between items-center shadow-md rounded-3xl'>
+                <div className='sticky top-32 lg:top-[150px] w-full lg:w-9/12 flex justify-between items-center shadow-md rounded-3xl'>
                     <div className='hidden lg:block w-1/3 h-full bg-white rounded-l-3xl'>
                         <Lottie className="w-full h-64" animationData={createProfile} />
                     </div>

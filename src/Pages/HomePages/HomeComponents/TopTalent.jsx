@@ -7,7 +7,7 @@ const TopTalent = () => {
     <div className='w-9/12 mx-auto my-40'>
       <div className='text-center space-y-4 w-2/3 mx-auto my-20'>
         <h2 className='text-slate-700 text-5xl font-extrabold'>Find Top Talents By Category</h2>
-        <p className='text-slate-500 text-2xl font-medium'>Search talented professionals for your <span className='bg-yellow-300 p-1'>Company</span> by our top categories <span className='bg-yellow-300 p-1'>Categories</span></p>
+        <p className='text-slate-500 text-2xl font-medium'>Search talented <span className='bg-yellow-300 p-1'>professionals</span> for your company by our top <span className='bg-yellow-300 p-1'>Categories</span></p>
       </div>
       <div className='group py-24 px-20 rounded-[100px] h-full flex justify-around bg-indigo-100 hover:bg-indigo-600 hover:shadow-md transition-all ease-in-out delay-0 duration-1000'>
         <div className='w-1/3 relative '>
