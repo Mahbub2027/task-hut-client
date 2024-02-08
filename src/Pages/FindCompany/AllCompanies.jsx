@@ -5,15 +5,6 @@ import useAxiosPublic from '../../hooks/useAxiosPublic';
 const AllCompanies = () => {
     const axiosPublic = useAxiosPublic();
     const searchRef = useRef();
-    // const { user } = useAuth();
-
-    // const { data: users = [] } = useQuery({
-    //     queryKey: ['user'],
-    //     queryFn: async () => {
-    //         const res = await axiosPublic.get('/users')
-    //         return res.data;
-    //     }
-    // })
     const [findCompany, setCompany] = useState([]);
 
     useEffect(() => {
@@ -37,7 +28,7 @@ const AllCompanies = () => {
         <div className='w-11/12  mx-auto my-14'>
             <h2 className="text-4xl font-bold text-center mb-20">All Major Companies in One Place</h2>
 
-            <div className="flex flex-col md:flex-row gap-10">
+            <div className="flex flex-col md:flex-row-reverse gap-10">
                 <div className='w-full lg:w-72 h-96 rounded-xl my-5 p-4 bg-purple-200'>
 
                     <p className='font-bold texl-lg mb-2'>Select Category</p>
@@ -64,21 +55,11 @@ const AllCompanies = () => {
 
                 <div className='flex-1 grid grid-cols-1 md:grid-cols-2 gap-5 '>
                     {
-                        findCompany.map(company => <CompanyCard key={company._id} company={company}></CompanyCard>
-                            //     <div key={use._id} >
-                            //     {
-                            //         use.role === 'buyer' && <>
-
-                            //             <CompanyCard use={use}></CompanyCard>
-
-                            //         </>
-                            //     }
-                            //    </div>
-                        )
+                        findCompany.map(company => <CompanyCard key={company._id} 
+                            company={company}></CompanyCard>)
                     }
                 </div>
             </div>
-
         </div>
     );
 };
