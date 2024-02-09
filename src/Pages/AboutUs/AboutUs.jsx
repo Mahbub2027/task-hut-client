@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet";
 // import useTanStact from "../../hooks/useTanStact";
-import logo from "../../../public/TaskHut.jpg";
+import logo from "../../assets/images/Taskhut.jpg";
 import developer from "../../assets/images/developer.jpg";
 import WhyTaskHut from "./WhyTaskHut";
 import Statistics from "./Statistics";

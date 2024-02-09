@@ -37,7 +37,7 @@ const FindJobs = () => {
     return (
         <div className='w-11/12 mx-auto flex flex-col md:flex-row gap-5 my-16'>
             
-            <div className='w-full lg:w-72 h-96 rounded-xl my-5 p-4 bg-purple-200'>
+            <div className='w-full lg:w-72 h-96 rounded-xl my-5 p-4 bg-slate-100'>
                 
                 <p className='font-bold texl-lg mb-2'>Select Category</p>
                 <div className=' '>
@@ -55,8 +55,8 @@ const FindJobs = () => {
                 type="text" placeholder="Type job title" 
                 className="input input-bordered w-full max-w-xs" />
 
-                <div className='mt-5'>
-                    <button onClick={handleSearch} className="w-full bg-purple-500 hover:bg-purple-700 p-2 rounded-lg font-bold text-white">Find Job</button>
+                <div className='mt-5 w-full'>
+                    <button onClick={handleSearch} className="m-1 w-full shadow-lg border-2 border-indigo-800 rounded-lg font-medium bg-indigo-800 px-8 py-2 text-white hover:bg-indigo-500 hover:border-indigo-500 hover:text-white transition-all ease-out delay-0 duration-500">Find Job</button>
                 </div>
             </div>
 
