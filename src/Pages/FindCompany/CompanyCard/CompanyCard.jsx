@@ -8,7 +8,10 @@ const CompanyCard = ({ company }) => {
         <div className=' border rounded-lg gap-10 p-5 shadow-lg'>
             <Link to={`/companyDetails/${_id}`}><p><img className=' h-24 rounded-lg' src={company_logo} alt="" /></p></Link>
             <h2 className='text-xl font-bold'>{company_name}</h2>
-            <p>{about}</p>
+            {
+                about.length > 200 ? <p>{about.slice(0,150)}</p>  :
+                <p>{about}</p>
+            }
         </div>
     );
 };

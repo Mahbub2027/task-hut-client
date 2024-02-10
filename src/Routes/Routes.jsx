@@ -37,6 +37,7 @@ import JobDetails from "../Pages/FindJobs/JobDetails/JobDetails";
 import AllCompanies from "../Pages/FindCompany/AllCompanies";
 import CompanyDetails from "../Pages/FindCompany/CompanyDetails/CompanyDetails";
 import AllReviews from "../Pages/AllReviews/AllReviews";
+import EmployeeDetails from "../Pages/FindEmployee/EmployeeDetails/EmployeeDetails";
 
 
 export const router = createBrowserRouter([
@@ -83,6 +84,11 @@ export const router = createBrowserRouter([
       {
         path: '/findEmployee',
         element: <FindEmployee></FindEmployee>
+      },
+      {
+        path: '/employeeDetails/:id',
+        element: <EmployeeDetails></EmployeeDetails>,
+        loader: ({params})=> fetch(`http://localhost:5000/users/${params.id}`)
       },
       {
         path:'/testemployee',

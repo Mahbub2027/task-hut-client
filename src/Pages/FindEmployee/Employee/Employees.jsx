@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Employees = ({employee}) => {
     const {_id, name, email, image} = employee;
@@ -8,6 +9,7 @@ const Employees = ({employee}) => {
             <span><img className='w-24 h-24 rounded-full' src={image} alt="" /></span>
             <p>Name: {name}</p>
             <p>Email: {email}</p>
+            <Link to={`/employeeDetails/${_id}`}><button className='btn btn-info'>View Details</button></Link>
         </div>
     );
 };
