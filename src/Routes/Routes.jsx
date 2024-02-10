@@ -38,6 +38,10 @@ import AllCompanies from "../Pages/FindCompany/AllCompanies";
 import CompanyDetails from "../Pages/FindCompany/CompanyDetails/CompanyDetails";
 import AllReviews from "../Pages/AllReviews/AllReviews";
 import EmployeeDetails from "../Pages/FindEmployee/EmployeeDetails/EmployeeDetails";
+import Blogs from "../Pages/Blogs/Blogs";
+import SingleBlog from "../Pages/Blogs/SingleBlog";
+import CompanyBlogs from "../Pages/Dashboard/Company/CompanyBlogs/CompanyBlogs";
+import UserChat from './../Pages/Dashboard/Users/UserChat/UserChat';
 
 
 export const router = createBrowserRouter([
@@ -99,6 +103,17 @@ export const router = createBrowserRouter([
         element:<EmployeeInfo></EmployeeInfo>,
         loader:({params}) => fetch(`https://tusk-hut-server.vercel.app/users/employee/${params.id}`)
       },
+//-------
+      {
+        path: '/blogs',
+        element: <Blogs></Blogs>
+      },
+      {
+        path: '/blogs/:id',
+        element: <SingleBlog></SingleBlog>
+      },
+
+//-----
       {
         path: '/aboutUs',
         element: <AboutUs></AboutUs>
@@ -141,6 +156,10 @@ export const router = createBrowserRouter([
         element: <BuyerRoutes><CompanyChat></CompanyChat></BuyerRoutes>
       },
       {
+        path: 'companyBlog',
+        element: <BuyerRoutes><CompanyBlogs></CompanyBlogs></BuyerRoutes>
+      },
+      {
         path: 'postAJob',
         element: <PostAJob></PostAJob>
       },
@@ -161,6 +180,10 @@ export const router = createBrowserRouter([
       {
         path: 'savedJobs',
         element: <SavedJobPosts></SavedJobPosts>
+      },
+      {
+        path: 'userChat',
+        element: <UserChat></UserChat>
       },
       {
         path: 'appliedJobs',

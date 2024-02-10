@@ -28,7 +28,10 @@
     "react-simple-typewriter": "^5.0.1",
     "recharts": "^2.10.4",
     "sort-by": "^0.0.2",
-    "sweetalert2": "^11.6.13"
+    "sweetalert2": "^11.6.13",
+    "timeago.js": "^4.0.0-beta.3",
+    "@mui/material": "^5.15.6",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@types/leaflet": "^1.9.8",

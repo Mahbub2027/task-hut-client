@@ -1,6 +1,6 @@
 // import React from 'react';
 import { BsChatTextFill } from "react-icons/bs";
-import { FaBell, FaBriefcase, FaBusinessTime, FaCalendarCheck, FaFilePowerpoint, FaHome, FaList, FaUserCheck } from 'react-icons/fa';
+import { FaBell, FaBriefcase, FaBusinessTime, FaCalendarCheck, FaFilePowerpoint, FaHome, FaList, FaUserCheck,FaBlogger } from 'react-icons/fa';
 import { FaClipboardList, FaCreditCard, FaFilePen, FaPersonCircleQuestion, FaRightFromBracket, FaUnlockKeyhole, FaUserLock, FaUserShield, FaUserTie, FaUsers, FaUsersGear } from 'react-icons/fa6';
 import { NavLink, Outlet } from 'react-router-dom';
 import useAdmin from '../hooks/useAdmin';
@@ -59,6 +59,10 @@ const Dashboard = () => {
                                 <BsChatTextFill />
                                 <NavLink to='/dashboard/companyChat'>Chat</NavLink>
                             </li>
+                            <li className="flex gap-2 items-center py-2 px-4 border-l-4 border-transparent hover:border-l-4 hover:border-l-slate-500 hover:transition duration-500 ease-in-out hover:ease-in-out  dark:hover:text-white hover:pl-3">
+                                <FaBlogger />
+                                <NavLink to='/dashboard/companyBlog'>Blog</NavLink>
+                            </li>
                             <li className="flex gap-2 items-center py-2 px-4 border-l-4 border-transparent hover:border-l-4 hover:border-l-slate-500 hover:transition duration-500 ease-in-out hover:ease-in-out dark:hover:text-white hover:pl-3">
                                 <FaFilePowerpoint />
                                 <NavLink to='/dashboard/companyPosts'>Company Posts</NavLink>
@@ -92,6 +96,10 @@ const Dashboard = () => {
                             <li className="flex gap-2 items-center py-2 px-4 border-l-4 border-transparent hover:border-l-4 hover:border-l-slate-500 hover:transition duration-500 ease-in-out hover:ease-in-out  dark:hover:text-white hover:pl-3">
                                 <FaUserTie />
                                 <NavLink to='/dashboard/editProfile'>Edit Profile</NavLink>
+                            </li>
+                            <li className="flex gap-2 items-center py-2 px-4 border-l-4 border-transparent hover:border-l-4 hover:border-l-slate-500 hover:transition duration-500 ease-in-out hover:ease-in-out  dark:hover:text-white hover:pl-3">
+                                <BsChatTextFill />
+                                <NavLink to='/dashboard/userChat'>Chat</NavLink>
                             </li>
                             <li className="flex gap-2 items-center py-2 px-4 border-l-4 border-transparent hover:border-l-4 hover:border-l-slate-500 hover:transition duration-500 ease-in-out hover:ease-in-out dark:hover:text-white hover:pl-3">
                                 <FaBriefcase />
