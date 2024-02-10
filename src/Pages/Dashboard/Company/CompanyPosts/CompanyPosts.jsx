@@ -6,7 +6,7 @@ import useAuth from '../../../../hooks/useAuth';
 const CompanyPosts = () => {
     const axiosPublic = useAxiosPublic();
     const { user } = useAuth();
-    const { data: companies = [] } = useQuery({
+    const { data: jobs = [] } = useQuery({
         queryKey: ['company'],
         queryFn: async () => {
             const res = await axiosPublic.get('/jobs');
@@ -31,21 +31,21 @@ const CompanyPosts = () => {
                     </thead>
                     <tbody>
                         {
-                            companies.map(company => <tr key={company._id}>
+                            jobs.map(job => <tr key={job._id}>
 
                                 {
-                                    (user?.email === company?.email) && <>
+                                    (user?.email === job?.email) && <>
                                         <td>
-                                            <img className='w-12 h-12 ' src={company.company_logo} alt="" />
+                                            <img className='w-12 h-12 ' src={job.company_logo} alt="" />
                                         </td>
                                         <td>
-                                            <h2>{company.job_title}</h2>
+                                            <h2>{job.job_title}</h2>
                                         </td>
                                         <td>
-                                            <h2>{company.company_name}</h2>
+                                            <h2>{job.company_name}</h2>
                                         </td>
                                         <td>
-                                            <p>{company.apply_role}</p>
+                                            <p>{job.apply_role}</p>
                                         </td>
                                         <td>
                                             <button className='btn'>Update</button>

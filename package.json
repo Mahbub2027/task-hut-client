@@ -13,7 +13,7 @@
     "@formspree/react": "^2.5.1",
     "@smastrom/react-rating": "^1.4.0",
     "@tanstack/react-query": "^5.17.9",
-    "axios": "^1.6.5",
+    "axios": "^1.6.7",
     "firebase": "^10.7.1",
     "localforage": "^1.10.0",
     "lottie-react": "^2.4.0",
@@ -27,10 +27,11 @@
     "react-router-dom": "^6.21.1",
     "react-simple-typewriter": "^5.0.1",
     "recharts": "^2.10.4",
-    "sort-by": "^1.2.0",
-    "sweetalert2": "^11.10.4"
+    "sort-by": "^0.0.2",
+    "sweetalert2": "^11.6.13"
   },
   "devDependencies": {
+    "@types/leaflet": "^1.9.8",
     "@types/react": "^18.2.43",
     "@types/react-dom": "^18.2.17",
     "@vitejs/plugin-react": "^4.2.1",

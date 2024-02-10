@@ -2,6 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import useAxiosPublic from '../../../../hooks/useAxiosPublic';
 import Swal from 'sweetalert2';
+import useAuth from '../../../../hooks/useAuth';
 // import { FaTriangleExclamation } from 'react-icons/fa6';
 
 const image_hosting_key = import.meta.env.VITE_image_hosting_key;
@@ -9,6 +10,7 @@ const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_ke
 
 const EditCompanyProfile = () => {
     // const [isShow, setShow] = useState(false);
+    const {user} = useAuth();
     const axiosPublic = useAxiosPublic();
     const { register, handleSubmit, reset ,formState: { errors } } = useForm();
 
@@ -29,7 +31,7 @@ const EditCompanyProfile = () => {
                 company_size: data.company_size,
                 founded_in: data.founded_in,
                 phone: data.phone,
-                email: data.email,
+                email: user?.email,
                 linkedin: data.linkedin,
                 github: data.github,
                 website: data.website,

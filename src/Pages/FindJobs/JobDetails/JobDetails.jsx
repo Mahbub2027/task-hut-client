@@ -87,7 +87,7 @@ const JobDetails = () => {
                 </div>
                 <div className='space-y-3 bg-indigo-100 hover:shadow-md rounded-3xl p-5'>
                     <div className='flex flex-wrap gap-3 items-center'>
-                        <Link to='/' className='tooltip tooltip-left rounded-2xl border-2 hover:border-2 hover:border-indigo-700 hover:shadow-md transition-all ease-out delay-0 duration-500' data-tip='View company details'>
+                        <Link to={`/companyDetails/${_id}`} className='tooltip tooltip-left rounded-2xl border-2 hover:border-2 hover:border-indigo-700 hover:shadow-md transition-all ease-out delay-0 duration-500' data-tip='View company details'>
                             <img className='w-16 h-16 rounded-2xl' src={company_logo} alt="" />
                         </Link>
                         <p className='font-medium text-xl'>{company_name}</p>
@@ -115,31 +115,6 @@ const JobDetails = () => {
                 </div>
             </div>
         </div>
-        // <div className="w-11/12 mx-auto my-10">
-        //     <p><img className="w-24 h-24 rounded-md" src={company_logo} alt="" /></p>
-        //     <p className="text-3xl font-bold">{job_title}</p>
-        //     <p>by {company_name}</p>
-        //     <p className="flex items-center gap-3"><FaLocationDot></FaLocationDot> {location}</p>
-        //     <button className="flex items-center gap-3 text-xl"><FaRegBookmark></FaRegBookmark>Add to Bookmark</button>
-        //     <button className="btn btn-outline">Apply now</button>
-        //     <p>Date: {date}</p>
-        //     <p className="capitalize">{job_type}</p>
-        //     <p className="capitalize">{category}</p>
-        //     <p className="text-lg font-bold">Experience </p>
-        //     {
-        //         experience === " " ? "N/A" : <p>{experience}</p>
-        //     }
-        //     <p className="text-lg font-bold">Salary</p>
-        //     <p>{salary_range}</p>
-        //     <p className="text-lg font-bold">Overview </p>
-        //     <p>{overview}</p>
-        //     <p className="text-lg font-bold">Requirements </p>
-        //     <p>{requirements}</p>
-        //     <p className="text-lg font-bold">Skills </p>
-        //     <p>{skills}</p>
-        //     <p className="text-lg font-bold">Responsibilities </p>
-        //     <p>{responsibilities}</p>
-        // </div>
     );
 };
 

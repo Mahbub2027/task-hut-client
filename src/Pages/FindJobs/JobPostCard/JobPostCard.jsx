@@ -28,37 +28,11 @@ const JobPostCard = ({ job }) => {
                         <p className='text-sm'>{date} Posted</p>
                         <p className='text-sm'>{date} Deadline</p>
                     </div>
-                    <Link to='/' className='tooltip tooltip-left rounded-2xl border-2 hover:border-2 hover:border-indigo-700 hover:shadow-md transition-all ease-out delay-0 duration-500' data-tip='View company details'>
+                    <Link to={`/companyDetails/${_id}`} className='tooltip tooltip-left rounded-2xl border-2 hover:border-2 hover:border-indigo-700 hover:shadow-md transition-all ease-out delay-0 duration-500' data-tip='View company details'>
                         <img className='w-16 h-16 rounded-2xl' src={company_logo} alt="" />
                     </Link>
                 </div>
             </div>
-            {/* <div className='border rounded-lg p-5 hover:shadow-xl'>
-                <div>
-                    <div className='flex justify-between mb-3'>
-                        <p className='text-md font-normal border rounded-lg px-2 py-1 capitalize'>{category}</p>
-
-                    </div>
-                </div>
-
-                <div>
-                    <Link to={`/jobDetails/${_id}`}>
-                        <h2 className='text-2xl font-bold text-purple-600 hover:text-3xl'>{job_title}</h2>
-                    </Link>
-                    <p className='capitalize'>{job_type}</p>
-                    <p className='flex items-center gap-3'><FaLocationDot /> {location}</p>
-                </div>
-
-                <div className="flex items-center justify-between mt-5">
-                    <div>
-                        <p className="font-bold">{company_name}</p>
-                        <p>Published: {date}</p>
-                    </div>
-                    <div>
-                        <img className='w-24 h-20' src={company_logo} alt="" />
-                    </div>
-                </div>
-            </div> */}
         </>
     );
 };

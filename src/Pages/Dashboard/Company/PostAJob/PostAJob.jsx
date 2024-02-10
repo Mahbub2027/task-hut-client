@@ -14,6 +14,7 @@ const PostAJob = () => {
     const {user} = useAuth();
     const navigate = useNavigate();
 
+
     const onSubmit = async (data) => {
         console.log(data)
         // image upload imgBB
