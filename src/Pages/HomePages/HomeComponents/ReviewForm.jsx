@@ -42,7 +42,7 @@ const ReviewForm = () => {
             </div>
             <div className='mx-auto text-center w-2/3 md:w-1/2 lg:w-1/3'>
                 <form className='space-y-8' onSubmit={handleOnSubmit} >
-                    <textarea className='outline-none w-full rounded-2xl focus:shadow-md focus:shadow-indigo-700 p-4 text-slate-700 ' name="review" id="" cols="60" rows="8" placeholder='Your experience/opinions here...'></textarea>
+                    <textarea className='text-lg outline-none w-full rounded-2xl focus:shadow-md focus:shadow-indigo-700 p-4 text-slate-700 ' name="review" id="" cols="60" rows="8" placeholder='Your experience/opinions here...'></textarea>
                     <div className='text-white'>
                         <div className='flex items-center justify-center gap-4'>
                             <div className='tooltip' data-tip={`${getRating(hoveredRating)}`}>

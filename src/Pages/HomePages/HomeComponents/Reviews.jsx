@@ -99,11 +99,11 @@ export default function Reviews() {
                                     value={post.rating}
                                     readOnly
                                 />
-                                <p>{post.ratingMessage}</p>
+                                <p className="text-slate-700 group-hover:text-white">{post.ratingMessage}</p>
                             </div>
-                            <p>---</p>
+                            <p className="text-slate-400">---</p>
                             <p className="text-slate-400">{post.date}</p>
-                            <p className="lg:text-start font-semibold text-slate-700">{post.author.name}</p>
+                            <p className="lg:text-start font-semibold text-slate-700 group-hover:text-white">{post.author.name}</p>
                             <img src={post.author.imageUrl} alt="" className="my-1 h-8 w-8 rounded-full bg-gray-50 border-2 border-indigo-800" />
                         </div>
                     ))}

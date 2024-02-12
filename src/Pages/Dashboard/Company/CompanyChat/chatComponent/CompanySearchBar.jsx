@@ -12,6 +12,7 @@ import {
 } from "firebase/firestore";
 import { db } from "../../../../../firebase/firebase.config";
 import useAuth from "../../../../../hooks/useAuth";
+import { FaSearch } from "react-icons/fa";
 
 const CompanySearchBar = () => {
   const [username, setUsername] = useState("");
@@ -81,8 +82,8 @@ const CompanySearchBar = () => {
   };
 
   return (
-    <div className="border-b-2 h-14 items-center border-solid border-gray-400">
-      <div className="p-3">
+    <div className="border-b-2 items-center border-solid border-slate-400">
+      <div className="p-3 flex justify-between">
         <input
           type="text"
           placeholder="Find a user"
@@ -91,14 +92,15 @@ const CompanySearchBar = () => {
           onChange={(e) => setUsername(e.target.value)}
           value={username}
         />
+        <button onClick={handleSearch} className="rounded-full text-slate-300 hover:text-white p-2 text-xl"><FaSearch /></button>
       </div>
       {err && <span>User not found!</span>}
       {searchUser && (
         <div
-          className="p-3 flex items-center  gap-3 text-white cursor-pointer hover:bg-purple-900 "
+          className="p-3 flex items-center gap-3 text-white cursor-pointer bg-slate-600 hover:bg-slate-800 z-50"
           onClick={handleSelect}
         >
-          <img src="" alt="" className="w-12 h-12 rounded-full " />
+          <img src={searchUser.photoURL} alt="" className="w-12 h-12 rounded-full " />
           <div>
             <span className="font-bold text-lg ">{searchUser.displayName}</span>
           </div>

@@ -4,17 +4,17 @@ import Messages from './messages/Messages';
 import { ChatContext } from './../../../../../provider/ChatProvider';
 
 const ChatContainer = () => {
-    const { data } = useContext(ChatContext);
-    return (
-        <div className=" w-3/5  h-4/5">
-        <div className="h-14 flex justify-center items-center rounded-tr-lg bg-purple-600 p-3 text-gray-200">
-        <img src={data.chatUser?.photoURL} className="w-10 h-12 rounded-full mr-4 overflow-hidden"/>
-          <span>{data.chatUser?.displayName}</span>
-        </div>
-        <Messages />
-        <Input />
+  const { data } = useContext(ChatContext);
+  return (
+    <div className="h-full w-full rounded-r-xl flex flex-col">
+      <div className="flex items-center gap-4 rounded-tr-xl bg-white border-b-2 border-b-slate-300 p-3 text-gray-200 lg:h-16">
+        <img src={data.chatUser?.photoURL} className={data.chatUser?.photoURL ? "object-cover border-2 border-slate-800 w-12 h-12 rounded-full overflow-hidden" : "hidden"} />
+        <span className='text-slate-700 text-lg font-semibold'>{data.chatUser?.displayName}</span>
       </div>
-    );
+      <Messages />
+      <Input />
+    </div>
+  );
 };
 
 export default ChatContainer;
