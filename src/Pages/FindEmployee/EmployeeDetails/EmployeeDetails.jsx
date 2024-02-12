@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import EmployeeInfo from '../EmployeeInfo';
 
 const EmployeeDetails = () => {
     const {name, image, email} = useLoaderData();

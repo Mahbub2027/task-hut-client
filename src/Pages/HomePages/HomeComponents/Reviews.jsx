@@ -14,7 +14,8 @@ const posts = [
             imageUrl:
                 'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
         },
-        rating: 4.5
+        rating: 4.5,
+        ratingMessage: 'Excellent 😍'
     },
     {
         id: 2,
@@ -26,7 +27,8 @@ const posts = [
             imageUrl:
                 'https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
         },
-        rating: 4.2
+        rating: 4.2,
+        ratingMessage: 'Average 😕'
     },
     {
         id: 3,
@@ -38,7 +40,8 @@ const posts = [
             imageUrl:
                 'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
         },
-        rating: 3.9
+        rating: 3.9,
+        ratingMessage: 'Nothing special 😢'
     },
     {
         id: 4,
@@ -50,7 +53,8 @@ const posts = [
             imageUrl:
                 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
         },
-        rating: 3.4
+        rating: 3.4,
+        ratingMessage: 'Poor 😠'
     },
     {
         id: 5,
@@ -62,13 +66,14 @@ const posts = [
             imageUrl:
                 'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
         },
-        rating: 4.6
+        rating: 4.6,
+        ratingMessage: 'Very good 👍'
     },
 ]
 
 export default function Reviews() {
     return (
-        <div className="my-20 py-10 sm:py-12 text-center bg-slate-200">
+        <div className="py-20 sm:py-12 text-center bg-slate-200">
             <div className='text-center space-y-4 w-2/3 mx-auto mb-20'>
                 <h2 className='text-slate-700 text-5xl font-extrabold'>Insights and Delights</h2>
                 <p className='text-slate-500 text-2xl font-medium'>Discover the real impact of our platform through the users.</p>
@@ -84,26 +89,23 @@ export default function Reviews() {
                     </blockquote>
 
                     {posts.map((post) => (
-                        <article key={post.id} className="group lg:h-56 flex max-w-xl flex-col items-center shadow shadow-indigo-200 rounded-xl bg-white p-4 hover:bg-indigo-500 relative transition-all ease-out delay-0 duration-500">
-                            <div className="lg:absolute lg:-top-8 lg:-left-5  lg:bg-white flex flex-col lg:flex-row items-center gap-2 text-center w-full lg:w-1/2 px-1 rounded-xl">
-                                <img src={post.author.imageUrl} alt="" className="h-10 w-10 rounded-lg bg-gray-50 border-2 lg:border-indigo-800" />
-                                <div className="text-sm leading-6">
-                                    <p className="lg:text-start font-semibold text-slate-700">
-                                        <span className="absolute inset-0" />
-                                        {post.author.name}
-                                    </p>
-                                    <p className="text-slate-400">{post.date}</p>
-                                </div>
-                            </div>
-                            <Rating
-                                style={{ maxWidth: 96 }}
-                                value={post.rating}
-                                readOnly
-                            />
+                        <div key={post.id} className="group flex max-w-xl flex-col items-center justify-center shadow shadow-indigo-200 rounded-xl bg-white p-4 hover:bg-indigo-500 transition-all ease-out delay-0 duration-500">
                             <div className="p-4">
                                 <p className="text-md text-center leading-6 text-slate-700 group-hover:text-white font-medium">"{post.description}"</p>
                             </div>
-                        </article>
+                            <div className="flex gap-2">
+                                <Rating
+                                    style={{ maxWidth: 96 }}
+                                    value={post.rating}
+                                    readOnly
+                                />
+                                <p>{post.ratingMessage}</p>
+                            </div>
+                            <p>---</p>
+                            <p className="text-slate-400">{post.date}</p>
+                            <p className="lg:text-start font-semibold text-slate-700">{post.author.name}</p>
+                            <img src={post.author.imageUrl} alt="" className="my-1 h-8 w-8 rounded-full bg-gray-50 border-2 border-indigo-800" />
+                        </div>
                     ))}
                 </div>
             </div>

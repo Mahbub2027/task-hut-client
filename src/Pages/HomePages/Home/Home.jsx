@@ -6,6 +6,7 @@ import Reviews from "../HomeComponents/Reviews";
 import Statistics from "../../AboutUs/Statistics";
 import Services from "../HomeComponents/Services";
 import FindCareer from "../HomeComponents/FindCareer";
+import ReviewForm from "../HomeComponents/ReviewForm";
 
 const Home = () => {
   return (
@@ -21,6 +22,7 @@ const Home = () => {
       {/* <HowItWorks></HowItWorks> */}
       <TopTalent></TopTalent>
       <FindCareer></FindCareer>
+      <ReviewForm></ReviewForm>
       <Reviews></Reviews>
     </div>
   );
