@@ -26,12 +26,7 @@ const BuyerSignup = () => {
   const [showPassword, setShowPassword] = useState(false);
   const axiosPublic = useAxiosPublic();
 
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm();
+  const {register,handleSubmit,reset,formState: { errors },} = useForm();
   const navigate = useNavigate();
   const [image, setImage] = useState([]);
   let firebaseUser;

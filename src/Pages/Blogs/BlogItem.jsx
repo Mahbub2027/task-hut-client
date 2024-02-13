@@ -12,7 +12,7 @@ const BlogItem = ({item}) => {
   console.log("id: " + id);
 
   return (
-    <div className="card w-96 glass rounded-3xl shadow-2xl ">
+    <div className="card glass rounded-3xl shadow-2xl ">
       <figure>
         <img src={item?.img} alt="" className="max-h-48 w-full object-cover" />
       </figure>
