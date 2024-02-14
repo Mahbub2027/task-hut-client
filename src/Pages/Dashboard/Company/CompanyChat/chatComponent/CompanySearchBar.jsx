@@ -9,10 +9,13 @@ import {
   updateDoc,
   serverTimestamp,
   getDoc,
+  and,
+  orderBy,
 } from "firebase/firestore";
 import { db } from "../../../../../firebase/firebase.config";
 import useAuth from "../../../../../hooks/useAuth";
 import { FaSearch } from "react-icons/fa";
+import { MdCancel } from "react-icons/md";
 
 const CompanySearchBar = () => {
   const [username, setUsername] = useState("");
@@ -21,13 +24,14 @@ const CompanySearchBar = () => {
   const { user } = useAuth();
 
   const handleSearch = async () => {
-    const q = query(
+    const q1= query(
       collection(db, "users"),
-      where("displayName", "==", username)
+     and(where("displayName", "==", username), where("uid", "!=", user.uid)),orderBy("uid")
     );
     try {
-      const querySnapshot = await getDocs(q);
+      const querySnapshot = await getDocs(q1);
       querySnapshot.forEach((doc) => {
+        console.log(("data= "+doc.data))
         setSearchUser(doc.data());
       });
     } catch (err) {
@@ -92,6 +96,7 @@ const CompanySearchBar = () => {
           onChange={(e) => setUsername(e.target.value)}
           value={username}
         />
+        {username !="" ? <button onClick={()=>{setUsername("")}} className="rounded-full text-slate-300 hover:text-white p-2 text-xl"><MdCancel /></button>:""}
         <button onClick={handleSearch} className="rounded-full text-slate-300 hover:text-white p-2 text-xl"><FaSearch /></button>
       </div>
       {err && <span>User not found!</span>}
