@@ -7,7 +7,6 @@ import SignUp from "../Pages/auth/SignUp/SignUp";
 import BuyerSignup from "../Pages/auth/BuyerSignup/BuyerSignup";
 import AboutUs from "../Pages/AboutUs/AboutUs";
 import PrivateRoutes from "./PrivateRoutes";
-import BrowseJobs from "../Pages/BrowseJobs/BrowseJobs";
 import ViewProfile from "../Pages/ViewProfile/ViewProfile";
 import AccountAnalytics from "../Pages/AccountAnalytics/AccountAnalytics";
 // import Settings from "../Pages/Settings/Settings";

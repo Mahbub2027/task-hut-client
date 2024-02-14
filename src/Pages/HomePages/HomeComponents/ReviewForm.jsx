@@ -1,9 +1,13 @@
 import { Rating } from '@smastrom/react-rating';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { FaArrowRotateLeft } from "react-icons/fa6";
+import { AuthContext } from '../../../provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const ReviewForm = () => {
 
+    const { user } = useContext(AuthContext);
+    // console.log(user)
     const [rating, setRating] = useState(0);
     const [hoveredRating, setHoveredRating] = useState(0);
 
@@ -27,9 +31,50 @@ const ReviewForm = () => {
     const handleOnSubmit = event => {
         event.preventDefault();
         const form = event.target;
-        const review = form.review.value;
+
+        if (!user) {
+            Swal.fire({
+                position: "center",
+                icon: "info",
+                title: "Please register yourself first.",
+                showConfirmButton: false,
+                timer: 2000
+            });
+            setRating(0);
+            form.reset();
+            return;
+        }
+
         
-        console.log(review)
+        const review = form.review.value;
+        const ratingMessage = getRating(rating);
+        const date = new Date().toDateString();
+        const name = user.displayname;
+        const image = user.photoURL;
+        const reviewData = { review, rating, ratingMessage, date, name, image }
+
+        fetch('http://localhost:5000', {
+            method: "POST",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(reviewData)
+        }
+        ).then(res => res.json()
+        ).then(data => {
+            if (data.acknowledged) {
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "Your review has been saved.",
+                    text: "You can now see your review in the reviews section or reviews page.",
+                    showConfirmButton: false,
+                    timer: 2000
+                });
+            }
+        })
+
+        // console.log(review)
         setRating(0);
         form.reset();
     }
@@ -58,7 +103,7 @@ const ReviewForm = () => {
                                 <FaArrowRotateLeft />
                             </div>
                         </div>
-                        <p className='text-md font-medium py-4'>You rated: {`${getRating(rating)}`}</p>
+                        <p className='text-2xl font-medium py-4 '>You rated: {`${getRating(rating)}`}</p>
                     </div>
                     <div className="my-10 flex justify-center">
                         <input className="flex items-center gap-2 m-1 shadow-lg border-2 border-slate-50 rounded-lg font-medium bg-slate-100 px-8 py-2 hover:bg-white hover:scale-105 text-indigo-500 transition-all ease-out delay-0 duration-500" type='submit' />
