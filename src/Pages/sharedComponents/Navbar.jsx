@@ -40,8 +40,6 @@ const Navbar = () => {
   const navLinks = (
     <>
       <li><NavLink to="/" className={({ isActive, isPending }) => isPending ? 'pending' : isActive ? 'text-indigo-500 border-b-2 border-b-indigo-600 font-semibold py-1 rounded-none' : 'text-slate-800 hover:text-indigo-500 font-medium'}>Home</NavLink></li>
-      {/* <li><NavLink to="/dashboard" className={({ isActive, isPending }) => isPending ? 'pending' : isActive ? 'text-red-500 font-semibold' : ''}>Dashboard</NavLink></li> */}
-      {/* <li><NavLink to="/browsejobs" className={({ isActive, isPending }) => isPending ? 'pending' : isActive ? 'text-indigo-500 border-b-2 border-b-indigo-600 font-semibold py-1 rounded-none' : 'text-slate-800 hover:text-indigo-500 font-medium'}>Browse Jobs</NavLink></li> */}
       <li><NavLink to="/findJobs" className={({ isActive, isPending }) => isPending ? 'pending' : isActive ? 'text-indigo-500 border-b-2 border-b-indigo-600 font-semibold py-1 rounded-none' : 'text-slate-800 hover:text-indigo-500 font-medium'}>Find Jobs</NavLink></li>
       <li><NavLink to="/findEmployee" className={({ isActive, isPending }) => isPending ? 'pending' : isActive ? 'text-indigo-500 border-b-2 border-b-indigo-600 font-semibold py-1 rounded-none' : 'text-slate-800 hover:text-indigo-500 font-medium'}>Find Employee</NavLink></li>
       <li><NavLink to="/allCompanies" className={({ isActive, isPending }) => isPending ? 'pending' : isActive ? 'text-indigo-500 border-b-2 border-b-indigo-600 font-semibold py-1 rounded-none' : 'text-slate-800 hover:text-indigo-500 font-medium'}>Companies</NavLink></li>
@@ -49,15 +47,17 @@ const Navbar = () => {
       <li><NavLink to="/aboutUs" className={({ isActive, isPending }) => isPending ? 'pending' : isActive ? 'text-indigo-500 border-b-2 border-b-indigo-600 font-semibold py-1 rounded-none' : 'text-slate-800 hover:text-indigo-500 font-medium'}>About Us</NavLink></li>
     </>
   );
+
   const handleLogOut = () => {
     logoutUser()
       .then(() => { })
       .catch((error) => console.log(error));
   };
+
   return (
     <div className="bg-slate-100 bg-opacity-5 backdrop-blur-lg bg-white/30 text-indigo-800 z-10 sticky top-0">
       {/* fixed bg-slate-600 bg-opacity-30 z-10 text-white*/}
-      <div className="navbar shadow-lg">
+      <div className="navbar shadow-md">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -80,7 +80,7 @@ const Navbar = () => {
           {/* <Link to="/"><img src={logo} className="h-16" alt="TaskHut Logo" /></Link> */}
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="space-x-12 menu-horizontal px-1">
+          <ul className="space-x-6 menu-horizontal px-1">
             {navLinks}
           </ul>
         </div>
@@ -109,36 +109,20 @@ const Navbar = () => {
 
                 </div>)
               }
-
-              {/* <span>{user?.displayName}</span> */}
-
-              {/* <span>
-                <img className="w-10 h-10 rounded-full mx-2" src={user?.photoURL}  alt="" />
-              </span> */}
-
             </>
             :
             <>
-              <div className="flex flex-row gap-2 item-center">
-                <div>
-                  <Link to="/login">
-                    {/* className="border-2 border-purple-800 lg:mx-4 sm:my-10 text-purple-800 px-5 py-3 rounded-md font-bold text-base"> */}
-                    <button className="m-1 shadow-lg border-2 border-indigo-800 rounded-lg font-medium bg-white px-8 py-2 text-indigo-800 hover:bg-indigo-500 hover:border-indigo-500 hover:text-white transition-all ease-out delay-0 duration-500">Log in</button>
+              <div className="flex gap-2 item-center justify-center">
+                  <Link to="/login" className="tracking-widest text-white uppercase text-xs lg:text-sm bg-gradient-to-r from-indigo-400 via-indigo-700 to-indigo-600 bg-[length:200%] hover:bg-right focus:ring-4 focus:outline-none focus:ring-indigo-300 shadow-lg shadow-indigo-500/50 font-medium rounded-full px-5 py-2.5 text-center transition-all ease-in-out delay-150 duration-500">
+                    login
                   </Link>
-                </div>
-                <div>
-                  {/* <Link to="/signup"> */}
-                    <details className="dropdown dropdown-end border-0">
-                      <summary className="m-1 border-0 shadow-lg btn rounded-lg font-medium bg-indigo-800 px-8 py-2  hover:bg-indigo-500 text-white transition-all ease-out delay-0 duration-500">Register</summary>
-                      <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-56">
-                        <li><Link to="/signup">I'm looking for a job</Link></li>
-                        <li><Link to="/buyerSignup">I'm looking for candidates</Link></li>
-                      </ul>
-                    </details>
-                    {/* // className="bg-purple-800 lg:mx-4 sm:my-10 text-white px-5 py-3 rounded-md font-bold text-base">
-                    // <button>Sign Up</button> */}
-                  {/* </Link> */}
-                </div>
+                  <details className="tracking-widest dropdown dropdown-end border-none text-white uppercase text-xs lg:text-sm bg-gradient-to-r from-slate-400 via-slate-700 to-slate-600 bg-[length:200%] hover:bg-right focus:ring-4 focus:outline-none focus:ring-slate-300 shadow-lg shadow-slate-500/50 font-medium rounded-full px-5 py-2.5 text-center transition-all ease-in-out delay-150 duration-500 ">
+                    <summary className=" border-none outline-none marker:content-none">Register</summary>
+                    <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-56">
+                      <li><Link to="/signup">I'm looking for a job</Link></li>
+                      <li><Link to="/buyerSignup">I'm looking for candidates</Link></li>
+                    </ul>
+                  </details>
               </div>
             </>
           }

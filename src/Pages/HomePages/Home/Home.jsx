@@ -10,20 +10,20 @@ import ReviewForm from "../HomeComponents/ReviewForm";
 
 const Home = () => {
   return (
-    <div className="bg-white mx-auto">
+    <div className="bg-white">
       <Helmet>
         <title>Home || TaskHut</title>
       </Helmet>
 
       <Banner></Banner>
       <Statistics></Statistics>
-      <WhyUs></WhyUs>
       <Services></Services>
-      {/* <HowItWorks></HowItWorks> */}
+      <WhyUs></WhyUs>
       <TopTalent></TopTalent>
       <FindCareer></FindCareer>
       <ReviewForm></ReviewForm>
       <Reviews></Reviews>
+      {/* <HowItWorks></HowItWorks> */}
     </div>
   );
 };

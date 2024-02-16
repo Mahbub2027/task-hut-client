@@ -80,12 +80,12 @@ const ReviewForm = () => {
     }
 
     return (
-        <div className='bg-indigo-500 space-y-20 py-20'>
-            <div className='text-center space-y-4 w-2/3 mx-auto text-white'>
-                <h2 className='text-5xl font-extrabold'>Share Your Thoughts With Us!</h2>
-                <p className='text-2xl font-medium'>Elevate Your <span className='bg-yellow-500 p-1'>Experience:</span> Unleash the Power of Your <span className='bg-yellow-500 p-1'>Opinions.</span></p>
+        <div className='bg-indigo-500 space-y-10 lg:space-y-20 py-20'>
+            <div className='text-center space-y-4 w-full mx-auto text-white'>
+                <h2 className='text-3xl md:text-5xl font-extrabold'>Share Your Thoughts With Us!</h2>
+                <p className='text-lg md:text-2xl font-medium'>Elevate Your <span className='bg-yellow-500 p-1'>Experience:</span> Unleash the Power of Your <span className='bg-yellow-500 p-1'>Opinions.</span></p>
             </div>
-            <div className='mx-auto text-center w-2/3 md:w-1/2 lg:w-1/3'>
+            <div className='mx-auto text-center w-3/4 md:w-2/3'>
                 <form className='space-y-8' onSubmit={handleOnSubmit} >
                     <textarea className='text-lg outline-none w-full rounded-2xl focus:shadow-md focus:shadow-indigo-700 p-4 text-slate-700 ' name="review" id="" cols="60" rows="8" placeholder='Your experience/opinions here...'></textarea>
                     <div className='text-white'>
@@ -103,10 +103,10 @@ const ReviewForm = () => {
                                 <FaArrowRotateLeft />
                             </div>
                         </div>
-                        <p className='text-2xl font-medium py-4 '>You rated: {`${getRating(rating)}`}</p>
+                        <p className='text-lg md:text-2xl font-medium py-4 '>You rated: {`${getRating(rating)}`}</p>
                     </div>
                     <div className="my-10 flex justify-center">
-                        <input className="flex items-center gap-2 m-1 shadow-lg border-2 border-slate-50 rounded-lg font-medium bg-slate-100 px-8 py-2 hover:bg-white hover:scale-105 text-indigo-500 transition-all ease-out delay-0 duration-500" type='submit' />
+                        <input className="tracking-widest text-xs lg:text-sm flex items-center gap-2 text-indigo-800 uppercase bg-gradient-to-r from-white via-indigo-100 to-white bg-[length:200%] hover:bg-right focus:ring-4 focus:outline-none focus:ring-indigo-300 shadow-lg shadow-indigo-50/30 font-medium rounded-full px-5 py-2.5 text-center transition-all ease-in-out delay-150 duration-500" type='submit' />
                     </div>
                 </form>
             </div>
