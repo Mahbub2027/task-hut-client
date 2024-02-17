@@ -18,11 +18,16 @@ const Blogs = () => {
   }, []);
 
   return (
-    <div className=" w-11/12 mx-auto grid grid-cols-1 lg:grid-cols-3 gap-10 bg-white pb-10 pl-10">
-      {
-      blogs.map((p) => (
-        <BlogItem key={p._id} item={p} />
-      ))}
+    <div className="mb-20">
+      <div className='text-center text-white space-y-4 w-full mx-auto mb-10 py-20 bg-indigo-500'>
+        <h2 className='text-5xl font-extrabold'>Company Blogs</h2>
+        {/* <p className='text-slate-500 text-2xl font-medium'>Apply for new <span className='bg-yellow-300 p-1'>Career</span> by searching through <span className='bg-yellow-300 p-1'>110 Jobs</span></p> */}
+      </div>
+      <div className="w-9/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5 bg-white">
+        {blogs.map((p) => (
+          <BlogItem key={p._id} item={p} />
+        ))}
+      </div>
     </div>
   );
 };

@@ -5,6 +5,7 @@ import { BiSolidImageAdd } from "react-icons/bi";
 import useAuth from "./../../../../hooks/useAuth";
 import { MdCancel } from "react-icons/md";
 import useAxiosPublic from "../../../../hooks/useAxiosPublic";
+import Swal from "sweetalert2";
 
 const CompanyBlogs = () => {
   const [title, setTitle] = useState("");
@@ -37,59 +38,60 @@ const CompanyBlogs = () => {
         img: res.data.data.display_url,
         createdAt: new Date().getTime(),
       };
-      const userRes = await axiosPublic.post("/blogs", blogData);
 
-      console.log(userRes, data);
+      Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes"
+      }).then(async (result) => {
+        if (result.isConfirmed) {
+          const userRes = await axiosPublic.post("/blogs", blogData).then(() => {
+            Swal.fire({
+              title: "Posted!",
+              text: "You can see your post in the blogs page.",
+              icon: "success"
+            });
+          });
+          console.log(userRes, data);
+          setDescription("");
+          setTitle("");
+          setImage(null);
+        }
+      });
     }
-    setDescription("");
-    setTitle("");
-    setImage(null);
+
   };
 
   return (
-    <div className="w-full h-full mx-auto bg-violet-200">
-      <div className="w-7/12 h-fit  mx-auto mt-8 rounded-3xl  bg-white shadow-xl">
-        <div className=" p-10 w-full gap-y-5">
-          <div className="flex items-center">
-            <img
-              className=" w-12 h-12 rounded-full my-3 object-cover mr-2"
-              src={user?.photoURL}
-              alt=""
-            />
-            <span className="font-bold text-lg text-gray-600">Post a blog</span>
+    <>
+      <div className="w-2/3 h-fit mx-auto mt-8 rounded-3xl bg-indigo-50 shadow-xl">
+        <div className="p-10 w-full space-y-6">
+          <div className="">
+            <h2 className="font-bold text-2xl text-slate-700">Post a Blog</h2>
           </div>
-          <div>
-            <div className="flex flex-col justify-between">
-              <input
-                placeholder="Add Title"
-                value={title}
-                className=" pl-3 border-solid border-gray-300 mb-2 border-2 rounded-md bg-white w-[450px] h-12 "
-                onChange={(e) => setTitle(e.target.value)}
-              />
-              <textarea
-                placeholder="Add Description"
-                value={description}
-                className=" border-solid border-2 pl-3 border-gray-300  rounded-md bg-white w-[450px] h-24 "
-                onChange={(e) => setDescription(e.target.value)}
-              />
-            </div>
+          <div className="w-full space-y-6">
             {image != null ? (
-              <div className="relative mt-5 rounded-lg overflow-hidden w-11/12">
+              <div className="relative rounded-lg overflow-hidden w-full h-1/2 mx-auto">
                 <MdCancel
-                  className=" absolute bg-gray-300 h-8 w-8 z-50 shadow-lg rounded-full right-1 top-1 cursor-pointer"
+                  className=" absolute bg-white text-red-600 h-8 w-8 z-50 shadow-lg rounded-full right-1 top-1 cursor-pointer"
                   onClick={() => setImage(null)}
                 />
                 <img
                   src={URL.createObjectURL(image)}
                   alt=""
-                  className="object-cover w-full h-[300px]"
+                  className="object-cover object-center w-full h-1/2"
+                  required
                 />
               </div>
             ) : (
-              <div className="flex mt-4">
-                <label className="flex items-center mr-3 cursor-pointer">
-                  <BiSolidImageAdd color="tomato" className=" mr-1" size={25} />
-                  <span className="shareOptionText text-sm font-semibold">
+              <div className="flex w-full mx-auto h-1/2 text-slate-700">
+                <label className="w-full flex flex-col items-center justify-center cursor-pointer border-4 border-dashed rounded-3xl hover:border-indigo-400 transition-all ease-out delay-0 duration-500">
+                  <BiSolidImageAdd className="w-1/3 h-1/2" />
+                  <span className="text-lg font-semibold">
                     Add Photo
                   </span>
                   <input
@@ -102,9 +104,25 @@ const CompanyBlogs = () => {
                 </label>
               </div>
             )}
-
+            <div className="flex flex-col justify-between space-y-6">
+              <input
+                placeholder="Add Title"
+                value={title}
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500 transition-all ease-out delay-0 duration-500"
+                onChange={(e) => setTitle(e.target.value)}
+                required
+              />
+              <textarea
+                rows={5}
+                placeholder="Add Description"
+                value={description}
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500 transition-all ease-out delay-0 duration-500"
+                onChange={(e) => setDescription(e.target.value)}
+                required
+              />
+            </div>
             <button
-              className="h-8 w-20 border-none mt-8 justify-end hover:shadow-xl text-sm rounded-md bg-green-700 font-semibold cursor-pointer text-white"
+              className="m-1 shadow-lg border-2 border-indigo-800 rounded-lg font-medium bg-indigo-800 px-8 py-2 text-white hover:bg-indigo-500 hover:border-indigo-500 transition-all ease-out delay-0 duration-500"
               onClick={postBlog}
             >
               Post
@@ -112,7 +130,7 @@ const CompanyBlogs = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
