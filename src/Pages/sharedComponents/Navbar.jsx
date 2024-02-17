@@ -6,6 +6,7 @@ import logo from "../../../public/TaskhutClear.png";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
 import { FaArrowTrendUp, FaPersonCircleQuestion, FaRightFromBracket, FaUserPen } from "react-icons/fa6";
+import { BiSolidDashboard } from "react-icons/bi";
 // import logosmall from "../../../public/TaskhutSmall.jpg";
 
 // import { useEffect, useState } from "react";
@@ -96,14 +97,15 @@ const Navbar = () => {
                     <ul className="border-2 border-violet-400 px-4 py-4 font-normal shadow-lg z-[1] bg-base-100 text-slate-700 rounded-box w-auto absolute right-0">
                       {/* <li className="font-medium pb-2 flex justify-between"><p>$00.0</p><span>Balance</span></li><hr className="opacity-25"/> */}
                       <li className="pt-4"><span>{use?.name}</span></li>
-                      <li className="pb-4"><span>{use?.email}</span></li> <hr className="opacity-25" />
-                      <li className="flex gap-3 items-center my-2 py-2 rounded hover:transition duration-500 ease-out hover:ease-in-out hover:bg-slate-700 hover:text-white hover:pl-2"><FaUserPen /><Link to="/viewProfile" preventScrollReset={true}>View Profile</Link></li>
-                      <li className="flex gap-3 items-center my-2 py-2 rounded hover:transition duration-500 ease-out hover:ease-in-out hover:bg-slate-700 hover:text-white hover:pl-2"><FaArrowTrendUp /><Link to="/accountAnalytics" preventScrollReset={true}>Account Analytics</Link></li>
-                      <li className="flex gap-3 items-center my-2 py-2 rounded hover:transition duration-500 ease-out hover:ease-in-out hover:bg-slate-700 hover:text-white hover:pl-2"><FaArrowTrendUp /><Link to="/dashboard" preventScrollReset={true}>Dashboard</Link></li>
-                      {/* <li className="flex gap-3 items-center my-2 py-2 rounded hover:transition duration-500 ease-out hover:ease-in-out hover:bg-slate-700 hover:text-white hover:pl-2"><FaGears /><Link to="/settings" preventScrollReset={true}>Settings</Link></li> */}
-                      <li className="flex gap-3 items-center my-2 py-2 rounded hover:transition duration-500 ease-out hover:ease-in-out hover:bg-slate-700 hover:text-white hover:pl-2"><FaPersonCircleQuestion /><Link to="/support" preventScrollReset={true}>Support</Link></li>
-                      <li className="flex gap-3 items-center my-2 py-2 rounded hover:transition duration-500 ease-out hover:ease-in-out hover:bg-red-700 hover:text-white hover:pl-2"><FaRightFromBracket /><button onClick={handleLogOut}>Logout</button></li>
-
+                      <li className="pb-4"><span>{use?.email}</span></li> <hr className="opacity-80" />
+                      <Link to="/viewProfile" preventScrollReset={true} className="profile-dropdown-hover"><FaUserPen /><span>View Profile</span></Link>
+                      {
+                        use.role === 'admin' ? <Link to="/accountAnalytics" preventScrollReset={true} className="profile-dropdown-hover"><FaArrowTrendUp /><span>Account Analytics</span></Link> : ''
+                      }
+                      <Link to="/dashboard" preventScrollReset={true} className="profile-dropdown-hover"><BiSolidDashboard /><span>Dashboard</span></Link>
+                      {/* < to="/settings" preventScrollReset={true}Link className="flex gap-3 items-center my-2 py-2 rounded-full hover:transition duration-500 ease-out hover:ease-in-out hover:bg-indigo-500 hover:text-white hover:pl-4"><FaGears /><span>Settings</span></Link> */}
+                      <Link to="/support" preventScrollReset={true} className="profile-dropdown-hover"><FaPersonCircleQuestion /><span>Support</span></Link>
+                      <Link className="flex gap-3 items-center my-2 py-2 rounded-full hover:transition duration-500 ease-out hover:bg-gradient-to-br hover:from-red-400 hover:via-red-600 hover:to-red-800 hover:text-white hover:pl-4"><FaRightFromBracket /><button onClick={handleLogOut}>Logout</button></Link>
                     </ul>
                   </details>
 
@@ -113,16 +115,16 @@ const Navbar = () => {
             :
             <>
               <div className="flex gap-2 item-center justify-center">
-                  <Link to="/login" className="tracking-widest text-white uppercase text-xs lg:text-sm bg-gradient-to-r from-indigo-400 via-indigo-700 to-indigo-600 bg-[length:200%] hover:bg-right focus:ring-4 focus:outline-none focus:ring-indigo-300 shadow-lg shadow-indigo-500/50 font-medium rounded-full px-5 py-2.5 text-center transition-all ease-in-out delay-150 duration-500">
-                    login
-                  </Link>
-                  <details className="tracking-widest dropdown dropdown-end border-none text-white uppercase text-xs lg:text-sm bg-gradient-to-r from-slate-400 via-slate-700 to-slate-600 bg-[length:200%] hover:bg-right focus:ring-4 focus:outline-none focus:ring-slate-300 shadow-lg shadow-slate-500/50 font-medium rounded-full px-5 py-2.5 text-center transition-all ease-in-out delay-150 duration-500 ">
-                    <summary className=" border-none outline-none marker:content-none">Register</summary>
-                    <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-56">
-                      <li><Link to="/signup">I'm looking for a job</Link></li>
-                      <li><Link to="/buyerSignup">I'm looking for candidates</Link></li>
-                    </ul>
-                  </details>
+                <Link to="/login" className="primary-btn">
+                  login
+                </Link>
+                <details className="cursor-pointer relative">
+                  <summary className="border-none outline-none marker:content-none secondary-btn">Register</summary>
+                  <div className="absolute top-12 right-0 p-2 shadow bg-base-100 rounded-3xl w-44">
+                    <Link to="/signup" className="px-4 py-1 rounded-full block hover:transition duration-500 ease-out hover:bg-gradient-to-br hover:from-indigo-400 hover:via-indigo-700 hover:to-indigo-600 hover:text-white">As a Company</Link>
+                    <Link to="/buyerSignup" className="px-4 py-1 rounded-full block hover:transition duration-500 ease-out hover:bg-gradient-to-br hover:from-indigo-400 hover:via-indigo-700 hover:to-indigo-600 hover:text-white">As an Employee</Link>
+                  </div>
+                </details>
               </div>
             </>
           }
