@@ -3,16 +3,54 @@ import useAuth from "../../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import Swal from "sweetalert2";
+import { db } from "../../../firebase/firebase.config.js";
+import { doc, setDoc } from "firebase/firestore";
 
 const GoogleLink = () => {
     const {googleLogin} = useAuth();
     const axiosPublic = useAxiosPublic();
     const navigate = useNavigate();
 
+
+
+  //add user data to firebase
+  const storeFirebase = async (name, email, uid, image) => {
+    console.log("Inside function storeFirebase");
+    try {
+      console.log("firebaseeeee" + name + "mail:" + email);
+
+          //store user data on firestore db
+          await setDoc(doc(db, "users", uid), {
+            uid: uid,
+            displayName: name,
+            email: email,
+            photoURL: image,
+          });
+
+          await setDoc(doc(db, "userChats", uid), {});
+
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+
     const handleGoogleLogin = () => {
         googleLogin()
             .then(res => {
                 console.log(res.user)
+
+
+                console.log("uid: " + res.uid);
+
+                storeFirebase(
+                  res.user.displayName,
+                  res.user.email,
+                  res.user.uid,
+                  res.user.photoURL
+                );
+                //--
+
                 const userInfo = {
                     name: res.user.displayName,
                     email: res.user.email,
@@ -29,6 +67,8 @@ const GoogleLink = () => {
                         showConfirmButton: false,
                         timer: 1500
                       });
+
+                 
                     navigate('/')
                     })
                 })

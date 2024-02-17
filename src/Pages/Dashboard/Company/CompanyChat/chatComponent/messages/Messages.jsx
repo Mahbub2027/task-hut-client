@@ -20,8 +20,8 @@ const Messages = () => {
 
   return (
     <div className="bg-slate-100 p-3 overflow-y-scroll flex-grow">
-      {messages.map((m) => (
-        <Message message={m} key={m.id} />
+      {messages.map((msg) => (
+        <Message message={msg} key={msg.id} />
       ))}
     </div>
   );

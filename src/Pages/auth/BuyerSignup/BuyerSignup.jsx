@@ -43,7 +43,6 @@ const BuyerSignup = () => {
       const img = image;
       const uploadTask = await uploadBytesResumable(storageRef, img);
 
-     
       getDownloadURL(storageRef).then(async (downloadURL) => {
         try {
           console.log("dldURL:" + downloadURL);
@@ -73,6 +72,30 @@ const BuyerSignup = () => {
     }
   };
 
+//add user data to firebase google signup
+//add user data to firebase
+const storeFirebaseGoogle = async (name, email, uid, image) => {
+  console.log("Inside function storeFirebase");
+  try {
+    console.log("firebaseeeee" + name + "mail:" + email);
+
+        //store user data on firestore db
+        await setDoc(doc(db, "users", uid), {
+          uid: uid,
+          displayName: name,
+          email: email,
+          photoURL: image,
+        });
+
+        await setDoc(doc(db, "userChats", uid), {});
+        
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+
+
   // email sign up
   const onSubmit = async (data) => {
     console.log(data);
@@ -85,7 +108,6 @@ const BuyerSignup = () => {
       },
     });
     console.log(res.data);
-
 
     if (res.data.success) {
       const userDetails = {
@@ -104,7 +126,7 @@ const BuyerSignup = () => {
         console.log(response.user);
 
         //--------------------------------------------------------------
-        firebaseUser=response.user
+        firebaseUser = response.user;
         console.log("uid=" + response.user.uid);
 
         storeFirebase(data.name, data.email, response.user.uid, image);
@@ -146,6 +168,18 @@ const BuyerSignup = () => {
     googleLogin()
       .then((res) => {
         console.log(res.user);
+
+          //-- Store user data to firebase
+          console.log("uid: " + res.user.uid);
+
+          storeFirebaseGoogle(
+            res.user.displayName,
+            res.user.email,
+            res.user.uid,
+            res.user.photoURL
+          );
+          //--
+
         const userInfo = {
           name: res.user.displayName,
           email: res.user.email,
@@ -161,6 +195,8 @@ const BuyerSignup = () => {
             showConfirmButton: false,
             timer: 1500,
           });
+        
+
           navigate("/");
         });
       })

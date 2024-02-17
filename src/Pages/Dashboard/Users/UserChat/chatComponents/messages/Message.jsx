@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useRef } from "react";
-import { ChatContext } from './../../../../../../provider/ChatProvider';
-import useAuth from './../../../../../../hooks/useAuth';
+import { ChatContext } from "./../../../../../../provider/ChatProvider";
+import useAuth from "./../../../../../../hooks/useAuth";
 
 const Message = ({ message }) => {
-    const { user } = useAuth();
+  const { user } = useAuth();
   const { data } = useContext(ChatContext);
 
   const ref = useRef();
@@ -19,7 +19,7 @@ const Message = ({ message }) => {
         message.senderId === user.uid ? "flex-row-reverse bg-transparent" : ""
       }`}
     >
-      <div className="flex flex-col text-gray-500 font-light">
+      <div className="flex flex-col items-center gap-1 font-light">
         <img
           src={
             message.senderId === user.uid
@@ -27,15 +27,36 @@ const Message = ({ message }) => {
               : data.chatUser.photoURL
           }
           alt=""
-          className="w-10 h-10 gap-1 rounded-full object-cover"
+          className="border-2 border-slate-700 w-10 h-10 gap-1 rounded-full object-cover"
         />
-        <span>{message.date.toDate().toLocaleTimeString('en-US')}</span>
+        <span className="text-sm">
+          {message.date.toDate().toLocaleTimeString("en-US")}
+        </span>
       </div>
-      <div className="max-w-80 flex flex-col gap-4">
-        <p className={`bg-white p-3 rounded-lg max-w-max ${
-        message.senderId === user.uid ? " bg-slate-300" : ""
-      } `}>{message.text}</p>
-        {message.img && <img src={message.img} alt="" className="w-4/5 border-4 border-slate-400 rounded-md overflow-hidden border-solid" />}
+      <div className="max-w-96 flex flex-col gap-4 items-center text-white  lg:text-base">
+        {message.text === "" ? (
+          ""
+        ) : (
+          <p
+            className={` ${
+              message.senderId === user.uid
+                ? " bg-slate-700 rounded-xl rounded-tl-xl p-3 rounded-tr-none text-white"
+                : "bg-white text-slate-700 p-3 rounded-xl rounded-tl-none max-w-max"
+            } `}
+          >
+            {message.text}
+          </p>
+        )}
+        {message.img && (
+          <img
+            src={message.img}
+            className={`w-4/5 border-4 border-slate-300  overflow-hidden border-solid ${
+              message.senderId === user.uid
+                ? "rounded-xl rounded-tr-none"
+                : "rounded-xl rounded-tl-none"
+            }`}
+          />
+        )}
       </div>
     </div>
   );
