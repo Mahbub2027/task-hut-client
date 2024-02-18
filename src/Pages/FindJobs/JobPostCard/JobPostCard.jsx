@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const JobPostCard = ({ job }) => {
 
-    const { _id, job_title, category, job_type, location, apply_role, company_name, company_logo, date } = job;
+    const { _id, job_title, category, job_type, location, apply_role, company_email, company_name, company_logo, date } = job;
     // console.log(job)    
 
     return (

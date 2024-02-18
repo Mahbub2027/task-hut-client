@@ -192,6 +192,7 @@ const SignUp = () => {
                 <label className="label">
                   {/* <span className="label-text font-bold text-base">Password</span> */}
                 </label>
+                <div className="relative">
                 <input
                   type={showPassword ? "text" : "password"}
                   {...register("password", {
@@ -202,15 +203,16 @@ const SignUp = () => {
                   })}
                   name="password"
                   placeholder="Password"
-                  className=" input input-bordered"
+                  className="w-full input input-bordered"
                   required
                 />
                 <span
-                  className="absolute bottom-4 right-3 text-lg"
+                  className="absolute top-1/3 right-3 text-lg"
                   onClick={() => setShowPassword(!showPassword)}
                 >
                   {showPassword ? <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash>}
                 </span>
+                </div>
                 {errors.password?.type === "required" && (
                   <span className="text-red-500">Password is required</span>
                 )}

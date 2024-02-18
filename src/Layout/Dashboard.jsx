@@ -143,7 +143,7 @@ const Dashboard = () => {
                         <FaHome></FaHome><NavLink to='/'> Home</NavLink>
                     </li>
                     <li className="flex gap-2 items-center py-2 px-4 border-l-4 border-transparent hover:border-l-4 hover:border-l-slate-500 hover:transition duration-500 ease-in-out hover:ease-in-out dark:hover:text-white hover:pl-3">
-                        <FaClipboardList></FaClipboardList> <NavLink to='/browsejobs'>Browse Jobs</NavLink>
+                        <FaClipboardList></FaClipboardList> <NavLink to='/findJobs'>Find Jobs</NavLink>
                     </li>
                     <li className="flex gap-2 items-center py-2 px-4 border-l-4 border-transparent hover:border-l-4 hover:border-l-slate-500 hover:transition duration-500 ease-in-out hover:ease-in-out dark:hover:text-white hover:pl-3">
                         <FaPersonCircleQuestion></FaPersonCircleQuestion> <NavLink to='/support'>Support</NavLink>

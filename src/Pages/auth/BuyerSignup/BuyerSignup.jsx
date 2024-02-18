@@ -230,7 +230,7 @@ const storeFirebaseGoogle = async (name, email, uid, image) => {
                   type="text"
                   {...register("name", { required: true })}
                   name="name"
-                  placeholder="Enter your name"
+                  placeholder="company name"
                   className="input input-bordered"
                   required
                 />
@@ -246,7 +246,7 @@ const storeFirebaseGoogle = async (name, email, uid, image) => {
                   type="email"
                   {...register("email", { required: true })}
                   name="email"
-                  placeholder="Enter your email"
+                  placeholder="email"
                   className="input input-bordered"
                   required
                 />
@@ -258,6 +258,7 @@ const storeFirebaseGoogle = async (name, email, uid, image) => {
                 <label className="label">
                   {/* <span className="label-text font-bold text-base">Password</span> */}
                 </label>
+                <div className="relative">
                 <input
                   type={showPassword ? "text" : "password"}
                   {...register("password", {
@@ -268,7 +269,7 @@ const storeFirebaseGoogle = async (name, email, uid, image) => {
                   })}
                   name="password"
                   placeholder="Password"
-                  className=" input input-bordered"
+                  className="w-full input input-bordered"
                   required
                 />
                 <span
@@ -277,6 +278,8 @@ const storeFirebaseGoogle = async (name, email, uid, image) => {
                 >
                   {showPassword ? <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash>}
                 </span>
+                </div>
+                  
                 {errors.password?.type === "required" && (
                   <span className="text-red-500">Password is required</span>
                 )}
@@ -300,7 +303,7 @@ const storeFirebaseGoogle = async (name, email, uid, image) => {
               <div className="form-control">
                 <label className="label">
                   <span className="label-text font-bold text-base">
-                    Upload Photo
+                    Company Logo
                   </span>
                 </label>
                 <div>

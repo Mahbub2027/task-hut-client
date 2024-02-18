@@ -30,7 +30,7 @@ const PostAJob = () => {
                 company_name: data.company_name,
                 company_logo: res.data.data.display_url,
                 job_title: data.job_title,
-                email: data.email,
+                company_email: data.email,
                 location: data.location,
                 category: data.category,
                 job_type: data.job_type,
@@ -74,7 +74,8 @@ return (
                             <label className="label">
                                 <span className="label-text font-bold text-base">Company Name</span>
                             </label>
-                            <input type="text" {...register("company_name", { required: true })} placeholder="Enter company name" 
+                            <input type="text" {...register("company_name", { required: true })} 
+                            placeholder="Enter company name" 
                             className="basis-3/6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
                             {errors.company_name && <span className="text-red-500">This field is required</span>}
                         </div>

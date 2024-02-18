@@ -34,7 +34,7 @@ const CompanyPosts = () => {
                             jobs.map(job => <tr key={job._id}>
 
                                 {
-                                    (user?.email === job?.email) && <>
+                                    (user?.email === job?.company_email) && <>
                                         <td>
                                             <img className='w-12 h-12 ' src={job.company_logo} alt="" />
                                         </td>
