@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.primary-btn{
+    @apply tracking-widest text-white uppercase text-xs lg:text-sm bg-gradient-to-r from-indigo-400 via-indigo-700 to-indigo-600 bg-[length:200%] hover:bg-right focus:ring-4 focus:outline-none focus:ring-indigo-300 shadow-lg shadow-indigo-500/50 font-medium rounded-full px-5 py-2.5 text-center transition-all ease-in-out delay-150 duration-500
+}
+
+.secondary-btn{
+    @apply tracking-widest text-white uppercase text-xs lg:text-sm bg-gradient-to-r from-slate-400 via-slate-700 to-slate-600 bg-[length:200%] hover:bg-right focus:ring-4 focus:outline-none focus:ring-slate-300 shadow-lg shadow-slate-500/50 font-medium rounded-full px-5 py-2.5 text-center transition-all ease-in-out delay-150 duration-500 
+}
+
+.profile-dropdown-hover{
+    @apply flex gap-3 items-center my-2 py-2 rounded-full hover:transition duration-500 ease-out hover:bg-gradient-to-br hover:from-indigo-400 hover:via-indigo-700 hover:to-indigo-600 hover:text-white hover:pl-4
+}
+
+.active-link{
+    @apply bg-gradient-to-br from-indigo-400 via-indigo-700 to-indigo-600 text-white flex items-center gap-2 rounded-l-full tracking-wider pl-4 p-2
+}
+.hover-link{
+    @apply hover:bg-gradient-to-br hover:from-slate-400 hover:via-slate-600 hover:to-slate-800 text-white flex items-center gap-4 rounded-l-full tracking-wider pl-4 p-2
+}
