@@ -25,9 +25,7 @@ const CompanySearchBar = () => {
 
   const handleSearch = async () => {
     const q1= query(
-      collection(db, "users"),
-      where("displayName", "==", username)
-    //  and(where("displayName", "==", username), where("uid", "!=", user.uid)),orderBy("uid")
+      collection(db, "users"),and(where("displayName", "==", username), where("uid", "!=", user.uid)),orderBy("uid")
     );
     try {
       const querySnapshot = await getDocs(q1);
