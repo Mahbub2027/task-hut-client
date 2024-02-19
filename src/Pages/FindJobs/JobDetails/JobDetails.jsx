@@ -16,9 +16,9 @@ const JobDetails = () => {
     const [isSaveJob, setSaveJobs] = useState(false);
 
     // const {data: users= []} = useQuery({
-    //     queryKey: ['user'],
+    //     queryKey: ['user', users?.email],
     //     queryFn: async () =>{
-    //         const res = await axiosPublic.get("/users");
+    //         const res = await axiosPublic.get(`/users/${users.email}`);
     //         return res.data;
     //     }
     // })
