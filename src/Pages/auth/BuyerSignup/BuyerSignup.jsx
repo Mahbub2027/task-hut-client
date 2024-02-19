@@ -9,7 +9,7 @@ import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import Swal from "sweetalert2";
 import { FcGoogle } from "react-icons/fc";
 import { db } from "../../../firebase/firebase.config";
-import { doc, setDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 import { ref } from "firebase/storage";
 import { uploadBytesResumable } from "firebase/storage";
 import { getDownloadURL } from "firebase/storage";
@@ -73,26 +73,36 @@ const BuyerSignup = () => {
   };
 
 //add user data to firebase google signup
-//add user data to firebase
+
+
 const storeFirebaseGoogle = async (name, email, uid, image) => {
-  console.log("Inside function storeFirebase");
-  try {
-    console.log("firebaseeeee" + name + "mail:" + email);
+  console.log("Inside function storeFirebaseGoogle");
+  const res = await getDoc(doc(db, "users", uid));
 
-        //store user data on firestore db
-        await setDoc(doc(db, "users", uid), {
-          uid: uid,
-          displayName: name,
-          email: email,
-          photoURL: image,
-        });
 
-        await setDoc(doc(db, "userChats", uid), {});
-        
-  } catch (e) {
-    console.log(e);
+  if (!res.exists()) {
+    try {
+      console.log("firebaseeeee" + name + "mail:" + email);
+
+
+      //store user data on firestore db
+      await setDoc(doc(db, "users", uid), {
+        uid: uid,
+        displayName: name,
+        email: email,
+        photoURL: image,
+      });
+
+
+      await setDoc(doc(db, "userChats", uid), {});
+    } catch (e) {
+      console.log(e);
+    }
+  } else {
+    console.log("doc already exists!!!");
   }
 };
+
 
 
 
