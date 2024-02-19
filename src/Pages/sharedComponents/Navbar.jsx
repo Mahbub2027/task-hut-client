@@ -121,8 +121,8 @@ const Navbar = () => {
                 <details className="cursor-pointer relative">
                   <summary className="border-none outline-none marker:content-none secondary-btn">Register</summary>
                   <div className="absolute top-12 right-0 p-2 shadow bg-base-100 rounded-3xl w-44">
-                    <Link to="/signup" className="px-4 py-1 rounded-full block hover:transition duration-500 ease-out hover:bg-gradient-to-br hover:from-indigo-400 hover:via-indigo-700 hover:to-indigo-600 hover:text-white">As a Company</Link>
-                    <Link to="/buyerSignup" className="px-4 py-1 rounded-full block hover:transition duration-500 ease-out hover:bg-gradient-to-br hover:from-indigo-400 hover:via-indigo-700 hover:to-indigo-600 hover:text-white">As an Employee</Link>
+                    <Link to="/signup" className="px-4 py-1 rounded-full block hover:transition duration-500 ease-out hover:bg-gradient-to-br hover:from-indigo-400 hover:via-indigo-700 hover:to-indigo-600 hover:text-white">As an Employee</Link>
+                    <Link to="/buyerSignup" className="px-4 py-1 rounded-full block hover:transition duration-500 ease-out hover:bg-gradient-to-br hover:from-indigo-400 hover:via-indigo-700 hover:to-indigo-600 hover:text-white">As a Company</Link>
                   </div>
                 </details>
               </div>
