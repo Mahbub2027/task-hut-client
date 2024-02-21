@@ -1,13 +1,10 @@
-// import React from 'react';
-
+import React from 'react';
 import { useQuery } from "@tanstack/react-query";
-// import useAuth from "../../../../hooks/useAuth";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import {FaTrashCan } from "react-icons/fa6";
 
 const ManageUsers = () => {
-    // const {user} = useAuth();
     const axiosSecure = useAxiosSecure();
     const { refetch, data: users = [] } = useQuery({
         queryKey: ['user'],

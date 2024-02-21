@@ -1,7 +1,7 @@
 // import React from 'react';
 import { BsChatTextFill } from "react-icons/bs";
 import { FaBell, FaBriefcase, FaBusinessTime, FaCalendarCheck, FaFilePowerpoint, FaHome, FaList, FaUserCheck, FaBlogger, FaAngleRight, FaPlus, FaAngleLeft, FaAngleDown, FaEye } from 'react-icons/fa';
-import { FaClipboardList, FaCreditCard, FaFilePen, FaGears, FaPersonCircleQuestion, FaRightFromBracket, FaUnlockKeyhole, FaUserLock, FaUserShield, FaUserTie, FaUsers, FaUsersGear } from 'react-icons/fa6';
+import { FaClipboardList, FaFilePen, FaGears, FaPersonCircleQuestion, FaRightFromBracket, FaUnlockKeyhole, FaUserLock, FaUserShield, FaUserTie, FaUsers, FaUsersGear } from 'react-icons/fa6';
 import { TbLayoutSidebarLeftCollapseFilled, TbLayoutSidebarLeftExpandFilled } from "react-icons/tb";
 import { NavLink, Outlet } from 'react-router-dom';
 import useAdmin from '../hooks/useAdmin';

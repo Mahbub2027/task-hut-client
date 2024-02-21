@@ -18,15 +18,23 @@ const ClientProfile = () => {
         }
     })
 
+    const { data: employees = [] } = useQuery({
+        queryKey: ['employee'],
+        queryFn: async () => {
+            const res = await axiosPublic.get('/employees')
+            return res.data;
+        }
+    })
+
     return (
         <div className='grid grid-cols-3 gap-4 shadow-md rounded-lg border-2 p-4'>
             <div className='col-span-1 shadow-lg rounded-md text-slate-700 p-4 relative'>
                 {user?.emailVerified ?
                     <>
                         {
-                            users.map(user => <div
-                                key={user._id}>
-                                <img className='w-full h-1/2 rounded-xl ' src={user.image} alt="" />
+                            users.map(use => <div
+                                key={use._id}>
+                                <img className='w-full h-1/2 rounded-xl ' src={use.image} alt="" />
                             </div>
                             )
                         }
@@ -42,9 +50,19 @@ const ClientProfile = () => {
             </div>
             <div className='col-span-2 text-slate-700 space-y-6'>
                 <div className='flex justify-between items-start'>
+                    {
+                        employees.map(employee => <div key={employee._id}>
+                            {
+                                (user?.email === employee.employee_email) && <>
+                                <p className='text-3xl font-bold'>{user.displayName}<small className='text-lg italic font-medium mx-2'></small></p>
+                                <p className='text-xl font-medium'>{employee.profession}</p>
+                                </>
+                            }
+                        </div>)
+                    }
                     <div>
-                        <p className='text-3xl font-bold'>{user.displayName}<small className='text-lg italic font-medium mx-2'>@sajid21</small></p>
-                        <p className='text-xl font-medium'>Web Developer(MERN Stack)</p>
+                        {/* <p className='text-3xl font-bold'>{user.displayName}<small className='text-lg italic font-medium mx-2'>@sajid21</small></p> */}
+                        {/* <p className='text-xl font-medium'>{employee.profession}</p> */}
                     </div>
                     <div className='flex flex-col-reverse items-end'>
                         <p>

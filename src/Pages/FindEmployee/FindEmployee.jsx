@@ -1,19 +1,17 @@
 import React, { useEffect, useState } from "react";
-// import EmployeeCard from "./EmployeeCard/EmployeeCard";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
-// import { useQuery } from "@tanstack/react-query";
 import Employees from "./Employee/Employees";
-// import axios from "axios";
+
 
 const FindEmployee = () => {
   const [employees, setEmployees] = useState([]);
   const axiosPublic = useAxiosPublic();
 
   useEffect(()=>{
-    axiosPublic.get('/users')
+    axiosPublic.get('/employees')
     .then(result=>{
-      const userData = result.data.filter((item) => item.role === 'user');
-      setEmployees(userData);
+      // const userData = result.data.filter((item) => item.role === 'user');
+      setEmployees(result.data);
       
     })
     

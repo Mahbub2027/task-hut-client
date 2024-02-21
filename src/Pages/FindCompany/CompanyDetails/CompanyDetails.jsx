@@ -1,8 +1,6 @@
 import { FaEnvelope, FaGithub, FaGlobe, FaLinkedin, FaLocationDot, FaPhoneVolume } from "react-icons/fa6";
 import { Link, useLoaderData } from "react-router-dom";
 import coverImg from '../../../assets/images/banner 3.jpg'
-// import useAuth from "../../../hooks/useAuth";
-// import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import { useEffect, useState } from "react";
 
@@ -68,11 +66,7 @@ const CompanyDetails = () => {
                     {
                         jobs.map(job =>
                             <div key={job._id}>
-                                {/* <div className="border-2 gap-5 p-3">
-                                <h2>{job.job_title}</h2>
-                                <p>{job.job_type}</p>
-                                <p>{job.company_name}</p>
-                            </div> */}
+                                
                                 <div className='relative border-2 text-slate-700 p-4 space-y-3 rounded-3xl hover:shadow-md hover:border-indigo-400 transition-all ease-out delay-0 duration-500'>
                                     {
                                         job.apply_role === 'open' ? <p className='absolute top-4 right-4 text-xs font-light text-white bg-green-600 px-2 border-2 border-green-300 rounded-full'>{job.apply_role}</p>

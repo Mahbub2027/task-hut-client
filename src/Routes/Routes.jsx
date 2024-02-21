@@ -30,7 +30,7 @@ import FindEmployee from "../Pages/FindEmployee/FindEmployee";
 import PostAJob from "../Pages/Dashboard/Company/PostAJob/PostAJob";
 import AdminRoutes from "./AdminRoutes";
 import BuyerRoutes from "./BuyerRoutes";
-import EmployeeInfo from "../Pages/FindEmployee/EmployeeInfo";
+// import EmployeeInfo from "../Pages/FindEmployee/EmployeeInfo";
 import CompanyChat from "../Pages/Dashboard/Company/CompanyChat/CompanyChat";
 import JobDetails from "../Pages/FindJobs/JobDetails/JobDetails";
 import AllCompanies from "../Pages/FindCompany/AllCompanies";
@@ -41,6 +41,7 @@ import Blogs from "../Pages/Blogs/Blogs";
 import SingleBlog from "../Pages/Blogs/SingleBlog";
 import CompanyBlogs from "../Pages/Dashboard/Company/CompanyBlogs/CompanyBlogs";
 import UserChat from './../Pages/Dashboard/Users/UserChat/UserChat';
+// import EditEmployeeProfile from "../Pages/Dashboard/Users/EditEmployeeProfile/EditEmployeeProfile";
 
 
 export const router = createBrowserRouter([
@@ -91,17 +92,17 @@ export const router = createBrowserRouter([
       {
         path: '/employeeDetails/:id',
         element: <EmployeeDetails></EmployeeDetails>,
-        loader: ({params})=> fetch(`http://localhost:5000/users/${params.id}`)
+        loader: ({params})=> fetch(`http://localhost:5000/employees/${params.id}`)
       },
-      {
-        path:'/testemployee',
-        element:<EmployeeInfo></EmployeeInfo>
-      },
-      {
-        path:"findEmployee/:id",
-        element:<EmployeeInfo></EmployeeInfo>,
-        loader:({params}) => fetch(`https://tusk-hut-server.vercel.app/users/employee/${params.id}`)
-      },
+      // {
+      //   path:'/testemployee',
+      //   element:<EmployeeInfo></EmployeeInfo>
+      // },
+      // {
+      //   path:"findEmployee/:id",
+      //   element:<EmployeeInfo></EmployeeInfo>,
+      //   loader:({params}) => fetch(`https://tusk-hut-server.vercel.app/users/employee/${params.id}`)
+      // },
 //-------
       {
         path: '/blogs',
@@ -192,6 +193,11 @@ export const router = createBrowserRouter([
         path: 'jobInterview',
         element: <JobInterviews></JobInterviews>
       },
+      // {
+      //   path: 'updateProfile/:id',
+      //   element: <EditEmployeeProfile></EditEmployeeProfile>,
+      //   loader: ({params})=> fetch(`http://localhost:5000/users/${params.id}`)
+      // },
       // common routes
       {
         path: 'editProfile',
