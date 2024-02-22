@@ -6,7 +6,7 @@ import { useQuery } from '@tanstack/react-query';
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
 
 const EmployeeDetails = () => {
-    const {user} =  useAuth();
+    // const {user} =  useAuth();
     const axiosPublic  = useAxiosPublic();
     const {_id, name,employee_email,date_birth ,cover_img,linkedin,location,city,country,
         profession,experience,workPreference,resume,portfolio,github ,skills ,about,} = useLoaderData();
@@ -21,17 +21,19 @@ const EmployeeDetails = () => {
     
     return (
         <div className='w-11/12 mx-auto my-10'>
-            <span><img className='w-full h-60 rounded-lg' src={cover_img} alt="" /></span>
+            <div className='relative'>
+            <span ><img className='w-full h-60 rounded-lg' src={cover_img} alt="" /></span>
             
             {
                 users.map(use=> <div key={use._id}>
                     {
                         use.email === employee_email && <>
-                        <span><img className='w-24 h-24 rounded-full' src={use?.image} alt="" /></span>
+                        <span><img  className='absolute bottom-5 left-5 w-24 h-24 rounded-full' src={use?.image} alt="" /></span>
                         </>
                     }
                 </div>)
             }
+            </div>
             {/* <span><img className='w-28 h-28 rounded-full' src={user?.photoURL} alt="" /></span> */}
             
             <h2 className='text-2xl font-bold'>{name}</h2>
