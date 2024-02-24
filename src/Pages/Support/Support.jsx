@@ -104,7 +104,7 @@ const Support = () => {
                     </button>
                 </form>
             </div>
-            <div className="w-screen h-[400px] p-10 bg-indigo-600">
+            <div className="h-[400px] p-10 bg-indigo-600">
                 <iframe className="w-full h-full rounded-3xl shadow-xl" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14479.351350612727!2d91.8049219!3d24.8693875!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3751015addbec3b7%3A0x9e87b7be58b5f67e!2sLeading%20University!5e0!3m2!1sen!2sbd!4v1708627270226!5m2!1sen!2sbd" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>

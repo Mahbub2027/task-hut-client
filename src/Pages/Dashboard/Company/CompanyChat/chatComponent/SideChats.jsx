@@ -36,9 +36,9 @@ const SideChats = () => {
         ?.sort((a, b) => b[1].date - a[1].date)
         .map((chat) => (
           console.log("data id=" + chat),
-          <div className={isSelected == chat[1].userInfo.uid ? "mb-1 flex items-center gap-3 text-slate-600 cursor-pointer bg-slate-100 hover:bg-slate-100" : "flex items-center gap-3 text-slate-600 cursor-pointer hover:bg-slate-200 mb-1"} key={chat[0]} onClick={() => { handleSelect(chat[1].userInfo), setSelected(chat[1].userInfo.uid) }}>
-            <div className="w-28">
-              <img src={chat[1].userInfo.photoURL} alt="" className="h-20 w-3/4 rounded-r-full cursor-pointer object-cover" />
+          <div className={isSelected == chat[1].userInfo.uid ? "mb-1 flex items-center gap-5 text-slate-600 cursor-pointer bg-slate-100 hover:bg-slate-100" : "flex items-center gap-5 text-slate-600 cursor-pointer hover:bg-slate-200 mb-1"} key={chat[0]} onClick={() => { handleSelect(chat[1].userInfo), setSelected(chat[1].userInfo.uid) }}>
+            <div className="ml-3">
+              <img src={chat[1].userInfo.photoURL} alt="" className="h-20 w-20 rounded-full cursor-pointer object-cover" />
             </div>
             <div className="">
               <span className={isSelected == chat[1].userInfo.uid ? " sm:text-xs md:text-sm lg:text-lg font-extrabold" : "sm:text-xs md:text-sm lg:text-lg font-medium"}>{chat[1].userInfo.displayName}</span>

@@ -3,10 +3,12 @@ import React, { useContext, useState } from 'react';
 import { FaArrowRotateLeft } from "react-icons/fa6";
 import { AuthContext } from '../../../provider/AuthProvider';
 import Swal from 'sweetalert2';
+import useAxiosPublic from '../../../hooks/useAxiosPublic';
 
 const ReviewForm = () => {
 
     const { user } = useContext(AuthContext);
+    const axiosPublic = useAxiosPublic();
     // console.log(user)
     const [rating, setRating] = useState(0);
     const [hoveredRating, setHoveredRating] = useState(0);
@@ -28,7 +30,7 @@ const ReviewForm = () => {
         }
     }
 
-    const handleOnSubmit = event => {
+    const handleOnSubmit = async (event) => {
         event.preventDefault();
         const form = event.target;
 
@@ -45,7 +47,7 @@ const ReviewForm = () => {
             return;
         }
 
-        
+
         const review = form.review.value;
         const ratingMessage = getRating(rating);
         const date = new Date().toDateString();
@@ -53,26 +55,32 @@ const ReviewForm = () => {
         const image = user.photoURL;
         const reviewData = { review, rating, ratingMessage, date, name, image }
 
-        fetch('http://localhost:5000', {
-            method: "POST",
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(reviewData)
+        const reviews = await axiosPublic.post("/reviews", reviewData);
+        // console.log(jobRes, data)
+        if (reviews.data.insertedId) {
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Your review has been saved.",
+                text: "You can now see your review in the reviews section or reviews page.",
+                showConfirmButton: false,
+                timer: 2000
+            });
+            // navigate('/findJobs')
         }
-        ).then(res => res.json()
-        ).then(data => {
-            if (data.acknowledged) {
-                Swal.fire({
-                    position: "center",
-                    icon: "success",
-                    title: "Your review has been saved.",
-                    text: "You can now see your review in the reviews section or reviews page.",
-                    showConfirmButton: false,
-                    timer: 2000
-                });
-            }
-        })
+        // .then(res => res.json())
+        // .then(data => {
+        //     if (data.acknowledged) {
+        //         Swal.fire({
+        //             position: "center",
+        //             icon: "success",
+        //             title: "Your review has been saved.",
+        //             text: "You can now see your review in the reviews section or reviews page.",
+        //             showConfirmButton: false,
+        //             timer: 2000
+        //         });
+        //     }
+        // })
 
         // console.log(review)
         setRating(0);

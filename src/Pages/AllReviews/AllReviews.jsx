@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import ReviewCard from './ReviewCard/ReviewCard';
+import useAxiosPublic from '../../hooks/useAxiosPublic';
 
 const AllReviews = () => {
 
     const [reviewData, setReviewData] = useState([]);
+    const axiosPublic = useAxiosPublic();
 
     useEffect(() => {
-        fetch('http://localhost:5000')
-            .then(res => res.json())
-            .then(data => setReviewData(data))
-    }, [setReviewData]);
+        axiosPublic.get('/reviews')
+            // .then(res => res.json())
+            .then(reviewInfo => setReviewData(reviewInfo.data))
+    }, [axiosPublic]);
 
     return (
         <div className='mx-auto py-10'>

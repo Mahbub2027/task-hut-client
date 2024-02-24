@@ -3,16 +3,19 @@ import { FaArrowRightLong } from "react-icons/fa6"
 import { Link } from "react-router-dom"
 import ReviewCard from "../../AllReviews/ReviewCard/ReviewCard";
 import { useEffect, useState } from "react";
+import useAxiosPublic from "../../../hooks/useAxiosPublic";
 
 
 export default function Reviews() {
     const [reviewData, setReviewData] = useState([]);
 
+    const axiosPublic = useAxiosPublic();
+
     useEffect(() => {
-        fetch('http://localhost:5000')
-            .then(res => res.json())
-            .then(data => setReviewData(data))
-    }, [setReviewData]);
+        axiosPublic.get('/reviews')
+            // .then(res => res.json())
+            .then(reviewInfo => {setReviewData(reviewInfo.data)})
+    }, [axiosPublic]);
 
     return (
         <div className="py-20 sm:py-12 text-center bg-slate-200">

@@ -89,7 +89,7 @@ const CompanySearchBar = () => {
       <div className="p-3 flex justify-between">
         <input
           type="text"
-          placeholder="Find a user"
+          placeholder="Find a user by user name"
           className="bg-transparent ml-4 w-full border-none text-lg text-slate-600 outline-none placeholder:text-slate-600"
           onKeyDown={handleKey}
           onChange={(e) => setUsername(e.target.value)}
