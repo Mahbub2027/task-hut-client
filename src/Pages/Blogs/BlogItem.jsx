@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { format } from "timeago.js";
 
 const BlogItem = ({ item }) => {
@@ -19,16 +19,12 @@ const BlogItem = ({ item }) => {
           <h2 className="text-xl font-semibold">{title}</h2>
           <p className="text-sm text-slate-500">{description.split(' ').slice(0, 10).join(' ')}</p>
         </div>
-        <div className="flex justify-between">
+        <div className="flex justify-between pb-2">
           <div className="flex items-center gap-2">
             <img className="w-10 h-10 rounded-full" src={bloggerImg} alt="" />
             <h3 className="font-medium">{bloggerName}</h3>
           </div>
-          <NavLink to={`/blogs/${_id}`}>
-            <button className="m-1 shadow-lg border-2 border-indigo-800 rounded-full bg-indigo-800 px-3 py-1 text-white text-sm hover:bg-indigo-500 hover:border-indigo-500 transition-all ease-out delay-0 duration-500">
-              Read more
-            </button>
-          </NavLink>
+          <Link to={`/blogs/${_id}`} className="primary-btn">Read more</Link>
         </div>
       </div>
     </div>

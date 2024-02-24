@@ -4,8 +4,8 @@ import ChatContainer from './chatComponent/ChatContainer';
 
 const CompanyChat = () => {
   return (
-    <div className="bg-slate-300 h-screen flex items-center justify-center">
-      <div className="border-4 border-solid border-slate-400 rounded-2xl w-5/6 h-[80vh] flex shadow-md">
+    <div className="rounded-3xl ">
+      <div className="border-4 border-solid border-slate-400 rounded-2xl w-full h-[85vh] flex shadow-md">
         <Sidebar />
         <ChatContainer />
       </div>

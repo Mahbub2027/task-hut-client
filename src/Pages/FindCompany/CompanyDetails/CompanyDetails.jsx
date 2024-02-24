@@ -32,6 +32,7 @@ const CompanyDetails = () => {
         <div className="w-11/12 lg:w-9/12 mx-auto my-10 ">
             <div className='w-full h-[50vh] relative group mb-20'>
                 <img className='w-full h-full object-cover rounded-3xl group-hover:shadow-md' src={coverImg} alt="" />
+                {/* <img className='w-full h-full object-cover rounded-3xl group-hover:shadow-md' src={cover_img} alt="" /> */}
                 <h2 className="bg-slate-800/70 rounded-3xl group-hover:bg-transparent group-hover:hidden font-extrabold text-white text-7xl absolute inset-0 flex justify-center items-center transition-all ease-out delay-0 duration-5000">{company_name}</h2>
                 <p className="bg-white rounded-3xl rounded-l-none border-l-8 border-8 border-transparent w-64 p-2 absolute -bottom-10 left-0">
                     <img className="h-20 w-full object-fill" src={company_logo} alt="" />

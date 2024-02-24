@@ -30,7 +30,7 @@ export default function Reviews() {
                         <p className="text-slate-400 text-base font-normal mt-4">- TaskHut -</p>
                     </blockquote>
                     {
-                        reviewData.map(review => <ReviewCard key={review._id} reviews={review}></ReviewCard>)
+                        reviewData.slice(0,5).map(review => <ReviewCard key={review._id} reviews={review}></ReviewCard>)
                     }
                 </div>
             </div>

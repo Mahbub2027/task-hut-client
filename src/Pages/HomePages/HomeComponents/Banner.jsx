@@ -2,8 +2,13 @@ import { Link } from "react-router-dom";
 import { Typewriter } from "react-simple-typewriter";
 import companyToEmployee from '../../../assets/lottieAnimation/companyToEmployee.json'
 import Lottie from 'lottie-react';
+import useAuth from "../../../hooks/useAuth";
 
 const  Banner =() =>{
+
+  const {user} = useAuth();
+
+
   return (
     <div className="min-h-[85vh] w-full flex flex-col md:flex-row-reverse items-center gap-4 bg-white">
 
@@ -39,11 +44,11 @@ const  Banner =() =>{
         
         
         <div>
-          <Link to="/signup">
-            <button className="text-white uppercase text-xs lg:text-base bg-gradient-to-r from-indigo-400 via-indigo-700 to-indigo-600 bg-[length:200%] hover:bg-right focus:ring-4 focus:outline-none focus:ring-indigo-300 shadow-lg shadow-indigo-500/50 font-medium rounded-full px-5 py-2.5 text-center transition-all ease-in-out delay-150 duration-500">
+          {user?.emailVerified ? "" : <Link to="/signup">
+            <button disabled className="text-white uppercase text-xs lg:text-base bg-gradient-to-r from-indigo-400 via-indigo-700 to-indigo-600 bg-[length:200%] hover:bg-right focus:ring-4 focus:outline-none focus:ring-indigo-300 shadow-lg shadow-indigo-500/50 font-medium rounded-full px-5 py-2.5 text-center transition-all ease-in-out delay-150 duration-500">
               Get started
             </button>
-          </Link>
+          </Link>}
         </div>
       </div>
     </div>
