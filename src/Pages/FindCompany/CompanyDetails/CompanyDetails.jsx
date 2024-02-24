@@ -21,7 +21,7 @@ const CompanyDetails = () => {
     useEffect(() => {
         axiosPublic.get('/jobs')
             .then(result => {
-                const jobsData = result.data.filter((item) => item.email === email);
+                const jobsData = result.data.filter((item) => item.company_email === email);
                 setJobs(jobsData);
 
             })

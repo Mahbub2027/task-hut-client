@@ -12,14 +12,14 @@ const EditEmployeeProfile = () => {
     const axiosPublic = useAxiosPublic();
 
     const onSubmit = async (data) => {
-        console.log(data) 
+        // console.log(data) 
         const imageFile = { image: data.image[0] }
         const res = await axiosPublic.post(image_hosting_api, imageFile, {
             headers: {
                 'content-type': 'multipart/form-data'
             }
         })
-        console.log(res.data);
+        // console.log(res.data);
         if(res.data.success){
             const employeeInfo = {
                 name : data.name,
