@@ -9,7 +9,7 @@ const AllReviews = () => {
         fetch('http://localhost:5000')
             .then(res => res.json())
             .then(data => setReviewData(data))
-    }, [reviewData]);
+    }, [setReviewData]);
 
     return (
         <div className='mx-auto py-10'>
@@ -19,7 +19,7 @@ const AllReviews = () => {
             </div>
             <div className='mx-auto grid grid-cols-1 gap-10 md:grid-cols-2 lg:w-9/12 lg:grid-cols-3'>
                 {
-                    reviewData.map(review => <ReviewCard key={review._id} reviews={review}></ReviewCard>)
+                    reviewData.sort((a, b) => new Date(b.date) - new Date(a.date)).map(review => <ReviewCard key={review._id} reviews={review}></ReviewCard>)
                 }
             </div>
         </div>

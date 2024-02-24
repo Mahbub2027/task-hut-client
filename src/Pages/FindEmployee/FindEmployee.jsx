@@ -12,7 +12,6 @@ const FindEmployee = () => {
       .then(result => {
         // const userData = result.data.filter((item) => item.role === 'user');
         setEmployees(result.data);
-
       })
 
   }, [axiosPublic])

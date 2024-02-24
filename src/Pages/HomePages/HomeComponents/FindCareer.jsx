@@ -14,10 +14,10 @@ const FindCareer = () => {
         fetch('http://localhost:5000/jobs')
             .then(res => res.json())
             .then(data => {
-                setFindJobs(data)
+                setFindJobs(data.sort((a, b) => new Date(b.date) - new Date(a.date)))
             })
-    }, [findJobs])
-
+    }, [setFindJobs])
+    
     return (
         <div className='w-10/12 mx-auto my-40'>
             <div className='text-center space-y-4 w-full md:w-2/3 mx-auto my-20'>

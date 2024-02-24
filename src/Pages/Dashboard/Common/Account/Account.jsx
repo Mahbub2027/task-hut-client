@@ -84,7 +84,7 @@ const Account = () => {
           <button
             onClick={() => handleDeactivate()}
             type="button"
-            className="mt-6 flex gap-2 items-center text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-4 py-2 text-center"
+            className="mt-6 flex gap-2 items-center text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-full text-sm px-4 py-2 text-center"
           >
             Deactivate Account
           </button>
@@ -94,7 +94,7 @@ const Account = () => {
         <p className="w-full font-medium text-xl pb-2">
           Request Permanent Deletion
         </p>
-        <div className="p-6 border border-red-600 rounded shadow">
+        <div className="p-6 border border-red-600 rounded-lg shadow">
           <p>
             Deleting your account is permanent. When you delete your account,
             all of your content, transaction history and messages will be
@@ -103,7 +103,7 @@ const Account = () => {
           <button
             type="button"
             onClick={() => handleDeleteUser()}
-            className="mt-6 flex gap-2 items-center text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-4 py-2 text-center"
+            className="mt-6 flex gap-2 items-center text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-full text-sm px-4 py-2 text-center"
           >
             Delete Account
           </button>

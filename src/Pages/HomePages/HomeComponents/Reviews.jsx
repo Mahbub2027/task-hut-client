@@ -12,7 +12,7 @@ export default function Reviews() {
         fetch('http://localhost:5000')
             .then(res => res.json())
             .then(data => setReviewData(data))
-    }, [reviewData]);
+    }, [setReviewData]);
 
     return (
         <div className="py-20 sm:py-12 text-center bg-slate-200">
@@ -30,7 +30,7 @@ export default function Reviews() {
                         <p className="text-slate-400 text-base font-normal mt-4">- TaskHut -</p>
                     </blockquote>
                     {
-                        reviewData.slice(0,5).map(review => <ReviewCard key={review._id} reviews={review}></ReviewCard>)
+                        reviewData.sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0,5).map(review => <ReviewCard key={review._id} reviews={review}></ReviewCard>)
                     }
                 </div>
             </div>

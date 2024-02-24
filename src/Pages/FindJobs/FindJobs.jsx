@@ -62,7 +62,7 @@ const FindJobs = () => {
 
             <div className='flex-1 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-5'>
                 {
-                    findJobs.map(job => <JobPostCard key={job._id} job={job} />)
+                    findJobs.sort((a, b) => new Date(b.date) - new Date(a.date)).map(job => <JobPostCard key={job._id} job={job} />)
                 }
             </div>
         </div>

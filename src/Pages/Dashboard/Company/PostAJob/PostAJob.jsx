@@ -61,8 +61,8 @@ const PostAJob = () => {
 
 
 return (
-    <div className='p-8'>
-        <h2 className='font-bold text-2xl pb-5 text-center'>Post A Job</h2>
+    <div className='p-8 text-slate-700'>
+        <h2 className='font-bold text-4xl pb-5 text-center'>Post A Job</h2>
         <hr className="dark:opacity-50" />
         <div className='p-8 space-y-6'>
             {/* <p className='w-full font-medium text-xl pb-2'>Create Post</p> */}
@@ -72,7 +72,7 @@ return (
                     <div className="flex flex-row items-center gap-5">
                         <div className="w-full form-control">
                             <label className="label">
-                                <span className="label-text font-bold text-base">Company Name</span>
+                                <span className="text-slate-500 font-medium text-base">Company Name</span>
                             </label>
                             <input type="text" {...register("company_name", { required: true })} 
                             placeholder="Enter company name" 
@@ -81,7 +81,7 @@ return (
                         </div>
                         <div className="form-control w-full">
                             <label className="label">
-                                <span className="label-text font-bold text-base">Company logo</span>
+                                <span className="text-slate-500 font-medium text-base">Company logo</span>
                             </label>
                             <input {...register('image', {required: true})} type="file" 
                             className="file-input file-input-bordered my-1 " />
@@ -92,7 +92,7 @@ return (
                     {/* email &  job title */}
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text font-bold text-base">Email</span>
+                            <span className="text-slate-500 font-medium text-base">Email</span>
                         </label>
                         <input type="email" {...register("email", { required: true })} value={user?.email}
                         placeholder="email" className="basis-3/6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
@@ -100,7 +100,7 @@ return (
                     </div>
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text font-bold text-base">Job Title</span>
+                            <span className="text-slate-500 font-medium text-base">Job Title</span>
                         </label>
                         <input type="text" {...register("job_title", { required: true })} placeholder="Enter job title" className="basis-3/6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
                         {errors.job_title && <span className="text-red-500">This field is required</span>}
@@ -108,7 +108,7 @@ return (
                     {/* location */}
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text font-bold text-base">Company Location</span>
+                            <span className="text-slate-500 font-medium text-base">Company Location</span>
                         </label>
                         <input type="text" {...register("location", { required: true })} placeholder="company location" className="basis-3/6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
                         {errors.location && <span className="text-red-500">This field is required</span>}
@@ -117,7 +117,7 @@ return (
                     <div className="flex items-center gap-5">
                         <div className="w-full form-control ">
                             <label className="label">
-                                <span className="label-text font-bold text-base">Job Category</span>
+                                <span className="text-slate-500 font-medium text-base">Job Category</span>
                             </label>
                             <select {...register("category", { required: true })} className='border-2 p-2 rounded-lg'>
                                 <option disabled selected>select category</option>
@@ -130,7 +130,7 @@ return (
                         </div>
                         <div className="w-full form-control">
                             <label className="label">
-                                <span className="label-text font-bold text-base">Job Type</span>
+                                <span className="text-slate-500 font-medium text-base">Job Type</span>
                             </label>
                             <select {...register("job_type", { required: true })} className='border-2 p-2 rounded-lg'>
                                 <option disabled selected>select type</option>
@@ -144,7 +144,7 @@ return (
                     <div className="flex items-center gap-3">
                         <div className="form-control w-full">
                             <label className="label">
-                                <span className="label-text font-bold text-base">Experience</span>
+                                <span className="text-slate-500 font-medium text-base">Experience</span>
                             </label>
                             <input type="text" {...register("experience")}
                                 placeholder="Experience" className="basis-3/6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
@@ -152,7 +152,7 @@ return (
                         </div>
                         <div className="form-control w-full">
                             <label className="label">
-                                <span className="label-text font-bold text-base">Salary</span>
+                                <span className="text-slate-500 font-medium text-base">Salary</span>
                             </label>
                             <input type="text" {...register("salary_range", { required: true })}
                                 placeholder="salary_range" className="basis-3/6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
@@ -160,7 +160,7 @@ return (
                         </div>
                         <div className="form-control w-full">
                             <label className="label">
-                                <span className="label-text font-bold text-base">Date</span>
+                                <span className="text-slate-500 font-medium text-base">Date</span>
                             </label>
                             <input type="date" {...register("date", { required: true })}
                                 placeholder="date" className="basis-3/6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
@@ -170,7 +170,7 @@ return (
                     {/* Overveiw */}
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text font-bold text-base">Overview</span>
+                            <span className="text-slate-500 font-medium text-base">Overview</span>
                         </label>
                         <input type="text" {...register("overview")}
                             placeholder="overview" className="basis-3/6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
@@ -179,17 +179,17 @@ return (
                     {/* skills */}
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text font-bold text-base">Skills</span>
+                            <span className="text-slate-500 font-medium text-base">Skills</span>
                         </label>
                         <input type="text" {...register("skills")}
-                            placeholder="e.g. HTML, CSS, JS, React etc." 
+                            placeholder="e.g. HTML, CSS, JS, React" 
                             className="basis-3/6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                         {/* {errors.name && <span className="text-red-500">This field is required</span>} */}
                     </div>
                     {/* requirements */}
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text font-bold text-base">Requirements</span>
+                            <span className="text-slate-500 font-medium text-base">Requirements</span>
                         </label>
                         <input type="text" {...register("requirements")}
                             placeholder="Requirements" 
@@ -199,7 +199,7 @@ return (
                     {/* responsibilities, */}
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text font-bold text-base">Responsibilities</span>
+                            <span className="text-slate-500 font-medium text-base">Responsibilities</span>
                         </label>
                         <input type="text" {...register("responsibilities")}
                             placeholder="Responsibilities" 
@@ -211,7 +211,7 @@ return (
                     {/* <hr className="mb-8 dark:opacity-25" /> */}
                     <div className='my-10'>
                         <button
-                            className="w-2/12 text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-base px-5 py-3 text-center me-2 mb-2">Post</button>
+                            className="primary-btn">Post</button>
                     </div>
 
                 </form>
