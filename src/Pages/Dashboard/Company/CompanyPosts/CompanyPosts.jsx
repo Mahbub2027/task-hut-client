@@ -47,8 +47,8 @@ const CompanyPosts = () => {
                                             <p className='text-lg text-slate-700'>{job.apply_role}</p>
                                         </td>
                                         <td className='flex items-center gap-4'>
-                                            <span data-tip="update" className='tooltip text-white rounded-xl px-4 py-3 bg-gradient-to-br from-indigo-400 via-indigo-600 to-indigo-700 hover:bg-gradient-to-b flex items-center gap-2'><FaPencil /></span>
-                                            <span data-tip="delete" className='tooltip text-white rounded-xl px-4 py-3 bg-gradient-to-br from-red-400 via-red-600 to-red-700 hover:bg-gradient-to-b flex items-center gap-2'><FaXmark /></span>
+                                            <span data-tip="update" className='tooltip text-white rounded-2xl px-4 py-3 bg-gradient-to-br from-indigo-400 via-indigo-600 to-indigo-700 hover:bg-gradient-to-b flex items-center gap-2'><FaPencil /></span>
+                                            <span data-tip="delete" className='tooltip text-white rounded-2xl px-4 py-3 bg-gradient-to-br from-red-400 via-red-600 to-red-700 hover:bg-gradient-to-b flex items-center gap-2'><FaXmark /></span>
                                         </td>
                                     </>
                                 }
