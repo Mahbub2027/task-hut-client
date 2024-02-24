@@ -23,7 +23,7 @@ const Account = () => {
   // Delete User
 
   const handleDeleteUser = () => {
-    const uidToDelete = user.uid; // user uid
+    const mail = user?.email; // user uid
     console.log(uidToDelete);
     Swal.fire({
       title: "Are you sure?",
@@ -55,7 +55,7 @@ const Account = () => {
 
         //Delete from MongoDB user collection
 
-        fetch(`http://localhost:5000/deleteAccount/${uidToDelete}`, {
+        fetch(`http://localhost:5000/deleteAccount/${mail}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
