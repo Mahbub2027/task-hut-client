@@ -87,20 +87,21 @@ const EditEmployeeProfile = () => {
                             <input {...register('image')}
                                 className=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 type="file" 
-                                defaultValue={''}
+                                placeholder=''
+                                // defaultValue={''}
                             /> </label>
                     <p className='w-full font-medium text-xl'>Contact info</p>
                     <label className='flex gap-8 justify-between'>
                         <input {...register('number', {required: true})}
                             className="basis-3/6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            type="number"
+                            type="tel"
                             placeholder="What's app number"
                             defaultValue={``}
                         />
                         
                         <input {...register('linkedin', {required: true})}
                             className="basis-3/6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            type="text"
+                            type="url"
                             placeholder="Linkedin account link"
                             defaultValue={``}
                         />
@@ -152,29 +153,28 @@ const EditEmployeeProfile = () => {
                         <select {...register("workPreference", { required: true })} 
                                 className="basis-1/2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"                                                    >
                                 <option disabled selected>select category</option>
-                                <option value="full time">Full time</option>
-                                <option value="part time">Part time</option>
-                                <option value="remote">Remote</option>
-                                <option value="internship">Internship</option>
+                                <option value="Full Time">Full time</option>
+                                <option value="Part Time">Part time</option>
+                                <option value="Internship">Internship</option>
                             </select>
                     
                         <input {...register('resume')}
                             className="basis-1/2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             type="text"
-                            placeholder="Resume"
-                            defaultValue={``}
+                            // accept='application/pdf'
+                            // defaultValue={`Resume`}
                         />
                     </label>
                      <label className='w-full flex flex-wrap gap-10'>
                         <input {...register('portfolio')}
                             className="basis-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            type="text"
+                            type="url"
                             placeholder="Portfolio link"
                             defaultValue={``}
                         />
                         <input {...register('github')}
                             className=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            type="text"
+                            type="url"
                             placeholder="Github profile link"
                             defaultValue={``}
                         />

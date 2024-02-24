@@ -22,7 +22,7 @@ const FindCareer = () => {
         <div className='w-10/12 mx-auto my-40'>
             <div className='text-center space-y-4 w-full md:w-2/3 mx-auto my-20'>
                 <h2 className='text-slate-700 text-3xl md:text-5xl font-extrabold'>Career Opportunities</h2>
-                <p className='text-slate-500 text-lg md:text-2xl font-medium'>Apply for new <span className='bg-yellow-300 p-1'>Career</span> by searching through <span className='bg-yellow-300 p-1'>110 Jobs</span></p>
+                <p className='text-slate-500 text-lg md:text-2xl font-medium leading-3'>Apply for new <span className='bg-yellow-300 p-1'>Career</span> by searching through <span className='bg-yellow-300 p-1'>110 Jobs</span></p>
             </div>
             <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5'>
                 {
