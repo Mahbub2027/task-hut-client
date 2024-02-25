@@ -85,7 +85,7 @@ const CompanySearchBar = () => {
   };
 
   return (
-    <div className="border-b-2 items-center border-slate-400/30">
+    <div className="border-b-2 items-center border-slate-400/30 lg:h-16">
       <div className="p-3 flex justify-between">
         <input
           type="text"
@@ -95,8 +95,8 @@ const CompanySearchBar = () => {
           onChange={(e) => setUsername(e.target.value)}
           value={username}
         />
-        {username != "" ? <button onClick={() => { setUsername("") }} className="rounded-full text-slate-300 hover:text-white p-2 text-xl"><MdCancel /></button> : ""}
-        <button onClick={handleSearch} className="rounded-full text-slate-300 hover:text-white p-2 text-xl"><FaSearch /></button>
+        {username != "" ? <button onClick={() => { setUsername("") }} className="rounded-full text-slate-300 hover:text-red-700 p-2 text-xl"><MdCancel /></button> : ""}
+        <button onClick={handleSearch} className="rounded-full text-slate-400 hover:text-slate-700 p-2 text-xl"><FaSearch /></button>
       </div>
       {err && <span>User not found!</span>}
       {searchUser && (

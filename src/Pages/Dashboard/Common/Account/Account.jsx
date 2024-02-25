@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { getAuth, deleteUser } from "firebase/auth";
 import useAuth from "../../../../hooks/useAuth";
+import { FaExclamationTriangle } from "react-icons/fa";
 
 const auth = getAuth();
 const user = auth.currentUser;
@@ -71,9 +72,9 @@ const Account = () => {
 
   return (
     <div className="p-8">
-      <h2 className="font-bold text-2xl pb-2">Deactivate or Delete Account</h2>
+      <h2 className="font-bold text-2xl pb-2">Delete Account</h2>
       <hr className="dark:opacity-50" />
-      <div className="p-8 space-y-6">
+      {/* <div className="p-8 space-y-6">
         <p className="w-full font-medium text-xl pb-2">Deactivate Account</p>
         <div className="p-6 border rounded shadow">
           <p>
@@ -89,12 +90,16 @@ const Account = () => {
             Deactivate Account
           </button>
         </div>
+      </div> */}
+      <div className="p-10 flex justify-center">
+        <div className="relative animate-bounce">
+          <FaExclamationTriangle className="w-28 h-28 text-red-600/70" />
+          <FaExclamationTriangle className="w-28 h-28 text-red-600/20 rotate-6 absolute top-5 left-5" />
+        </div>
       </div>
       <div className="p-8 space-y-6">
-        <p className="w-full font-medium text-xl pb-2">
-          Request Permanent Deletion
-        </p>
-        <div className="p-6 border border-red-600 rounded-lg shadow">
+        <div className="p-6 border border-red-600 rounded-xl hover:rounded-3xl shadow hover:shadow-xl transition-all ease-in-out delay-150 duration-500">
+          <p className="w-full font-medium text-xl pb-2">Perform Permanent Deletion</p>
           <p>
             Deleting your account is permanent. When you delete your account,
             all of your content, transaction history and messages will be
