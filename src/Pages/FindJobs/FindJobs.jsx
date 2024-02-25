@@ -7,10 +7,12 @@ const FindJobs = () => {
     const axiosPublic = useAxiosPublic();
     const searchRef = useRef();
     const [findJobs, setFindJobs] = useState([]);
+    const[allJobs,setAllJobs]=useState([])
 
     useEffect(()=>{
         axiosPublic.get('/jobs')
         .then(res=>{
+            setAllJobs(res.data)
             setFindJobs(res.data);
         })
         
@@ -29,10 +31,20 @@ const FindJobs = () => {
         const search = searchRef?.current?.value.toLowerCase();
         console.log(search);
 
-        const jobFilter = findJobs.filter((item)=> item.job_title.toLowerCase().includes(search));
+        const jobFilter = allJobs.filter((item)=> item.job_title.toLowerCase().includes(search));
         // console.log(jobFilter);
         setFindJobs(jobFilter);
     }
+
+    const handleFilter = (value) => {
+        
+        const search = value.toLowerCase();
+        const jobFilter = allJobs.filter((jobs) =>
+          jobs.category.toLowerCase().includes(search)
+        );
+        setFindJobs(jobFilter);
+      };
+    
 
     return (
         <div className='w-full md:w-11/12 mx-auto flex flex-col md:flex-row gap-5 my-16'>
@@ -41,12 +53,12 @@ const FindJobs = () => {
                 
                 <p className='font-bold text-lg mb-2'>Select Category</p>
                 <div className=''>
-                    <select className="select w-full max-w-xs rounded-full">
+                    <select onChange={(e)=>{handleFilter(e.target.value)}} className="select w-full max-w-xs rounded-full">
                         <option disabled selected>Select category</option>
-                        <option>FullTime</option>
-                        <option>PartTime</option>
-                        <option>Remote</option>
-                        <option>Internship</option>
+                        <option value="Full Time">Full Time</option>
+                        <option value="Part time">Part Time</option>
+                        <option value="Remote">Remote</option>
+                        <option value="Internship">Internship</option>
                     </select>
                 </div>
                 {/* search */}

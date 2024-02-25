@@ -9,7 +9,6 @@ import AboutUs from "../Pages/AboutUs/AboutUs";
 import PrivateRoutes from "./PrivateRoutes";
 import ViewProfile from "../Pages/ViewProfile/ViewProfile";
 import AccountAnalytics from "../Pages/AccountAnalytics/AccountAnalytics";
-// import Settings from "../Pages/Settings/Settings";
 import Support from "../Pages/Support/Support";
 import EditProfile from "../Pages/Dashboard/Common/EditProfile/EditProfile";
 import Security from "../Pages/Dashboard/Common/Security/Security";
@@ -30,7 +29,6 @@ import FindEmployee from "../Pages/FindEmployee/FindEmployee";
 import PostAJob from "../Pages/Dashboard/Company/PostAJob/PostAJob";
 import AdminRoutes from "./AdminRoutes";
 import BuyerRoutes from "./BuyerRoutes";
-// import EmployeeInfo from "../Pages/FindEmployee/EmployeeInfo";
 import CompanyChat from "../Pages/Dashboard/Company/CompanyChat/CompanyChat";
 import JobDetails from "../Pages/FindJobs/JobDetails/JobDetails";
 import AllCompanies from "../Pages/FindCompany/AllCompanies";
@@ -41,11 +39,14 @@ import Blogs from "../Pages/Blogs/Blogs";
 import SingleBlog from "../Pages/Blogs/SingleBlog";
 import CompanyBlogs from "../Pages/Dashboard/Company/CompanyBlogs/CompanyBlogs";
 import UserChat from './../Pages/Dashboard/Users/UserChat/UserChat';
+<<<<<<< HEAD
 import Career from "../Pages/Career/Career";
 import Terms from "../Pages/Legal/Terms";
 import CookiePolicy from "../Pages/Legal/CookiePolicy";
 import PrivacyPolicy from "../Pages/Legal/PrivacyPolicy";
 // import EditEmployeeProfile from "../Pages/Dashboard/Users/EditEmployeeProfile/EditEmployeeProfile";
+=======
+>>>>>>> d72fd25e0135c1a770b5254800234baf4286afa1
 
 
 export const router = createBrowserRouter([
@@ -98,15 +99,6 @@ export const router = createBrowserRouter([
         element: <EmployeeDetails></EmployeeDetails>,
         loader: ({params})=> fetch(`http://localhost:5000/employees/${params.id}`)
       },
-      // {
-      //   path:'/testemployee',
-      //   element:<EmployeeInfo></EmployeeInfo>
-      // },
-      // {
-      //   path:"findEmployee/:id",
-      //   element:<EmployeeInfo></EmployeeInfo>,
-      //   loader:({params}) => fetch(`https://tusk-hut-server.vercel.app/users/employee/${params.id}`)
-      // },
 //-------
       {
         path: '/blogs',
@@ -213,11 +205,6 @@ export const router = createBrowserRouter([
         path: 'jobInterview',
         element: <JobInterviews></JobInterviews>
       },
-      // {
-      //   path: 'updateProfile/:id',
-      //   element: <EditEmployeeProfile></EditEmployeeProfile>,
-      //   loader: ({params})=> fetch(`http://localhost:5000/users/${params.id}`)
-      // },
       // common routes
       {
         path: 'editProfile',
@@ -240,6 +227,10 @@ export const router = createBrowserRouter([
         element: <Account></Account>
       },
       // admin 
+      {
+        path: 'accountAnalytics',
+        element: <AdminRoutes><AccountAnalytics></AccountAnalytics></AdminRoutes>
+      },
       {
         path: 'manageUsers',
         element: <AdminRoutes><ManageUsers></ManageUsers></AdminRoutes>

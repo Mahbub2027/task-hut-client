@@ -111,7 +111,7 @@ const ApplicantList = () => {
                         <th>Action</th>
                         <th>Action</th>
                         <th>Details</th>
-                        <th>Chat</th>
+                        {/* <th>Chat</th> */}
                     </tr>
                 </thead>
                 <tbody>
@@ -119,7 +119,7 @@ const ApplicantList = () => {
                         applyJob.map((job) => <tr key={job._id}>
 
                             {
-                                (user?.email === job?.company_email) && <>
+                                ((user?.email === job?.company_email) && (job.role === "pending") || (job.role === "rejected"))  && <>
                                     {/* <td>
                                         {index + 1}
                                     </td> */}
@@ -152,9 +152,9 @@ const ApplicantList = () => {
                                             </div>)
                                         }
                                     </td>
-                                    <td>
+                                    {/* <td>
                                         <Link to={'/dashboard/companyChat'}><button className='btn btn-sm'>Message</button></Link>
-                                    </td>
+                                    </td> */}
                                 </>
                             }
 

@@ -7,7 +7,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 // import GoogleLink from "../../sharedComponents/GoogleLinks/GoogleLink";
 import Swal from "sweetalert2";
-import { FcGoogle } from "react-icons/fc";
+// import { FcGoogle } from "react-icons/fc";
 import { db } from "../../../firebase/firebase.config";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { ref } from "firebase/storage";
@@ -155,7 +155,6 @@ const storeFirebaseGoogle = async (name, email, uid, image) => {
         emailVerification()
           .then(() => {
             Swal.fire({
-              // title: "Good job!",
               text: "Please verify your email",
               icon: "warning",
             });
@@ -230,20 +229,17 @@ const storeFirebaseGoogle = async (name, email, uid, image) => {
           <div className="card shrink-0 w-full lg:w-1/2 max-w-sm shadow-2xl bg-base-100">
             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
               <h2 className="text-3xl font-bold text-center">
-                Create an account
+                Join as a <span className="text-blue-600">Company</span>
               </h2>
               <div className="form-control">
                 <label className="label">
                   {/* <span className="label-text font-bold text-base">Name</span> */}
                 </label>
                 <input
-                  type="text"
-                  {...register("name", { required: true })}
+                  type="text"{...register("name", { required: true })}
                   name="name"
                   placeholder="company name"
-                  className="input input-bordered"
-                  required
-                />
+                  className="input input-bordered" required/>
                 {errors.name && (
                   <span className="text-red-500">This field is required</span>
                 )}
@@ -257,11 +253,8 @@ const storeFirebaseGoogle = async (name, email, uid, image) => {
                   {...register("email", { required: true })}
                   name="email"
                   placeholder="email"
-                  className="input input-bordered"
-                  required
-                />
-                {errors.email && (
-                  <span className="text-red-500">This field is required</span>
+                  className="input input-bordered" required/>
+                {errors.email && (<span className="text-red-500">This field is required</span>
                 )}
               </div>
               <div className="form-control relative">
@@ -270,8 +263,7 @@ const storeFirebaseGoogle = async (name, email, uid, image) => {
                 </label>
                 <div className="relative">
                 <input
-                  type={showPassword ? "text" : "password"}
-                  {...register("password", {
+                  type={showPassword ? "text" : "password"}{...register("password", {
                     required: true,
                     minLength: 6,
                     maxLength: 20,
@@ -323,6 +315,8 @@ const storeFirebaseGoogle = async (name, email, uid, image) => {
                     onChange={(e) => setImage(e.target.files[0])}
                     className="file-input file-input-bordered my-1 w-full max-w-xs"
                   />
+                  {errors.image && (<span className="text-red-500">This field is required</span>
+                )}
                 </div>
                 {/* <input type="text" {...register("photo", { required: true })} name="photo" placeholder="Photo url" className="input input-bordered" required />
                                 {errors.photo && <span className="text-red-500">This field is required</span>} */}
@@ -333,16 +327,16 @@ const storeFirebaseGoogle = async (name, email, uid, image) => {
                 </button>
               </div>
               {errorMessage && <p className="text-red-500">{errorMessage}</p>}
-              <div className="divider">Or</div>
+              {/* <div className="divider">Or</div> */}
               {/* social account login */}
-              <div>
+              {/* <div>
                 <button
                   onClick={handleGoogleLogin}
                   className="border-2 border-blue-500 w-full rounded-xl font-semibold text-lg p-2 flex flex-row items-center justify-center gap-3"
                 >
                   <FcGoogle></FcGoogle>Sign up with Google
                 </button>
-              </div>
+              </div> */}
               <p>
                 Already Have an account? Please{" "}
                 <Link to="/login" className="font-bold text-blue-600">

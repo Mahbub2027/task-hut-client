@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import coverImg from '../../../assets/images/banner 5.jpg';
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
 import useAuth from '../../../hooks/useAuth';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Swal from 'sweetalert2';
+import { useQuery } from '@tanstack/react-query';
 // import { useQuery } from '@tanstack/react-query';
 
 
@@ -14,28 +15,31 @@ const JobDetails = () => {
     const axiosPublic = useAxiosPublic();
     const [isApplied, setAppliedJobs] = useState(false);
     const [isSaveJob, setSaveJobs] = useState(false);
+    const navigate = useNavigate();
 
-    // const {data: users= []} = useQuery({
-    //     queryKey: ['user', users?.email],
-    //     queryFn: async () =>{
-    //         const res = await axiosPublic.get(`/users/${users.email}`);
-    //         return res.data;
-    //     }
-    // })
+    const { data: users = [] } = useQuery({
+        queryKey: ['user'],
+        queryFn: async () => {
+            const userInfo = await axiosPublic.get("/users");
+            return userInfo.data;
+        }
+    })
 
-    const { _id, job_title, category, job_type,company_email, location, apply_role, company_name,
-        company_logo, date, experience, salary_range, overview, requirements, skills, responsibilities } = useLoaderData();
+    const { _id, job_title, category, job_type, company_email, area, city, country, apply_role, company_name,
+        publish_date, deadline_date, benefits, experience, salary_range, overview, requirements, skills, responsibilities } = useLoaderData();
 
     const handleJobApply = _id => {
+        if(user?.emailVerified) {
 
+        
         const jobApply = {
             jobId: _id,
             email: user?.email,
-            applicant_name: user?.name,
-            
+            applicant_name: user?.displayName,
+
             role: "pending",
-            job_title, category, job_type,company_email, location, apply_role, company_name,
-            company_logo, date, experience, salary_range, skills
+            job_title, category, job_type, company_email, area, city, country, apply_role, company_name,
+            experience, salary_range, skills
         }
 
         Swal.fire({
@@ -60,38 +64,46 @@ const JobDetails = () => {
             }
         })
     }
+    else {
+        navigate("/login")
+    }
+}
 
 
     const handleSaveJobs = id => {
-        const saveJobs = {
-            email: user?.email,
-            jobId: id, job_title, category, job_type, location, apply_role, company_name,
-            company_logo, date, experience, salary_range, skills
-        }
-
-        Swal.fire({
-            title: "Are you sure?",
-            text: "You want to save this",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, save it!"
-        }).then((result) => {
-
-            if (result.isConfirmed) {
-                axiosPublic.post("/saveJobs", saveJobs)
-                    .then(res => {
-                        console.log(res);
-
-                        if (res?.data?.insertedId) {
-                            setSaveJobs(true);
-                            toast.success("Job save successfully")
-                        }
-                    })
+        if (user?.emailVerified) {
+            const saveJobs = {
+                email: user?.email,
+                jobId: id, job_title, category, job_type, area, city, country, apply_role, company_name,
+                experience, salary_range, skills
             }
-        })
 
+            Swal.fire({
+                title: "Are you sure?",
+                text: "You want to save this",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, save it!"
+            }).then((result) => {
+
+                if (result.isConfirmed) {
+                    axiosPublic.post("/saveJobs", saveJobs)
+                        .then(res => {
+                            console.log(res);
+
+                            if (res?.data?.insertedId) {
+                                setSaveJobs(true);
+                                toast.success("Job save successfully")
+                            }
+                        })
+                }
+            })
+        }
+        else {
+            navigate('/login')
+        }
     }
 
 
@@ -142,7 +154,7 @@ const JobDetails = () => {
                                 </div>
                                 <div className='p-4 bg-white rounded-2xl space-y-2'>
                                     <h3 className='font-semibold text-2xl'>Benefits</h3>
-                                    <p className='text-lg text-slate-500'>Lorem ipsum dolor sit amet consectetur adipisicing elit. At consectetur fugiat quas asperiores optio. Laboriosam est magnam explicabo cum voluptate eos minus debitis ab soluta placeat, illo unde numquam ratione beatae nesciunt ad blanditiis rerum esse recusandae. Animi sapiente fuga, blanditiis at facere rem commodi eaque ut excepturi dolores eius?</p>
+                                    <p className='text-lg text-slate-500'>{benefits}</p>
                                 </div>
                                 <div className='p-4 bg-white rounded-2xl space-y-2'>
                                     <h3 className='font-semibold text-2xl'>Apply Instruction</h3>
@@ -154,15 +166,15 @@ const JobDetails = () => {
                             <div className='space-y-3 bg-indigo-100 hover:shadow-md rounded-3xl p-5'>
                                 <div className=''>
                                     <small>Posted</small>
-                                    <p className='font-medium text-md'>{date}</p>
+                                    <p className='font-medium text-md'>{publish_date}</p>
                                 </div>
                                 <div className=''>
                                     <small>Deadline</small>
-                                    <p className='font-medium text-md'>{date}</p>
+                                    <p className='font-medium text-md'>{deadline_date}</p>
                                 </div>
                                 <div className=''>
                                     <small>Experience</small>
-                                    <p className='font-medium text-md'>{experience == '' ? experience : 'Entry Level'}</p>
+                                    <p className='font-medium text-md'>{experience == '' ? experience : "Entry level"}</p>
                                 </div>
                                 <div className=''>
                                     <small>Job Type</small>
@@ -176,7 +188,7 @@ const JobDetails = () => {
                                     <small>Skills</small>
                                     <p className='flex flex-wrap gap-1'>
                                         {
-                                            skills.map((skill, index) => <span key={index} className='font-medium text-md px-3 py-1 text-sm rounded-full bg-slate-100'>{skill}</span>)
+                                            skills.split(',').map((skill, index) => <span key={index} className='font-medium text-md px-3 py-1 text-sm rounded-full bg-slate-100'>{skill}</span>)
                                         }
                                     </p>
                                 </div>
@@ -187,18 +199,27 @@ const JobDetails = () => {
                             </div>
                             <div className='space-y-3 bg-indigo-100 hover:shadow-md rounded-3xl p-5'>
                                 <div className='flex flex-wrap gap-3 items-center'>
-                                    <Link to={`/companyDetails/${_id}`} className='tooltip tooltip-left rounded-2xl border-2 hover:border-2 hover:border-indigo-700 hover:shadow-md transition-all ease-out delay-0 duration-500' data-tip='View company details'>
-                                        <img className='w-16 h-16 rounded-2xl' src={company_logo} alt="" />
-                                    </Link>
+                                    {
+                                        users.map(use => <div key={use._id}>
+                                            {
+                                                use?.email === company_email && <>
+                                                    <Link to={`/companyDetails/${_id}`} className='tooltip tooltip-left rounded-2xl border-2 hover:border-2 hover:border-indigo-700 hover:shadow-md transition-all ease-out delay-0 duration-500' data-tip='View company details'>
+                                                        <img className='w-16 h-16 rounded-2xl' src={use?.image} alt="" />
+                                                    </Link>
+                                                </>
+                                            }
+                                        </div>)
+                                    }
+
                                     <p className='font-medium text-xl'>{company_name}</p>
                                 </div>
                                 <div className=''>
                                     <small>Location</small>
-                                    <p className='font-medium text-md'>{location}</p>
+                                    <p className='font-medium text-md'>{ }</p>
                                 </div>
                                 <div className=''>
                                     <small>Founded</small>
-                                    <p className='font-medium text-md'>{date}</p>
+                                    <p className='font-medium text-md'>{ }</p>
                                 </div>
                                 <div className=''>
                                     <small>Company Size</small>

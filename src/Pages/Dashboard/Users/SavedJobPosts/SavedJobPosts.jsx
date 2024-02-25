@@ -79,7 +79,7 @@ const SavedJobPosts = () => {
                                         </td> */}
                                         <td>{job.job_title}</td>
                                         <td>{job.company_name}</td>
-                                        <td>{job.location}</td>
+                                        <td className='flex'>{job.area}, {job.city}, {job.country}</td>
                                         <td>{job.job_type}</td>
                                         <td>{job.salary_range}</td>
                                         <td>
