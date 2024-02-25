@@ -111,7 +111,7 @@ const ApplicantList = () => {
                         <th>Action</th>
                         <th>Action</th>
                         <th>Details</th>
-                        <th>Chat</th>
+                        {/* <th>Chat</th> */}
                     </tr>
                 </thead>
                 <tbody>
@@ -152,9 +152,9 @@ const ApplicantList = () => {
                                             </div>)
                                         }
                                     </td>
-                                    <td>
+                                    {/* <td>
                                         <Link to={'/dashboard/companyChat'}><button className='btn btn-sm'>Message</button></Link>
-                                    </td>
+                                    </td> */}
                                 </>
                             }
 

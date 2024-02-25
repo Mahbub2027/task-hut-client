@@ -31,7 +31,7 @@ const JobDetails = () => {
         const jobApply = {
             jobId: _id,
             email: user?.email,
-            applicant_name: user?.name,
+            applicant_name: user?.displayName,
             
             role: "pending",
             job_title, category, job_type,company_email, location, apply_role, company_name,
@@ -176,7 +176,7 @@ const JobDetails = () => {
                                     <small>Skills</small>
                                     <p className='flex flex-wrap gap-1'>
                                         {
-                                            skills.map((skill, index) => <span key={index} className='font-medium text-md px-3 py-1 text-sm rounded-full bg-slate-100'>{skill}</span>)
+                                            skills.split(',').map((skill, index) => <span key={index} className='font-medium text-md px-3 py-1 text-sm rounded-full bg-slate-100'>{skill}</span>)
                                         }
                                     </p>
                                 </div>

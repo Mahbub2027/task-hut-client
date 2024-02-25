@@ -31,7 +31,7 @@ const EmployeeDetails = () => {
                             use.email === employee_email && <div className='flex items-center gap-2 absolute bottom-5 left-5 bg-white rounded-full py-1 px-2'>
                                 <img className='w-12 h-12 lg:w-24 lg:h-24 rounded-full' src={use?.image} alt="" />
                                 <div className='lg:space-y-2 lg:p-4'>
-                                    <h3 className='font-semibold text-lg md:text-xl lg:text-2xl'>About {name}</h3>
+                                    <h3 className='font-semibold text-lg md:text-xl lg:text-2xl'>{name}</h3>
                                     <p className='lg:text-lg text-slate-600'>{profession}</p>
                                 </div>
                             </div>
