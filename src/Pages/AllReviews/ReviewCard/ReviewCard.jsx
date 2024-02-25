@@ -19,7 +19,7 @@ const ReviewCard = ({ reviews }) => {
                 <p className="text-slate-700 group-hover:text-white">{ratingMessage}</p>
             </div>
             <p className="text-slate-400">---</p>
-            <p className="text-slate-400">{date}</p>
+            <p className="text-slate-700 group-hover:text-white">{date}</p>
             <p className="lg:text-start font-semibold text-slate-700 group-hover:text-white">{name}</p>
             <img src={image} alt="" className="my-1 h-8 w-8 rounded-full bg-gray-50 border-2 border-indigo-800" />
         </div>

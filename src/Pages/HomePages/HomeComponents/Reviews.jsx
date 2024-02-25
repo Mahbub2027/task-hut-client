@@ -3,16 +3,19 @@ import { FaArrowRightLong } from "react-icons/fa6"
 import { Link } from "react-router-dom"
 import ReviewCard from "../../AllReviews/ReviewCard/ReviewCard";
 import { useEffect, useState } from "react";
+import useAxiosPublic from "../../../hooks/useAxiosPublic";
 
 
 export default function Reviews() {
     const [reviewData, setReviewData] = useState([]);
 
+    const axiosPublic = useAxiosPublic();
+
     useEffect(() => {
-        fetch('http://localhost:5000')
-            .then(res => res.json())
-            .then(data => setReviewData(data))
-    }, [reviewData]);
+        axiosPublic.get('/reviews')
+            // .then(res => res.json())
+            .then(reviewInfo => {setReviewData(reviewInfo.data)})
+    }, [axiosPublic]);
 
     return (
         <div className="py-20 sm:py-12 text-center bg-slate-200">
@@ -30,7 +33,7 @@ export default function Reviews() {
                         <p className="text-slate-400 text-base font-normal mt-4">- TaskHut -</p>
                     </blockquote>
                     {
-                        reviewData.slice(0,5).map(review => <ReviewCard key={review._id} reviews={review}></ReviewCard>)
+                        reviewData.sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0,5).map(review => <ReviewCard key={review._id} reviews={review}></ReviewCard>)
                     }
                 </div>
             </div>

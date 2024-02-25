@@ -23,8 +23,8 @@ const Dashboard = () => {
     };
 
     return (
-        <div className='flex items-start gap-10 min-h-screen p-2'>
-            <div className={collapse ? 'w-20 min-h-screen sticky top-2 overflow-y-scroll scrollbar-thin scrollbar-thumb-transparent scrollbar-track-transparent rounded-2xl shadow-lg shadow-indigo-50 bg-gradient-to-br from-indigo-400 via-indigo-500 to-indigo-800 text-white py-4 px-2 text-center' : 'w-72 min-h-screen sticky top-2 overflow-y-scroll scrollbar-thin scrollbar-thumb-transparent scrollbar-track-transparent rounded-2xl shadow-lg shadow-indigo-50 bg-gradient-to-br from-indigo-400 via-indigo-500 to-indigo-800 text-white p-4'}>
+        <div className='flex items-start gap-10 p-2'>
+            <div className={collapse ? 'max-w-20 h-[98dvh] sticky top-2 overflow-y-scroll scrollbar-thin scrollbar-thumb-transparent scrollbar-track-transparent rounded-2xl shadow-lg shadow-indigo-50 bg-gradient-to-br from-indigo-500 via-indigo-600 to-indigo-700 text-white py-4 px-2 text-center' : 'min-w-96 h-[98dvh] sticky top-2 overflow-y-scroll scrollbar-thin scrollbar-thumb-transparent scrollbar-track-transparent rounded-2xl shadow-lg shadow-indigo-50 bg-gradient-to-br from-indigo-500 via-indigo-600 to-indigo-700 text-white p-4'}>
                 <button onClick={() => setCollapse(!collapse)} className="text-center p-1 rounded-xl border-2 border-indigo-400 text-indigo-100 hover:text-white hover:border-slate-300 bg-gradient-to-br from-indigo-400 via-indigo-500 to-indigo-600 hover:from-indigo-400 hover:via-indigo-600 hover:to-indigo-600 transition-all ease-linear delay-100 duration-300">
                     {collapse ? <TbLayoutSidebarLeftExpandFilled className="w-7 h-7 shadow-md" /> : <TbLayoutSidebarLeftCollapseFilled className="w-7 h-7 shadow-md" />}
                 </button>

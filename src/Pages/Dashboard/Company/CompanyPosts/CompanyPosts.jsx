@@ -2,6 +2,7 @@ import React from 'react';
 import useAxiosPublic from '../../../../hooks/useAxiosPublic';
 import { useQuery } from '@tanstack/react-query';
 import useAuth from '../../../../hooks/useAuth';
+import { FaPencil, FaXmark } from 'react-icons/fa6';
 
 const CompanyPosts = () => {
     const axiosPublic = useAxiosPublic();
@@ -20,12 +21,10 @@ const CompanyPosts = () => {
                     {/* head */}
                     <thead>
                         <tr>
-
                             <th>Image</th>
                             <th>Job Title</th>
                             <th>Name</th>
                             <th>Apply</th>
-                            <th>Update</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -39,19 +38,17 @@ const CompanyPosts = () => {
                                             <img className='w-12 h-12 ' src={job.company_logo} alt="" />
                                         </td>
                                         <td>
-                                            <h2>{job.job_title}</h2>
+                                            <p className='text-lg text-slate-700'>{job.job_title}</p>
                                         </td>
                                         <td>
-                                            <h2>{job.company_name}</h2>
+                                            <p className='text-lg text-slate-700'>{job.company_name}</p>
                                         </td>
                                         <td>
-                                            <p>{job.apply_role}</p>
+                                            <p className='text-lg text-slate-700'>{job.apply_role}</p>
                                         </td>
-                                        <td>
-                                            <button className='btn'>Update</button>
-                                        </td>
-                                        <td>
-                                            <button className='btn'>Delate</button>
+                                        <td className='flex items-center gap-4'>
+                                            <span data-tip="update" className='tooltip text-white rounded-2xl px-4 py-3 bg-gradient-to-br from-indigo-400 via-indigo-600 to-indigo-700 hover:bg-gradient-to-b flex items-center gap-2'><FaPencil /></span>
+                                            <span data-tip="delete" className='tooltip text-white rounded-2xl px-4 py-3 bg-gradient-to-br from-red-400 via-red-600 to-red-700 hover:bg-gradient-to-b flex items-center gap-2'><FaXmark /></span>
                                         </td>
                                     </>
                                 }

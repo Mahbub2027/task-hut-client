@@ -5,12 +5,11 @@ import { Link } from 'react-router-dom';
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
 
 const Employees = ({ employee }) => {
-    console.log(employee)
+    
     const axiosPublic = useAxiosPublic();
     const { _id, name, employee_email, linkedin, location, city, country,
         profession, experience, workPreference, github, portfolio } = employee;
 
-    // console.log(employee)
     const { data: users = [] } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {

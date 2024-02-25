@@ -18,5 +18,5 @@
     @apply bg-gradient-to-br from-slate-50 via-slate-100 to-slate-200 text-indigo-500 flex items-center gap-4 rounded-full tracking-wider px-4 py-2
 }
 .hover-link{
-    @apply hover:bg-gradient-to-br hover:from-indigo-500 hover:via-indigo-600 hover:to-indigo-700 text-white flex items-center gap-4 rounded-full tracking-wider px-4 py-2
+    @apply hover:bg-gradient-to-r hover:from-indigo-600 hover:via-indigo-700 hover:to-indigo-700 text-white flex items-center gap-4 rounded-full tracking-wider px-4 py-2
 }
