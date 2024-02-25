@@ -8,7 +8,6 @@ const FindJobs = () => {
     const searchRef = useRef();
     const [findJobs, setFindJobs] = useState([]);
     const[allJobs,setAllJobs]=useState([])
-    const[filterValue,setFilterValue]=useState("")
 
     useEffect(()=>{
         axiosPublic.get('/jobs')
@@ -37,9 +36,9 @@ const FindJobs = () => {
         setFindJobs(jobFilter);
     }
 
-    const handleFilter = () => {
-        console.log("filter data" + filterValue);
-        const search = filterValue.toLowerCase();
+    const handleFilter = (value) => {
+        
+        const search = value.toLowerCase();
         const jobFilter = allJobs.filter((jobs) =>
           jobs.category.toLowerCase().includes(search)
         );
@@ -54,7 +53,7 @@ const FindJobs = () => {
                 
                 <p className='font-bold text-lg mb-2'>Select Category</p>
                 <div className=''>
-                    <select onChange={(e)=>{setFilterValue(e.target.value),console.log(filterValue),handleFilter()}} className="select w-full max-w-xs rounded-full">
+                    <select onChange={(e)=>{handleFilter(e.target.value)}} className="select w-full max-w-xs rounded-full">
                         <option disabled selected>Select category</option>
                         <option value="Full Time">Full Time</option>
                         <option value="Part time">Part Time</option>
