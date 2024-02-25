@@ -119,7 +119,7 @@ const ApplicantList = () => {
                         applyJob.map((job) => <tr key={job._id}>
 
                             {
-                                (user?.email === job?.company_email) && <>
+                                ((user?.email === job?.company_email) && (job.role === "pending") || (job.role === "rejected"))  && <>
                                     {/* <td>
                                         {index + 1}
                                     </td> */}

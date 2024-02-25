@@ -59,7 +59,7 @@ const ShortListedApplicants = () => {
             }
         });
     }
-    
+
     const handleMakeconfirm = job => {
         Swal.fire({
             title: "Are you sure?",
@@ -130,7 +130,7 @@ const ShortListedApplicants = () => {
                                         </td>
                                         <td className='capitalize font-semibold'>
                                             {
-                                                <button onClick={() => handleMakeconfirm(job)} className='btn btn-xs text-red-500'>Confirm</button>
+                                                <button onClick={() => handleMakeconfirm(job)} className='btn btn-xs font-bold text-green-500'>Confirm</button>
                                             }
                                         </td>
                                         <td>
