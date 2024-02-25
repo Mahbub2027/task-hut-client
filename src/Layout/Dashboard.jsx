@@ -120,6 +120,10 @@ const Dashboard = () => {
                                     <FaClipboardList className="w-5 h-5" />
                                     <span className={collapse ? 'hidden' : 'block'}>Interview Task</span>
                                 </NavLink>
+                                <NavLink to='/support' className={({ isActive }) => isActive ? 'active-link' : 'hover-link'}>
+                                    <FaPersonCircleQuestion className="w-5 h-5" />
+                                    <span className={collapse ? 'hidden' : 'block'}>Support</span>
+                                </NavLink>
                             </div>
                         </div>
                     </>
@@ -165,6 +169,10 @@ const Dashboard = () => {
                                     <FaBusinessTime className="w-5 h-5" />
                                     <span className={collapse ? 'hidden' : 'block'}>Job Interview</span>
                                 </NavLink>
+                                <NavLink to='/support' className={({ isActive }) => isActive ? 'active-link' : 'hover-link'}>
+                                    <FaPersonCircleQuestion className="w-5 h-5" />
+                                    <span className={collapse ? 'hidden' : 'block'}>Support</span>
+                                </NavLink>
                             </div>
                         </div>
                     </>
@@ -176,7 +184,7 @@ const Dashboard = () => {
                 {/* shared menu */}
                 <div className="space-y-2">
                     {/* settings dropdown */}
-                    <details className='cursor-pointer'>
+                    {isAdmin ? "" : <details className='cursor-pointer'>
                         <summary className="hover-link">
                             <p className="flex gap-3">
                                 <FaGears className="w-5 h-5" />
@@ -185,10 +193,6 @@ const Dashboard = () => {
                             <FaAngleDown />
                         </summary>
                         <div className={collapse ? 'ml-1' : 'ml-3'}>
-                            <NavLink to='/dashboard/notifications' className={({ isActive }) => isActive ? 'active-link' : 'hover-link'}>
-                                <FaBell className="w-5 h-5" />
-                                <span className={collapse ? 'hidden' : 'block'}> Notifications</span>
-                            </NavLink>
                             <NavLink to='/dashboard/trustVerification' className={({ isActive }) => isActive ? 'active-link' : 'hover-link'}>
                                 <FaUserShield className="w-5 h-5" />
                                 <span className={collapse ? 'hidden' : 'block'}>Trust & Verification</span>
@@ -202,15 +206,15 @@ const Dashboard = () => {
                                 <span className={collapse ? 'hidden' : 'block'}>Account</span>
                             </NavLink>
                         </div>
-                    </details>
+                    </details>}
 
                     <NavLink to='/' className={({ isActive }) => isActive ? 'active-link' : 'hover-link'}>
                         <FaHome className="w-5 h-5" />
                         <span className={collapse ? 'hidden' : 'block'}> Home</span>
                     </NavLink>
-                    <NavLink to='/support' className={({ isActive }) => isActive ? 'active-link' : 'hover-link'}>
-                        <FaPersonCircleQuestion className="w-5 h-5" />
-                        <span className={collapse ? 'hidden' : 'block'}>Support</span>
+                    <NavLink to='/dashboard/notifications' className={({ isActive }) => isActive ? 'active-link' : 'hover-link'}>
+                        <FaBell className="w-5 h-5" />
+                        <span className={collapse ? 'hidden' : 'block'}> Notifications</span>
                     </NavLink>
                     <NavLink to='/' className='hover:bg-gradient-to-br hover:from-red-400 hover:via-red-600 hover:to-red-800 text-white flex items-center gap-4 rounded-full tracking-wider pl-4 p-2'>
                         <FaRightFromBracket className="w-5 h-5" />
