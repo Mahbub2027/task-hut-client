@@ -98,13 +98,17 @@ const Navbar = () => {
                       {/* <li className="font-medium pb-2 flex justify-between"><p>$00.0</p><span>Balance</span></li><hr className="opacity-25"/> */}
                       <li className="pt-4"><span>{use?.name}</span></li>
                       <li className="pb-4"><span>{use?.email}</span></li> <hr className="opacity-80" />
-                      <Link to="/viewProfile" preventScrollReset={true} className="profile-dropdown-hover"><FaUserPen /><span>View Profile</span></Link>
+
                       {
-                        use.role === 'admin' ? <Link to="/accountAnalytics" preventScrollReset={true} className="profile-dropdown-hover"><FaArrowTrendUp /><span>Account Analytics</span></Link> : ''
+                        use.role === 'admin' ? <Link to="/dashboard/accountAnalytics" preventScrollReset={true} className="profile-dropdown-hover"><FaArrowTrendUp /><span>Account Analytics</span></Link> :
+                          <>
+                            <Link to="/viewProfile" preventScrollReset={true} className="profile-dropdown-hover"><FaUserPen /><span>View Profile</span></Link>
+                            <Link to="/support" preventScrollReset={true} className="profile-dropdown-hover"><FaPersonCircleQuestion /><span>Support</span></Link>
+                          </>
                       }
-                      <Link to="/dashboard/editProfile" preventScrollReset={true} className="profile-dropdown-hover"><BiSolidDashboard /><span>Dashboard</span></Link>
+                      <Link to={use.role === 'admin' ? "/dashboard/manageUsers" : "/dashboard/editProfile"} preventScrollReset={true} className="profile-dropdown-hover"><BiSolidDashboard /><span>Dashboard</span></Link>
                       {/* < to="/settings" preventScrollReset={true}Link className="flex gap-3 items-center my-2 py-2 rounded-full hover:transition duration-500 ease-out hover:ease-in-out hover:bg-indigo-500 hover:text-white hover:pl-4"><FaGears /><span>Settings</span></Link> */}
-                      <Link to="/support" preventScrollReset={true} className="profile-dropdown-hover"><FaPersonCircleQuestion /><span>Support</span></Link>
+
                       <Link className="flex gap-3 items-center my-2 py-2 rounded-full hover:transition duration-500 ease-out hover:bg-gradient-to-br hover:from-red-400 hover:via-red-600 hover:to-red-800 hover:text-white hover:pl-4"><FaRightFromBracket /><button onClick={handleLogOut}>Logout</button></Link>
                     </ul>
                   </details>

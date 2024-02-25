@@ -14,28 +14,28 @@ const Analytics = () => {
   }, []);
 
   return (
-    
-        <BarChart
-          width={600}
-          height={300}
-          data={data}
-          margin={{
-            top: 5,
-            right: 30,
-            left: 20,
-            bottom: 5,
-          }}
-        >
-          <CartesianGrid strokeDasharray="5 5" />
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <Bar dataKey="earned" fill="#8884d8" activeBar={<Rectangle fill="F0FFFF" stroke="00FFFF" />} />
-          <Bar dataKey="withdrawn" fill="#82ca9d" activeBar={<Rectangle fill="FFE4C4" stroke="5F9EA0" />} />
-          <Bar dataKey="remained" fill="#6495ED" activeBar={<Rectangle fill="6495ED" stroke="DC143C" />} />
-        </BarChart>
-      
+    <div className='flex justify-center'>
+      <BarChart
+        width={500}
+        height={250}
+        data={data}
+        margin={{
+          top: 5,
+          right: 30,
+          left: 20,
+          bottom: 5,
+        }}
+      >
+        <CartesianGrid strokeDasharray="5 5" />
+        <XAxis dataKey="name" />
+        <YAxis />
+        <Tooltip />
+        <Legend />
+        <Bar dataKey="company" fill="#8884d8" activeBar={<Rectangle fill="F0FFFF" stroke="00FFFF" />} />
+        <Bar dataKey="employee" fill="#82ca9d" activeBar={<Rectangle fill="FFE4C4" stroke="5F9EA0" />} />
+        <Bar dataKey="jobs" fill="#6495ED" activeBar={<Rectangle fill="6495ED" stroke="DC143C" />} />
+      </BarChart>
+    </div>
   );
 };
 

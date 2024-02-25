@@ -1,74 +1,74 @@
 [
   {
     "name": "January",
-    "earned": 4000,
-    "withdrawn": 2400,
-    "remained": 1600
+    "company": 4000,
+    "employee": 2400,
+    "jobs": 1600
   },
   {
     "name": "February",
-    "earned": 3000,
-    "withdrawn": 1398,
-    "remained": 1602
+    "company": 3000,
+    "employee": 1398,
+    "jobs": 1602
   },
   {
     "name": "March",
-    "earned": 2000,
-    "withdrawn": 9800,
-    "remained": 7800
+    "company": 2000,
+    "employee": 9800,
+    "jobs": 7800
   },
   {
     "name": "April",
-    "earned": 2780,
-    "withdrawn": 3908,
-    "remained": 1128
+    "company": 2780,
+    "employee": 3908,
+    "jobs": 1128
   },
   {
     "name": "May",
-    "earned": 1890,
-    "withdrawn": 4800,
-    "remained": 2910
+    "company": 1890,
+    "employee": 4800,
+    "jobs": 2910
   },
   {
     "name": "June",
-    "earned": 2390,
-    "withdrawn": 3800,
-    "remained": 1410
+    "company": 2390,
+    "employee": 3800,
+    "jobs": 1410
   },
   {
     "name": "July",
-    "earned": 3490,
-    "withdrawn": 4300,
-    "remained": 810
+    "company": 3490,
+    "employee": 4300,
+    "jobs": 810
   },
   {
     "name": "August",
-    "earned": 2800,
-    "withdrawn": 1500,
-    "remained": 1300
+    "company": 2800,
+    "employee": 1500,
+    "jobs": 1300
   },
   {
     "name": "September",
-    "earned": 3500,
-    "withdrawn": 1800,
-    "remained": 1700
+    "company": 3500,
+    "employee": 1800,
+    "jobs": 1700
   },
   {
     "name": "October",
-    "earned": 4100,
-    "withdrawn": 2200,
-    "remained": 1900
+    "company": 4100,
+    "employee": 2200,
+    "jobs": 1900
   },
   {
     "name": "November",
-    "earned": 2900,
-    "withdrawn": 1200,
-    "remained": 1700
+    "company": 2900,
+    "employee": 1200,
+    "jobs": 1700
   },
   {
     "name": "December",
-    "earned": 3800,
-    "withdrawn": 2500,
-    "remained": 1300
+    "company": 3800,
+    "employee": 2500,
+    "jobs": 1300
   }
 ]

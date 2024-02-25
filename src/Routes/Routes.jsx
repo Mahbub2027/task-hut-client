@@ -204,6 +204,10 @@ export const router = createBrowserRouter([
       },
       // admin 
       {
+        path: 'accountAnalytics',
+        element: <AdminRoutes><AccountAnalytics></AccountAnalytics></AdminRoutes>
+      },
+      {
         path: 'manageUsers',
         element: <AdminRoutes><ManageUsers></ManageUsers></AdminRoutes>
       }

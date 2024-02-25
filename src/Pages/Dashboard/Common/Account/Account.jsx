@@ -4,11 +4,15 @@ import Swal from "sweetalert2";
 import { getAuth, deleteUser } from "firebase/auth";
 import useAuth from "../../../../hooks/useAuth";
 import { FaExclamationTriangle } from "react-icons/fa";
+import useAxiosPublic from "../../../../hooks/useAxiosPublic";
 
 const auth = getAuth();
 const user = auth.currentUser;
+const axiosPublic = useAxiosPublic();
 
 const Account = () => {
+
+
   // const uidToDelete = user.uid; // user uid
 
   const navigate = useNavigate();
@@ -25,7 +29,7 @@ const Account = () => {
 
   const handleDeleteUser = () => {
     const mail = user?.email; // user uid
-    console.log(uidToDelete);
+
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -44,7 +48,7 @@ const Account = () => {
             // User deleted.
             Swal.fire(
               "Deleted!",
-              "Your account has been deleted from Authentication.",
+              "Your account has been deleted successfully.",
               "success"
             );
           })
@@ -56,16 +60,12 @@ const Account = () => {
 
         //Delete from MongoDB user collection
 
-        fetch(`http://localhost:5000/deleteAccount/${mail}`, {
-          method: "DELETE",
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            console.log(data);
-            Swal.fire("Deleted!", "Your account has been deleted.", "success");
-            console.log("Delete Confirmed.");
-            navigate("/login");
-          });
+        axiosPublic.delete(`/deleteAccount/${mail}`).then((data) => {
+          // console.log(data);
+          Swal.fire("Deleted!", "Your account has been deleted.", "success");
+          console.log("Delete Confirmed.");
+          navigate("/login");
+        });
       }
     });
   };
