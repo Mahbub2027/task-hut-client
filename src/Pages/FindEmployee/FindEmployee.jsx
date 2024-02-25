@@ -16,7 +16,7 @@ const FindEmployee = () => {
         setEmployees(result.data);
       })
 
-  }, [searchRef])
+  }, [axiosPublic])
 
   const handleSearch = () => {
     const search = searchRef?.current?.value.toLowerCase();

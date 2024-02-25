@@ -3,12 +3,13 @@ import { Link, useLoaderData } from "react-router-dom";
 import coverImg from '../../../assets/images/banner 3.jpg'
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 
 const CompanyDetails = () => {
     // const {user} = useAuth();
     const axiosPublic = useAxiosPublic();
     const [jobs, setJobs] = useState([])
-    const { company_logo, company_name, about, cover_img, company_size, founded_in, phone,
+    const { company_name, about, cover_img, company_size, founded_in, phone,
         email, linkedin, github, website, location, city, country } = useLoaderData();
 
     // const {data: jobs=[]} = useQuery({
@@ -28,14 +29,30 @@ const CompanyDetails = () => {
 
     }, [axiosPublic, email])
 
+    const {data: users=[]}= useQuery({
+        queryKey: ['user'],
+        queryFn: async ()=>{
+            const resCompany = await axiosPublic.get("/users")
+            return resCompany.data;
+        }
+    })
+
     return (
         <div className="w-11/12 lg:w-9/12 mx-auto my-10 ">
             <div className='w-full h-[50vh] relative group mb-20'>
-                <img className='w-full h-full object-cover rounded-3xl group-hover:shadow-md' src={coverImg} alt="" />
+                <img className='w-full h-full object-cover rounded-3xl group-hover:shadow-md' src={cover_img} alt="" />
                 {/* <img className='w-full h-full object-cover rounded-3xl group-hover:shadow-md' src={cover_img} alt="" /> */}
                 <h2 className="bg-slate-800/70 rounded-3xl group-hover:bg-transparent group-hover:hidden font-extrabold text-white text-7xl absolute inset-0 flex justify-center items-center transition-all ease-out delay-0 duration-5000">{company_name}</h2>
                 <p className="bg-white rounded-3xl rounded-l-none border-l-8 border-8 border-transparent w-64 p-2 absolute -bottom-10 left-0">
-                    <img className="h-20 w-full object-fill" src={company_logo} alt="" />
+                {
+                    users.map(use => <div key={use._id}>
+                        {
+                            use.email === email && <>
+                            <img className='w-auto mx-auto h-20 object-fit' src={use.image} alt="" />
+                            </>
+                        }
+                    </div>)
+                }
                 </p>
             </div>
             <div className="flex items-center gap-4 p-4">

@@ -8,6 +8,7 @@ import Swal from 'sweetalert2';
 const AppliedJobs = () => {
     const { user } = useAuth();
     const axiosPublic = useAxiosPublic();
+    
 
     const { data: applyJob = [] , refetch} = useQuery({
         queryKey: ['job'],
@@ -17,6 +18,39 @@ const AppliedJobs = () => {
         }
     })
     
+    // const handleTaskComplete = job => {
+    //     Swal.fire({
+    //         title: "Are you sure?",
+    //         text: "You Complete your task",
+    //         icon: "warning",
+    //         showCancelButton: true,
+    //         confirmButtonColor: "#3085d6",
+    //         cancelButtonColor: "#d33",
+    //         confirmButtonText: "Yes, I complete"
+    //     }).then((result) => {
+
+    //         if (result.isConfirmed) {
+    //             axiosPublic.patch(`/applyJobs/complete/${job._id}`)
+    //                 .then(res => {
+    //                     console.log(res.data)
+
+    //                     if (res.data.modifiedCount > 0) {
+    //                         refetch();
+    //                         Swal.fire({
+    //                             position: 'center',
+    //                             icon: "success",
+    //                             text: `Task successfully Complete`,
+    //                             showConfirmButton: false,
+    //                             timer: 1500,
+    //                         });
+    //                     }
+    //                 })
+
+
+    //         }
+    //     });
+    // }
+
     const handleCancelApply = job =>{
         Swal.fire({
             title: "Are you sure?",
@@ -65,6 +99,7 @@ const AppliedJobs = () => {
                         <th>Role</th>
                         <th>Action</th>
                         <th>Action</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -72,24 +107,31 @@ const AppliedJobs = () => {
                         applyJob.map((job) => <tr key={job._id}>
 
                             {
-                                (user?.email === job?.email) && <>
+                                ((user?.email === job?.email) && (job.role === "pending") || (job.role === "shortlisted") || (job.role === "rejected")) && <>
                                     {/* <td>
                                         {index + 1}
                                     </td> */}
                                     <td>{job.job_title}</td>
                                     <td>{job.company_name}</td>
-                                    <td>{job.location}</td>
+                                    <td className='flex'>{job.area}, {job.city}, {job.country}</td>
                                     <td>{job.job_type}</td>
                                     <td>{job.salary_range}</td>
                                     <td className='capitalize font-semibold'>{job.role}</td>
+                                    {/* <td>
+                                        {
+                                            job.role === 'check email' ? 
+                                            <button onClick={()=> handleTaskComplete(job)} className='btn btn-sm bg-green-600 text-white'>Complete</button> 
+                                            : <button disabled className='btn btn-sm'>Complete</button>
+                                        }
+                                    </td> */}
                                     <td>
                                         <Link to={`/jobDetails/${job.jobId}`}><button className='btn btn-xs'>Details</button></Link>
                                     </td>
                                     <td>
                                         {
-                                            (job?.role === 'aproved') ? 
-                                            <button disabled onClick={() => handleCancelApply(job)} className='btn btn-sm bg-red-500 text-base text-white'>Cancel</button>
-                                            : <button onClick={() => handleCancelApply(job)} className='btn btn-sm bg-red-500 text-base text-white'>Cancel</button>
+                                            (job?.role === 'pending') ? 
+                                            <button  onClick={() => handleCancelApply(job)} className='btn btn-sm bg-red-500 text-base text-white'>Cancel</button>
+                                            : <button disabled onClick={() => handleCancelApply(job)} className='btn btn-sm bg-red-500 text-base text-white'>Cancel</button>
                                         }
                                     </td>
                                 </>
