@@ -24,21 +24,21 @@ const TopTalent = () => {
               <FaDatabase className='w-16 h-16 text-indigo-400 group-hover:text-indigo-600' />
               <div className=''>
                 <h3 className='font-medium'>Backend Developers</h3>
-                <p>10 Open positions</p>
+                <p>Open positions</p>
               </div>
             </div>
             <div className='group border-4 rounded-3xl bg-white flex items-center gap-2 p-3 hover:shadow-md hover:border-indigo-400 transition-all ease-out delay-0 duration-500'>
               <FaLaptopCode className='w-16 h-16 text-indigo-400 group-hover:text-indigo-600' />
               <div className=''>
                 <h3 className='font-medium'>Frontend Developers</h3>
-                <p>10 Open positions</p>
+                <p>Open positions</p>
               </div>
             </div>
             <div className='group border-4 rounded-3xl bg-white flex items-center gap-2 p-3 hover:shadow-md hover:border-indigo-400 transition-all ease-out delay-0 duration-500'>
               <FaCode className='w-16 h-16 text-indigo-400 group-hover:text-indigo-600' />
               <div className=''>
                 <h3 className='font-medium'>Software Engineers</h3>
-                <p>10 Open positions</p>
+                <p>Open positions</p>
               </div>
             </div>
           </div>
@@ -47,21 +47,21 @@ const TopTalent = () => {
               <FaMobileScreenButton className='w-16 h-16 text-indigo-400 group-hover:text-indigo-600' />
               <div className=''>
                 <h3 className='font-medium'>Android Developers</h3>
-                <p>10 Open positions</p>
+                <p>Open positions</p>
               </div>
             </div>
             <div className='group border-4 rounded-3xl bg-white flex items-center gap-2 p-3 hover:shadow-md hover:border-indigo-400 transition-all ease-out delay-0 duration-500'>
               <FaChrome className='w-16 h-16 text-indigo-400 group-hover:text-indigo-600' />
               <div className=''>
                 <h3 className='font-medium'>Web Developers</h3>
-                <p>10 Open positions</p>
+                <p>Open positions</p>
               </div>
             </div>
             <div className='group border-4 rounded-3xl bg-white flex items-center gap-2 p-3 hover:shadow-md hover:border-indigo-400 transition-all ease-out delay-0 duration-500'>
               <FaReact className='w-16 h-16 text-indigo-400 group-hover:text-indigo-600' />
               <div className=''>
                 <h3 className='font-medium'>React Developers</h3>
-                <p>10 Open positions</p>
+                <p>Open positions</p>
               </div>
             </div>
           </div>

@@ -15,7 +15,7 @@ const Dashboard = () => {
     const [isBuyer] = useBuyer();
 
     const [collapse, setCollapse] = useState(false);
-    
+
     const handleLogOut = () => {
         logoutUser()
             .then(() => { })
@@ -23,9 +23,9 @@ const Dashboard = () => {
     };
 
     return (
-        <div className='flex '>
-            <div className={collapse ? 'w-20 min-h-screen m-2 rounded-2xl bg-gradient-to-br from-indigo-500 via-indigo-700 to-indigo-800 text-white py-2 mx-auto text-center' : 'w-72 min-h-screen m-2 rounded-2xl bg-gradient-to-br from-indigo-500 via-indigo-700 to-indigo-800 text-white py-2 pl-4 '}>
-                <button onClick={() => setCollapse(!collapse)} className="text-center p-1 rounded-xl border-2 border-slate-400 text-slate-400 hover:text-white hover:border-slate-600 hover:bg-gradient-to-br hover:from-slate-400 hover:via-slate-500 hover:to-slate-800 transition-all ease-linear delay-100 duration-300">
+        <div className='flex items-start gap-10 p-2'>
+            <div className={collapse ? 'max-w-20 h-[98dvh] sticky top-2 overflow-y-scroll scrollbar-thin scrollbar-thumb-transparent scrollbar-track-transparent rounded-2xl shadow-lg shadow-indigo-50 bg-gradient-to-br from-indigo-500 via-indigo-600 to-indigo-700 text-white py-4 px-2 text-center' : 'min-w-96 h-[98dvh] sticky top-2 overflow-y-scroll scrollbar-thin scrollbar-thumb-transparent scrollbar-track-transparent rounded-2xl shadow-lg shadow-indigo-50 bg-gradient-to-br from-indigo-500 via-indigo-600 to-indigo-700 text-white p-4'}>
+                <button onClick={() => setCollapse(!collapse)} className="text-center p-1 rounded-xl border-2 border-indigo-400 text-indigo-100 hover:text-white hover:border-slate-300 bg-gradient-to-br from-indigo-400 via-indigo-500 to-indigo-600 hover:from-indigo-400 hover:via-indigo-600 hover:to-indigo-600 transition-all ease-linear delay-100 duration-300">
                     {collapse ? <TbLayoutSidebarLeftExpandFilled className="w-7 h-7 shadow-md" /> : <TbLayoutSidebarLeftCollapseFilled className="w-7 h-7 shadow-md" />}
                 </button>
                 {/* Admin data */}
@@ -44,7 +44,7 @@ const Dashboard = () => {
                                 <NavLink to='/dashboard/editProfile'>Edit Profile</NavLink>
                             </li> */}
                             <NavLink to='/dashboard/manageUsers' className={({ isActive }) => isActive ? 'active-link' : 'hover-link'}>
-                                <FaUserTie className="w-4 h-4" />
+                                <FaUserTie className="w-5 h-5" />
                                 <span className={collapse ? 'hidden' : 'block'}>Manage Users</span>
                             </NavLink>
                         </div>
@@ -64,11 +64,11 @@ const Dashboard = () => {
                             </li> */}
                             <div className="space-y-2">
                                 <NavLink to='/dashboard/editProfile' className={({ isActive }) => isActive ? 'active-link' : 'hover-link'}>
-                                    <FaUserTie className="w-4 h-4" />
+                                    <FaUserTie className="w-5 h-5" />
                                     <span className={collapse ? 'hidden' : 'block'}>Edit Profile</span>
                                 </NavLink>
                                 <NavLink to='/dashboard/companyChat' className={({ isActive }) => isActive ? 'active-link' : 'hover-link'}>
-                                    <BsChatTextFill className="w-4 h-4" />
+                                    <BsChatTextFill className="w-5 h-5" />
                                     <span className={collapse ? 'hidden' : 'block'}>Chat</span>
                                 </NavLink>
 
@@ -76,18 +76,18 @@ const Dashboard = () => {
                                 <details className='cursor-pointer'>
                                     <summary className="hover-link">
                                         <p className="flex gap-3 items-center">
-                                            <FaPlus className="w-4 h-4" />
+                                            <FaPlus className="w-5 h-5" />
                                             <span className={collapse ? 'hidden' : 'block'}>Create new</span>
                                         </p>
                                         <FaAngleDown />
                                     </summary>
                                     <div className={collapse ? 'ml-1' : 'ml-3'}>
                                         <NavLink to='/dashboard/postAJob' className={({ isActive }) => isActive ? 'active-link' : 'hover-link'}>
-                                            <FaFilePen className="w-4 h-4" />
+                                            <FaFilePen className="w-5 h-5" />
                                             <span className={collapse ? 'hidden' : 'block'}>Job Post</span>
                                         </NavLink>
                                         <NavLink to='/dashboard/companyBlog' className={({ isActive }) => isActive ? 'active-link' : 'hover-link'}>
-                                            <FaBlogger className="w-4 h-4" />
+                                            <FaBlogger className="w-5 h-5" />
                                             <span className={collapse ? 'hidden' : 'block'}>Blog Post</span>
                                         </NavLink>
                                     </div>
@@ -96,29 +96,33 @@ const Dashboard = () => {
                                 <details className='cursor-pointer'>
                                     <summary className="hover-link">
                                         <p className="flex gap-3 items-center">
-                                            <FaEye className="w-4 h-4" />
+                                            <FaEye className="w-5 h-5" />
                                             <span className={collapse ? 'hidden' : 'block'}>View</span>
                                         </p>
                                         <FaAngleDown />
                                     </summary>
                                     <div className={collapse ? 'ml-1' : 'ml-3'}>
                                         <NavLink to='/dashboard/companyPosts' className={({ isActive }) => isActive ? 'active-link' : 'hover-link'}>
-                                            <FaFilePowerpoint className="w-4 h-4" />
+                                            <FaFilePowerpoint className="w-5 h-5" />
                                             <span className={collapse ? 'hidden' : 'block'}>Company Posts</span>
                                         </NavLink>
                                         <NavLink to='/dashboard/applicantList' className={({ isActive }) => isActive ? 'active-link' : 'hover-link'}>
-                                            <FaList className="w-4 h-4" />
+                                            <FaList className="w-5 h-5" />
                                             <span className={collapse ? 'hidden' : 'block'}>Applicant List</span>
                                         </NavLink>
                                         <NavLink to='/dashboard/shortlistedApplicants' className={({ isActive }) => isActive ? 'active-link' : 'hover-link'}>
-                                            <FaUserCheck className="w-4 h-4" />
+                                            <FaUserCheck className="w-5 h-5" />
                                             <span className={collapse ? 'hidden' : 'block'}>Shortlisted Applicants</span>
                                         </NavLink>
                                     </div>
                                 </details>
                                 <NavLink to='/dashboard/interviewTask' className={({ isActive }) => isActive ? 'active-link' : 'hover-link'}>
-                                    <FaClipboardList className="w-4 h-4" />
+                                    <FaClipboardList className="w-5 h-5" />
                                     <span className={collapse ? 'hidden' : 'block'}>Interview Task</span>
+                                </NavLink>
+                                <NavLink to='/support' className={({ isActive }) => isActive ? 'active-link' : 'hover-link'}>
+                                    <FaPersonCircleQuestion className="w-5 h-5" />
+                                    <span className={collapse ? 'hidden' : 'block'}>Support</span>
                                 </NavLink>
                             </div>
                         </div>
@@ -135,35 +139,39 @@ const Dashboard = () => {
                             <div className='h-0.5 m-4 bg-gradient-to-r from-white/0 via-white/40 to-white/0'></div>
                             <div className="space-y-2">
                                 <NavLink to='/dashboard/editProfile' className={({ isActive }) => isActive ? 'active-link' : 'hover-link'}>
-                                    <FaUserTie className="w-4 h-4" />
+                                    <FaUserTie className="w-5 h-5" />
                                     <span className={collapse ? 'hidden' : 'block'}>Edit Profile</span>
                                 </NavLink>
                                 <NavLink to='/dashboard/userChat' className={({ isActive }) => isActive ? 'active-link' : 'hover-link'}>
-                                    <BsChatTextFill className="w-4 h-4" />
+                                    <BsChatTextFill className="w-5 h-5" />
                                     <span className={collapse ? 'hidden' : 'block'}>Chat</span>
                                 </NavLink>
                                 <details className='cursor-pointer'>
                                     <summary className="hover-link">
                                         <p className="flex gap-3">
-                                            <FaEye className="w-4 h-4" />
+                                            <FaEye className="w-5 h-5" />
                                             <span className={collapse ? 'hidden' : 'block'}>View</span>
                                         </p>
                                         <FaAngleDown />
                                     </summary>
                                     <div className={collapse ? 'ml-1' : 'ml-3'}>
                                         <NavLink to='/dashboard/savedJobs' className={({ isActive }) => isActive ? 'active-link' : 'hover-link'}>
-                                            <FaBriefcase className="w-4 h-4" />
+                                            <FaBriefcase className="w-5 h-5" />
                                             <span className={collapse ? 'hidden' : 'block'}>Saved Jobs</span>
                                         </NavLink>
                                         <NavLink to='/dashboard/appliedJobs' className={({ isActive }) => isActive ? 'active-link' : 'hover-link'}>
-                                            <FaCalendarCheck className="w-4 h-4" />
+                                            <FaCalendarCheck className="w-5 h-5" />
                                             <span className={collapse ? 'hidden' : 'block'}>Applied Jobs</span>
                                         </NavLink>
                                     </div>
                                 </details>
                                 <NavLink to='/dashboard/jobInterview' className={({ isActive }) => isActive ? 'active-link' : 'hover-link'}>
-                                    <FaBusinessTime className="w-4 h-4" />
+                                    <FaBusinessTime className="w-5 h-5" />
                                     <span className={collapse ? 'hidden' : 'block'}>Job Interview</span>
+                                </NavLink>
+                                <NavLink to='/support' className={({ isActive }) => isActive ? 'active-link' : 'hover-link'}>
+                                    <FaPersonCircleQuestion className="w-5 h-5" />
+                                    <span className={collapse ? 'hidden' : 'block'}>Support</span>
                                 </NavLink>
                             </div>
                         </div>
@@ -176,49 +184,45 @@ const Dashboard = () => {
                 {/* shared menu */}
                 <div className="space-y-2">
                     {/* settings dropdown */}
-                    <details className='cursor-pointer'>
+                    {isAdmin ? "" : <details className='cursor-pointer'>
                         <summary className="hover-link">
                             <p className="flex gap-3">
-                                <FaGears className="w-4 h-4" />
+                                <FaGears className="w-5 h-5" />
                                 <span className={collapse ? 'hidden' : 'block'}>Settings</span>
                             </p>
                             <FaAngleDown />
                         </summary>
                         <div className={collapse ? 'ml-1' : 'ml-3'}>
-                            <NavLink to='/dashboard/notifications' className={({ isActive }) => isActive ? 'active-link' : 'hover-link'}>
-                                <FaBell className="w-4 h-4" />
-                                <span className={collapse ? 'hidden' : 'block'}> Notifications</span>
-                            </NavLink>
                             <NavLink to='/dashboard/trustVerification' className={({ isActive }) => isActive ? 'active-link' : 'hover-link'}>
-                                <FaUserShield className="w-4 h-4" />
+                                <FaUserShield className="w-5 h-5" />
                                 <span className={collapse ? 'hidden' : 'block'}>Trust & Verification</span>
                             </NavLink>
                             <NavLink to='/dashboard/security' className={({ isActive }) => isActive ? 'active-link' : 'hover-link'}>
-                                <FaUnlockKeyhole className="w-4 h-4" />
+                                <FaUnlockKeyhole className="w-5 h-5" />
                                 <span className={collapse ? 'hidden' : 'block'}>Security</span>
                             </NavLink>
                             <NavLink to='/dashboard/account' className={({ isActive }) => isActive ? 'active-link' : 'hover-link'}>
-                                <FaUsersGear className="w-4 h-4" />
+                                <FaUsersGear className="w-5 h-5" />
                                 <span className={collapse ? 'hidden' : 'block'}>Account</span>
                             </NavLink>
                         </div>
-                    </details>
+                    </details>}
 
                     <NavLink to='/' className={({ isActive }) => isActive ? 'active-link' : 'hover-link'}>
-                        <FaHome className="w-4 h-4" />
+                        <FaHome className="w-5 h-5" />
                         <span className={collapse ? 'hidden' : 'block'}> Home</span>
                     </NavLink>
-                    <NavLink to='/support' className={({ isActive }) => isActive ? 'active-link' : 'hover-link'}>
-                        <FaPersonCircleQuestion className="w-4 h-4" />
-                        <span className={collapse ? 'hidden' : 'block'}>Support</span>
+                    <NavLink to='/dashboard/notifications' className={({ isActive }) => isActive ? 'active-link' : 'hover-link'}>
+                        <FaBell className="w-5 h-5" />
+                        <span className={collapse ? 'hidden' : 'block'}> Notifications</span>
                     </NavLink>
-                    <NavLink to='/login' className='hover:bg-gradient-to-br hover:from-red-400 hover:via-red-600 hover:to-red-800 text-white flex items-center gap-4 rounded-l-full tracking-wider pl-4 p-2'>
-                        <FaRightFromBracket className="w-4 h-4" />
+                    <NavLink to='/' className='hover:bg-gradient-to-br hover:from-red-400 hover:via-red-600 hover:to-red-800 text-white flex items-center gap-4 rounded-full tracking-wider pl-4 p-2'>
+                        <FaRightFromBracket className="w-5 h-5" />
                         <span onClick={handleLogOut} className={collapse ? 'hidden' : 'block'}>Logout</span>
                     </NavLink>
                 </div>
             </div>
-            <div className='flex-1 shadow-md border-2 border-slate-100 dark:border-slate-700'>
+            <div className='grow'>
                 <Outlet></Outlet>
             </div>
         </div>

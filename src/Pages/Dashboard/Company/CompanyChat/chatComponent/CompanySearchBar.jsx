@@ -24,13 +24,13 @@ const CompanySearchBar = () => {
   const { user } = useAuth();
 
   const handleSearch = async () => {
-    const q1= query(
-      collection(db, "users"),and(where("displayName", "==", username), where("uid", "!=", user.uid)),orderBy("uid")
+    const q1 = query(
+      collection(db, "users"), and(where("displayName", "==", username), where("uid", "!=", user.uid)), orderBy("uid")
     );
     try {
       const querySnapshot = await getDocs(q1);
       querySnapshot.forEach((doc) => {
-        console.log(("data= "+doc.data))
+        console.log(("data= " + doc.data))
         setSearchUser(doc.data());
       });
     } catch (err) {
@@ -85,26 +85,28 @@ const CompanySearchBar = () => {
   };
 
   return (
-    <div className="border-b-2 items-center border-solid border-slate-400">
+    <div className="border-b-2 items-center border-slate-400/30">
       <div className="p-3 flex justify-between">
         <input
           type="text"
-          placeholder="Find a user"
-          className="bg-transparent ml-4 w-full border-none text text-white outline-none placeholder:text-gray-200"
+          placeholder="Find a user by user name"
+          className="bg-transparent ml-4 w-full border-none text-lg text-slate-600 outline-none placeholder:text-slate-600"
           onKeyDown={handleKey}
           onChange={(e) => setUsername(e.target.value)}
           value={username}
         />
-        {username !="" ? <button onClick={()=>{setUsername("")}} className="rounded-full text-slate-300 hover:text-white p-2 text-xl"><MdCancel /></button>:""}
-        <button onClick={handleSearch} className="rounded-full text-slate-300 hover:text-white p-2 text-xl"><FaSearch /></button>
+        {username != "" ? <button onClick={() => { setUsername("") }} className="rounded-full text-slate-300 hover:text-red-700 p-2 text-xl"><MdCancel /></button> : ""}
+        <button onClick={handleSearch} className="rounded-full text-slate-400 hover:text-slate-700 p-2 text-xl"><FaSearch /></button>
       </div>
       {err && <span>User not found!</span>}
       {searchUser && (
         <div
-          className="p-3 flex items-center gap-3 text-white cursor-pointer bg-slate-600 hover:bg-slate-800 z-50"
+          className="flex items-center text-slate-600 cursor-pointer bg-slate-100 hover:bg-slate-200 z-50"
           onClick={handleSelect}
         >
-          <img src={searchUser.photoURL} alt="" className="w-12 h-12 rounded-full " />
+          <div className="w-28">
+            <img src={searchUser.photoURL} alt="" className="w-3/4 h-20 rounded-r-full object-cover transition-all ease-in-out delay-0 duration-500" />
+          </div>
           <div>
             <span className="font-bold text-lg ">{searchUser.displayName}</span>
           </div>

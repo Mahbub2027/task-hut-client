@@ -91,8 +91,8 @@ const CompanyBlogs = () => {
               <div className="flex w-full mx-auto h-1/2 text-slate-700">
                 <label className="w-full flex flex-col items-center justify-center cursor-pointer border-4 border-dashed rounded-3xl hover:border-indigo-400 transition-all ease-out delay-0 duration-500">
                   <BiSolidImageAdd className="w-1/3 h-1/2" />
-                  <span className="text-lg font-semibold">
-                    Add Photo
+                  <span className="text-lg font-semibold text-center">
+                    Add Photo <br /> (1440px x 500px)
                   </span>
                   <input
                     style={{ display: "none" }}
@@ -122,7 +122,7 @@ const CompanyBlogs = () => {
               />
             </div>
             <button
-              className="m-1 shadow-lg border-2 border-indigo-800 rounded-lg font-medium bg-indigo-800 px-8 py-2 text-white hover:bg-indigo-500 hover:border-indigo-500 transition-all ease-out delay-0 duration-500"
+              className="primary-btn"
               onClick={postBlog}
             >
               Post

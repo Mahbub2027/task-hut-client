@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import BlogItem from "./BlogItem";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
+import { FaBloggerB } from "react-icons/fa";
 
 const Blogs = () => {
   const [blogs, setBlogs] = useState([]);
@@ -19,9 +20,15 @@ const Blogs = () => {
 
   return (
     <div className="mb-20">
-      <div className='text-center text-white space-y-4 w-full mx-auto mb-10 py-20 bg-indigo-500'>
-        <h2 className='text-5xl font-extrabold'>Company Blogs</h2>
-        {/* <p className='text-slate-500 text-2xl font-medium'>Apply for new <span className='bg-yellow-300 p-1'>Career</span> by searching through <span className='bg-yellow-300 p-1'>110 Jobs</span></p> */}
+      <div className='relative px-10 text-white space-y-4 w-full mx-auto mb-10 py-20 bg-gradient-to-br from-sky-400 via-sky-500 to-sky-600'>
+        <h2 className='text-3xl lg:text-5xl font-extrabold'>Company Blogs</h2>
+        <p className='text-slate-50 text-lg lg:text-2xl font-medium'>Explore a Wealth of Knowledge, Trends, and Stories from the Corporate World</p>
+        <div className="absolute top-8 right-32">
+          <div className="relative animate-bounce">
+            <FaBloggerB className="w-28 h-28 text-white/70" />
+            <FaBloggerB className="w-28 h-28 text-white/20 rotate-6 absolute top-5 left-5" />
+          </div>
+        </div>
       </div>
       <div className="w-9/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5 bg-white">
         {blogs.map((p) => (

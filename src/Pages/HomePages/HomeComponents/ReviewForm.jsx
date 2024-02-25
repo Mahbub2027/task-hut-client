@@ -3,10 +3,12 @@ import React, { useContext, useState } from 'react';
 import { FaArrowRotateLeft } from "react-icons/fa6";
 import { AuthContext } from '../../../provider/AuthProvider';
 import Swal from 'sweetalert2';
+import useAxiosPublic from '../../../hooks/useAxiosPublic';
 
 const ReviewForm = () => {
 
     const { user } = useContext(AuthContext);
+    const axiosPublic = useAxiosPublic();
     // console.log(user)
     const [rating, setRating] = useState(0);
     const [hoveredRating, setHoveredRating] = useState(0);
@@ -28,7 +30,7 @@ const ReviewForm = () => {
         }
     }
 
-    const handleOnSubmit = event => {
+    const handleOnSubmit = async (event) => {
         event.preventDefault();
         const form = event.target;
 
@@ -45,7 +47,7 @@ const ReviewForm = () => {
             return;
         }
 
-        
+
         const review = form.review.value;
         const ratingMessage = getRating(rating);
         const date = new Date().toDateString();
@@ -53,26 +55,32 @@ const ReviewForm = () => {
         const image = user.photoURL;
         const reviewData = { review, rating, ratingMessage, date, name, image }
 
-        fetch('http://localhost:5000', {
-            method: "POST",
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(reviewData)
+        const reviews = await axiosPublic.post("/reviews", reviewData);
+        // console.log(jobRes, data)
+        if (reviews.data.insertedId) {
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Your review has been saved.",
+                text: "You can now see your review in the reviews section or reviews page.",
+                showConfirmButton: false,
+                timer: 2000
+            });
+            // navigate('/findJobs')
         }
-        ).then(res => res.json()
-        ).then(data => {
-            if (data.acknowledged) {
-                Swal.fire({
-                    position: "center",
-                    icon: "success",
-                    title: "Your review has been saved.",
-                    text: "You can now see your review in the reviews section or reviews page.",
-                    showConfirmButton: false,
-                    timer: 2000
-                });
-            }
-        })
+        // .then(res => res.json())
+        // .then(data => {
+        //     if (data.acknowledged) {
+        //         Swal.fire({
+        //             position: "center",
+        //             icon: "success",
+        //             title: "Your review has been saved.",
+        //             text: "You can now see your review in the reviews section or reviews page.",
+        //             showConfirmButton: false,
+        //             timer: 2000
+        //         });
+        //     }
+        // })
 
         // console.log(review)
         setRating(0);
@@ -87,7 +95,7 @@ const ReviewForm = () => {
             </div>
             <div className='mx-auto text-center w-3/4 md:w-2/3'>
                 <form className='space-y-8' onSubmit={handleOnSubmit} >
-                    <textarea className='text-lg outline-none w-full rounded-2xl focus:shadow-md focus:shadow-indigo-700 p-4 text-slate-700 ' name="review" id="" cols="60" rows="8" placeholder='Your experience/opinions here...'></textarea>
+                    <textarea required className='text-lg outline-none w-full rounded-2xl focus:shadow-md focus:shadow-indigo-700 p-4 text-slate-700 ' name="review" id="" cols="60" rows="8" placeholder='Your experience/opinions here...'></textarea>
                     <div className='text-white'>
                         <div className='flex items-center justify-center gap-4'>
                             <div className='tooltip' data-tip={`${getRating(hoveredRating)}`}>

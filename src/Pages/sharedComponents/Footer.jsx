@@ -1,47 +1,166 @@
+import {
+  FaLinkedin,
+  FaTwitter,
+  FaGithub,
+  FaFacebook,
+  FaInstagram,
+} from "react-icons/fa";
+import { FaPhone } from "react-icons/fa6";
+import { FaLocationDot } from "react-icons/fa6";
+import { IoIosMail } from "react-icons/io";
+
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { Link } from "react-router-dom";
+AOS.init();
 
 const Footer = () => {
-    return (
-        <div className="mt-auto">
-            <footer className="footer p-10 text-white bg-indigo-950">
-                <aside>
-                    <h2 className="text-4xl font-bold">Task<span className="text-blue-800">Hut</span></h2>
-                    {/* <img className="w-12" src="https://i.ibb.co/vsNFnW0/Taskhut.jpg" alt="" /> */}
-                    
-                    <div className="grid grid-flow-col gap-4 mt-8">
-                        <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" className="fill-current"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path></svg></a>
-                        <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" className="fill-current"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path></svg></a>
-                        <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" className="fill-current"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path></svg></a>
-                    </div>
-                </aside>
-                <nav>
-                    <header className="footer-title">Services</header>
-                    <a className="link link-hover">Branding</a>
-                    <a className="link link-hover">Design</a>
-                    <a className="link link-hover">Marketing</a>
-                    <a className="link link-hover">Advertisement</a>
-                </nav>
-                <nav>
-                    <header className="footer-title">Company</header>
-                    <a className="link link-hover">About us</a>
-                    <a className="link link-hover">Contact</a>
-                    <a className="link link-hover">Jobs</a>
-                    <a className="link link-hover">Press kit</a>
-                </nav>
-                <nav>
-                    <header className="footer-title">Legal</header>
-                    <a className="link link-hover">Terms of use</a>
-                    <a className="link link-hover">Privacy policy</a>
-                    <a className="link link-hover">Cookie policy</a>
-                </nav>
-            </footer> <hr />
-            <footer className="footer footer-center p-4 text-white bg-indigo-950">
-                <aside>
-                    <hr />
-                    <p>Copyright © 2023 - All right reserved by TaskHut Ltd</p>
-                </aside>
-            </footer>
-        </div>
-    );
+  return (
+    <div className="mt-auto">
+      <footer className="footer p-10 text-white bg-indigo-950">
+        <aside>
+          <div>
+            <h2 className="text-4xl font-bold">
+              Task<span className="text-purple-400">Hut</span>
+            </h2>
+          </div>
+          {/* <img className="w-12" src="https://i.ibb.co/vsNFnW0/Taskhut.jpg" alt="" /> */}
+
+          <div
+            data-aos="zoom-in"
+            data-aos-duration="1500"
+            className="grid grid-flow-col gap-4 mt-8 text-3xl "
+          >
+            <Link
+              className="hover:text-purple-500"
+              target="_blank"
+              to="https://www.linkedin.com/taskhutltd"
+            >
+              <FaLinkedin></FaLinkedin>
+            </Link>
+            <Link
+              className="hover:text-purple-500"
+              target="_blank"
+              to="https://www.twitter.com/taskhutltd"
+            >
+              <FaTwitter></FaTwitter>
+            </Link>
+            <Link
+              className="hover:text-purple-500"
+              target="_blank"
+              to="https://www.github.com/taskhutltd"
+            >
+              <FaGithub></FaGithub>
+            </Link>
+            <Link
+              className="hover:text-purple-500"
+              target="_blank"
+              to="https://www.facebook.com/taskhutltd"
+            >
+              <FaFacebook></FaFacebook>
+            </Link>
+            <Link
+              className="hover:text-purple-500"
+              target="_blank"
+              to="https://www.instagram.com/taskhutltd"
+            >
+              <FaInstagram></FaInstagram>
+            </Link>
+          </div>
+
+          <p className="mt-4 flex justify-center gap-4">
+            <FaPhone />
+            +8801722100839
+          </p>
+
+          <p className="flex justify-center gap-4">
+            <IoIosMail />
+            taskhutweb@gmail.com
+          </p>
+          <p className="flex justify-center gap-4">
+            <FaLocationDot />
+            Sylhet, Bangladesh
+          </p>
+
+        </aside>
+
+        <nav>
+          <header className="footer-title">Services</header>
+          <Link to="/findJobs" className="link link-hover font-semibold">
+            Find Jobs
+          </Link>
+          <Link to="/findEmployee" className="link link-hover font-semibold">
+            Find Employees
+          </Link>
+          <Link to="/allCompanies" className="link link-hover font-semibold">
+            List of Companies
+          </Link>
+          <Link to="/blogs" className="link link-hover font-semibold">
+            Blogs
+          </Link>
+        </nav>
+        <nav>
+          <header className="footer-title">Company</header>
+          <Link to="/aboutUs" className="link link-hover font-semibold">
+            About Us
+          </Link>
+          <Link to="/support" className="link link-hover font-semibold">
+            Contact
+          </Link>
+          <Link to="/career" className="link link-hover font-semibold">
+            Career
+          </Link>
+        </nav>
+        <nav>
+          <header className="footer-title">Legal</header>
+          <Link to="/terms" className="link link-hover font-semibold">
+            Terms of use
+          </Link>
+          <Link to="/privacy" className="link link-hover font-semibold">
+            Privacy Policy
+          </Link>
+          <Link to="/cookie" className="link link-hover font-semibold">
+            Cookie
+          </Link>
+        </nav>
+      </footer>{" "}
+      <hr className="h-0.5  bg-purple-400" />
+      <footer className="footer footer-center p-4 text-white bg-indigo-950">
+        <aside>
+          <div className="justify-center ">
+            <p className="my-4 text-2xl">Subscribe to our newsletter</p>
+            <div className="container mx-auto flex justify-center w-full  rounded-r-full">
+              <form onSubmit={null} className="flex">
+                {/* // To Do : Add newsletter service functionality */}
+                <input
+                  type="email"
+                  className="py-3 px-4 w-auto rounded-l-md focus:outline-none focus:ring focus:border-blue-300 text-black"
+                  placeholder="Enter your email"
+                  required
+                />
+                <button
+                  type="submit"
+                  className="bg-purple-500 py-3 px-6 rounded-r-full transition duration-300 focus:outline-none focus:ring focus:border-blue-300"
+                >
+                  Subscribe
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <hr />
+
+          <p className="font-bold">
+            Copyright © 2024 - All right reserved by{" "}
+            <Link to="/">
+              Task <span className="text-purple-400">Hut</span>
+            </Link>{" "}
+            Ltd
+          </p>
+        </aside>
+      </footer>
+    </div>
+  );
 };
 
 export default Footer;

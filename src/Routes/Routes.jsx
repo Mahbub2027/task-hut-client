@@ -41,6 +41,10 @@ import Blogs from "../Pages/Blogs/Blogs";
 import SingleBlog from "../Pages/Blogs/SingleBlog";
 import CompanyBlogs from "../Pages/Dashboard/Company/CompanyBlogs/CompanyBlogs";
 import UserChat from './../Pages/Dashboard/Users/UserChat/UserChat';
+import Career from "../Pages/Career/Career";
+import Terms from "../Pages/Legal/Terms";
+import CookiePolicy from "../Pages/Legal/CookiePolicy";
+import PrivacyPolicy from "../Pages/Legal/PrivacyPolicy";
 // import EditEmployeeProfile from "../Pages/Dashboard/Users/EditEmployeeProfile/EditEmployeeProfile";
 
 
@@ -133,7 +137,23 @@ export const router = createBrowserRouter([
       {
         path: '/support',
         element: <Support></Support>
-      }
+      },
+      {
+        path: '/career',
+        element: <Career></Career>
+      },
+      {
+        path: '/terms',
+        element: <Terms/>
+      },,
+      {
+        path: '/cookie',
+        element: <CookiePolicy/>
+      },,
+      {
+        path: '/privacy',
+        element: <PrivacyPolicy/>
+      },
     ]
   },
   

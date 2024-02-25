@@ -97,11 +97,6 @@ function AboutUs() {
         <WhyTaskHut></WhyTaskHut>
       </div>
 
-      <h1 className="text-5xl font-bold text-center">Statistics</h1>
-      <div className="lg:flex items-center justify-center p-20">
-        <Statistics></Statistics>
-      </div>
-
       <div className="grid gap-6 justify-center">
         <div className="chat chat-start">
           <div className="chat-image avatar">
@@ -112,9 +107,7 @@ function AboutUs() {
               />
             </div>
           </div>
-          <div className="chat-bubble">
-           Hey, Looking for jobs?
-          </div>
+          <div className="chat-bubble">Hey, Looking for jobs?</div>
         </div>
         <div className="chat chat-start">
           <div className="chat-image avatar">
@@ -149,9 +142,7 @@ function AboutUs() {
               />
             </div>
           </div>
-          <div className="chat-bubble">
-           Yes, I am looking for jobs.
-          </div>
+          <div className="chat-bubble">Yes, I am looking for jobs.</div>
         </div>
         <div className="chat chat-end">
           <div className="chat-image avatar">
@@ -162,9 +153,7 @@ function AboutUs() {
               />
             </div>
           </div>
-          <div className="chat-bubble">
-           What to do?
-          </div>
+          <div className="chat-bubble">What to do?</div>
         </div>
         <div className="chat chat-start">
           <div className="chat-image avatar">
@@ -176,15 +165,26 @@ function AboutUs() {
             </div>
           </div>
           <div className="chat-bubble">
-           Sign Up and Start applying for jobs. 
+            Sign Up and Start applying for jobs.
           </div>
         </div>
       </div>
-      <div className="card-actions justify-center p-10">
-              <Link to="/login">
-                <button className="btn font-bold bg-purple-800 text-white">Join TaskHut</button>
-              </Link>
-            </div>
+      <div
+        data-aos="zoom-in"
+        data-aos-easing="ease-in-sine"
+        className="card-actions justify-center p-10"
+      >
+        <Link to="/login">
+          <button className="btn font-bold bg-purple-800 text-white hover:bg-purple-950">
+            Join TaskHut
+          </button>
+        </Link>
+      </div>
+
+      <h1 className="text-5xl font-bold text-center">Statistics</h1>
+      <div className="lg:flex items-center justify-center p-20">
+        <Statistics></Statistics>
+      </div>
     </div>
   );
 }
