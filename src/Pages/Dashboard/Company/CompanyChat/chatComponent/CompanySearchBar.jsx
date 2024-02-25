@@ -85,7 +85,7 @@ const CompanySearchBar = () => {
   };
 
   return (
-    <div className="border-b-2 items-center border-slate-400/30">
+    <div className="border-b-2 items-center border-slate-400/30 lg:h-16">
       <div className="p-3 flex justify-between">
         <input
           type="text"
