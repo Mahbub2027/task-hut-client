@@ -22,21 +22,6 @@ const Navbar = () => {
     }
   })
 
-  // const [isLargeDevice, setIsLargeDevice] = useState(false);
-
-  // useEffect(() => {
-  //   const checkDeviceSize = () => {
-  //     setIsLargeDevice(window.innerWidth > 768); // Adjust the breakpoint as needed
-  //   };
-
-  //   checkDeviceSize(); // Initial check
-
-  //   window.addEventListener("resize", checkDeviceSize); // Check on window resize
-
-  //   return () => {
-  //     window.removeEventListener("resize", checkDeviceSize); // Clean up the event listener
-  //   };
-  // }, []);
 
   const navLinks = (
     <>
