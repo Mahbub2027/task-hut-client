@@ -29,45 +29,45 @@ const JobDetails = () => {
         publish_date, deadline_date, benefits, experience, salary_range, overview, requirements, skills, responsibilities } = useLoaderData();
 
     const handleJobApply = _id => {
-        if(user?.emailVerified) {
+        if (user?.emailVerified) {
 
-        
-        const jobApply = {
-            jobId: _id,
-            email: user?.email,
-            applicant_name: user?.displayName,
 
-            role: "pending",
-            job_title, category, job_type, company_email, area, city, country, apply_role, company_name,
-            experience, salary_range, skills
-        }
+            const jobApply = {
+                jobId: _id,
+                email: user?.email,
+                applicant_name: user?.displayName,
 
-        Swal.fire({
-            title: "Are you sure?",
-            text: "You want to apply this",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, apply it!"
-        }).then((result) => {
-
-            if (result.isConfirmed) {
-
-                axiosPublic.post('/applyJobs', jobApply)
-                    .then(res => {
-                        if (res?.data?.insertedId) {
-                            setAppliedJobs(true);
-                            toast.success("Successfully applied")
-                        }
-                    })
+                role: "pending",
+                job_title, category, job_type, company_email, area, city, country, apply_role, company_name,
+                experience, salary_range, skills
             }
-        })
+
+            Swal.fire({
+                title: "Are you sure?",
+                text: "You want to apply this",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, apply it!"
+            }).then((result) => {
+
+                if (result.isConfirmed) {
+
+                    axiosPublic.post('/applyJobs', jobApply)
+                        .then(res => {
+                            if (res?.data?.insertedId) {
+                                setAppliedJobs(true);
+                                toast.success("Successfully applied")
+                            }
+                        })
+                }
+            })
+        }
+        else {
+            navigate("/login")
+        }
     }
-    else {
-        navigate("/login")
-    }
-}
 
 
     const handleSaveJobs = id => {
@@ -132,11 +132,12 @@ const JobDetails = () => {
                                         }
                                     </button>
 
-                                    <button onClick={() => handleJobApply(_id)} disabled={isApplied}
+                                    { (apply_role === "open") &&
+                                        <button onClick={() => handleJobApply(_id)} disabled={isApplied}
                                         className="m-1 shadow-lg border-2 border-indigo-800 rounded-lg font-medium bg-indigo-800 px-8 py-2 text-white hover:bg-indigo-500 hover:border-indigo-500 hover:text-white transition-all ease-out delay-0 duration-500">
                                         {
                                             isApplied ? "Applied" : "Apply Now"
-                                        }</button>
+                                        }</button>}
                                 </div>
                             </div>
                             <div className='space-y-4 text-slate-700 bg-slate-50 hover:shadow-md rounded-3xl p-5'>
@@ -199,23 +200,25 @@ const JobDetails = () => {
                             </div>
                             <div className='space-y-3 bg-indigo-100 hover:shadow-md rounded-3xl p-5'>
                                 <div className='flex flex-wrap gap-3 items-center'>
-                                    {
-                                        users.map(use => <div key={use._id}>
-                                            {
-                                                use?.email === company_email && <>
-                                                    <Link to={`/companyDetails/${_id}`} className='tooltip tooltip-left rounded-2xl border-2 hover:border-2 hover:border-indigo-700 hover:shadow-md transition-all ease-out delay-0 duration-500' data-tip='View company details'>
-                                                        <img className='w-16 h-16 rounded-2xl' src={use?.image} alt="" />
-                                                    </Link>
-                                                </>
-                                            }
-                                        </div>)
-                                    }
+                                    <div>
+                                        {
+                                            users.map(use => <div key={use._id}>
+                                                {
+                                                    use?.email === company_email && <>
+                                                        <Link to={`/companyDetails/${_id}`} className='tooltip tooltip-left rounded-2xl border-2 hover:border-2 hover:border-indigo-700 hover:shadow-md transition-all ease-out delay-0 duration-500' data-tip='View company details'>
+                                                            <img className='w-16 h-16 rounded-2xl' src={use?.image} alt="" />
+                                                        </Link>
+                                                    </>
+                                                }
+                                            </div>)
+                                        }
+                                    </div>
 
                                     <p className='font-medium text-xl'>{company_name}</p>
                                 </div>
                                 <div className=''>
                                     <small>Location</small>
-                                    <p className='font-medium text-md'>{ }</p>
+                                    <p className='flex font-medium text-md'>{area},{city},{country}</p>
                                 </div>
                                 <div className=''>
                                     <small>Founded</small>

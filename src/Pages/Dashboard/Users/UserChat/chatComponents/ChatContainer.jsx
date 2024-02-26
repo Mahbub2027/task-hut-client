@@ -22,7 +22,7 @@ const ChatContainer = () => {
         </span>
       </div>
       <Messages />
-      <Input />
+      { data.chatUser?.displayName &&  <Input /> }
     </div>
   );
 };

@@ -5,8 +5,8 @@ import Swal from 'sweetalert2';
 import useAuth from '../../../../hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
 
-const image_hosting_key = import.meta.env.VITE_image_hosting_key;
-const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
+// const image_hosting_key = import.meta.env.VITE_image_hosting_key;
+// const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
 const PostAJob = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm()
@@ -18,17 +18,17 @@ const PostAJob = () => {
     const onSubmit = async (data) => {
         console.log(data)
         // image upload imgBB
-        const imageFile = { image: data.image[0] }
-        const res = await axiosPublic.post(image_hosting_api, imageFile, {
-            headers: {
-                'content-type': 'multipart/form-data'
-            }
-        })
-        // console.log(res.data);
-        if (res.data.success) {
+        // const imageFile = { image: data.image[0] }
+        // const res = await axiosPublic.post(image_hosting_api, imageFile, {
+        //     headers: {
+        //         'content-type': 'multipart/form-data'
+        //     }
+        // })
+        // // console.log(res.data);
+        // if (res.data.success) {
             const jobDetails = {
                 company_name: data.company_name,
-                company_logo: res.data.data.display_url,
+                // company_logo: res.data.data.display_url,
                 job_title: data.job_title,
                 company_email: data.email,
                 area: data.area,
@@ -61,13 +61,13 @@ const PostAJob = () => {
                 navigate('/findJobs')
             }
         }
-    }
+    // }
 
 
     return (
         <div className='my-10 text-slate-700'>
             <h2 className='font-bold text-4xl pb-5 text-center'>Post A Job</h2>
-            <hr className="dark:opacity-50" />
+            <hr className="dark:opacity-50 mb-6" />
             <div className=' space-y-6'>
                 {/* <p className='w-full font-medium text-xl pb-2'>Create Post</p> */}
                 <div className=''>
@@ -83,15 +83,14 @@ const PostAJob = () => {
                                     className="basis-3/6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
                                 {errors.company_name && <span className="text-red-500">This field is required</span>}
                             </div>
-                            <div className="form-control w-full">
+                            {/* <div className="form-control w-full">
                                 <label className="label">
                                     <span className="text-slate-500 font-medium text-base">Company logo</span>
                                 </label>
                                 <input {...register('image', { required: true })} type="file"
                                     className="file-input file-input-bordered my-1 " />
-                                {/* <input type="text" {...register("company_logo")} placeholder="Enter your name" className="basis-3/6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required /> */}
                                 {errors.image && <span className="text-red-500">This field is required</span>}
-                            </div>
+                            </div> */}
                         </div>
                         {/* email &  job title */}
                         <div className="form-control">
@@ -158,7 +157,7 @@ const PostAJob = () => {
                                     <span className="text-slate-500 font-medium text-base">Experience</span>
                                 </label>
                                 <input type="text" {...register("experience")}
-                                    placeholder="Experience" className="basis-3/6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                                    placeholder="eg: Entry level/Expert" className="basis-3/6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                                 {/* {errors.name && <span className="text-red-500">This field is required</span>} */}
                             </div>
                             <div className="form-control w-full">
