@@ -1,11 +1,10 @@
+
 function WhyTaskHut() {
   return (
     <>
-      <div>
-          
-      </div>
+      
       <div className="m-5 collapse collapse-plus bg-base-200">
-        <input type="radio" name="my-accordion-3" checked="checked" />
+        <input type="radio" name="my-accordion-3"/>
         <div className="collapse-title text-xl font-medium">
           Global Talent Pool
         </div>
@@ -30,7 +29,7 @@ function WhyTaskHut() {
             differences and cultural barriers.
           </p>
         </div>
-      </div>
+      </div> 
 
       <div className="m-5 collapse collapse-plus bg-base-200">
         <input type="radio" name="my-accordion-3" />
@@ -74,7 +73,9 @@ function WhyTaskHut() {
             encourages continuous learning.
           </p>
         </div>
-      </div>
+      </div> 
+
+       
     </>
   );
 }

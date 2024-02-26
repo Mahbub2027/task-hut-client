@@ -89,8 +89,12 @@ const EditCompanyProfile = () => {
 
                         <input {...register('founded_in')}
                             className="basis-3/6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            type="number"
-                            // name="establishedDate"
+// <<<<<<< HEAD
+                            type="date"
+// =======
+                            // type="number"
+                            name="establishedDate"
+//  6ef85f34b34fd086c98eeef3b50fb1d6c2248134
                             placeholder="Established Date"
 
                         />
