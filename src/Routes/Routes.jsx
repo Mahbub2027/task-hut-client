@@ -70,7 +70,7 @@ export const router = createBrowserRouter([
       {
         path: '/jobDetails/:id',
         element: <JobDetails></JobDetails>,
-        loader: ({params})=> fetch(`http://localhost:5000/jobs/${params.id}`)
+        loader: ({params})=> fetch(`https://tusk-hut-server.vercel.app/jobs/${params.id}`)
 
       },
       {
@@ -80,7 +80,7 @@ export const router = createBrowserRouter([
       {
         path: "/companyDetails/:id",
         element: <CompanyDetails></CompanyDetails>,
-        loader: ({params})=>fetch(`http://localhost:5000/companies/${params.id}`)
+        loader: ({params})=>fetch(`https://tusk-hut-server.vercel.app/companies/${params.id}`)
       },
       {
         path: '/findEmployee',
@@ -89,7 +89,7 @@ export const router = createBrowserRouter([
       {
         path: '/employeeDetails/:id',
         element: <EmployeeDetails></EmployeeDetails>,
-        loader: ({params})=> fetch(`http://localhost:5000/employees/${params.id}`)
+        loader: ({params})=> fetch(`https://tusk-hut-server.vercel.app/employees/${params.id}`)
       },
 //-------
       {

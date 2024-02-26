@@ -14,6 +14,11 @@ const CompanyPosts = () => {
             return res.data;
         }
     })
+
+    const handleChangedRole = job =>{
+
+    }
+
     return (
         <div className='w-11/12 mx-auto my-10'>
             <div className="overflow-x-auto">
@@ -24,7 +29,8 @@ const CompanyPosts = () => {
                             <th>Image</th>
                             <th>Job Title</th>
                             <th>Name</th>
-                            <th>Apply</th>
+                            <th>Current role</th>
+                            <th>Change role</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -45,6 +51,9 @@ const CompanyPosts = () => {
                                         </td>
                                         <td>
                                             <p className='text-lg text-slate-700'>{job.apply_role}</p>
+                                        </td>
+                                        <td>
+                                            <button onClick={()=>handleChangedRole(job)} className='btn btn-sm'>{job.apply_role}</button>
                                         </td>
                                         <td className='flex items-center gap-4'>
                                             <span data-tip="update" className='tooltip text-white rounded-2xl px-4 py-3 bg-gradient-to-br from-indigo-400 via-indigo-600 to-indigo-700 hover:bg-gradient-to-b flex items-center gap-2'><FaPencil /></span>
