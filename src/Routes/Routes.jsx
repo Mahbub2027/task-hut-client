@@ -43,6 +43,7 @@ import Career from "../Pages/Career/Career";
 import Terms from "../Pages/Legal/Terms";
 import CookiePolicy from "../Pages/Legal/CookiePolicy";
 import PrivacyPolicy from "../Pages/Legal/PrivacyPolicy";
+import CareerPost from "../Pages/Dashboard/Admin/CareerPost/CareerPost";
 
 
 export const router = createBrowserRouter([
@@ -128,7 +129,8 @@ export const router = createBrowserRouter([
       },
       {
         path: '/career',
-        element: <Career></Career>
+        element: <Career></Career>,
+        loader:()=>fetch('https://tusk-hut-server.vercel.app/careerjobs')
       },
       {
         path: '/terms',
@@ -230,6 +232,10 @@ export const router = createBrowserRouter([
       {
         path: 'manageUsers',
         element: <AdminRoutes><ManageUsers></ManageUsers></AdminRoutes>
+      },
+      {
+        path: 'careerPost',
+        element: <AdminRoutes><CareerPost></CareerPost></AdminRoutes>
       }
     ]
   }
