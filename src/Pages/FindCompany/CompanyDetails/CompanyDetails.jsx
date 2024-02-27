@@ -29,9 +29,9 @@ const CompanyDetails = () => {
 
     }, [axiosPublic, email])
 
-    const {data: users=[]}= useQuery({
+    const { data: users = [] } = useQuery({
         queryKey: ['user'],
-        queryFn: async ()=>{
+        queryFn: async () => {
             const resCompany = await axiosPublic.get("/users")
             return resCompany.data;
         }
@@ -44,15 +44,15 @@ const CompanyDetails = () => {
                 {/* <img className='w-full h-full object-cover rounded-3xl group-hover:shadow-md' src={cover_img} alt="" /> */}
                 <h2 className="bg-slate-800/70 rounded-3xl group-hover:bg-transparent group-hover:hidden font-extrabold text-white text-7xl absolute inset-0 flex justify-center items-center transition-all ease-out delay-0 duration-5000">{company_name}</h2>
                 <p className="bg-white rounded-3xl rounded-l-none border-l-8 border-8 border-transparent w-64 p-2 absolute -bottom-10 left-0">
-                {
-                    users.map(use => <div key={use._id}>
-                        {
-                            use.email === email && <>
-                            <img className='w-auto mx-auto h-20 object-fit' src={use.image} alt="" />
-                            </>
-                        }
-                    </div>)
-                }
+                    {
+                        users.map(use => <div key={use._id}>
+                            {
+                                use.email === email && <>
+                                    <img className='w-auto mx-auto h-20 object-fit' src={use.image} alt="" />
+                                </>
+                            }
+                        </div>)
+                    }
                 </p>
             </div>
             <div className="flex items-center gap-4 p-4">
@@ -84,7 +84,7 @@ const CompanyDetails = () => {
                     {
                         jobs.map(job =>
                             <div key={job._id}>
-                                
+
                                 <div className='relative border-2 text-slate-700 p-4 space-y-3 rounded-3xl hover:shadow-md hover:border-indigo-400 transition-all ease-out delay-0 duration-500'>
                                     {
                                         job.apply_role === 'open' ? <p className='absolute top-4 right-4 text-xs font-light text-white bg-green-600 px-2 border-2 border-green-300 rounded-full'>{job.apply_role}</p>
@@ -101,12 +101,23 @@ const CompanyDetails = () => {
                                     <div className='flex justify-between items-center'>
                                         <div className='space-y-1'>
                                             <h3 className='font-medium text-lg'>{job.company_name}</h3>
-                                            <p className='text-sm'>{job.date} Posted</p>
-                                            <p className='text-sm'>{job.date} Deadline</p>
+                                            <p className='text-sm'>{job.publish_date} Posted</p>
+                                            <p className='text-sm'>{job.deadline_date} Deadline</p>
                                         </div>
-                                        <Link to={''} className='tooltip tooltip-left rounded-2xl border-2 hover:border-2 hover:border-indigo-700 hover:shadow-md transition-all ease-out delay-0 duration-500' data-tip='View company details'>
-                                            <img className='w-16 h-16 rounded-2xl' src={job.company_logo} alt="" />
-                                        </Link>
+                                        <div>
+                                            {
+                                                users.map(use => <div key={use._id}>
+                                                    {
+                                                        use.email === job.company_email && <>
+                                                            <Link to={''} className='tooltip tooltip-left rounded-2xl border-2 hover:border-2 hover:border-indigo-700 hover:shadow-md transition-all ease-out delay-0 duration-500' data-tip='View company details'>
+                                                                <img className='w-16 h-16 rounded-2xl' src={use.image} alt="" />
+                                                            </Link>
+                                                        </>
+                                                    }
+                                                </div>)
+                                            }
+                                        </div>
+
                                     </div>
                                 </div>
 

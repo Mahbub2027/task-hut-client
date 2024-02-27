@@ -25,6 +25,14 @@ const JobDetails = () => {
         }
     })
 
+    const { data: companies = [] } = useQuery({
+        queryKey: ['company'],
+        queryFn: async () => {
+            const companyRes = await axiosPublic.get("/companies")
+            return companyRes.data;
+        }
+    })
+
     const { _id, job_title, category, job_type, company_email, area, city, country, apply_role, company_name,
         publish_date, deadline_date, benefits, experience, salary_range, overview, requirements, skills, responsibilities } = useLoaderData();
 
@@ -114,7 +122,19 @@ const JobDetails = () => {
                     <div className='w-9/12 mx-auto mt-10 mb-20 text-slate-700 grid grid-cols-4 gap-5'>
                         <div className='col-span-3 space-y-6'>
                             <div className='w-full h-[30vh] relative group'>
-                                <img className='w-full h-full object-cover rounded-3xl group-hover:shadow-md' src={coverImg} alt="" />
+                                {
+                                    companies.map(company => <div key={company._id}>
+                                        {
+                                            (company.email === company_email) && <>
+                                                {
+                                                    <p><img className='w-full h-52 object-cover rounded-3xl group-hover:shadow-md' src={company.cover_img} alt="" /></p>
+                                                }
+                                            </>
+
+                                        }
+                                    </div>)
+                                }
+                                {/* <img className='w-full h-full object-cover rounded-3xl group-hover:shadow-md' src={coverImg} alt="" /> */}
                                 <div className='w-full h-full rounded-3xl absolute top-0 left-0 bg-gradient-to-tr from-transparent to-black/30 group-hover:from-transparent group-hover:to-transparent'></div>
                                 {
                                     apply_role === 'open' ? <p className='absolute top-4 right-4 text-xs font-light text-white bg-green-600 px-2 border-2 border-green-300 rounded-full'>{apply_role}</p>
@@ -132,12 +152,12 @@ const JobDetails = () => {
                                         }
                                     </button>
 
-                                    { (apply_role === "open") &&
+                                    {(apply_role === "open") &&
                                         <button onClick={() => handleJobApply(_id)} disabled={isApplied}
-                                        className="m-1 shadow-lg border-2 border-indigo-800 rounded-lg font-medium bg-indigo-800 px-8 py-2 text-white hover:bg-indigo-500 hover:border-indigo-500 hover:text-white transition-all ease-out delay-0 duration-500">
-                                        {
-                                            isApplied ? "Applied" : "Apply Now"
-                                        }</button>}
+                                            className="m-1 shadow-lg border-2 border-indigo-800 rounded-lg font-medium bg-indigo-800 px-8 py-2 text-white hover:bg-indigo-500 hover:border-indigo-500 hover:text-white transition-all ease-out delay-0 duration-500">
+                                            {
+                                                isApplied ? "Applied" : "Apply Now"
+                                            }</button>}
                                 </div>
                             </div>
                             <div className='space-y-4 text-slate-700 bg-slate-50 hover:shadow-md rounded-3xl p-5'>
@@ -175,15 +195,15 @@ const JobDetails = () => {
                                 </div>
                                 <div className=''>
                                     <small>Experience</small>
-                                    <p className='font-medium text-md'>{experience == '' ? experience : "Entry level"}</p>
+                                    <p className='font-medium text-md'>{experience ? experience : "N/A"}</p>
                                 </div>
                                 <div className=''>
                                     <small>Job Type</small>
-                                    <p className='font-medium text-md'>{job_type}</p>
+                                    <p className='font-medium text-md capitalize'>{job_type}</p>
                                 </div>
                                 <div className=''>
                                     <small>Job Category</small>
-                                    <p className='font-medium text-md'>{category}</p>
+                                    <p className='font-medium text-md capitalize'>{category}</p>
                                 </div>
                                 <div className=''>
                                     <small>Skills</small>
@@ -216,26 +236,35 @@ const JobDetails = () => {
 
                                     <p className='font-medium text-xl'>{company_name}</p>
                                 </div>
-                                <div className=''>
-                                    <small>Location</small>
-                                    <p className='flex font-medium text-md'>{area},{city},{country}</p>
-                                </div>
-                                <div className=''>
-                                    <small>Founded</small>
-                                    <p className='font-medium text-md'>{ }</p>
-                                </div>
-                                <div className=''>
-                                    <small>Company Size</small>
-                                    <p className='font-medium text-md'>{'0-11'}</p>
-                                </div>
-                                <div className=''>
-                                    <small>Website</small>
-                                    <p className='font-medium text-md'>{'https://website.com'}</p>
-                                </div>
-                                <div className=''>
-                                    <small>Email</small>
-                                    <p className='font-medium text-md'>{company_email}</p>
-                                </div>
+                                {
+                                    companies.map(company => <div key={company._id}>
+                                        {
+                                            company.email === company_email && <>
+                                                <div className=''>
+                                                    <small>Location</small>
+                                                    <p className='flex font-medium text-md'>{area},{city},{country}</p>
+                                                </div>
+                                                <div className=''>
+                                                    <small>Founded</small>
+                                                    <p className='font-medium text-md'>{company.founded_in}</p>
+                                                </div>
+                                                <div className=''>
+                                                    <small>Company Size</small>
+                                                    <p className='font-medium text-md'>{company.company_size}</p>
+                                                </div>
+                                                <div className=''>
+                                                    <small>Website</small>
+                                                    <p className='font-medium text-md'>{company.website}</p>
+                                                </div>
+                                                <div className=''>
+                                                    <small>Email</small>
+                                                    <p className='font-medium text-md'>{company_email}</p>
+                                                </div>
+                                            </>
+                                        }
+                                    </div>)
+                                }
+
                             </div>
                         </div>
                         <ToastContainer />
