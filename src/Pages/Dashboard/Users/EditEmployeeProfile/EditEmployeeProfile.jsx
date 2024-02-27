@@ -70,7 +70,7 @@ const EditEmployeeProfile = () => {
                                 className="basis-3/6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 type="text" 
                                 placeholder=" Name"
-                                defaultValue={''}
+                                defaultValue={user?.displayName}
                             /> </label>
                         <label className='flex flex-col w-1/2'>
                             <p className='w-full font-medium text-xl pb-2'>Date of Birth</p>
@@ -160,7 +160,7 @@ const EditEmployeeProfile = () => {
                     
                         <input {...register('resume')}
                             className="basis-1/2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            type="text"
+                            type="text" placeholder='resume'
                             // accept='application/pdf'
                             // defaultValue={`Resume`}
                         />
