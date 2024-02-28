@@ -19,17 +19,18 @@ const CompanyProfile = () => {
         }
     })
     return (
-        <div className='w-11/12 mx-auto my-5'>
+        <div className='my-5'>
             {/* <h2>Company Profile {companies.length}</h2> */}
             {
                 companies.map(company => <div key={company._id}>
                     {
                         company.email === user?.email && <>
                             <div className='flex gap-5'>
-                                <div className='w-60 border-2 space-y-2 p-2 rounded-xl'>
+                                <div className='w-72 border-2 space-y-2 p-2 rounded-xl'>
                                     <img className='w-full h-40 rounded-xl ' src={user?.photoURL} alt="" />
                                     <p className='flex items-center text-sm'><FaLocationDot></FaLocationDot> {company.location}, {company.city},{company.country}</p>
                                     <p><span className='font-bold'>Founded in:</span> {company.founded_in}</p>
+                                    <p><span className='font-bold'>Company size:</span> {company.company_size}</p>
                                 </div>
                                 <div className='flex-1 border-2 p-3 rounded-xl'>
                                     <div>
@@ -44,18 +45,19 @@ const CompanyProfile = () => {
                                                     <FaShareNodes />Share <FaFacebookF></FaFacebookF></span>
                                             </FacebookShareButton>
                                         </button>
-                                        <Link to='/dashboard/editProfile'><button type="button" className=" text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Edit Profile</button></Link>
+                                        <Link to={`/updateCompany/${company._id}`}><button type="button" className=" text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                                            Update Profile</button></Link>
                                     </div>
                                 </div>
 
-                                <div className='w-60'>
+                                <div className='w-80'>
                                     <div className='border-2 space-y-3 p-2 rounded-xl'>
                                         <h2 className='text-xl font-bold'>Developer Info</h2>
                                         <p className='flex items-center gap-3'><FaVoicemail></FaVoicemail>{company.email}</p>
                                         <p className='flex items-center gap-3'><FaPhone></FaPhone>{company.phone}</p>
-                                        <p className='flex items-center gap-3'><FaLinkedin></FaLinkedin>{company.linkedin}</p>
+                                        <p className='flex items-center gap-3'><FaLinkedin></FaLinkedin><a href={company.linkedin}>{company.linkedin}</a></p>
                                         <p className='flex items-center gap-3'><FaGithub></FaGithub><a href={company.github}>{company.github}</a></p>
-                                        <p className='flex items-center gap-3'><FaWeibo></FaWeibo>{company.website}</p>
+                                        <p className='flex items-center gap-3'><FaWeibo></FaWeibo><a href={company.website}>{company.website}</a></p>
                                     </div>
 
                                 </div>

@@ -163,24 +163,24 @@ const JobDetails = () => {
                             <div className='space-y-4 text-slate-700 bg-slate-50 hover:shadow-md rounded-3xl p-5'>
                                 <div className='p-4 bg-white rounded-2xl space-y-2'>
                                     <h3 className='font-semibold text-2xl'>Overview</h3>
-                                    <p className='text-lg text-slate-500'>{overview}</p>
+                                    <p className='text-lg text-slate-500 text-justify'>{overview}</p>
                                 </div>
                                 <div className='p-4 bg-white rounded-2xl space-y-2'>
                                     <h3 className='font-semibold text-2xl'>Responsibilities</h3>
-                                    <p className='text-lg text-slate-500'>{responsibilities}</p>
+                                    <p className='text-lg text-slate-500 text-justify'>{responsibilities}</p>
                                 </div>
                                 <div className='p-4 bg-white rounded-2xl space-y-2'>
-                                    <h3 className='font-semibold text-2xl'>Requirements</h3>
-                                    <p className='text-lg text-slate-500'>{requirements}</p>
+                                    <h3 className='font-semibold text-2xl '>Requirements</h3>
+                                    <p className='text-lg text-slate-500 text-justify'>{requirements}</p>
                                 </div>
                                 <div className='p-4 bg-white rounded-2xl space-y-2'>
-                                    <h3 className='font-semibold text-2xl'>Benefits</h3>
-                                    <p className='text-lg text-slate-500'>{benefits}</p>
+                                    <h3 className='font-semibold text-2xl '>Benefits</h3>
+                                    <p className='text-lg text-slate-500 text-justify'>{benefits}</p>
                                 </div>
-                                <div className='p-4 bg-white rounded-2xl space-y-2'>
+                                {/* <div className='p-4 bg-white rounded-2xl space-y-2'>
                                     <h3 className='font-semibold text-2xl'>Apply Instruction</h3>
                                     <p className='text-lg text-slate-500'>Lorem ipsum dolor sit amet consectetur adipisicing elit. At consectetur fugiat quas asperiores optio. Laboriosam est magnam explicabo cum voluptate eos minus debitis ab soluta placeat, illo unde numquam ratione beatae nesciunt ad blanditiis rerum esse recusandae. Animi sapiente fuga, blanditiis at facere rem commodi eaque ut excepturi dolores eius?</p>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                         <div className='space-y-6'>

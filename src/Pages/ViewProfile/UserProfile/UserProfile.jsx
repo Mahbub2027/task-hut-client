@@ -27,7 +27,7 @@ const UserProfile = () => {
                     {
                         employee.employee_email === user?.email && <>
                             <div className='flex gap-5'>
-                                <div className='w-60 border-2 space-y-2 p-2 rounded-xl'>
+                                <div className='w-72 border-2 space-y-2 p-2 rounded-xl'>
                                     <img className='w-full h-40 rounded-xl ' src={user?.photoURL} alt="" />
                                     <p className='flex items-center text-sm'><FaLocationDot></FaLocationDot> {employee.location}, {employee.city},{employee.country}</p>
                                     <p><span className='font-bold'>Date of Birth:</span> {employee.date_birth}</p>
@@ -50,7 +50,8 @@ const UserProfile = () => {
                                                 </FacebookShareButton>
                                             
                                         </button>
-                                        <Link to='/dashboard/editProfile'><button type="button" className=" text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Edit Profile</button></Link>
+                                        <Link to={`/updateEmployee/${employee._id}`}><button type="button" className=" text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                                            Update Profile</button></Link>
                                     </div>
                                 </div>
 
@@ -59,9 +60,9 @@ const UserProfile = () => {
                                         <h2 className='text-xl font-bold'>Developer Info</h2>
                                         <p className='flex items-center gap-3'><FaVoicemail></FaVoicemail>{user.email}</p>
                                         <p className='flex items-center gap-3'><FaPhone></FaPhone>{employee.number}</p>
-                                        <p className='flex items-center gap-3'><FaLinkedin></FaLinkedin>{employee.linkedin}</p>
+                                        <p className='flex items-center gap-3'><FaLinkedin></FaLinkedin><a href={employee.linkedin}>{employee.linkedin}</a></p>
                                         <p className='flex items-center gap-3'><FaGithub></FaGithub><a href={employee.github}>{employee.github}</a></p>
-                                        <p className='flex items-center gap-3'><FaWeibo></FaWeibo>{employee.portfolio}</p>
+                                        <p className='flex items-center gap-3'><FaWeibo></FaWeibo><a href={employee.portfolio}>{employee.portfolio}</a></p>
                                     </div>
                                     <div className=' border-2 mt-5 rounded-xl p-3'>
                                         <h2 className='text-xl font-bold mb-5'>Skills</h2>

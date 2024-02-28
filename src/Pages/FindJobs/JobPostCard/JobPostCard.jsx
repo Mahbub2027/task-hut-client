@@ -34,8 +34,8 @@ const JobPostCard = ({ job }) => {
                 }
                 <div className=''>
                     <div className='flex gap-2 mb-2'>
-                        <p className='px-3 py-1 text-sm rounded-full bg-indigo-100 text-indigo-700'>{job_type}</p>
-                        <p className='px-3 py-1 text-sm rounded-full bg-indigo-100 text-indigo-700'>{category}</p>
+                        <p className='px-3 py-1 text-sm rounded-full bg-indigo-100 text-indigo-700 capitalize'>{job_type}</p>
+                        <p className='px-3 py-1 text-sm rounded-full bg-indigo-100 text-indigo-700 capitalize'>{category}</p>
                     </div>
                     <Link to={`/jobDetails/${_id}`} className='tooltip tooltip-right text-left font-bold text-2xl hover:text-indigo-700 transition-all ease-out delay-0 duration-500' data-tip='View job details'>{job_title}</Link>
                     <div className='flex gap-1 items-start'>

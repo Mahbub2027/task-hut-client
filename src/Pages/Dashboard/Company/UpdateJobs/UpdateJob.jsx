@@ -39,7 +39,7 @@ const UpdateJob = () => {
                 responsibilities: data.responsibilities,
             }
             const jobRes = await axiosPublic.put(`/jobs/${_id}`, jobDetails);
-            console.log("email pairm na: ", jobRes, data)
+            // console.log( jobRes, data)
             if (jobRes.data.modifiedCount > 0) {
                 // reset();
                 Swal.fire({

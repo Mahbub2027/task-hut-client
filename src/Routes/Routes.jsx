@@ -45,6 +45,8 @@ import CookiePolicy from "../Pages/Legal/CookiePolicy";
 import PrivacyPolicy from "../Pages/Legal/PrivacyPolicy";
 import CareerPost from "../Pages/Dashboard/Admin/CareerPost/CareerPost";
 import UpdateJob from "../Pages/Dashboard/Company/UpdateJobs/UpdateJob";
+import UpdateuserProfile from "../Pages/UpdateProfile/UpdateuserProfile";
+import UpdateCompanyProfile from "../Pages/UpdateProfile/UpdateCompanyProfile";
 
 
 export const router = createBrowserRouter([
@@ -120,6 +122,16 @@ export const router = createBrowserRouter([
       {
         path: '/viewProfile',
         element: <PrivateRoutes><ViewProfile></ViewProfile></PrivateRoutes>
+      },
+      {
+        path: '/updateEmployee/:id',
+        element: <UpdateuserProfile></UpdateuserProfile>,
+        loader: ({params})=> fetch(`https://tusk-hut-server.vercel.app/employees/${params.id}`)
+      },
+      {
+        path: '/updateCompany/:id',
+        element: <UpdateCompanyProfile></UpdateCompanyProfile>,
+        loader: ({params})=> fetch(`https://tusk-hut-server.vercel.app/companies/${params.id}`)
       },
       {
         path: '/accountAnalytics',

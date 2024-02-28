@@ -86,7 +86,7 @@ const Login = () => {
                     <div className="text-center lg:text-left w-1/2 mx-auto">
                         <img src="https://i.ibb.co/jWnpV9R/login-svg.jpg" alt="" />
                     </div>
-                    <div className="card shrink-0 w-1/2 mx-auto shadow-2xl bg-base-100">
+                    <div className="card shrink-0 w-full  lg:w-1/2 mx-auto shadow-2xl bg-base-100">
                     <h2 className="text-3xl font-bold text-center mt-2">Welcome Back</h2>
                         <form onSubmit={handleUserLogin} className="card-body">
                             <div className="form-control">
