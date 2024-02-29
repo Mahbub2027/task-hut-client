@@ -1,6 +1,6 @@
 // import React from 'react';
 import { BsChatTextFill } from "react-icons/bs";
-import { FaBell, FaBriefcase, FaBusinessTime, FaCalendarCheck, FaFilePowerpoint, FaHome, FaList, FaUserCheck, FaBlogger, FaAngleRight, FaPlus, FaAngleLeft, FaAngleDown, FaEye } from 'react-icons/fa';
+import { FaBell, FaBriefcase, FaBusinessTime, FaCalendarCheck, FaFilePowerpoint, FaHome, FaList, FaUserCheck, FaBlogger, FaAngleRight, FaPlus, FaAngleLeft, FaAngleDown, FaEye, FaFileContract } from 'react-icons/fa';
 import { FaArrowTrendUp, FaClipboardList, FaFilePen, FaGears, FaPersonCircleQuestion, FaRightFromBracket, FaUnlockKeyhole, FaUserLock, FaUserShield, FaUserTie, FaUsers, FaUsersGear } from 'react-icons/fa6';
 import { TbLayoutSidebarLeftCollapseFilled, TbLayoutSidebarLeftExpandFilled } from "react-icons/tb";
 import { NavLink, Outlet } from 'react-router-dom';
@@ -8,6 +8,7 @@ import useAdmin from '../hooks/useAdmin';
 import useBuyer from '../hooks/useBuyer';
 import useAuth from '../hooks/useAuth';
 import { useState } from "react";
+import { MdContactMail } from "react-icons/md";
 
 const Dashboard = () => {
     const { logoutUser } = useAuth();
@@ -46,6 +47,14 @@ const Dashboard = () => {
                             <NavLink to='/dashboard/manageUsers' className={({ isActive }) => isActive ? 'active-link' : 'hover-link'}>
                                 <FaUserTie className="w-5 h-5" />
                                 <span className={collapse ? 'hidden' : 'block'}>Manage Users</span>
+                            </NavLink>
+                            <NavLink to='/dashboard/careerPost' className={({ isActive }) => isActive ? 'active-link' : 'hover-link'}>
+                                <FaFileContract className="w-5 h-5" />
+                                <span className={collapse ? 'hidden' : 'block'}>Hire For TaskHut</span>
+                            </NavLink>
+                            <NavLink to='/dashboard/newsLetterSubscribers' className={({ isActive }) => isActive ? 'active-link' : 'hover-link'}>
+                                <MdContactMail className="w-5 h-5" />
+                                <span className={collapse ? 'hidden' : 'block'}>NewsLetter Subscribers</span>
                             </NavLink>
                             <NavLink to='/dashboard/accountAnalytics' className={({ isActive }) => isActive ? 'active-link' : 'hover-link'}>
                                 <FaArrowTrendUp className="w-5 h-5" />

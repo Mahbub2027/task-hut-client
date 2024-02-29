@@ -3,7 +3,7 @@ import { IoLocation } from "react-icons/io5";
 import { GiMoneyStack } from "react-icons/gi";
 import { GiTimeTrap } from "react-icons/gi";
 
-function CareerJobsCard(job,jobs) {
+function CareerJobsCard(job) {
   const {
     _id,
     title,
@@ -13,7 +13,7 @@ function CareerJobsCard(job,jobs) {
     deadline,
     skills,
     responsibility,
-  } = jobs;
+  } = job;
 
   return (
     <>
