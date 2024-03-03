@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState }  from 'react';
 import JobPostCard from './JobPostCard/JobPostCard';
 import useAxiosPublic from '../../hooks/useAxiosPublic';
-// import { useQuery } from '@tanstack/react-query';
 
 const FindJobs = () => {
     const axiosPublic = useAxiosPublic();
@@ -17,15 +16,6 @@ const FindJobs = () => {
         })
         
     },[axiosPublic])
-
-    // const {data: jobs=[]} = useQuery({
-    //     queryKey: ['job'],
-    //     queryFn: async()=>{
-    //         const res = await axiosPublic.get('/jobs');
-    //         // return res.data;
-    //         setFindJobs(res.data);
-    //     }
-    // })
 
     const handleSearch = () =>{
         const search = searchRef?.current?.value.toLowerCase();

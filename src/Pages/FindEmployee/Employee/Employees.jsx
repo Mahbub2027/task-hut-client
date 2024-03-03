@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
-import { FaArrowRightLong, FaBriefcase, FaGithub, FaLink, FaLinkedinIn, FaLocationDot, FaStopwatch } from 'react-icons/fa6';
+import { FaArrowRightLong, FaGithub, FaLink, FaLinkedinIn} from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
 

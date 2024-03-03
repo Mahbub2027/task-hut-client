@@ -80,8 +80,6 @@ const AllCompanies = () => {
             
             <div className='w-full my-14 lg:w-11/12 mx-auto flex flex-col lg:flex-row-reverse gap-8'>
 
-                {/* <h2 className="text-4xl font-bold text-center mb-20">All Major Companies in One Place</h2> */}
-
                 <div className='flex-1 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5'>
                     {
                         findCompany.map(company => <CompanyCard key={company._id}

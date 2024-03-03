@@ -5,9 +5,7 @@ import { Helmet } from "react-helmet";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
-// import GoogleLink from "../../sharedComponents/GoogleLinks/GoogleLink";
 import Swal from "sweetalert2";
-// import { FcGoogle } from "react-icons/fc";
 import { db } from "../../../firebase/firebase.config";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { ref } from "firebase/storage";
@@ -233,7 +231,6 @@ const storeFirebaseGoogle = async (name, email, uid, image) => {
               </h2>
               <div className="form-control">
                 <label className="label">
-                  {/* <span className="label-text font-bold text-base">Name</span> */}
                 </label>
                 <input
                   type="text"{...register("name", { required: true })}
@@ -246,7 +243,6 @@ const storeFirebaseGoogle = async (name, email, uid, image) => {
               </div>
               <div className="form-control">
                 <label className="label">
-                  {/* <span className="label-text font-bold text-base">Email</span> */}
                 </label>
                 <input
                   type="email"
@@ -259,7 +255,6 @@ const storeFirebaseGoogle = async (name, email, uid, image) => {
               </div>
               <div className="form-control relative">
                 <label className="label">
-                  {/* <span className="label-text font-bold text-base">Password</span> */}
                 </label>
                 <div className="relative">
                 <input
@@ -318,8 +313,6 @@ const storeFirebaseGoogle = async (name, email, uid, image) => {
                   {errors.image && (<span className="text-red-500">This field is required</span>
                 )}
                 </div>
-                {/* <input type="text" {...register("photo", { required: true })} name="photo" placeholder="Photo url" className="input input-bordered" required />
-                                {errors.photo && <span className="text-red-500">This field is required</span>} */}
               </div>
               <div className="form-control mt-6">
                 <button className="btn bg-gradient-to-r from-cyan-500 to-blue-500 text-lg text-white">

@@ -7,7 +7,6 @@ import { FaBriefcase, FaBuildingUser, FaDownload, FaEnvelope, FaGithub, FaGlobe,
 
 
 const EmployeeDetails = () => {
-    // const {user} =  useAuth();
     const axiosPublic = useAxiosPublic();
     const { _id, name, employee_email, date_birth, cover_img, linkedin, location, city, country,
         profession, experience, workPreference, resume, portfolio, github, skills, about, number } = useLoaderData();
@@ -66,7 +65,7 @@ const EmployeeDetails = () => {
                     <p className='px-2 flex items-center gap-1'><FaBuildingUser />Experience: {experience} yrs</p>
                 </div>
             </div>
-            {/* <p>Resume: {resume}</p> */}
+            
 
         </div>
     );

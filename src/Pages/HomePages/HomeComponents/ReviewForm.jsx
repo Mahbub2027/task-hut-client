@@ -68,21 +68,6 @@ const ReviewForm = () => {
             });
             // navigate('/findJobs')
         }
-        // .then(res => res.json())
-        // .then(data => {
-        //     if (data.acknowledged) {
-        //         Swal.fire({
-        //             position: "center",
-        //             icon: "success",
-        //             title: "Your review has been saved.",
-        //             text: "You can now see your review in the reviews section or reviews page.",
-        //             showConfirmButton: false,
-        //             timer: 2000
-        //         });
-        //     }
-        // })
-
-        // console.log(review)
         setRating(0);
         form.reset();
     }
