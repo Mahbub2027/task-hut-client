@@ -12,9 +12,46 @@ import { IoIosMail } from "react-icons/io";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 AOS.init();
 
 const Footer = () => {
+  
+
+
+
+  const handleFormSubmit = event =>{
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const NewsLetterData = {
+        email,
+    }
+    fetch('https://tusk-hut-server.vercel.app/newsletter',{
+        method:'POST',
+        headers:{
+            'content-type':'application/json'
+        },
+        body:JSON.stringify(NewsLetterData)
+    })
+    .then(res=>res.json())
+    .then(data=>{
+        if(data.insertedId){
+            Swal.fire({
+                title: 'Success!',
+                text: 'Subscribed to the NewsLetter.',
+                icon: 'success',
+                confirmButtonText: 'Ok'
+              })
+        }
+    })
+  }
+
+
+
+
+
+
   return (
     <div className="mt-auto">
       <footer className="footer p-10 text-white bg-indigo-950">
@@ -130,10 +167,10 @@ const Footer = () => {
           <div className="justify-center ">
             <p className="my-4 text-2xl">Subscribe to our newsletter</p>
             <div className="container mx-auto flex justify-center w-full  rounded-r-full">
-              <form onSubmit={null} className="flex">
-                {/* // To Do : Add newsletter service functionality */}
+              <form onSubmit={handleFormSubmit} className="flex">
                 <input
                   type="email"
+                  name="email"
                   className="py-3 px-4 w-auto rounded-l-md focus:outline-none focus:ring focus:border-blue-300 text-black"
                   placeholder="Enter your email"
                   required
@@ -162,5 +199,6 @@ const Footer = () => {
     </div>
   );
 };
+
 
 export default Footer;

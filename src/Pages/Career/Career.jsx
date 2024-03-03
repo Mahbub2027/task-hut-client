@@ -1,8 +1,11 @@
 import { TiTick } from "react-icons/ti";
 import logo from "../../../public/TaskhutClear.png";
-import CareerJobsCard from "./CareerJobsCard";
-import { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+// import CareerJobsCard from "./CareerJobsCard";
+// import {  useState } from "react";
+// import { useLoaderData } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 
 const Career = () => {
 
@@ -45,9 +48,9 @@ const Career = () => {
     },
   ];
 
-  const loadedjobs = useLoaderData();
-  const [jobs,setJobs] = useState(loadedjobs);
-
+  // const loadedjobs = useLoaderData();
+  // const [jobs,setJobs] = useState(loadedjobs);
+ 
 
   return (
     <>
@@ -254,7 +257,7 @@ const Career = () => {
         </div>
       </section>
 
-      <section className="bg-purple-100 py-12">
+      {/* <section className="bg-purple-100 py-12">
         <h1 className="text-center drop-shadow-2xl text-purple-600 font-extrabold text-4xl py-5">
           Ready to Start Your Journey?
         </h1>
@@ -275,7 +278,7 @@ const Career = () => {
       }
       </div>
         
-      </section>
+      </section> */}
 
       <h1 className="text-center drop-shadow-2xl text-purple-600 font-extrabold text-4xl my-12">
         Message From the CEO

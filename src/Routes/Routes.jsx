@@ -47,6 +47,7 @@ import CareerPost from "../Pages/Dashboard/Admin/CareerPost/CareerPost";
 import UpdateJob from "../Pages/Dashboard/Company/UpdateJobs/UpdateJob";
 import UpdateuserProfile from "../Pages/UpdateProfile/UpdateuserProfile";
 import UpdateCompanyProfile from "../Pages/UpdateProfile/UpdateCompanyProfile";
+import NewsLetterSubscribers from "../Pages/Dashboard/Admin/NewsLetterSubscribers/NewsLetterSubscribers";
 
 
 export const router = createBrowserRouter([
@@ -148,7 +149,7 @@ export const router = createBrowserRouter([
       {
         path: '/career',
         element: <Career></Career>,
-        loader:()=>fetch('https://tusk-hut-server.vercel.app/careerjobs')
+        // loader:()=>fetch('https://tusk-hut-server.vercel.app/careerjobs')
       },
       {
         path: '/terms',
@@ -254,6 +255,10 @@ export const router = createBrowserRouter([
       {
         path: 'careerPost',
         element: <AdminRoutes><CareerPost></CareerPost></AdminRoutes>
+      },
+      {
+        path: 'newsLetterSubscribers',
+        element: <AdminRoutes><NewsLetterSubscribers></NewsLetterSubscribers></AdminRoutes>
       }
     ]
   }
