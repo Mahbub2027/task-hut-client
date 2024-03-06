@@ -48,15 +48,15 @@ const FindEmployee = () => {
           <h2 className="text-slate-700 text-3xl md:text-5xl font-extrabold">
             Find Top Talents
           </h2>
-          <p className="text-slate-500 text-lg md:text-2xl font-medium leading-3">
+          <p className="text-slate-500 text-lg md:text-2xl font-medium leading-6 flex items-center flex-wrap justify-center">
             Search talented
             <span className="bg-slate-600 text-slate-200 p-1"> professionals</span> for your
             company by our top
             <span className="bg-slate-600 text-slate-200 p-1"> Categories</span>
           </p>
         </div>
-        <div className="w-full lg:w-1/2 p-4 rounded-full mx-auto my-20 ">
-          <div className="flex items-center gap-4">
+        <div className="w-full md:w-2/3 lg:w-1/2 p-4 rounded-full mx-auto my-10 lg:my-20 ">
+          <div className="flex flex-col md:flex-row items-center gap-4">
             <label className="grow input input-bordered rounded-full flex items-center gap-2">
               <input
                 ref={searchRef}
@@ -82,102 +82,102 @@ const FindEmployee = () => {
               Search
             </button>
           </div>
-          <div className="flex gap-4 items-center ml-4 px-4 pt-2">
-            <p>Filter: </p>
-            <div className="flex gap-2 items-center">
-              <label
-                className="bg-slate-200 rounded-full px-2 py-1 hover:bg-slate-100 hover:cursor-pointer"
-                htmlFor="all"
-              >
-                All
-                <input
-                  onClick={() => {
-                    setEmployees(allEmployee)
-                  }}
-                  className="hidden"
-                  id="all"
-                  type="radio"
+          <div className="flex gap-4 items-center flex-wrap ml-4 px-4 pt-8">
+            <p className="font-medium">Filter: </p>
 
-                />
-              </label>
-              <label
-                className="bg-slate-200 rounded-full px-2 py-1 hover:bg-slate-100 hover:cursor-pointer"
-                htmlFor="full-time"
-              >
-                Full-time
-                <input
-                  onClick={(e) => {
-                    setFilteredEmployee(e.target.value), handleFilter();
-                  }}
-                  className="hidden"
-                  id="full-time"
-                  type="radio"
-                  value="full time"
-                />
-              </label>
-              <label
-                className="bg-slate-200 rounded-full px-2 py-1 hover:bg-slate-100 hover:cursor-pointer"
-                htmlFor="part-time"
-              >
-                Part-time
-                <input
-                  onClick={(e) => {
-                    setFilteredEmployee(e.target.value), handleFilter();
-                  }}
-                  className="hidden"
-                  id="part-time"
-                  type="radio"
-                  value="part time"
-                />
-              </label>
-              <label
-                className="bg-slate-200 rounded-full px-2 py-1 hover:bg-slate-100 hover:cursor-pointer"
-                htmlFor="intern"
-              >
-                Intern
-                <input
-                  onClick={(e) => {
-                    setFilteredEmployee(e.target.value), handleFilter();
-                  }}
-                  className="hidden"
-                  id="intern"
-                  type="radio"
-                  value="intern"
-                />
-              </label>
-            </div>
-            <div className="flex gap-2 items-center">
-              <label
-                className="bg-slate-200 rounded-full px-2 py-1 hover:bg-slate-100 hover:cursor-pointer"
-                htmlFor="remote"
-              >
-                Remote
-                <input
-                  onClick={(e) => {
-                    setFilteredEmployee(e.target.value), handleFilter();
-                  }}
-                  className="hidden"
-                  id="remote"
-                  type="radio"
-                  value="remote"
-                />
-              </label>
-              <label
-                className="bg-slate-200 rounded-full px-2 py-1 hover:bg-slate-100 hover:cursor-pointer"
-                htmlFor="on-site"
-              >
-                On-site
-                <input
-                  onClick={(e) => {
-                    setFilteredEmployee(e.target.value), handleFilter();
-                  }}
-                  className="hidden"
-                  id="on-site"
-                  type="radio"
-                  value="On-site"
-                />
-              </label>
-            </div>
+            <label
+              className="bg-slate-200 rounded-full px-2 py-1 hover:bg-slate-100 hover:cursor-pointer"
+              htmlFor="all"
+            >
+              All
+              <input
+                onClick={() => {
+                  setEmployees(allEmployee)
+                }}
+                className="hidden"
+                id="all"
+                type="radio"
+
+              />
+            </label>
+            <label
+              className="bg-slate-200 rounded-full px-2 py-1 hover:bg-slate-100 hover:cursor-pointer"
+              htmlFor="full-time"
+            >
+              Full-time
+              <input
+                onClick={(e) => {
+                  setFilteredEmployee(e.target.value), handleFilter();
+                }}
+                className="hidden"
+                id="full-time"
+                type="radio"
+                value="full time"
+              />
+            </label>
+            <label
+              className="bg-slate-200 rounded-full px-2 py-1 hover:bg-slate-100 hover:cursor-pointer"
+              htmlFor="part-time"
+            >
+              Part-time
+              <input
+                onClick={(e) => {
+                  setFilteredEmployee(e.target.value), handleFilter();
+                }}
+                className="hidden"
+                id="part-time"
+                type="radio"
+                value="part time"
+              />
+            </label>
+            <label
+              className="bg-slate-200 rounded-full px-2 py-1 hover:bg-slate-100 hover:cursor-pointer"
+              htmlFor="intern"
+            >
+              Intern
+              <input
+                onClick={(e) => {
+                  setFilteredEmployee(e.target.value), handleFilter();
+                }}
+                className="hidden"
+                id="intern"
+                type="radio"
+                value="intern"
+              />
+            </label>
+
+
+            <label
+              className="bg-slate-200 rounded-full px-2 py-1 hover:bg-slate-100 hover:cursor-pointer"
+              htmlFor="remote"
+            >
+              Remote
+              <input
+                onClick={(e) => {
+                  setFilteredEmployee(e.target.value), handleFilter();
+                }}
+                className="hidden"
+                id="remote"
+                type="radio"
+                value="remote"
+              />
+            </label>
+            <label
+              className="bg-slate-200 rounded-full px-2 py-1 hover:bg-slate-100 hover:cursor-pointer"
+              htmlFor="on-site"
+            >
+              On-site
+              <input
+                onClick={(e) => {
+                  setFilteredEmployee(e.target.value), handleFilter();
+                }}
+                className="hidden"
+                id="on-site"
+                type="radio"
+                value="On-site"
+              />
+            </label>
+
           </div>
         </div>
       </div>

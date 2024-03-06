@@ -37,10 +37,10 @@ const JobPostCard = ({ job }) => {
                         <p className='px-3 py-1 text-sm rounded-full bg-indigo-100 text-indigo-700 capitalize'>{job_type}</p>
                         <p className='px-3 py-1 text-sm rounded-full bg-indigo-100 text-indigo-700 capitalize'>{category}</p>
                     </div>
-                    <Link to={`/jobDetails/${_id}`} className='tooltip tooltip-right text-left font-bold text-2xl hover:text-indigo-700 transition-all ease-out delay-0 duration-500' data-tip='View job details'>{job_title}</Link>
+                    <Link to={`/jobDetails/${_id}`} className='tooltip tooltip-right text-left font-bold text-lg md:text-2xl hover:text-indigo-700 transition-all ease-out delay-0 duration-500' data-tip='View job details'>{job_title}</Link>
                     <div className='flex gap-1 items-start'>
-                        <FaLocationDot className='mt-1' />
-                        <p className='flex flex-wrap '>{area}, {city}, {country}</p>
+                        <FaLocationDot className='mt-1 w-4 h-4' />
+                        <p className='text-wrap text-sm'>{area}, {city}, {country}</p>
                     </div>
                 </div>
                 <div className='flex justify-between items-center'>

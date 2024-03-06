@@ -30,8 +30,8 @@ const CompanyCard = ({ company }) => {
                 
             </div>
 
-            <h2 className='font-bold text-2xl text-indigo-700' >{company_name}</h2>
-            <div className='flex gap-2'>
+            <h2 className='font-bold text-lg md:text-2xl text-indigo-700' >{company_name}</h2>
+            <div className='flex flex-col md:flex-row items-start gap-2'>
                 <p className='text-sm border rounded-full px-2 bg-slate-200'>Founded: {founded_in}</p>
                 <p className='text-sm border rounded-full px-2 bg-slate-200'>Country: {country}</p>
             </div>
