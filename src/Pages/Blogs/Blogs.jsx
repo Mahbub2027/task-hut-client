@@ -16,7 +16,7 @@ const Blogs = () => {
       );
     };
     fetchBlogs();
-  }, []);
+  }, [axiosPublic]);
 
   return (
     <div className="mb-20">

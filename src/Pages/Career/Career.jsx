@@ -5,10 +5,13 @@ import logo from "../../../public/TaskhutClear.png";
 // import { useLoaderData } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
-AOS.init();
+
 
 const Career = () => {
+  AOS.init();
 
+
+  
   const people = [
     {
       name: "John Smith",

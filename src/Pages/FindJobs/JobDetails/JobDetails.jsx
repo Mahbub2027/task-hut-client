@@ -7,7 +7,6 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Swal from 'sweetalert2';
 import { useQuery } from '@tanstack/react-query';
-// import { useQuery } from '@tanstack/react-query';
 
 
 const JobDetails = () => {
@@ -177,10 +176,7 @@ const JobDetails = () => {
                                     <h3 className='font-semibold text-2xl '>Benefits</h3>
                                     <p className='text-lg text-slate-500 text-justify'>{benefits}</p>
                                 </div>
-                                {/* <div className='p-4 bg-white rounded-2xl space-y-2'>
-                                    <h3 className='font-semibold text-2xl'>Apply Instruction</h3>
-                                    <p className='text-lg text-slate-500'>Lorem ipsum dolor sit amet consectetur adipisicing elit. At consectetur fugiat quas asperiores optio. Laboriosam est magnam explicabo cum voluptate eos minus debitis ab soluta placeat, illo unde numquam ratione beatae nesciunt ad blanditiis rerum esse recusandae. Animi sapiente fuga, blanditiis at facere rem commodi eaque ut excepturi dolores eius?</p>
-                                </div> */}
+                            
                             </div>
                         </div>
                         <div className='space-y-6'>

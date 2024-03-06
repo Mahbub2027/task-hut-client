@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import axios from "axios";
+import { useParams } from "react-router-dom";
 import { format } from "timeago.js";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 
@@ -16,7 +15,7 @@ const SingleBlog = () => {
       setBlog(res.data);
     };
     fetchPosts();
-  }, []);
+  }, [axiosPublic, id]);
 
   return (
     <>

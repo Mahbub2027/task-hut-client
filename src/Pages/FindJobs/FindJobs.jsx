@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import JobPostCard from './JobPostCard/JobPostCard';
 import useAxiosPublic from '../../hooks/useAxiosPublic';
-// import { useQuery } from '@tanstack/react-query';
 
 const FindJobs = () => {
     const axiosPublic = useAxiosPublic();

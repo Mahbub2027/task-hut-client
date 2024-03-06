@@ -43,11 +43,9 @@ const Login = () => {
                     icon: "error",
                     title: "Oops...",
                     text: "Please check your email & verify",
-                    // footer: 'Please verify your email'
                   });
                   
             }
-            // navigate('/')
 
         })
         .catch(error=>{

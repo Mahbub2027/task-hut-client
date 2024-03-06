@@ -5,8 +5,7 @@ import { format } from "timeago.js";
 const BlogItem = ({ item }) => {
 
   const { _id, title, img, description, bloggerImg, bloggerName, createdAt } = item;
-  // const id = item?._id;
-  // console.log(item)
+
 
   return (
     <div className="rounded-xl bg-white h-[600px] border-2">

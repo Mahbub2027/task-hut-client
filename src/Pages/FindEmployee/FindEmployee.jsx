@@ -15,7 +15,7 @@ const FindEmployee = () => {
       setAllEmployee(result.data);
       setEmployees(result.data)
     });
-  }, [setAllEmployee]);
+  }, [setAllEmployee, axiosPublic]);
 
   const handleSearch = () => {
     const search = searchRef?.current?.value.toLowerCase();

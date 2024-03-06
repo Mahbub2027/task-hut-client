@@ -121,7 +121,6 @@ const SignUp = () => {
         emailVerification()
           .then(() => {
             Swal.fire({
-              // title: "Good job!",
               text: "Please verify your email",
               icon: "warning",
             });
@@ -136,7 +135,6 @@ const SignUp = () => {
       .catch((error) => {
         console.log(error);
         setErrorMessage("*Auth/email-already-in-use");
-        // setErrorMessage(error.message)
       });
   };
 
@@ -158,7 +156,6 @@ const SignUp = () => {
               </h2>
               <div className="form-control">
                 <label className="label">
-                  {/* <span className="label-text font-bold text-base">Name</span> */}
                 </label>
                 <input
                   type="text"
@@ -174,7 +171,6 @@ const SignUp = () => {
               </div>
               <div className="form-control">
                 <label className="label">
-                  {/* <span className="label-text font-bold text-base">Email</span> */}
                 </label>
                 <input
                   type="email"
@@ -190,7 +186,6 @@ const SignUp = () => {
               </div>
               <div className="form-control relative">
                 <label className="label">
-                  {/* <span className="label-text font-bold text-base">Password</span> */}
                 </label>
                 <div className="relative">
                 <input
@@ -247,8 +242,6 @@ const SignUp = () => {
                     className="file-input file-input-bordered my-1 w-full max-w-xs"
                   />
                 </div>
-                {/* <input type="text" {...register("photo", { required: true })} name="photo" placeholder="Photo url" className="input input-bordered" required />
-                                {errors.photo && <span className="text-red-500">This field is required</span>} */}
               </div>
               <div className="form-control mt-6">
                 <button className="btn bg-gradient-to-r from-cyan-500 to-blue-500 text-lg text-white">

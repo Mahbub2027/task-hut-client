@@ -7,7 +7,6 @@ import { FaBriefcase, FaBuildingUser, FaDownload, FaEnvelope, FaGithub, FaGlobe,
 import { GiSkills } from "react-icons/gi";
 
 const EmployeeDetails = () => {
-    // const {user} =  useAuth();
     const axiosPublic = useAxiosPublic();
     const { _id, name, employee_email, date_birth, cover_img, linkedin, location, city, country,
         profession, experience, workPreference, resume, portfolio, github, skills, about, number } = useLoaderData();
@@ -67,7 +66,7 @@ const EmployeeDetails = () => {
                     <p className='px-2 flex items-center gap-2'><FaBuildingUser className='w-5 h-5'/><span className='font-medium'>Experience:</span> {experience} yrs</p>
                 </div>
             </div>
-            {/* <p>Resume: {resume}</p> */}
+            
 
         </div>
     );
