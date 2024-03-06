@@ -160,7 +160,7 @@ const EditEmployeeProfile = () => {
                     
                         <input {...register('resume')}
                             className="basis-1/2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            type="text" placeholder='resume'
+                            type="text" placeholder='drive link of resume'
                             // accept='application/pdf'
                             // defaultValue={`Resume`}
                         />

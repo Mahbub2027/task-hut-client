@@ -8,43 +8,43 @@ import {
 import { FaPhone } from "react-icons/fa6";
 import { FaLocationDot } from "react-icons/fa6";
 import { IoIosMail } from "react-icons/io";
-
-import AOS from "aos";
-import "aos/dist/aos.css";
+import logo from "../../../public/TaskhutClear.png";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import AOS from "aos";
+import "aos/dist/aos.css";
 AOS.init();
 
 const Footer = () => {
-  
 
 
 
-  const handleFormSubmit = event =>{
+
+  const handleFormSubmit = event => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const NewsLetterData = {
-        email,
+      email,
     }
-    fetch('https://tusk-hut-server.vercel.app/newsletter',{
-        method:'POST',
-        headers:{
-            'content-type':'application/json'
-        },
-        body:JSON.stringify(NewsLetterData)
+    fetch('https://tusk-hut-server.vercel.app/newsletter', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(NewsLetterData)
     })
-    .then(res=>res.json())
-    .then(data=>{
-        if(data.insertedId){
-            Swal.fire({
-                title: 'Success!',
-                text: 'Subscribed to the NewsLetter.',
-                icon: 'success',
-                confirmButtonText: 'Ok'
-              })
+      .then(res => res.json())
+      .then(data => {
+        if (data.insertedId) {
+          Swal.fire({
+            title: 'Success!',
+            text: 'Subscribed to the NewsLetter.',
+            icon: 'success',
+            confirmButtonText: 'Ok'
+          })
         }
-    })
+      })
   }
 
 
@@ -54,12 +54,10 @@ const Footer = () => {
 
   return (
     <div className="mt-auto">
-      <footer className="footer p-10 text-white bg-indigo-950">
+      <footer className="footer p-10 text-white bg-indigo-900">
         <aside>
-          <div>
-            <h2 className="text-4xl font-bold">
-              Task<span className="text-purple-400">Hut</span>
-            </h2>
+          <div className="bg-white py-2 px-6 rounded-full shadow-lg">
+            <Link to='/'><img className="w-28 h-12" src={logo} alt="" /></Link>
           </div>
           {/* <img className="w-12" src="https://i.ibb.co/vsNFnW0/Taskhut.jpg" alt="" /> */}
 
@@ -69,35 +67,35 @@ const Footer = () => {
             className="grid grid-flow-col gap-4 mt-8 text-3xl "
           >
             <Link
-              className="hover:text-purple-500"
+              className="text-indigo-200 hover:text-white hover:scale-110 hover:shadow-lg transition-all ease-in-out delay-75 duration-500"
               target="_blank"
               to="https://www.linkedin.com/taskhutltd"
             >
               <FaLinkedin></FaLinkedin>
             </Link>
             <Link
-              className="hover:text-purple-500"
+              className="text-indigo-200 hover:text-white hover:scale-110 hover:shadow-lg transition-all ease-in-out delay-75 duration-500"
               target="_blank"
               to="https://www.twitter.com/taskhutltd"
             >
               <FaTwitter></FaTwitter>
             </Link>
             <Link
-              className="hover:text-purple-500"
+              className="text-indigo-200 hover:text-white hover:scale-110 hover:shadow-lg transition-all ease-in-out delay-75 duration-500"
               target="_blank"
               to="https://www.github.com/taskhutltd"
             >
               <FaGithub></FaGithub>
             </Link>
             <Link
-              className="hover:text-purple-500"
+              className="text-indigo-200 hover:text-white hover:scale-110 hover:shadow-lg transition-all ease-in-out delay-75 duration-500"
               target="_blank"
               to="https://www.facebook.com/taskhutltd"
             >
               <FaFacebook></FaFacebook>
             </Link>
             <Link
-              className="hover:text-purple-500"
+              className="text-indigo-200 hover:text-white hover:scale-110 hover:shadow-lg transition-all ease-in-out delay-75 duration-500"
               target="_blank"
               to="https://www.instagram.com/taskhutltd"
             >
@@ -161,23 +159,23 @@ const Footer = () => {
           </Link>
         </nav>
       </footer>{" "}
-      <hr className="h-0.5  bg-purple-400" />
+      <div className="h-[1px] bg-indigo-400"></div>
       <footer className="footer footer-center p-4 text-white bg-indigo-950">
-        <aside>
-          <div className="justify-center ">
-            <p className="my-4 text-2xl">Subscribe to our newsletter</p>
-            <div className="container mx-auto flex justify-center w-full  rounded-r-full">
-              <form onSubmit={handleFormSubmit} className="flex">
+       
+          <div className="">
+            <p className="my-4 font-extrabold md:text-2xl uppercase">Subscribe to our newsletter</p>
+            <div className="flex justify-center rounded-r-full">
+              <form onSubmit={handleFormSubmit} className="flex flex-col md:flex-row gap-4 md:gap-0">
                 <input
                   type="email"
                   name="email"
-                  className="py-3 px-4 w-auto rounded-l-md focus:outline-none focus:ring focus:border-blue-300 text-black"
+                  className="py-3 px-4 rounded-md md:rounded-r-none focus:outline-none focus:ring focus:border-blue-300 text-black"
                   placeholder="Enter your email"
                   required
                 />
                 <button
                   type="submit"
-                  className="bg-purple-500 py-3 px-6 rounded-r-full transition duration-300 focus:outline-none focus:ring focus:border-blue-300"
+                  className="uppercase bg-indigo-600 hover:bg-indigo-500 py-3 px-6 rounded-full md:rounded-l-none transition duration-300 focus:outline-none focus:ring focus:border-blue-300"
                 >
                   Subscribe
                 </button>
@@ -185,16 +183,14 @@ const Footer = () => {
             </div>
           </div>
 
-          <hr />
-
-          <p className="font-bold">
+          <p className="font-bold flex flex-wrap justify-center">
             Copyright © 2024 - All right reserved by{" "}
             <Link to="/">
-              Task <span className="text-purple-400">Hut</span>
+              Task <span className="text-indigo-400">Hut</span>
             </Link>{" "}
-            Ltd
+            Ltd.
           </p>
-        </aside>
+       
       </footer>
     </div>
   );

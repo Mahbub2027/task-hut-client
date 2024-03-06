@@ -22,6 +22,7 @@ function AboutUs() {
         About Us -<span className="text-black"> Task</span>
         <span className="text-purple-600">Hut</span>
       </h1>
+      
 
       <div className="text-black text-center">
         <h3 className="lg:mb-5 lg:py-4 md:text-2xl lg:text-3xl font-bold bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent">
@@ -86,15 +87,6 @@ function AboutUs() {
         <div data-aos="fade-left" data-aos-duration="1000">
           <img src={developer} alt="" className="m-5 rounded" />
         </div>
-      </div>
-
-      <h1 className="text-5xl font-bold text-center">Why Us?</h1>
-      <div
-        data-aos="fade-down"
-        data-aos-duration="1000"
-        className="items-center justify-center lg:w-1/2 lg:ml-96 mb-10"
-      >
-        <WhyTaskHut></WhyTaskHut>
       </div>
 
       <div className="grid gap-6 justify-center">
@@ -175,15 +167,24 @@ function AboutUs() {
         className="card-actions justify-center p-10"
       >
         <Link to="/login">
-          <button className="btn font-bold bg-purple-800 text-white hover:bg-purple-950">
+          <button className="primary-btn">
             Join TaskHut
           </button>
         </Link>
       </div>
 
-      <h1 className="text-5xl font-bold text-center">Statistics</h1>
+      <h1 className="text-5xl font-bold text-center">Why Us?</h1>
+      <div
+        data-aos="fade-down"
+        data-aos-duration="1000"
+        className="items-center justify-center lg:w-1/2 lg:ml-96 mb-10"
+      >
+        <WhyTaskHut></WhyTaskHut>
+      </div>
+
+      {/* <h1 className="text-5xl font-bold text-center">Statistics</h1> */}
       <div className="lg:flex items-center justify-center p-20">
-        <Statistics></Statistics>
+        {/* <Statistics></Statistics> */}
       </div>
     </div>
   );

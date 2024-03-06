@@ -6,7 +6,7 @@ const Terms = () => {
     <div className="text-center bg-purple-100 font-bold">
       <h1 className="text-4xl py-4">TaskHut - Terms of Use</h1>
       <div className="lg:flex justify-evenly items-center">
-      <div>
+        <div>
           <h3 className="items-center text-wrap py-4">
             Welcome to TaskHut! These Terms of Use ("Terms") govern your access
             to and use of the TaskHut website (the "Site"). <br /> By accessing
@@ -16,9 +16,9 @@ const Terms = () => {
         </div>
 
         <div>
-            <img src={terms} className="lg:w-96 sm:w-32 rounded-3xl" alt="" />
+          <img src={terms} className="lg:w-96 sm:w-32 rounded-3xl" alt="" />
         </div>
-        
+
       </div>
       <button className="btn  btn-primary my-5">1. Acceptance of Terms</button>
       <p className="text-balance">
