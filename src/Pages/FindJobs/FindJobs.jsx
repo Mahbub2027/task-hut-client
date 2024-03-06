@@ -48,16 +48,16 @@ const FindJobs = () => {
     // 
     return (
         <div className=''>
-            <div className='bg-gradient-to-br from-emerald-300 via-emerald-400 to-emerald-400 p-4 flex flex-col items-center'>
+            <div className='bg-gradient-to-br from-purple-100 via-purple-200 to-purple-200 p-4 flex flex-col items-center'>
                 <div className="w-full md:w-2/3 mx-auto lg:mb-10">
-                    <h2 className="text-emerald-800 text-3xl md:text-5xl font-extrabold text-center">
+                    <h2 className="text-purple-800 text-3xl md:text-5xl font-extrabold text-center">
                         Jobs
                     </h2>
-                    <p className="text-emerald-700 text-lg md:text-2xl font-medium leading-6 mt-4 flex items-center flex-wrap justify-center">
+                    <p className="text-purple-700 text-lg md:text-2xl font-medium leading-6 mt-4 flex items-center flex-wrap justify-center">
                         Find a new{" "}
-                        <span className="bg-emerald-800 text-white p-1">Job</span> for your
+                        <span className="bg-purple-800 text-white p-1">Job</span> for your
                         future{" "}
-                        <span className="bg-emerald-800 text-white p-1">Career</span>
+                        <span className="bg-purple-800 text-white p-1">Career</span>
                     </p>
                 </div>
                 <div className='w-full lg:w-1/3 rounded-2xl md:rounded-full my-5 p-4 md:py-8  text-start flex flex-col md:flex-row md:items-center justify-center gap-4'>
@@ -80,7 +80,7 @@ const FindJobs = () => {
                             className="input input-bordered w-full max-w-xs rounded-full" />
                     </div>
                     <div className=''>
-                        <button onClick={handleSearch} className="tracking-widest text-white uppercase text-xs lg:text-sm bg-gradient-to-r from-emerald-500 via-emerald-700 to-emerald-600 bg-[length:200%] hover:bg-right focus:ring-4 focus:outline-none focus:ring-emerald-300 shadow-lg shadow-emerald-500/50 font-medium rounded-full px-5 py-2.5 text-center transition-all ease-in-out delay-150 duration-500 w-full">Find Job</button>
+                        <button onClick={handleSearch} className="tracking-widest text-white uppercase text-xs lg:text-sm bg-gradient-to-r from-purple-500 via-purple-700 to-purple-600 bg-[length:200%] hover:bg-right focus:ring-4 focus:outline-none focus:ring-purple-300 shadow-lg shadow-purple-500/50 font-medium rounded-full px-5 py-2.5 text-center transition-all ease-in-out delay-150 duration-500 w-full">Find Job</button>
                     </div>
                 </div>
             </div>

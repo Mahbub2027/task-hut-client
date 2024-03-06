@@ -23,7 +23,6 @@ import CompanyPosts from "../Pages/Dashboard/Company/CompanyPosts/CompanyPosts";
 import ApplicantList from "../Pages/Dashboard/Company/ApplicantList/ApplicantList";
 import ShortListedApplicants from "../Pages/Dashboard/Company/ShortListedApplicants/ShortListedApplicants";
 import InterviewTask from "../Pages/Dashboard/Company/InterviewTask/InterviewTask";
-import Notifications from "../Pages/Dashboard/Common/Notifications/Notifications";
 import FindJobs from "../Pages/FindJobs/FindJobs";
 import FindEmployee from "../Pages/FindEmployee/FindEmployee";
 import PostAJob from "../Pages/Dashboard/Company/PostAJob/PostAJob";
@@ -226,10 +225,6 @@ export const router = createBrowserRouter([
       {
         path: 'editProfile',
         element: <EditProfile></EditProfile>
-      },
-      {
-        path: 'notifications',
-        element: <Notifications></Notifications>
       },
       {
         path: 'trustVerification',

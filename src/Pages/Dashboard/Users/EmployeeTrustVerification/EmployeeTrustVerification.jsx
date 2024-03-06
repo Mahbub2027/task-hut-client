@@ -21,7 +21,20 @@ const EmployeeTrustVerification = () => {
     let score = 0;
     // let emailVerified = user?.emailVerified;
     // let phoneVerified = user?.phoneNumber;
-
+    employees.map(employee => {
+        if(user.emailVerified){
+            score += 30;
+        }
+        if(employee.number){
+            score += 20;
+        }
+        if(employee.linkedin){
+            score += 25;
+        }
+        if(employee.github){
+            score += 25;
+        }
+    })
 
 
 
@@ -36,10 +49,8 @@ const EmployeeTrustVerification = () => {
                     <li className={`step ${score >= 30 && "step-primary"}`}>Low</li>
                     <li className={`step ${score >= 50 && "step-primary"}`}>Good</li>
                     <li className={`step ${score >= 70 && "step-primary"}`}>High</li>
-                    <li className={`step ${score == 100 && "step-primary"}`}>Excellent</li>
+                    <li className={`step ${score >= 100 && "step-primary"}`}>Excellent</li>
                 </ul>
-                <p>Current Trust Score: <span>20</span></p>
-                <p>Strength: <span>Low</span></p>
             </div>
             <hr className="mb-8 dark:opacity-25" />
             <div>
@@ -107,7 +118,6 @@ const EmployeeTrustVerification = () => {
                         </>
                     }
                 </div>)
-
                 }
             </div>
         </div>

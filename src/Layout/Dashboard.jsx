@@ -225,10 +225,6 @@ const Dashboard = () => {
                         <FaHome className="w-5 h-5" />
                         <span className={collapse ? 'hidden' : 'block'}> Home</span>
                     </NavLink>
-                    <NavLink to='/dashboard/notifications' className={({ isActive }) => isActive ? 'active-link' : 'hover-link'}>
-                        <FaBell className="w-5 h-5" />
-                        <span className={collapse ? 'hidden' : 'block'}> Notifications</span>
-                    </NavLink>
                     <NavLink to='/' className='hover:bg-gradient-to-br hover:from-red-400 hover:via-red-600 hover:to-red-800 text-white flex items-center gap-4 rounded-full tracking-wider pl-4 p-2'>
                         <FaRightFromBracket className="w-5 h-5" />
                         <span onClick={handleLogOut} className={collapse ? 'hidden' : 'block'}>Logout</span>

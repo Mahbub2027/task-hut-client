@@ -26,7 +26,7 @@ const BuyerSignup = () => {
   const [showPassword, setShowPassword] = useState(false);
   const axiosPublic = useAxiosPublic();
 
-  const {register,handleSubmit,reset,formState: { errors },} = useForm();
+  const { register, handleSubmit, reset, formState: { errors }, } = useForm();
   const navigate = useNavigate();
   const [image, setImage] = useState([]);
   let firebaseUser;
@@ -72,36 +72,36 @@ const BuyerSignup = () => {
     }
   };
 
-//add user data to firebase google signup
+  //add user data to firebase google signup
 
 
-const storeFirebaseGoogle = async (name, email, uid, image) => {
-  console.log("Inside function storeFirebaseGoogle");
-  const res = await getDoc(doc(db, "users", uid));
+  const storeFirebaseGoogle = async (name, email, uid, image) => {
+    console.log("Inside function storeFirebaseGoogle");
+    const res = await getDoc(doc(db, "users", uid));
 
 
-  if (!res.exists()) {
-    try {
-      console.log("firebaseeeee" + name + "mail:" + email);
+    if (!res.exists()) {
+      try {
+        console.log("firebaseeeee" + name + "mail:" + email);
 
 
-      //store user data on firestore db
-      await setDoc(doc(db, "users", uid), {
-        uid: uid,
-        displayName: name,
-        email: email,
-        photoURL: image,
-      });
+        //store user data on firestore db
+        await setDoc(doc(db, "users", uid), {
+          uid: uid,
+          displayName: name,
+          email: email,
+          photoURL: image,
+        });
 
 
-      await setDoc(doc(db, "userChats", uid), {});
-    } catch (e) {
-      console.log(e);
+        await setDoc(doc(db, "userChats", uid), {});
+      } catch (e) {
+        console.log(e);
+      }
+    } else {
+      console.log("doc already exists!!!");
     }
-  } else {
-    console.log("doc already exists!!!");
-  }
-};
+  };
 
 
 
@@ -178,16 +178,16 @@ const storeFirebaseGoogle = async (name, email, uid, image) => {
       .then((res) => {
         console.log(res.user);
 
-          //-- Store user data to firebase
-          console.log("uid: " + res.user.uid);
+        //-- Store user data to firebase
+        console.log("uid: " + res.user.uid);
 
-          storeFirebaseGoogle(
-            res.user.displayName,
-            res.user.email,
-            res.user.uid,
-            res.user.photoURL
-          );
-          //--
+        storeFirebaseGoogle(
+          res.user.displayName,
+          res.user.email,
+          res.user.uid,
+          res.user.photoURL
+        );
+        //--
 
         const userInfo = {
           name: res.user.displayName,
@@ -204,7 +204,7 @@ const storeFirebaseGoogle = async (name, email, uid, image) => {
             showConfirmButton: false,
             timer: 1500,
           });
-        
+
 
           navigate("/");
         });
@@ -239,7 +239,7 @@ const storeFirebaseGoogle = async (name, email, uid, image) => {
                   type="text"{...register("name", { required: true })}
                   name="name"
                   placeholder="company name"
-                  className="input input-bordered" required/>
+                  className="input input-bordered" required />
                 {errors.name && (
                   <span className="text-red-500">This field is required</span>
                 )}
@@ -253,35 +253,35 @@ const storeFirebaseGoogle = async (name, email, uid, image) => {
                   {...register("email", { required: true })}
                   name="email"
                   placeholder="email"
-                  className="input input-bordered" required/>
+                  className="input input-bordered" required />
                 {errors.email && (<span className="text-red-500">This field is required</span>
                 )}
               </div>
-              <div className="form-control relative">
+              <div className=" relative">
                 <label className="label">
                   {/* <span className="label-text font-bold text-base">Password</span> */}
                 </label>
                 <div className="relative">
-                <input
-                  type={showPassword ? "text" : "password"}{...register("password", {
-                    required: true,
-                    minLength: 6,
-                    maxLength: 20,
-                    pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/,
-                  })}
-                  name="password"
-                  placeholder="Password"
-                  className="w-full input input-bordered"
-                  required
-                />
-                <span
-                  className="absolute bottom-4 right-3 text-lg"
-                  onClick={() => setShowPassword(!showPassword)}
-                >
-                  {showPassword ? <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash>}
-                </span>
+                  <input
+                    type={showPassword ? "text" : "password"}{...register("password", {
+                      required: true,
+                      minLength: 6,
+                      maxLength: 20,
+                      pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/,
+                    })}
+                    name="password"
+                    placeholder="Password"
+                    className="w-full input input-bordered"
+                    required
+                  />
+                  <span
+                    className="absolute bottom-4 right-3 text-lg"
+                    onClick={() => setShowPassword(!showPassword)}
+                  >
+                    {showPassword ? <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash>}
+                  </span>
                 </div>
-                  
+
                 {errors.password?.type === "required" && (
                   <span className="text-red-500">Password is required</span>
                 )}
@@ -316,7 +316,7 @@ const storeFirebaseGoogle = async (name, email, uid, image) => {
                     className="file-input file-input-bordered my-1 w-full max-w-xs"
                   />
                   {errors.image && (<span className="text-red-500">This field is required</span>
-                )}
+                  )}
                 </div>
                 {/* <input type="text" {...register("photo", { required: true })} name="photo" placeholder="Photo url" className="input input-bordered" required />
                                 {errors.photo && <span className="text-red-500">This field is required</span>} */}

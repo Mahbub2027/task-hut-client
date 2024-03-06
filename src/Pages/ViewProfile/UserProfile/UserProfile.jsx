@@ -3,9 +3,8 @@ import useAuth from '../../../hooks/useAuth';
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
 import { useQuery } from '@tanstack/react-query';
 import Portfolio from '../UserProfile/components/Portfolio';
-import Verification from '../Verification/Verification';
+import Verification from './components/Verification';
 import Skills from '../UserProfile/components/Skills';
-import GithubCard from '../UserProfile/components/GithubCard';
 import DeveloperInfo from '../UserProfile/components/DeveloperInfo';
 import { FacebookShareButton } from 'react-share';
 import { FaFacebookF } from 'react-icons/fa';
@@ -75,20 +74,15 @@ const UserProfile = () => {
                                     <div className='lg:w-1/2'>
                                         <Verification number={employee.number} email={user.email} linkedin={employee.linkedin} github={employee.github} />
                                     </div>
+                                    <div className=''>
+                                        <DeveloperInfo number={employee.number} email={user.email} linkedin={employee.linkedin} github={employee.github} resume={employee.resume} />
+                                    </div>
                                     <div className='lg:w-1/2'>
                                         <Skills skills={employee.skills} />
                                     </div>
                                 </div>
                                 <div className=''>
                                     <Portfolio url={employee.portfolio} />
-                                </div>
-                                <div className='flex flex-col lg:flex-row gap-8'>
-                                    <div className='grow'>
-                                        <GithubCard github={employee.github} />
-                                    </div>
-                                    <div className=''>
-                                        <DeveloperInfo number={employee.number} email={user.email} linkedin={employee.linkedin} github={employee.github} resume={employee.resume} />
-                                    </div>
                                 </div>
                             </div>
                         </>

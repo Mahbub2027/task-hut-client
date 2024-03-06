@@ -9,17 +9,17 @@ const BlogItem = ({ item }) => {
   // console.log(item)
 
   return (
-    <div className="rounded-3xl shadow-md bg-white h-[400px] border">
+    <div className="rounded-xl bg-white h-[600px] border-2">
       <div className="w-full h-1/2">
-        <img src={img} alt="" className="w-full h-full object-fill rounded-t-3xl" />
+        <img src={img} alt="" className="w-full h-full object-fill rounded-t-xl" />
       </div>
-      <div className="h-1/2 rounded-b-3xl px-4 py-2 text-slate-700 flex flex-col justify-between">
+      <div className="h-1/2 rounded-b-3xl px-4 py-2 text-slate-700 flex flex-col gap-8 xl:16">
         <div>
           <small className="text-sm text-slate-400">{format(createdAt)}</small>
           <h2 className="text-xl font-semibold">{title}</h2>
-          <p className="text-sm text-slate-500">{description.split(' ').slice(0, 10).join(' ')}</p>
+          <p className="text-sm text-slate-500 line-clamp-2 mt-2">{description}</p>
         </div>
-        <div className="flex justify-between pb-2">
+        <div className="flex flex-col xl:flex-row justify-between pb-2 space-y-2">
           <div className="flex items-center gap-2">
             <img className="w-10 h-10 rounded-full" src={bloggerImg} alt="" />
             <h3 className="font-medium">{bloggerName}</h3>
