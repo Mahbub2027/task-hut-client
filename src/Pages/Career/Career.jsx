@@ -1,14 +1,25 @@
 import { TiTick } from "react-icons/ti";
 import logo from "../../../public/TaskhutClear.png";
-// import CareerJobsCard from "./CareerJobsCard";
+import CareerJobsCard from "./CareerJobsCard";
 // import {  useState } from "react";
 // import { useLoaderData } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { useQuery } from "@tanstack/react-query";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 
 const Career = () => {
+  const axiosPublic = useAxiosPublic();
   AOS.init();
+
+  const {data: careerJobs = [] } = useQuery({
+    queryKey: ['career'],
+    queryFn: async () => {
+        const res = await axiosPublic.get('/careerjobs');
+        return res.data;
+    }
+})
 
 
   
@@ -260,7 +271,7 @@ const Career = () => {
         </div>
       </section>
 
-      {/* <section className="bg-purple-100 py-12">
+      <section className="bg-purple-100 py-12">
         <h1 className="text-center drop-shadow-2xl text-purple-600 font-extrabold text-4xl py-5">
           Ready to Start Your Journey?
         </h1>
@@ -271,17 +282,18 @@ const Career = () => {
           reach out to our recruitment team. We`re here to help!
         </h3>
         <div className='grid md:grid-cols-2 gap-6 lg:m-6'>
+
       {
-        jobs.map(job => <CareerJobsCard
+        careerJobs.map(job => <CareerJobsCard
           key={job._id}
           job={job}
-          jobs={jobs}
-          setJobs={setJobs}
+          // jobs={jobs}
+          // setJobs={setJobs}
         ></CareerJobsCard>)
       }
       </div>
         
-      </section> */}
+      </section>
 
       <h1 className="text-center drop-shadow-2xl text-purple-600 font-extrabold text-4xl my-12">
         Message From the CEO

@@ -1,48 +1,68 @@
 import Swal from "sweetalert2";
+import useAxiosPublic from "../../../../hooks/useAxiosPublic";
 
-const handleAddJobs = (event) => {
-  event.preventDefault();
-  const form = event.target;
 
-  const title = form.title.value;
-  const years_of_experience = form.years_of_experience.value;
-  const location = form.location.value;
-  const salary = form.salary.value;
-  const deadline = form.deadline.value;
-  const skills = form.skills.value;
-  const responsibility = form.responsibility.value;
-
-  const newJob = {
-    title,
-    years_of_experience,
-    location,
-    salary,
-    deadline,
-    skills,
-    responsibility,
-  };
-
-  fetch("https://tusk-hut-server.vercel.app/careerjobs", {
-    method: "POST",
-    headers: {
-      "content-type": "application/json",
-    },
-    body: JSON.stringify(newJob),
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      if (data.insertedId) {
-        Swal.fire({
-          title: "Success!",
-          text: "Job Posted Successfully",
-          icon: "success",
-          confirmButtonText: "Ok",
-        });
-      }
-    });
-};
 
 const CareerPost = () => {
+  const axiosPublic = useAxiosPublic();
+
+
+  const handleAddJobs = async (event) => {
+ 
+    event.preventDefault();
+    const form = event.target;
+  
+    const title = form.title.value;
+    const years_of_experience = form.years_of_experience.value;
+    const location = form.location.value;
+    const salary = form.salary.value;
+    const deadline = form.deadline.value;
+    const skills = form.skills.value;
+    const responsibility = form.responsibility.value;
+  
+    const newJob = {
+      title,
+      years_of_experience,
+      location,
+      salary,
+      deadline,
+      skills,
+      responsibility,
+    };
+
+    const careerRes = await axiosPublic.post("/careerjobs",newJob)
+    if (careerRes.data.insertedId) {
+      
+      Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "career posted Successfully",
+          showConfirmButton: false,
+          timer: 1500
+      });
+  }
+
+  
+    // fetch("https://tusk-hut-server.vercel.app/careerjobs", {
+    //   method: "POST",
+    //   headers: {
+    //     "content-type": "application/json",
+    //   },
+    //   body: JSON.stringify(newJob),
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     if (data.insertedId) {
+    //       Swal.fire({
+    //         title: "Success!",
+    //         text: "Job Posted Successfully",
+    //         icon: "success",
+    //         confirmButtonText: "Ok",
+    //       });
+    //     }
+    //   });
+  };
+
   return (
     <div className="bg-indigo-50 p-24">
       <h1 className="text-5xl font-serif text-center font-bold text-indigo-600">
