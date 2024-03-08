@@ -122,14 +122,13 @@ const JobDetails = () => {
                         <div className='col-span-3 space-y-6'>
                             <div className='w-full h-[30vh] relative group'>
                                 {
-                                    companies.map(company => <div key={company._id}>
+                                    companies.map(company => <div key={company._id} className=''>
                                         {
                                             (company.email === company_email) && <>
                                                 {
-                                                    <p><img className='w-full h-52 object-cover rounded-3xl group-hover:shadow-md' src={company.cover_img} alt="" /></p>
+                                                    <img className='w-full h-full object-contain rounded-3xl group-hover:shadow-md' src={company.cover_img} alt="" />
                                                 }
                                             </>
-
                                         }
                                     </div>)
                                 }
@@ -145,7 +144,7 @@ const JobDetails = () => {
                                 <div className='flex gap-2'>
 
                                     <button onClick={() => handleSaveJobs(_id)} disabled={isSaveJob}
-                                        className="m-1 shadow-lg border-2 border-indigo-800 rounded-lg font-medium bg-white px-8 py-2 text-indigo-800 hover:bg-indigo-500 hover:border-indigo-500 hover:text-white transition-all ease-out delay-0 duration-500">
+                                        className="secondary-btn">
                                         {
                                             isSaveJob ? "Saved" : "Save"
                                         }
@@ -153,7 +152,7 @@ const JobDetails = () => {
 
                                     {(apply_role === "open") &&
                                         <button onClick={() => handleJobApply(_id)} disabled={isApplied}
-                                            className="m-1 shadow-lg border-2 border-indigo-800 rounded-lg font-medium bg-indigo-800 px-8 py-2 text-white hover:bg-indigo-500 hover:border-indigo-500 hover:text-white transition-all ease-out delay-0 duration-500">
+                                            className="primary-btn">
                                             {
                                                 isApplied ? "Applied" : "Apply Now"
                                             }</button>}
@@ -176,11 +175,11 @@ const JobDetails = () => {
                                     <h3 className='font-semibold text-2xl '>Benefits</h3>
                                     <p className='text-lg text-slate-500 text-justify'>{benefits}</p>
                                 </div>
-                            
+
                             </div>
                         </div>
                         <div className='space-y-6'>
-                            <div className='space-y-3 bg-indigo-100 hover:shadow-md rounded-3xl p-5'>
+                            <div className='space-y-3 bg-slate-100 hover:shadow-md rounded-3xl p-5'>
                                 <div className=''>
                                     <small>Posted</small>
                                     <p className='font-medium text-md'>{publish_date}</p>
@@ -205,7 +204,7 @@ const JobDetails = () => {
                                     <small>Skills</small>
                                     <p className='flex flex-wrap gap-1'>
                                         {
-                                            skills.split(',').map((skill, index) => <span key={index} className='font-medium text-md px-3 py-1 text-sm rounded-full bg-slate-100'>{skill}</span>)
+                                            skills.split(',').map((skill, index) => <span key={index} className='font-medium text-md px-3 py-1 text-sm rounded-full bg-slate-200'>{skill}</span>)
                                         }
                                     </p>
                                 </div>
@@ -214,7 +213,7 @@ const JobDetails = () => {
                                     <p className='font-medium text-md'>{salary_range}</p>
                                 </div>
                             </div>
-                            <div className='space-y-3 bg-indigo-100 hover:shadow-md rounded-3xl p-5'>
+                            <div className='space-y-3 bg-slate-100 hover:shadow-md rounded-3xl p-5'>
                                 <div className='flex flex-wrap gap-3 items-center'>
                                     <div>
                                         {

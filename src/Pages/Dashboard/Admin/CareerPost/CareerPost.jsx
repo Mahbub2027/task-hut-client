@@ -44,14 +44,14 @@ const handleAddJobs = (event) => {
 
 const CareerPost = () => {
   return (
-    <div className="bg-purple-50 p-24">
-      <h1 className="text-5xl font-serif text-center font-bold text-purple-600">
-        Post a New Job. Hire Talents for TaskHut.
+    <div className="bg-indigo-50 p-24">
+      <h1 className="text-5xl font-serif text-center font-bold text-indigo-600">
+        Post a New Job. <br />Hire Talents for TaskHut.
       </h1>
       <form onSubmit={handleAddJobs}>
         <div className="md:flex">
           <div className="form-control md:w-1/2 m-4">
-            
+
             <label className="input-group">
               <span>Title</span>
               <input
@@ -64,7 +64,7 @@ const CareerPost = () => {
           </div>
 
           <div className="form-control md:w-1/2 m-4">
-            
+
             <label className="input-group">
               <span>Years of Experience</span>
               <input
@@ -79,7 +79,7 @@ const CareerPost = () => {
 
         <div className="md:flex">
           <div className="form-control md:w-1/2 m-4">
-            
+
             <label className="input-group">
               <span>Location</span>
               <input
@@ -92,7 +92,7 @@ const CareerPost = () => {
           </div>
 
           <div className="form-control md:w-1/2 m-4">
-            
+
             <label className="input-group">
               <span>Salary</span>
               <input
@@ -107,7 +107,7 @@ const CareerPost = () => {
 
         <div className="md:flex">
           <div className="form-control md:w-1/2 m-4">
-            
+
             <label className="input-group">
               <span>Deadline</span>
               <input
@@ -120,7 +120,7 @@ const CareerPost = () => {
           </div>
 
           <div className="form-control md:w-1/2 m-4">
-            
+
             <label className="input-group">
               <span>Skills</span>
               <input
@@ -135,18 +135,18 @@ const CareerPost = () => {
 
         <div className="md:flex">
           <div className="form-control md:w-full m-4">
-            
+
             <label className="input-group">
               <span>Responsibilities</span>
               <textarea
-                
+
                 type="text"
                 name="responsibility"
                 placeholder="Responsibilities"
                 className="input input-bordered w-full"
               />
-              
-              
+
+
             </label>
           </div>
         </div>
@@ -160,7 +160,7 @@ const CareerPost = () => {
         <input
           type="submit"
           value="Post"
-          className="btn btn-block bg-purple-600 text-white"
+          className="primary-btn"
         />
       </form>
     </div>

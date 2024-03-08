@@ -22,7 +22,7 @@ const EmployeeDetails = () => {
     return (
         <div className='w-11/12 lg:w-9/12 mx-auto my-10'>
             <div className='w-full h-[50vh] relative group mb-10'>
-                <img className='w-full h-full object-cover rounded-3xl group-hover:shadow-md' src={cover_img} alt="" />
+                <img className='w-full h-full object-fit rounded-3xl group-hover:shadow-md' src={cover_img} alt="" />
 
                 {
                     users.map(use => <div key={use._id}>
@@ -45,7 +45,7 @@ const EmployeeDetails = () => {
                 <Link to={linkedin} target='_blank' className="tooltip font-medium text-md border rounded-full hover:text-indigo-700 hover:border-indigo-700 flex items-center gap-2 px-4 py-2 transition-all ease-out delay-0 duration-500" data-tip={linkedin}><FaLinkedin /> Linkedin</Link>
                 <Link to={github} target='_blank' className="tooltip font-medium text-md border rounded-full hover:text-indigo-700 hover:border-indigo-700 flex items-center gap-2 px-4 py-2 transition-all ease-out delay-0 duration-500" data-tip={github}><FaGithub />Github</Link>
                 <Link to={portfolio} target='_blank' className="tooltip font-medium text-md border rounded-full hover:text-indigo-700 hover:border-indigo-700 flex items-center gap-2 px-4 py-2 transition-all ease-out delay-0 duration-500" data-tip={portfolio}><FaGlobe /> Portfolio</Link>
-                <Link to={resume} download={`${name}_resume.pdf`} className="tooltip font-medium text-md border rounded-full hover:text-indigo-700 hover:border-indigo-700 flex items-center gap-2 px-4 py-2 transition-all ease-out delay-0 duration-500" data-tip="View resume"><FaDownload /> Resume</Link>
+                <Link to={resume} target='_blank' className="tooltip font-medium text-md border rounded-full hover:text-indigo-700 hover:border-indigo-700 flex items-center gap-2 px-4 py-2 transition-all ease-out delay-0 duration-500" data-tip="View resume"><FaDownload /> Resume</Link>
             </div>
 
             <div className='flex flex-col md:flex-row items-start gap-5 p-4'>

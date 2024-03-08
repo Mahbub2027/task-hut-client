@@ -38,7 +38,7 @@ const SideChats = () => {
         .map((chat) => (
           console.log("data id=" + chat),
           <div className={isSelected == chat[1].userInfo.uid ? "mb-1 flex items-center gap-5 text-slate-600 cursor-pointer bg-slate-100 hover:bg-slate-100" : "flex items-center gap-5 text-slate-600 cursor-pointer hover:bg-slate-200 mb-1"} key={chat[0]} onClick={() => { handleSelect(chat[1].userInfo), setSelected(chat[1].userInfo.uid) }}>
-            <div className="ml-3 h-16 w-16">
+            <div className="m-1 h-16 w-16">
               <img src={chat[1].userInfo.photoURL} alt="" className="h-full w-full rounded-full cursor-pointer object-cover" />
             </div>
             <div className="">

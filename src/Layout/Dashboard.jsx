@@ -127,12 +127,13 @@ const Dashboard = () => {
                                             <FaUserCheck className="w-5 h-5" />
                                             <span className={collapse ? 'hidden' : 'block'}>Shortlisted Applicants</span>
                                         </NavLink>
+                                        <NavLink to='/dashboard/interviewTask' className={({ isActive }) => isActive ? 'active-link' : 'hover-link'}>
+                                            <FaClipboardList className="w-5 h-5" />
+                                            <span className={collapse ? 'hidden' : 'block'}>Hired List</span>
+                                        </NavLink>
                                     </div>
                                 </details>
-                                <NavLink to='/dashboard/interviewTask' className={({ isActive }) => isActive ? 'active-link' : 'hover-link'}>
-                                    <FaClipboardList className="w-5 h-5" />
-                                    <span className={collapse ? 'hidden' : 'block'}>Interview Task</span>
-                                </NavLink>
+
                                 <NavLink to='/support' className={({ isActive }) => isActive ? 'active-link' : 'hover-link'}>
                                     <FaPersonCircleQuestion className="w-5 h-5" />
                                     <span className={collapse ? 'hidden' : 'block'}>Support</span>
