@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import useAxiosPublic from '../../../../hooks/useAxiosPublic';
 import { useQuery } from '@tanstack/react-query';
 
+
+
 const CompanyTrustVerification = () => {
 
     const axiosPublic = useAxiosPublic();
@@ -17,23 +19,26 @@ const CompanyTrustVerification = () => {
         }
     })
 
-    let score = 0;
+    let score;
 
     companies.map(company => {
-        if (user.emailVerified) {
-            score += 30;
-        }
-        if (company.phone) {
-            score += 20;
-        }
-        if (company.linkedin) {
-            score += 25;
-        }
-        if (company.website) {
-            score += 25;
+        score = 0;
+        if (company.email === user?.email) {
+            if (user.emailVerified != '') {
+                score += 30;
+            }
+            if (company.phone != '') {
+                score += 20;
+            }
+            if (company.linkedin != '') {
+                score += 25;
+            }
+            if (company.website != '') {
+                score += 25;
+            }
         }
     })
-
+    // console.log(score)
 
 
     return (
@@ -55,7 +60,7 @@ const CompanyTrustVerification = () => {
                     {
                         companies.map(company => <div key={company._id}>
                             {
-                                company.email === user?.email && <>
+                                (company.email === user?.email) && <>
                                     <div className='flex justify-between items-center mb-8'>
                                         <p className='text-lg font-semibold'>Email Address</p>
                                         <div>
@@ -80,7 +85,7 @@ const CompanyTrustVerification = () => {
                                                     <span className="text-white bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-500 shadow-md shadow-yellow-500/50  font-bold rounded-full text-md px-4 py-2 text-center">20 Points</span>
                                                 </> :
                                                 <>
-                                                    <button className='primary-btn'>Verify</button>
+                                                    <Link to="/viewProfile" className='primary-btn'>update</Link>
                                                     <span className="bg-slate-300 font-bold rounded-full text-sm px-4 py-2">20 Points</span>
                                                 </>
                                             }

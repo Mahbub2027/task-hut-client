@@ -18,21 +18,24 @@ const EmployeeTrustVerification = () => {
         }
     })
 
-    let score = 0;
+    let score;
     // let emailVerified = user?.emailVerified;
     // let phoneVerified = user?.phoneNumber;
     employees.map(employee => {
-        if(user.emailVerified){
-            score += 30;
-        }
-        if(employee.number){
-            score += 20;
-        }
-        if(employee.linkedin){
-            score += 25;
-        }
-        if(employee.github){
-            score += 25;
+        score = 0;
+        if (employee.employee_email === user?.email) {
+            if (user.emailVerified) {
+                score += 30;
+            }
+            if (employee.number) {
+                score += 20;
+            }
+            if (employee.linkedin) {
+                score += 25;
+            }
+            if (employee.github) {
+                score += 25;
+            }
         }
     })
 

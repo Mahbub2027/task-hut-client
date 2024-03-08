@@ -26,41 +26,41 @@ const PostAJob = () => {
         // })
         // // console.log(res.data);
         // if (res.data.success) {
-            const jobDetails = {
-                company_name: data.company_name,
-                // company_logo: res.data.data.display_url,
-                job_title: data.job_title,
-                company_email: data.email,
-                area: data.area,
-                city: data.city,
-                country: data.country,
-                category: data.category,
-                job_type: data.job_type,
-                publish_date: data.publish_date,
-                deadline_date: data.deadline_date,
-                experience: data.experience,
-                salary_range: data.salary_range,
-                apply_role: "open",
-                overview: data.overview,
-                skills: data.skills,
-                benefits: data.benefits,
-                requirements: data.requirements,
-                responsibilities: data.responsibilities,
-            }
-            const jobRes = await axiosPublic.post("/jobs", jobDetails);
-            // console.log(jobRes, data)
-            if (jobRes.data.insertedId) {
-                reset();
-                Swal.fire({
-                    position: "center",
-                    icon: "success",
-                    title: "Job posted Successfully",
-                    showConfirmButton: false,
-                    timer: 1500
-                });
-                navigate('/findJobs')
-            }
+        const jobDetails = {
+            company_name: data.company_name,
+            // company_logo: res.data.data.display_url,
+            job_title: data.job_title,
+            company_email: data.email,
+            area: data.area,
+            city: data.city,
+            country: data.country,
+            category: data.category,
+            job_type: data.job_type,
+            publish_date: data.publish_date,
+            deadline_date: data.deadline_date,
+            experience: data.experience,
+            salary_range: data.salary_range,
+            apply_role: "open",
+            overview: data.overview,
+            skills: data.skills,
+            benefits: data.benefits,
+            requirements: data.requirements,
+            responsibilities: data.responsibilities,
         }
+        const jobRes = await axiosPublic.post("/jobs", jobDetails);
+        // console.log(jobRes, data)
+        if (jobRes.data.insertedId) {
+            reset();
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Job posted Successfully",
+                showConfirmButton: false,
+                timer: 1500
+            });
+            navigate('/findJobs')
+        }
+    }
     // }
 
 
@@ -79,7 +79,8 @@ const PostAJob = () => {
                                     <span className="text-slate-500 font-medium text-base">Company Name</span>
                                 </label>
                                 <input type="text" {...register("company_name", { required: true })}
-                                    placeholder="Enter company name" value={user?.displayName}
+                                    placeholder="Enter company name"
+                                    // value={user?.displayName}
                                     className="basis-3/6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
                                 {errors.company_name && <span className="text-red-500">This field is required</span>}
                             </div>
@@ -133,7 +134,6 @@ const PostAJob = () => {
                                     <option disabled selected>select category</option>
                                     <option value="full time">Full time</option>
                                     <option value="part time">Part time</option>
-                                    <option value="remote">Remote</option>
                                     <option value="internship">Internship</option>
                                 </select>
                                 {/* {errors.name && <span className="text-red-500">This field is required</span>} */}
@@ -191,8 +191,8 @@ const PostAJob = () => {
                             <label className="label">
                                 <span className="text-slate-500 font-medium text-base">Overview</span>
                             </label>
-                            <input type="text" {...register("overview")}
-                                placeholder="overview" className="basis-3/6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                            <textarea type="text" {...register("overview")}
+                                placeholder="overview" className="basis-3/6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" rows={4}></textarea>
                             {/* {errors.name && <span className="text-red-500">This field is required</span>} */}
                         </div>
                         {/* skills */}
@@ -200,9 +200,9 @@ const PostAJob = () => {
                             <label className="label">
                                 <span className="text-slate-500 font-medium text-base">Skills</span>
                             </label>
-                            <input type="text" {...register("skills")}
+                            <textarea type="text" {...register("skills")}
                                 placeholder="e.g. HTML, CSS, JS, React"
-                                className="basis-3/6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                                className="basis-3/6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" rows={4}></textarea>
                             {/* {errors.name && <span className="text-red-500">This field is required</span>} */}
                         </div>
                         {/* benefits */}
@@ -210,9 +210,9 @@ const PostAJob = () => {
                             <label className="label">
                                 <span className="text-slate-500 font-medium text-base">Benefits</span>
                             </label>
-                            <input type="text" {...register("benefits")}
+                            <textarea type="text" {...register("benefits")}
                                 placeholder="Benefits"
-                                className="basis-3/6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                                className="basis-3/6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" rows={4}></textarea>
                             {/* {errors.name && <span className="text-red-500">This field is required</span>} */}
                         </div>
                         {/* requirements */}
@@ -220,9 +220,9 @@ const PostAJob = () => {
                             <label className="label">
                                 <span className="text-slate-500 font-medium text-base">Requirements</span>
                             </label>
-                            <input type="text" {...register("requirements")}
+                            <textarea type="text" {...register("requirements")}
                                 placeholder="Requirements"
-                                className="basis-3/6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                                className="basis-3/6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" rows={4}></textarea>
                             {/* {errors.name && <span className="text-red-500">This field is required</span>} */}
                         </div>
                         {/* responsibilities, */}
@@ -230,10 +230,10 @@ const PostAJob = () => {
                             <label className="label">
                                 <span className="text-slate-500 font-medium text-base">Responsibilities</span>
                             </label>
-                            <input type="text" {...register("responsibilities")}
+                            <textarea type="text" {...register("responsibilities")}
                                 placeholder="Responsibilities"
                                 className="basis-3/6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            />
+                                rows={4}></textarea>
                             {/* {errors.name && <span className="text-red-500">This field is required</span>} */}
                         </div>
 

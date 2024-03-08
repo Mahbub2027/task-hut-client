@@ -162,7 +162,7 @@ const Navbar = () => {
                       <Link to={use.role === 'admin' ? "/dashboard/manageUsers" : "/dashboard/editProfile"} preventScrollReset={true} className="profile-dropdown-hover"><BiSolidDashboard /><span>Dashboard</span></Link>
                       {/* < to="/settings" preventScrollReset={true}Link className="flex gap-3 items-center my-2 py-2 rounded-full hover:transition duration-500 ease-out hover:ease-in-out hover:bg-indigo-500 hover:text-white hover:pl-4"><FaGears /><span>Settings</span></Link> */}
 
-                      <Link className="flex gap-3 items-center my-2 py-2 rounded-full hover:transition duration-500 ease-out hover:bg-gradient-to-br hover:from-red-400 hover:via-red-600 hover:to-red-800 hover:text-white hover:pl-4"><FaRightFromBracket /><button onClick={handleLogOut}>Logout</button></Link>
+                      <Link to="/" className="flex gap-3 items-center my-2 py-2 rounded-full hover:transition duration-500 ease-out hover:bg-gradient-to-br hover:from-red-400 hover:via-red-600 hover:to-red-800 hover:text-white hover:pl-4"><FaRightFromBracket /><button onClick={handleLogOut}>Logout</button></Link>
                     </ul>
                   </details>
 

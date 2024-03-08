@@ -31,7 +31,7 @@ const UserProfile = () => {
                             <div className='flex flex-col gap-8'>
                                 <div className='flex flex-col lg:flex-row gap-4 border-2 rounded-3xl '>
                                     {/* profile info left */}
-                                    <div className='border-b-2 lg:border-r-2'>
+                                    <div className='border-b-2 lg:border-b-0 lg:border-r-2'>
                                         <div className='flex flex-col gap-8 p-4 w-[300px] h-full'>
                                             <img className='w-full h-[180px] rounded-xl object-cover' src={user?.photoURL} alt="" />
                                             <div className='p-4'>
@@ -70,18 +70,18 @@ const UserProfile = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className='flex flex-col lg:flex-row gap-8 w-full'>
-                                    <div className='lg:w-1/2'>
-                                        <Verification number={employee.number} email={user.email} linkedin={employee.linkedin} github={employee.github} />
-                                    </div>
-                                    <div className=''>
+                                <div className='flex flex-col lg:flex-row gap-4 w-full'>
+                                    <div className='w-full lg:w-1/3'>
                                         <DeveloperInfo number={employee.number} email={user.email} linkedin={employee.linkedin} github={employee.github} resume={employee.resume} />
                                     </div>
-                                    <div className='lg:w-1/2'>
+                                    <div className='w-full lg:w-1/3'>
                                         <Skills skills={employee.skills} />
                                     </div>
+                                    <div className='w-full lg:w-1/3'>
+                                        <Verification number={employee.number} email={user.email} linkedin={employee.linkedin} github={employee.github} />
+                                    </div>
                                 </div>
-                                <div className=''>
+                                <div className='w-full'>
                                     <Portfolio url={employee.portfolio} />
                                 </div>
                             </div>

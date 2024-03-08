@@ -85,7 +85,7 @@ const CompanySearchBar = () => {
   };
 
   return (
-    <div className="border-b-2 items-center border-slate-400/30 lg:h-16">
+    <div className="border-b-2 items-center border-slate-400/30 lg:h-16 relative">
       <div className="p-3 flex justify-between">
         <input
           type="text"
@@ -101,11 +101,11 @@ const CompanySearchBar = () => {
       {err && <span>User not found!</span>}
       {searchUser && (
         <div
-          className="flex items-center text-slate-600 cursor-pointer bg-slate-100 hover:bg-slate-200 z-50"
+          className="absolute top-full w-full flex items-center gap-2 text-slate-600 cursor-pointer bg-slate-100 hover:bg-slate-200"
           onClick={handleSelect}
         >
-          <div className="w-28">
-            <img src={searchUser.photoURL} alt="" className="w-3/4 h-20 rounded-r-full object-cover transition-all ease-in-out delay-0 duration-500" />
+          <div className="">
+            <img src={searchUser.photoURL} alt="" className="w-16 h-16 m-2 rounded-full object-cover transition-all ease-in-out delay-0 duration-500" />
           </div>
           <div>
             <span className="font-bold text-lg ">{searchUser.displayName}</span>
