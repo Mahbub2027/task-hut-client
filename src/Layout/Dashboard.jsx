@@ -46,7 +46,11 @@ const Dashboard = () => {
                             </li> */}
                             <NavLink to='/dashboard/manageUsers' className={({ isActive }) => isActive ? 'active-link' : 'hover-link'}>
                                 <FaUserTie className="w-5 h-5" />
-                                <span className={collapse ? 'hidden' : 'block'}>Manage Users</span>
+                                <span className={collapse ? 'hidden' : 'block'}>All Users</span>
+                            </NavLink>
+                            <NavLink to='/dashboard/companyUsers' className={({ isActive }) => isActive ? 'active-link' : 'hover-link'}>
+                                <FaUserTie className="w-5 h-5" />
+                                <span className={collapse ? 'hidden' : 'block'}>Companies</span>
                             </NavLink>
                             <NavLink to='/dashboard/careerPost' className={({ isActive }) => isActive ? 'active-link' : 'hover-link'}>
                                 <FaFileContract className="w-5 h-5" />

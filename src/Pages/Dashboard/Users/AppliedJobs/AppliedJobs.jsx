@@ -99,7 +99,6 @@ const AppliedJobs = () => {
                         <th>Role</th>
                         <th>Action</th>
                         <th>Action</th>
-                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -111,19 +110,12 @@ const AppliedJobs = () => {
                                     {/* <td>
                                         {index + 1}
                                     </td> */}
-                                    <td>{job.job_title}</td>
+                                    <td className='font-bold'>{job.job_title}</td>
                                     <td>{job.company_name}</td>
                                     <td className='flex'>{job.area}, {job.city}, {job.country}</td>
-                                    <td>{job.job_type}</td>
+                                    <td className='capitalize'>{job.job_type}</td>
                                     <td>{job.salary_range}</td>
                                     <td className='capitalize font-semibold'>{job.role}</td>
-                                    {/* <td>
-                                        {
-                                            job.role === 'check email' ? 
-                                            <button onClick={()=> handleTaskComplete(job)} className='btn btn-sm bg-green-600 text-white'>Complete</button> 
-                                            : <button disabled className='btn btn-sm'>Complete</button>
-                                        }
-                                    </td> */}
                                     <td>
                                         <Link to={`/jobDetails/${job.jobId}`}><button className='btn btn-xs'>Details</button></Link>
                                     </td>

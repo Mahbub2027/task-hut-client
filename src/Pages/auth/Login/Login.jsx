@@ -116,7 +116,8 @@ const Login = () => {
                             {/* google Link */}
                             <GoogleLink></GoogleLink>
 
-                            <p>New Here? Please <Link to='/signup' className="font-bold text-blue-600">Register</Link></p>
+                            <p className="text-sm mt-1">New Here ? Register <Link to='/signup' className="font-bold text-blue-600">Employee</Link> or 
+                            <Link to='/buyerSignup' className="font-bold text-blue-600"> Company</Link></p>
                         </form>
                     </div>
                 </div>

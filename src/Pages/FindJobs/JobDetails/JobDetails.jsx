@@ -250,7 +250,7 @@ const JobDetails = () => {
                                                 </div>
                                                 <div className=''>
                                                     <small>Website</small>
-                                                    <p className='font-medium text-md'>{company.website}</p>
+                                                    <p className='font-medium text-md'><a href={company.website}>{company.website}</a></p>
                                                 </div>
                                                 <div className=''>
                                                     <small>Email</small>

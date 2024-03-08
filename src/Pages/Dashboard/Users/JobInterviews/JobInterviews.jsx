@@ -60,11 +60,10 @@ const JobInterviews = () => {
                         {/* <th>#</th> */}
                         <th>Title</th>
                         <th>Company Name</th>
-                        <th>Location</th>
-                        <th>Type</th>
+                        <th>Company Location</th>
+                        <th>Job Type</th>
                         <th>Salary</th>
                         <th>Role</th>
-                        <th>Action</th>
                         <th>Action</th>
                         <th>Action</th>
                     </tr>
@@ -81,7 +80,7 @@ const JobInterviews = () => {
                                     <td>{job.job_title}</td>
                                     <td>{job.company_name}</td>
                                     <td className='flex'>{job.area}, {job.city}, {job.country}</td>
-                                    <td>{job.job_type}</td>
+                                    <td className='capitalize'>{job.job_type}</td>
                                     <td>{job.salary_range}</td>
                                     <td className='capitalize font-semibold'>{job.role}</td>
                                     <td>
@@ -92,15 +91,9 @@ const JobInterviews = () => {
                                         }
                                     </td>
                                     <td>
-                                        <Link to={`/jobDetails/${job.jobId}`}><button className='btn btn-xs'>Details</button></Link>
+                                        <Link to={`/jobDetails/${job.jobId}`}><button className='btn btn-xs text-blue-800 font-bold'>Details</button></Link>
                                     </td>
-                                    <td>
-                                        {/* {
-                                            (job?.role === 'pending') ? 
-                                            <button  onClick={() => handleCancelApply(job)} className='btn btn-sm bg-red-500 text-base text-white'>Cancel</button>
-                                            : <button disabled onClick={() => handleCancelApply(job)} className='btn btn-sm bg-red-500 text-base text-white'>Cancel</button>
-                                        } */}
-                                    </td>
+                                    
                                 </>
                             }
 

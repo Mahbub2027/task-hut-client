@@ -47,6 +47,7 @@ import UpdateJob from "../Pages/Dashboard/Company/UpdateJobs/UpdateJob";
 import UpdateuserProfile from "../Pages/UpdateProfile/UpdateuserProfile";
 import UpdateCompanyProfile from "../Pages/UpdateProfile/UpdateCompanyProfile";
 import NewsLetterSubscribers from "../Pages/Dashboard/Admin/NewsLetterSubscribers/NewsLetterSubscribers";
+import CompanyUsers from "../Pages/Dashboard/Admin/CompanyUsers/CompanyUsers";
 
 
 export const router = createBrowserRouter([
@@ -246,6 +247,10 @@ export const router = createBrowserRouter([
       {
         path: 'manageUsers',
         element: <AdminRoutes><ManageUsers></ManageUsers></AdminRoutes>
+      },
+      {
+        path: 'companyUsers',
+        element: <AdminRoutes><CompanyUsers></CompanyUsers></AdminRoutes>
       },
       {
         path: 'careerPost',
