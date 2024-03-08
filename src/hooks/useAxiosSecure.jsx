@@ -4,7 +4,6 @@ import useAuth from './useAuth';
 // import React from 'react';
 
 const axiosSecure = axios.create({
-    // baseURL: 'https://tusk-hut-server.vercel.app'
     baseURL: 'https://tusk-hut-server.vercel.app'
 })
 const useAxiosSecure = () => {

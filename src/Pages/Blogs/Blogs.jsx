@@ -30,7 +30,7 @@ const Blogs = () => {
           </div>
         </div>
       </div>
-      <div className="w-9/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 lg:gap-x-5 lg:gap-y-16 bg-white">
+      <div className="w-9/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-x-5 lg:gap-y-16 bg-white">
         {blogs.map((p) => (
           <BlogItem key={p._id} item={p} />
         ))}

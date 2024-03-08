@@ -8,10 +8,15 @@ import { Typewriter } from "react-simple-typewriter";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 
-AOS.init();
 
-function AboutUs() {
+
+const  AboutUs = () => {
+
+  const {user} = useAuth();
+  AOS.init();
+
   return (
     <div className="bg-white">
       <Helmet>
@@ -20,13 +25,13 @@ function AboutUs() {
 
       <h1 className="text-center p-10 font-bold text-5xl">
         About Us -<span className="text-black"> Task</span>
-        <span className="text-purple-600">Hut</span>
+        <span className="text-indigo-600">Hut</span>
       </h1>
       
 
       <div className="text-black text-center">
-        <h3 className="lg:mb-5 lg:py-4 md:text-2xl lg:text-3xl font-bold bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent">
-          <span className="text-slate-700">Empowering Global Talent:</span>
+        <h3 className="mb-5 text-2xl font-bold bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent">
+          <span className="text-slate-700 text-3xl block">Empowering Global Talent</span>
           <br />{" "}
           <Typewriter
             words={["Unveiling TaskHut`s Mission in the Digital Workspace"]}
@@ -51,7 +56,7 @@ function AboutUs() {
           className="card w-96 bg-purple-700 text-primary-content items-center"
         >
           <div className="card-body">
-            <p className="p-12 text-wrap">
+            <p className="p-8 text-wrap text-white text-justify">
               Welcome to TaskHut, where innovation meets opportunity in the
               dynamic realm of remote work. <br /> At TaskHut, we are dedicated
               to revolutionizing the way companies connect with top-tier
@@ -68,14 +73,14 @@ function AboutUs() {
         </div>
       </div>
 
-      <h1 className="text-5xl font-bold text-center">Our Mission</h1>
+      <h1 className="text-5xl font-bold text-center mt-16">Our Mission</h1>
       <div className="lg:flex items-center justify-between p-20">
         <div
           data-aos="zoom-out-up"
           data-aos-duration="1000"
           className="bg-purple-200 rounded sm:w-auto"
         >
-          <p className=" lg:text-2xl lg:text-center text-black p-12">
+          <p className=" lg:text-xl text-black text-justify p-10">
             TaskHut was born out of a vision to create a global marketplace that
             seamlessly brings together companies seeking technical expertise and
             talented developers eager to take on exciting challenges. As the
@@ -85,7 +90,7 @@ function AboutUs() {
           </p>
         </div>
         <div data-aos="fade-left" data-aos-duration="1000">
-          <img src={developer} alt="" className="m-5 rounded" />
+          <img src={developer} alt="" className="m-5 rounded-xl" />
         </div>
       </div>
 
@@ -167,13 +172,15 @@ function AboutUs() {
         className="card-actions justify-center p-10"
       >
         <Link to="/login">
-          <button className="primary-btn">
+          {
+            !user?.emailVerified && <button className="primary-btn">
             Join TaskHut
-          </button>
+          </button> 
+          }
         </Link>
       </div>
 
-      <h1 className="text-5xl font-bold text-center">Why Us?</h1>
+      <h1 className="text-5xl font-bold text-center my-16">Why Us?</h1>
       <div
         data-aos="fade-down"
         data-aos-duration="1000"

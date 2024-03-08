@@ -37,12 +37,12 @@ const AccountAnalytics = () => {
   
 
   return (
-    <div className="p-2">
+    <div className=" my-10 p-2">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-8 mb-8">
         <div className="w-[28dvw] lg:w-[32dvw] group p-10 flex items-center justify-around rounded-2xl shadow bg-gradient-to-br from-emerald-300 via-emerald-400 to-emerald-500">
           <div className="relative">
-            <FaBriefcase className="absolute -top-1 -left-1 w-20 h-20 text-emerald-800" />
-            <FaBriefcase className="rotate-6 group-hover:rotate-0 w-20 h-20 text-emerald-100" />
+            <IoBusiness className="absolute -top-1 -left-1 w-20 h-20 text-emerald-800" />
+            <IoBusiness className="rotate-6 group-hover:rotate-0 w-20 h-20 text-emerald-100" />
           </div>
           <div className="flex flex-col items-center gap-2">
             <p className="text-6xl font-extrabold text-emerald-100">{company.length}</p>
@@ -52,8 +52,8 @@ const AccountAnalytics = () => {
 
         <div className="w-[28dvw] lg:w-[32dvw] group p-10 flex items-center justify-around rounded-2xl shadow bg-gradient-to-br from-indigo-300 via-indigo-400 to-indigo-500">
           <div className="relative">
-            <IoBusiness className="absolute -top-1 -left-1 w-20 h-20 text-indigo-800" />
-            <IoBusiness className="rotate-6 group-hover:rotate-0 w-20 h-20 text-indigo-100" />
+            <FaUserTie className="absolute -top-1 -left-1 w-20 h-20 text-indigo-800" />
+            <FaUserTie className="rotate-6 group-hover:rotate-0 w-20 h-20 text-indigo-100" />
           </div>
           <div className="flex flex-col items-center gap-2">
             <p className="text-6xl font-extrabold text-indigo-100">{employees.length}</p>
@@ -63,8 +63,8 @@ const AccountAnalytics = () => {
 
         <div className="w-[28dvw] lg:w-[32dvw] group p-10 flex items-center justify-around rounded-2xl shadow bg-gradient-to-br from-purple-300 via-purple-400 to-purple-500">
           <div className="relative">
-            <FaStar className="absolute -top-1 -left-1 w-20 h-20 text-purple-800" />
-            <FaStar className="rotate-6 group-hover:rotate-0 w-20 h-20 text-purple-100" />
+            <FaBriefcase className="absolute -top-1 -left-1 w-20 h-20 text-purple-800" />
+            <FaBriefcase className="rotate-6 group-hover:rotate-0 w-20 h-20 text-purple-100" />
           </div>
           <div className="flex flex-col items-center gap-2">
             <p className="text-6xl font-extrabold text-purple-100">{jobs.length}</p>
@@ -74,8 +74,8 @@ const AccountAnalytics = () => {
 
         <div className="w-[28dvw] lg:w-[32dvw] group p-10 flex items-center justify-around rounded-2xl shadow bg-gradient-to-br from-amber-300 via-amber-400 to-amber-500">
           <div className="relative">
-            <FaUserTie className="absolute -top-1 -left-1 w-20 h-20 text-amber-800" />
-            <FaUserTie className="rotate-6 group-hover:rotate-0 w-20 h-20 text-amber-100" />
+            <FaStar className="absolute -top-1 -left-1 w-20 h-20 text-amber-800" />
+            <FaStar className="rotate-6 group-hover:rotate-0 w-20 h-20 text-amber-100" />
           </div>
           <div className="flex flex-col items-center gap-2">
             <p className="text-6xl font-extrabold text-amber-100">{(totalRatings / allRatings.slice(0, 6).length).toFixed(1)}</p>
@@ -84,7 +84,7 @@ const AccountAnalytics = () => {
         </div>
 
       </div>
-      <div className="flex flex-col xl:flex-row gap-10">
+      {/* <div className="flex flex-col xl:flex-row gap-10">
         <div className="rounded-3xl shadow hover:shadow-md">
           <h3 className="text-slate-700 text-center text-xl font-semibold py-4">Company & Employee Engaged In 2023</h3>
           <Analytics />
@@ -95,7 +95,7 @@ const AccountAnalytics = () => {
           </h3>
           <GigViews />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

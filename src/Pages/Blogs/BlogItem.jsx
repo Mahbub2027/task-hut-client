@@ -8,7 +8,7 @@ const BlogItem = ({ item }) => {
 
 
   return (
-    <div className="rounded-xl bg-white h-[600px] border-2">
+    <div className="rounded-xl bg-white h-[550px] border-2">
       <div className="w-full h-1/2">
         <img src={img} alt="" className="w-full h-full object-fill rounded-t-xl" />
       </div>

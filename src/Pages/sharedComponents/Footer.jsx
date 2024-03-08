@@ -13,41 +13,34 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 AOS.init();
 
 const Footer = () => {
+  const axiosPublic = useAxiosPublic();
 
 
 
-
-  const handleFormSubmit = event => {
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
-    const NewsLetterData = {
+    const newsLetterData = {
       email,
     }
-    fetch('https://tusk-hut-server.vercel.app/newsletter', {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json'
-      },
-      body: JSON.stringify(NewsLetterData)
-    })
-      .then(res => res.json())
-      .then(data => {
-        if (data.insertedId) {
-          Swal.fire({
-            title: 'Success!',
-            text: 'Subscribed to the NewsLetter.',
-            icon: 'success',
-            confirmButtonText: 'Ok'
-          })
-        }
-      })
+    const newsLetter = await axiosPublic.post("/newsletter", newsLetterData)
+    if (newsLetter.data.insertedId) {
+      
+      Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "career posted Successfully",
+          showConfirmButton: false,
+          timer: 1500
+      });
   }
 
-
+  }
 
 
 
