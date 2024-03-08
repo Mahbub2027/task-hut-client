@@ -8,95 +8,82 @@ import "aos/dist/aos.css";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 
-
 const Career = () => {
   const axiosPublic = useAxiosPublic();
   AOS.init();
 
-  const {data: careerJobs = [] } = useQuery({
-    queryKey: ['career'],
+  const { data: careerJobs = [] } = useQuery({
+    queryKey: ["career"],
     queryFn: async () => {
-        const res = await axiosPublic.get('/careerjobs');
-        return res.data;
-    }
-})
+      const res = await axiosPublic.get("/careerjobs");
+      return res.data;
+    },
+  });
 
-
-  
   const people = [
     {
-      name: "John Smith",
+      name: "Mahbub Alam",
       role: "Lead Developer",
       imageUrl:
-        "https://images.pexels.com/photos/7562313/pexels-photo-7562313.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "https://avatars.githubusercontent.com/u/87141245?v=4",
     },
     {
-      name: "Emily Jones",
-      role: "Marketing Manager",
+      name: "Sajid Abdullah",
+      role: "Front-End Developer",
       imageUrl:
-        "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://avatars.githubusercontent.com/u/85758744?v=4",
     },
     {
-      name: "Muhammad A. Rahim",
-      role: "HR Coordinator",
+      name: "Abid Rahman Shafi",
+      role: "UI/UX Designer",
       imageUrl:
-        "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?q=80&w=2048&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://avatars.githubusercontent.com/u/69119769?v=4",
     },
     {
-      name: "Michael Lee",
-      role: "Product Designer",
+      name: "Mahfuz Chowdhury",
+      role: "Web Developer",
       imageUrl:
-        "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1888&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    },
-    {
-      name: "Sarah Mariam",
-      role: "Customer Success Specialist",
-      imageUrl:
-        "https://images.unsplash.com/photo-1574297500578-afae55026ff3?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    },
-    {
-      name: "David Wang",
-      role: "Senior Data Analyst",
-      imageUrl:
-        "https://images.pexels.com/photos/8872506/pexels-photo-8872506.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "https://avatars.githubusercontent.com/u/90545572?v=4",
     },
   ];
 
   // const loadedjobs = useLoaderData();
   // const [jobs,setJobs] = useState(loadedjobs);
- 
 
   return (
     <>
       <section>
-        <div className="flex justify-between">
-          <div>
-            <h3 className="text-black text-2xl font-bold px-12 py-6">
-              Task<span className="text-purple-500">Hut</span> Careers
+        <div className="lg:flex justify-between lg:my-20 ">
+          <div className="sm:mx-auto sm:w-5/4 lg:text-left sm:text-center px-0">
+            <h3 className="text-black lg:text-2xl lg:text-left sm:text-xl text-center font-bold px-12 py-6">
+              Task<span className="text-indigo-500">Hut</span> Careers
             </h3>
-            <h1 className="text-black lg:text-5xl sm:text-2xl lg:font-extrabold sm:font-semibold lg:px-12 ">
+            <h1 className="text-black lg:text-5xl sm:text-2xl lg:text-left text-center font-bold  lg:px-12 ">
               Find Your Best Opportunity!
             </h1>
-            <p className="font-semibold lg:px-12 py-6 text-balance">
+            <p className="font-semibold lg:px-12 my-12 lg:text-balance sm:text-wrap lg:text-xl lg:text-left sm:text-xl text-center">
               At TaskHut, we believe in the power of passionate individuals
               coming together to create something extraordinary. <br /> Welcome
               to our Career Hub, where we invite you to explore opportunities
               that align with your aspirations, skills, and ambitions.
             </p>
-            <p className="font-semibold lg:px-12 text-balance">
+            <p className="font-semibold lg:px-12 lg:text-balance sm:text-wrap lg:text-xl lg:text-left sm:text-xl text-center">
               Are you ready to join us on this exciting journey? <br /> Explore
               our current openings, learn more about our culture, and envision
               yourself as part of the TaskHut family. Your next career milestone
               awaits!
             </p>
-            <button className="btn btn-primary rounded-3xl mx-12 my-6">
+            <div className=" flex justify-center lg:justify-start items-center  my-10 ">
+            <button className="btn btn-primary rounded-3xl lg:mx-12">
               View Open Positions
             </button>
+            </div>
+           
           </div>
           <div
             data-aos="fade-up"
             data-aos-duration="3000"
-            className="w-1/2 h-1/2 p-12"
+            className="lg:w-1/2 h-1/2 sm:w-5/6 h-4/6 p-12"
           >
             <img
               className="rounded-2xl"
@@ -106,11 +93,12 @@ const Career = () => {
           </div>
         </div>
       </section>
+
       <section>
-        <h1 className="text-center drop-shadow-2xl text-purple-600 font-extrabold text-4xl py-5">
+        <h1 className="text-center drop-shadow-2xl mb-10 text-indigo-600 font-extrabold text-4xl py-5">
           Company Culture
         </h1>
-        <div className="lg:flex justify-evenly">
+        <div className="lg:flex justify-evenly mb-12">
           <div
             data-aos="fade-right"
             data-aos-offset="300"
@@ -158,10 +146,10 @@ const Career = () => {
 
       <section>
         <div className="hidden lg:block">
-          <h1 className="text-center drop-shadow-2xl text-purple-600 font-extrabold text-4xl py-5">
+          <h1 className="text-center drop-shadow-2xl mb-12 text-indigo-600 font-extrabold text-4xl py-5">
             Selection Process
           </h1>
-          <div className="flex justify-center">
+          <div className="flex justify-center mb-12">
             <ul className="timeline">
               <li>
                 <div className="timeline-start timeline-box">
@@ -181,10 +169,10 @@ const Career = () => {
                     />
                   </svg>
                 </div>
-                <hr className="bg-primary" />
+                <hr className="bg-indigo-600" />
               </li>
               <li>
-                <hr className="bg-primary" />
+                <hr className="bg-indigo-600" />
                 <div className="timeline-middle">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -202,10 +190,10 @@ const Career = () => {
                 <div className="timeline-end timeline-box">
                   Initial Screening
                 </div>
-                <hr className="bg-primary" />
+                <hr className="bg-indigo-600" />
               </li>
               <li>
-                <hr className="bg-primary" />
+                <hr className="bg-indigo-600" />
                 <div className="timeline-start timeline-box">
                   Assessment and Interviews
                 </div>
@@ -271,46 +259,61 @@ const Career = () => {
         </div>
       </section>
 
-      <section className="bg-purple-100 py-12">
-        <h1 className="text-center drop-shadow-2xl text-purple-600 font-extrabold text-4xl py-5">
+      <section className="bg-indigo-100 py-12 my-12">
+        <h1 className="text-center drop-shadow-2xl text-indigo-600 font-extrabold text-4xl py-5">
           Ready to Start Your Journey?
         </h1>
         <h3 className="text-center  font-bold text-2xl py-5 text-balance">
-          Explore our current openings and take the first step toward a
+          <span className="text-indigo-700"> Explore our current openings</span> and take the first step toward a
           rewarding career at TaskHut. If you have any questions about our
           recruitment process or available opportunities, don`t hesitate to
           reach out to our recruitment team. We`re here to help!
         </h3>
-        <div className='grid md:grid-cols-2 gap-6 lg:m-6'>
 
-      {
-        careerJobs.map(job => <CareerJobsCard
-          key={job._id}
-          job={job}
-          // jobs={jobs}
-          // setJobs={setJobs}
-        ></CareerJobsCard>)
-      }
-      </div>
-        
+        <h3 className="text-center font-bold text-3xl text-black mb-4 pt-4">
+          Current Openings
+        </h3>
+        <hr className="border-1 my-12 w-4/6 mx-auto border-indigo-900" />
+
+        <div className="flex items-center justify-center">
+          <div
+            id="targetSection"
+            className="grid md:grid-cols-3 lg:gap-x-20 gap-y-20 lg:m-6 "
+          >
+            {careerJobs.map((job) => (
+              <CareerJobsCard
+                key={job._id}
+                job={job}
+                // jobs={jobs}
+                // setJobs={setJobs}
+              ></CareerJobsCard>
+            ))}
+          </div>
+        </div>
+
+        <p className="text-center text-xl font-bold text-black my-8 pt-4">
+          To apply send your CV to{" "}
+          <span className="text-indigo-600">taskhutweb@gmail.com</span>
+        </p>
       </section>
 
-      <h1 className="text-center drop-shadow-2xl text-purple-600 font-extrabold text-4xl my-12">
-        Message From the CEO
+      <h1 className="text-center drop-shadow-2xl text-indigo-600 font-extrabold text-4xl mt-16 mb-12">
+        Message for Team TaskHut
       </h1>
-      <section className="relative isolate overflow-hidden bg-white px-6 py-24 sm:py-32 lg:px-8">
+      <section className="relative isolate overflow-hidden bg-white px-6 py-6 sm:py-32 lg:px-8">
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,theme(colors.indigo.100),white)] opacity-20" />
         <div className="absolute inset-y-0 right-1/2 -z-10 mr-16 w-[200%] origin-bottom-left skew-x-[-30deg] bg-white shadow-xl shadow-indigo-600/10 ring-1 ring-indigo-50 sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center" />
         <div className="mx-auto max-w-2xl lg:max-w-4xl">
           <img className="mx-auto h-12" src={logo} alt="" />
-          <figure className="mt-10">
+          <figure className="mt-12">
             <blockquote className="text-center text-xl font-semibold leading-8 text-gray-900 sm:text-2xl sm:leading-9">
               <p>
                 “Team TaskHut, Your dedication fuels our success. Thank you for
                 all you do. Together, we`ll continue to thrive and innovate.”
               </p>
             </blockquote>
-            <figcaption className="mt-10">
+
+            {/* <figcaption className="mt-10">
               <img
                 className="mx-auto h-10 w-10 rounded-full"
                 src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
@@ -328,10 +331,11 @@ const Career = () => {
                   <circle cx={1} cy={1} r={1} />
                 </svg>
                 <div className="text-gray-600 font-bold">
-                  CEO of Task<span className="text-purple-500">Hut</span>
+                  CEO of Task<span className="text-indigo-500">Hut</span>
                 </div>
               </div>
-            </figcaption>
+            </figcaption> */}
+            
           </figure>
         </div>
       </section>

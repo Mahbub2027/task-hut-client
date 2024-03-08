@@ -11,12 +11,14 @@ const NewsLetterSubscribers = () => {
     }
   })
   return (
-    <div className="my-10">
-      <h2 className="text-center text-2xl font-bold my-10">NewsLetter Subcribers</h2>
-      <table className="table text-xl">
+    <div className="my-10 h-fit rounded-xl bg-indigo-300">
+      <h1 className="text-5xl pt-12 mb-24 font-serif text-center font-bold text-indigo-600">
+        Newsletter Subscribers 
+      </h1>
+      <table className="table text-xl text-center">
                     {/* head */}
                     <thead>
-                        <tr>
+                        <tr className="text-2xl text-gray-800">
                             <th>#</th>
                             <th>Email</th>
                         </tr>

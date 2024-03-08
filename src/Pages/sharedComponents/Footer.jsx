@@ -34,7 +34,7 @@ const Footer = () => {
       Swal.fire({
           position: "center",
           icon: "success",
-          title: "career posted Successfully",
+          title: "Successfully Subscribed to TaskHut Newsletter!",
           showConfirmButton: false,
           timer: 1500
       });
