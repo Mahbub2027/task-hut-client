@@ -7,7 +7,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import Swal from "sweetalert2";
 import { db } from "../../../firebase/firebase.config";
-import { doc, getDoc, setDoc } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
 import { ref } from "firebase/storage";
 import { uploadBytesResumable } from "firebase/storage";
 import { getDownloadURL } from "firebase/storage";
@@ -18,7 +18,7 @@ const image_hosting_key = import.meta.env.VITE_image_hosting_key;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
 const BuyerSignup = () => {
-  const { createUser, googleLogin, updateUserProfile, emailVerification } =
+  const { createUser, updateUserProfile, emailVerification } =
     useAuth();
   const [errorMessage, setErrorMessage] = useState("");
   const [showPassword, setShowPassword] = useState(false);

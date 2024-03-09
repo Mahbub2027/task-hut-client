@@ -152,7 +152,6 @@ export const router = createBrowserRouter([
       {
         path: '/career',
         element: <Career></Career>,
-        // loader:()=>fetch('https://tusk-hut-server.vercel.app/careerjobs')
       },
       {
         path: '/terms',
@@ -193,7 +192,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'postAJob',
-        element: <PostAJob></PostAJob>
+        element: <BuyerRoutes><PostAJob></PostAJob></BuyerRoutes>
       },
       
       {
