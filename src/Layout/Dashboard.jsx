@@ -39,14 +39,7 @@ const Dashboard = () => {
                             <h1 className={collapse ? 'hidden' : 'block text-2xl font-bold my-3'}>Admin Dashboard</h1>
                             {/* divider */}
                             <div className='h-0.5 m-4 bg-gradient-to-r from-white/0 via-white/40 to-white/0'></div>
-                            {/* <li className="flex gap-2 items-center py-2 px-4 border-l-4 border-transparent hover:border-l-4 hover:border-l-slate-500 hover:transition duration-500 ease-in-out hover:ease-in-out  dark:hover:text-white hover:pl-3">
-                                <FaUserTie />
-                                <NavLink to='/dashboard/profile'>Admin Profile</NavLink>
-                            </li> */}
-                            {/* <li className="flex gap-2 items-center py-2 px-4 border-l-4 border-transparent hover:border-l-4 hover:border-l-slate-500 hover:transition duration-500 ease-in-out hover:ease-in-out  dark:hover:text-white hover:pl-3">
-                                <FaUserTie />
-                                <NavLink to='/dashboard/editProfile'>Edit Profile</NavLink>
-                            </li> */}
+                           
                             <NavLink to='/dashboard/manageUsers' className={({ isActive }) => isActive ? 'active-link' : 'hover-link'}>
                                 <FaUserTie className="w-5 h-5" />
                                 <span className={collapse ? 'hidden' : 'block'}>All Users</span>
@@ -86,10 +79,7 @@ const Dashboard = () => {
                             <h1 className={collapse ? 'hidden' : 'block text-2xl font-bold my-3'}>Company Dashboard</h1>
                             {/* divider */}
                             <div className='h-0.5 m-4 bg-gradient-to-r from-white/0 via-white/40 to-white/0'></div>
-                            {/* <li className="flex gap-2 items-center py-2 px-4 border-l-4 border-transparent hover:border-l-4 hover:border-l-slate-500 hover:transition duration-500 ease-in-out hover:ease-in-out  dark:hover:text-white hover:pl-3">
-                                <FaUserTie />
-                                <NavLink to='/dashboard/profile'>Buyer Profile</NavLink>
-                            </li> */}
+                            
                             <div className="space-y-2">
                                 <NavLink to='/dashboard/editProfile' className={({ isActive }) => isActive ? 'active-link' : 'hover-link'}>
                                     <FaUserTie className="w-5 h-5" />

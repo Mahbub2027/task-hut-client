@@ -5,9 +5,6 @@ import Navbar from "../Pages/sharedComponents/Navbar";
 
 const Main = () => {
     const location = useLocation();
-    // const [isemailVerified, setEmailVerified] = useState(false)
-    // const navigate = useNavigate();
-    // console.log(location)
     const navBarFooter = location.pathname?.includes('login') || location.pathname?.includes('signup') || location.pathname?.includes('buyerSignup');
     return (
         <div className="min-h-screen flex flex-col">

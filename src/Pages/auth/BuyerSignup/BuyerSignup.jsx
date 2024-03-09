@@ -73,33 +73,33 @@ const BuyerSignup = () => {
   //add user data to firebase google signup
 
 
-  const storeFirebaseGoogle = async (name, email, uid, image) => {
-    console.log("Inside function storeFirebaseGoogle");
-    const res = await getDoc(doc(db, "users", uid));
+  // const storeFirebaseGoogle = async (name, email, uid, image) => {
+  //   console.log("Inside function storeFirebaseGoogle");
+  //   const res = await getDoc(doc(db, "users", uid));
 
 
-    if (!res.exists()) {
-      try {
-        console.log("firebaseeeee" + name + "mail:" + email);
+  //   if (!res.exists()) {
+  //     try {
+  //       console.log("firebaseeeee" + name + "mail:" + email);
 
 
-        //store user data on firestore db
-        await setDoc(doc(db, "users", uid), {
-          uid: uid,
-          displayName: name,
-          email: email,
-          photoURL: image,
-        });
+  //       //store user data on firestore db
+  //       await setDoc(doc(db, "users", uid), {
+  //         uid: uid,
+  //         displayName: name,
+  //         email: email,
+  //         photoURL: image,
+  //       });
 
 
-        await setDoc(doc(db, "userChats", uid), {});
-      } catch (e) {
-        console.log(e);
-      }
-    } else {
-      console.log("doc already exists!!!");
-    }
-  };
+  //       await setDoc(doc(db, "userChats", uid), {});
+  //     } catch (e) {
+  //       console.log(e);
+  //     }
+  //   } else {
+  //     console.log("doc already exists!!!");
+  //   }
+  // };
 
 
 
@@ -170,48 +170,7 @@ const BuyerSignup = () => {
         // setErrorMessage(error.message)
       });
   };
-  // google sign up
-  const handleGoogleLogin = () => {
-    googleLogin()
-      .then((res) => {
-        console.log(res.user);
-
-        //-- Store user data to firebase
-        console.log("uid: " + res.user.uid);
-
-        storeFirebaseGoogle(
-          res.user.displayName,
-          res.user.email,
-          res.user.uid,
-          res.user.photoURL
-        );
-        //--
-
-        const userInfo = {
-          name: res.user.displayName,
-          email: res.user.email,
-          image: res.user.photoURL,
-          role: "buyer",
-        };
-        axiosPublic.post("/users", userInfo).then((res) => {
-          console.log(res.data);
-          Swal.fire({
-            position: "center",
-            icon: "success",
-            title: "Login Successful",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-
-
-          navigate("/");
-        });
-      })
-
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+  
 
   return (
     <div>
@@ -320,16 +279,7 @@ const BuyerSignup = () => {
                 </button>
               </div>
               {errorMessage && <p className="text-red-500">{errorMessage}</p>}
-              {/* <div className="divider">Or</div> */}
-              {/* social account login */}
-              {/* <div>
-                <button
-                  onClick={handleGoogleLogin}
-                  className="border-2 border-blue-500 w-full rounded-xl font-semibold text-lg p-2 flex flex-row items-center justify-center gap-3"
-                >
-                  <FcGoogle></FcGoogle>Sign up with Google
-                </button>
-              </div> */}
+              
               <p>
                 Already Have an account? Please{" "}
                 <Link to="/login" className="font-bold text-blue-600">

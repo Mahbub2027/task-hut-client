@@ -23,12 +23,7 @@ const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
   const axiosPublic = useAxiosPublic();
 
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm();
+  const {register, handleSubmit, reset, formState: { errors }} = useForm();
   const navigate = useNavigate();
   const [image, setImage] = useState([]);
   let firebaseUser;
@@ -188,25 +183,25 @@ const SignUp = () => {
                 <label className="label">
                 </label>
                 <div className="relative">
-                <input
-                  type={showPassword ? "text" : "password"}
-                  {...register("password", {
-                    required: true,
-                    minLength: 6,
-                    maxLength: 20,
-                    pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/,
-                  })}
-                  name="password"
-                  placeholder="Password"
-                  className="w-full input input-bordered"
-                  required
-                />
-                <span
-                  className="absolute top-1/3 right-3 text-lg"
-                  onClick={() => setShowPassword(!showPassword)}
-                >
-                  {showPassword ? <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash>}
-                </span>
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    {...register("password", {
+                      required: true,
+                      minLength: 6,
+                      maxLength: 20,
+                      pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/,
+                    })}
+                    name="password"
+                    placeholder="Password"
+                    className="w-full input input-bordered"
+                    required
+                  />
+                  <span
+                    className="absolute top-1/3 right-3 text-lg"
+                    onClick={() => setShowPassword(!showPassword)}
+                  >
+                    {showPassword ? <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash>}
+                  </span>
                 </div>
                 {errors.password?.type === "required" && (
                   <span className="text-red-500">Password is required</span>

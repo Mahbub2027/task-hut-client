@@ -19,7 +19,7 @@ const ShortListedApplicants = () => {
         }
     })
 
-    const { data: employees = [] , refetch} = useQuery({
+    const { data: employees = [], refetch } = useQuery({
         queryKey: ['employee'],
         queryFn: async () => {
             const employeeInfo = await axiosPublic.get('/employees');
@@ -54,8 +54,6 @@ const ShortListedApplicants = () => {
                             });
                         }
                     })
-
-
             }
         });
     }
