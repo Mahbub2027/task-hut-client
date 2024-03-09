@@ -50,7 +50,7 @@ const AboutUs = () => {
         <div
           data-aos="zoom-out-up"
           data-aos-duration="1000"
-          className="card w-96 bg-indigo-700 text-primary-content items-center"
+          className="card w-80 md:w-96 bg-indigo-700 text-primary-content items-center"
         >
           <div className="card-body">
             <p className="p-8 text-wrap text-white text-justify">

@@ -83,7 +83,7 @@ const Career = () => {
           <div
             data-aos="fade-up"
             data-aos-duration="3000"
-            className="lg:w-1/2 h-1/2 sm:w-5/6 h-4/6 p-12"
+            className="lg:w-1/2 h-1/2 sm:w-5/6 p-12"
           >
             <img
               className="rounded-2xl"
@@ -119,25 +119,25 @@ const Career = () => {
             data-aos-easing="ease-in-sine"
             className="py-6"
           >
-            <h3 className="flex font-bold text-2xl py-1 items-center">
+            <h3 className="flex font-bold text-xl md:text-2xl py-1 items-center">
               <TiTick></TiTick> Collaboration and Teamwork
             </h3>
-            <h3 className="flex font-bold text-2xl py-1 items-center">
+            <h3 className="flex font-bold text-xl md:text-2xl py-1 items-center">
               <TiTick></TiTick> Innovation and Creativity
             </h3>
-            <h3 className="flex font-bold text-2xl py-1 items-center">
+            <h3 className="flex font-bold text-xl md:text-2xl py-1 items-center">
               <TiTick></TiTick> Continuous Learning and Growth
             </h3>
-            <h3 className="flex font-bold text-2xl py-1 items-center">
+            <h3 className="flex font-bold text-xl md:text-2xl py-1 items-center">
               <TiTick></TiTick> Work-Life Balance
             </h3>
-            <h3 className="flex font-bold text-2xl py-1 items-center">
+            <h3 className="flex font-bold text-xl md:text-2xl py-1 items-center">
               <TiTick></TiTick> Diversity and Inclusion
             </h3>
-            <h3 className="flex font-bold text-2xl py-1 items-center">
+            <h3 className="flex font-bold text-xl md:text-2xl py-1 items-center">
               <TiTick></TiTick> Community Impact
             </h3>
-            <h3 className="flex font-bold text-2xl py-1 items-center">
+            <h3 className="flex font-bold text-xl md:text-2xl py-1 items-center">
               <TiTick></TiTick> Fun and Celebration
             </h3>
           </div>
@@ -293,7 +293,7 @@ const Career = () => {
 
         <p className="text-center text-xl font-bold text-black my-8 pt-4">
           To apply send your CV to{" "}
-          <span className="text-indigo-600">taskhutweb@gmail.com</span>
+          <span className="text-indigo-600"><a href="mailto:taskhutweb@gmail.com">taskhutweb@gmail.com</a></span>
         </p>
       </section>
 

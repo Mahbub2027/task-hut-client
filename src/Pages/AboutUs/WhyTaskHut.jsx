@@ -1,7 +1,7 @@
 
 function WhyTaskHut() {
   return (
-    <>
+    <div className="w-80 lg:w-full">
       
       <div className="m-5 collapse collapse-plus bg-base-200">
         <input type="radio" name="my-accordion-3"/>
@@ -76,7 +76,7 @@ function WhyTaskHut() {
       </div> 
 
        
-    </>
+    </div>
   );
 }
 

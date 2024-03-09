@@ -153,7 +153,7 @@ const Navbar = () => {
                       <li className="pb-4"><span>{use?.email}</span></li> <hr className="opacity-80" />
 
                       {
-                        use.role === 'admin' ? <Link to="/dashboard/accountAnalytics" preventScrollReset={true} className="profile-dropdown-hover"><FaArrowTrendUp /><span>Account Analytics</span></Link> :
+                        use.role === 'admin' ? <Link to="/dashboard/analytics" preventScrollReset={true} className="profile-dropdown-hover"><FaArrowTrendUp /><span>Account Analytics</span></Link> :
                           <>
                             <Link to="/viewProfile" preventScrollReset={true} className="profile-dropdown-hover"><FaUserPen /><span>View Profile</span></Link>
                             <Link to="/support" preventScrollReset={true} className="profile-dropdown-hover"><FaPersonCircleQuestion /><span>Support</span></Link>

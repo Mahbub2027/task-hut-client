@@ -1,10 +1,9 @@
 import { FaBriefcase, FaStar, FaUserTie } from "react-icons/fa6";
-import Analytics from "../../EmployeeFeatures/Analytics";
-import GigViews from "../../EmployeeFeatures/GigViews";
+// import Analytics from "../../EmployeeFeatures/Analytics";
+// import GigViews from "../../EmployeeFeatures/GigViews";
 import { IoBusiness } from "react-icons/io5";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { useEffect, useState } from "react";
-// TO DO: These Analytics Data are fetched from /public/file.json. We have to fetch from database 
 const AccountAnalytics = () => {
 
   const axiosPublic = useAxiosPublic();

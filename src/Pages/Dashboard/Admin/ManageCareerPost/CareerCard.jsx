@@ -5,31 +5,46 @@ import { GiTimeTrap } from "react-icons/gi";
 import { LuBrainCircuit } from "react-icons/lu";
 import { LuListTodo } from "react-icons/lu";
 import { MdDelete } from "react-icons/md";
-import axios from "axios";
+import useAxiosPublic from "../../../../hooks/useAxiosPublic";
+import Swal from "sweetalert2";
+import { FaTrashCanArrowUp } from "react-icons/fa6";
+import { FaTrashAlt } from "react-icons/fa";
 
-function CareerCard({ job }) {
-  const {
-    _id,
-    title,
-    years_of_experience,
-    location,
-    salary,
-    deadline,
-    skills,
-    responsibility,
-  } = job;
+const CareerCard =  ({ job }) => {
+  const axiosPublic = useAxiosPublic();
 
-  const handleDelete = () => {
-    axios.delete(`/careerjobs/${_id}`)
-      .then(response => {
-        console.log(response.data);
-        alert("Job deleted successfully");
-      })
-      .catch(error => {
-        console.error('Error deleting post:', error);
-        alert("Error deleting the job");
-      });
-  };
+  const {_id,title,years_of_experience,location,
+    salary,deadline,skills,responsibility,} = job;
+
+  const handleDelete = _id =>{
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You want to delete this",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+
+        if (result.isConfirmed) {
+            axiosPublic.delete(`/careerjobs/${_id}`)
+                .then(res => {
+                    console.log(res.data)
+
+                    if (res.data.deletedCount > 0) {
+                        // refetch();
+                        Swal.fire({
+                            position: 'center',
+                            icon: "success",
+                            showConfirmButton: false,
+                            timer: 1500,
+                        });
+                    }
+                })
+        }
+    });
+}
 
   return (
     <>
@@ -39,7 +54,7 @@ function CareerCard({ job }) {
             <div className="flex justify-between">
               
               <h4 className="font-bold text-center text-2xl">{title}</h4>
-              <button onClick={handleDelete} className="text-2xl text-red-600"><MdDelete/></button>
+              <button onClick={()=>handleDelete(_id)} className="text-4xl text-white"><FaTrashAlt></FaTrashAlt></button>
 
             </div>
             <div className="flex justify-center items-center gap-x-4 my-3">

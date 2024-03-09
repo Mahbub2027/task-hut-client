@@ -47,9 +47,6 @@ const Career = () => {
       </section>
 
       
-      
-
-
 
       
     </>
