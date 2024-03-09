@@ -48,6 +48,8 @@ import UpdateuserProfile from "../Pages/UpdateProfile/UpdateuserProfile";
 import UpdateCompanyProfile from "../Pages/UpdateProfile/UpdateCompanyProfile";
 import NewsLetterSubscribers from "../Pages/Dashboard/Admin/NewsLetterSubscribers/NewsLetterSubscribers";
 import CompanyUsers from "../Pages/Dashboard/Admin/CompanyUsers/CompanyUsers";
+import ManageCareerPost from "../Pages/Dashboard/Admin/ManageCareerPost/ManageCareerPost";
+import ManageBlogs from "../Pages/Dashboard/Admin/ManageBlogs/ManageBlogs";
 
 
 export const router = createBrowserRouter([
@@ -55,6 +57,7 @@ export const router = createBrowserRouter([
     path: "/",
     element: <Main></Main>,
     errorElement: <ErrorPage></ErrorPage>,
+    loader:()=>fetch('https://tusk-hut-server.vercel.app/blogs'),
     children: [
       {
         path: '/',
@@ -241,7 +244,7 @@ export const router = createBrowserRouter([
       },
       // admin 
       {
-        path: 'accountAnalytics',
+        path: 'analytics',
         element: <AdminRoutes><AccountAnalytics></AccountAnalytics></AdminRoutes>
       },
       {
@@ -255,6 +258,14 @@ export const router = createBrowserRouter([
       {
         path: 'careerPost',
         element: <AdminRoutes><CareerPost></CareerPost></AdminRoutes>
+      },
+      {
+        path: 'manageCareerPost',
+        element: <AdminRoutes><ManageCareerPost></ManageCareerPost></AdminRoutes>
+      },
+      {
+        path: 'manageBlogs',
+        element: <AdminRoutes><ManageBlogs></ManageBlogs></AdminRoutes>
       },
       {
         path: 'newsLetterSubscribers',

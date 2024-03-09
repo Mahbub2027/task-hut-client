@@ -1,7 +1,7 @@
 // import React from 'react';
 import { BsChatTextFill } from "react-icons/bs";
-import { FaBell, FaBriefcase, FaBusinessTime, FaCalendarCheck, FaFilePowerpoint, FaHome, FaList, FaUserCheck, FaBlogger, FaAngleRight, FaPlus, FaAngleLeft, FaAngleDown, FaEye, FaFileContract } from 'react-icons/fa';
-import { FaArrowTrendUp, FaClipboardList, FaFilePen, FaGears, FaPersonCircleQuestion, FaRightFromBracket, FaUnlockKeyhole, FaUserLock, FaUserShield, FaUserTie, FaUsers, FaUsersGear } from 'react-icons/fa6';
+import {  FaBriefcase, FaBusinessTime, FaCalendarCheck, FaFilePowerpoint, FaHome, FaList, FaUserCheck, FaBlogger, FaPlus,  FaAngleDown, FaEye, FaFileContract } from 'react-icons/fa';
+import { FaArrowTrendUp, FaClipboardList, FaFilePen, FaGears, FaPersonCircleQuestion, FaRightFromBracket, FaUnlockKeyhole, FaUserShield, FaUserTie, FaUsersGear } from 'react-icons/fa6';
 import { TbLayoutSidebarLeftCollapseFilled, TbLayoutSidebarLeftExpandFilled } from "react-icons/tb";
 import { NavLink, Outlet } from 'react-router-dom';
 import useAdmin from '../hooks/useAdmin';
@@ -9,6 +9,9 @@ import useBuyer from '../hooks/useBuyer';
 import useAuth from '../hooks/useAuth';
 import { useState } from "react";
 import { MdContactMail } from "react-icons/md";
+import { RxCrumpledPaper } from "react-icons/rx";
+import { TiDocumentDelete } from "react-icons/ti";
+
 
 const Dashboard = () => {
     const { logoutUser } = useAuth();
@@ -56,13 +59,21 @@ const Dashboard = () => {
                                 <FaFileContract className="w-5 h-5" />
                                 <span className={collapse ? 'hidden' : 'block'}>Hire For TaskHut</span>
                             </NavLink>
+                            <NavLink to='/dashboard/manageCareerPost' className={({ isActive }) => isActive ? 'active-link' : 'hover-link'}>
+                                <TiDocumentDelete className="w-5 h-5" />
+                                <span className={collapse ? 'hidden' : 'block'}>Manage Career Post</span>
+                            </NavLink>
                             <NavLink to='/dashboard/newsLetterSubscribers' className={({ isActive }) => isActive ? 'active-link' : 'hover-link'}>
                                 <MdContactMail className="w-5 h-5" />
                                 <span className={collapse ? 'hidden' : 'block'}>NewsLetter Subscribers</span>
                             </NavLink>
-                            <NavLink to='/dashboard/accountAnalytics' className={({ isActive }) => isActive ? 'active-link' : 'hover-link'}>
+                            <NavLink to='/dashboard/analytics' className={({ isActive }) => isActive ? 'active-link' : 'hover-link'}>
                                 <FaArrowTrendUp className="w-5 h-5" />
-                                <span className={collapse ? 'hidden' : 'block'}>Account Analytics</span>
+                                <span className={collapse ? 'hidden' : 'block'}>Analytics</span>
+                            </NavLink>
+                            <NavLink to='/dashboard/manageBlogs' className={({ isActive }) => isActive ? 'active-link' : 'hover-link'}>
+                                <RxCrumpledPaper className="w-5 h-5" />
+                                <span className={collapse ? 'hidden' : 'block'}>Manage Blogs</span>
                             </NavLink>
                         </div>
                     </>
